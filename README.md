@@ -2,25 +2,28 @@
 
 Marketing and docs site for [Open Document Spec (ODS)](https://github.com/open-doc-spec/ods).
 
-**Private** product site repository. First-cut extract from monorepo `app-web/`.
+**Private** product site repository. First-cut extract from monorepo `app-web/` plus vendored `docs/guide/` and `specs/` so the site builds standalone.
 
 ## Source of truth
 
 | Concern | Repo |
 |---------|------|
-| Site / domain app | **This repo** (SoT after merge) |
+| Site app (Astro) | **This repo** |
+| Guide markdown | Vendored `docs/guide/` (author in monorepo `docs/guide/` until sync) |
+| Spec markdown | Vendored `specs/` (SoT: [ods-spec](https://github.com/open-doc-spec/ods-spec)) |
 | Engine / CLI | [open-doc-spec/ods](https://github.com/open-doc-spec/ods) |
 | Install scripts (canonical) | monorepo `src/scripts/install.{sh,ps1}` — keep `public/install.*` in sync |
 
 ## Develop
 
 ```bash
+git clone -b 35-feat/seed-app-web-from-mono https://github.com/open-doc-spec/opendocify.com.git
+cd opendocify.com
 npm ci
-npm run dev
+npm run dev    # http://localhost:4173
+npm run build
 ```
-
-See `package.json` for build and deploy scripts. Firebase config: `firebase.json`.
 
 ## First-cut policy
 
-Monorepo still mirrors `app-web/` until a later hard-delete PR.
+Monorepo still mirrors `app-web/` until a later hard-delete PR. This repo is private.
