@@ -1,0 +1,17 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@/styles/globals.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import SEO from '@/components/SEO.astro';
+import FontPreload from '@/components/FontPreload.astro';
+import ThemeScript from '@/components/ThemeScript.astro';
+import AnimationObserver from '@/components/AnimationObserver.astro';
+
+interface Props { title: string; description?: string; image?: string; type?: 'website' | 'article'; publishedTime?: Date; author?: string; activeNav?: string; }
+const { title, description = 'Open Document Spec gives AI assistants a deterministic map of the exact documents they need.', image, type = 'website', publishedTime, author, activeNav = 'home' } = Astro.props;
+const fullTitle = `${title} | Open Document Spec`;
+const jsonLd = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Open Document Spec (ODS)', url: 'https://opendocify.com', description, applicationCategory: 'DeveloperApplication', operatingSystem: 'macOS, Windows, Linux', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, license: 'https://www.apache.org/licenses/LICENSE-2.0' };
+---
+
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><FontPreload /><link rel="icon" type="image/svg+xml" href="/ods-logo.svg" /><title>{fullTitle}</title><SEO title={fullTitle} description={description} image={image} type={type} publishedTime={publishedTime} author={author} /><link rel="help" href="https://opendocify.com/llms.txt" type="text/plain" /><script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script><ClientRouter /><ThemeScript /></head><body class="min-h-screen font-sans antialiased"><a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground">Skip to content</a><Header activeNav={activeNav} /><main id="main-content" class="min-h-[60vh] flex-1"><slot /></main><Footer /><AnimationObserver /></body></html>

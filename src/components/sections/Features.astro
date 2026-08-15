@@ -1,0 +1,8 @@
+---
+interface Feature { title: string; description: string; icon?: string; }
+interface Props { title: string; subtitle?: string; features: Feature[]; }
+const { title, subtitle, features } = Astro.props;
+const iconPaths: Record<string, string> = { zap: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z', shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', chart: 'M18 20V10M12 20V4M6 20v-6', link: 'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71' };
+---
+
+<section class="px-6 py-20"><div class="container mx-auto max-w-5xl"><div class="flex flex-col items-center space-y-4 text-center" data-animate><h2 class="text-3xl font-bold leading-[1.1] md:text-5xl">{title}</h2>{subtitle && <p class="max-w-[85%] text-lg leading-7 text-muted-foreground">{subtitle}</p>}</div><div class="mt-12 grid gap-px overflow-hidden rounded-xl border bg-border shadow-lg sm:grid-cols-2 md:grid-cols-3">{features.map((feature, index) => <div class="relative overflow-hidden bg-card px-8 py-10" data-animate data-delay={String(Math.min(index + 1, 5))}><div class="mb-4 inline-flex rounded-xl border border-foreground p-1.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d={iconPaths[feature.icon || 'zap'] || iconPaths.zap} /></svg></div><h3 class="mb-2 text-xl font-semibold">{feature.title}</h3><p class="text-sm text-muted-foreground">{feature.description}</p></div>)}</div></div></section>

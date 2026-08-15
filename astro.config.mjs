@@ -1,8 +1,20 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  integrations: [mdx()],
+  site: "https://opendocify.com",
+  devToolbar: { enabled: false },
+  integrations: [
+    mdx(),
+    react(),
+    sitemap({ changefreq: "weekly", priority: 0.7 }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   server: {
     port: Number(process.env.PORT ?? 4173),
   },
@@ -27,4 +39,3 @@ export default defineConfig({
     "/specs/non-goals": "/spec/ods/scope",
   },
 });
-
