@@ -45,11 +45,20 @@ const docProfile = currentEntry.data.ods?.profile || (collection === "docs" ? "g
 <Layout title={`${docTitle} — ODS ${collection === "docs" ? "Documentation" : "Specification"}`} description={docDescription || `Open Document Spec ${collection === "docs" ? "documentation" : "specification"}: ${docTitle}.`} activeNav={collection === "docs" ? "docs" : "spec"}>
   <div class="container docs-layout">
     <aside class="docs-sidebar">
-      <span class="eyebrow">{collection === "docs" ? "MDX docs" : "Spec files"}</span>
-      <h2>{collection === "docs" ? "User guides" : "Specification"}</h2>
-      <nav aria-label={`${collection} navigation`}>
-        {categories.map((category) => <div class="sidebar-group"><div class="sidebar-group-title">{category.name}</div>{category.items.map((entry) => <a class:list={["sidebar-link", { active: normalized(entry) === currentId }]} href={`/${collection}/${slugFor(entry)}`}>{titleFor(entry)}</a>)}</div>)}
-      </nav>
+      <details class="docs-sidebar-details" open>
+        <summary class="docs-sidebar-summary">
+          <span class="eyebrow">{collection === "docs" ? "MDX docs" : "Spec files"}</span>
+          <span class="docs-sidebar-summary-title">{collection === "docs" ? "User guides" : "Specification"}</span>
+          <span class="docs-sidebar-summary-current">{docTitle}</span>
+          <span class="docs-sidebar-summary-icon" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="docs-sidebar-content">
+          <h2>{collection === "docs" ? "User guides" : "Specification"}</h2>
+          <nav aria-label={`${collection} navigation`}>
+            {categories.map((category) => <div class="sidebar-group"><div class="sidebar-group-title">{category.name}</div>{category.items.map((entry) => <a class:list={["sidebar-link", { active: normalized(entry) === currentId }]} href={`/${collection}/${slugFor(entry)}`}>{titleFor(entry)}</a>)}</div>)}
+          </nav>
+        </div>
+      </details>
     </aside>
 
     <article class="doc-article">
@@ -65,3 +74,15 @@ const docProfile = currentEntry.data.ods?.profile || (collection === "docs" ? "g
     <aside class="docs-outline"><div class="outline-title">On this page</div>{headings.filter((heading) => heading.depth >= 2 && heading.depth <= 4).map((heading) => <a class:list={["outline-link", `depth-${heading.depth}`]} href={`#${heading.slug}`}>{heading.text}</a>)}</aside>
   </div>
 </Layout>
+
+<script is:inline>
+  const syncDocsSidebar = () => {
+    document.querySelectorAll('.docs-sidebar-details').forEach((details) => {
+      if (window.matchMedia('(max-width: 640px)').matches) details.removeAttribute('open');
+      else details.setAttribute('open', '');
+    });
+  };
+  syncDocsSidebar();
+  window.addEventListener('resize', syncDocsSidebar, { passive: true });
+  document.addEventListener('astro:after-swap', syncDocsSidebar);
+</script>
