@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { publicCollectionPath, LEARN_DOC_IDS } from "../lib/doc-links";
+import { publicCollectionPath, LEARN_DOC_IDS, isUnpublishedSpec, specNavRank, learnNavRank } from "../lib/doc-links";
 
 interface Heading { depth: number; slug: string; text: string; }
 interface DocEntry { id: string; data: { title?: string; description?: string; status?: string; order?: number; ods?: Record<string, any>; [key: string]: any; }; }
@@ -15,10 +15,21 @@ const titleFor = (entry: DocEntry) => entry.data.title || slugLabel(entry);
 const currentSlug = slugFor(currentEntry);
 const currentDir = currentSlug.split("/").slice(0, -1).join("/");
 const docPath = `/${collectionPath}/${currentSlug}`;
-const sortedEntries = [...allEntries].sort((a, b) => {
+const leafFor = (entry: DocEntry) => normalized(entry).split("/").pop()?.replace(/\.(md|mdx)$/, "") || "";
+const visibleEntries = collection === "specs" ? allEntries.filter((entry) => !isUnpublishedSpec(normalized(entry))) : allEntries;
+const sortedEntries = [...visibleEntries].sort((a, b) => {
   const orderA = typeof a.data?.order === "number" ? a.data.order : 999;
   const orderB = typeof b.data?.order === "number" ? b.data.order : 999;
-  return orderA - orderB || normalized(a).localeCompare(normalized(b));
+  if (orderA !== orderB) return orderA - orderB;
+  if (collection === "specs") {
+    const rank = specNavRank(normalized(a)) - specNavRank(normalized(b));
+    if (rank !== 0) return rank;
+  }
+  if (collection === "docs" && (LEARN_DOC_IDS.has(leafFor(a)) || LEARN_DOC_IDS.has(leafFor(b)))) {
+    const rank = learnNavRank(normalized(a)) - learnNavRank(normalized(b));
+    if (rank !== 0) return rank;
+  }
+  return normalized(a).localeCompare(normalized(b));
 });
 
 interface Category { name: string; items: DocEntry[]; }
@@ -39,7 +50,7 @@ if (collection === "docs") {
   if (useCases.length) categories.push({ name: "Use cases", items: useCases });
 } else {
   for (const [prefix, name] of [["ods/", "ODS"], ["okf/", "OKF"], ["skills/", "Skills"]] as const) {
-    const items = sortedEntries.filter((entry) => normalized(entry).startsWith(prefix) && !normalized(entry).split("/").pop()?.startsWith("index"));
+    const items = sortedEntries.filter((entry) => normalized(entry).startsWith(prefix) && !isUnpublishedSpec(normalized(entry)));
     if (items.length) categories.push({ name, items });
   }
 }
@@ -191,7 +202,7 @@ const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
       resolved = resolved.replace(/README$/, leaf).replace(/\/$/, '');
     }
     if (resolved === 'AGENTS' || resolved === 'agents') {
-      return '/spec/ods/AGENTS' + hash;
+      return '/spec/ods/intro' + hash;
     }
     if (!resolved) return collectionRoot + hash;
     return collectionRoot + '/' + resolved + hash;

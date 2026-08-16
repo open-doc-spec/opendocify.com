@@ -68,6 +68,43 @@ export const LEARN_DOC_IDS = new Set([
   ...LEARN_SLUGS.map((slug) => `${slug}.md`),
 ]);
 
+/** Spec chapter order from ods-spec intro (not alphabetical). */
+export const ODS_MODULE_ORDER = [
+  "intro",
+  "core",
+  "keys",
+  "profiles",
+  "graph",
+  "context",
+  "assets",
+  "indexes",
+  "validation",
+  "scope",
+  "glossary",
+];
+
+export function leafSlug(id: string): string {
+  return (id || "").replace(/\\/g, "/").split("/").pop()?.replace(/\.(md|mdx)$/i, "") || "";
+}
+
+export function isUnpublishedSpec(id: string): boolean {
+  const leaf = leafSlug(id);
+  return /^agents$/i.test(leaf) || /^index(\.ods)?$/i.test(leaf);
+}
+
+export function specNavRank(id: string): number {
+  const leaf = leafSlug(id).toLowerCase();
+  if (leaf === "intro" || leaf === "readme") return -1;
+  const idx = ODS_MODULE_ORDER.indexOf(leaf);
+  return idx >= 0 ? idx : 100;
+}
+
+export function learnNavRank(id: string): number {
+  const leaf = leafSlug(id);
+  const idx = LEARN_SLUGS.indexOf(leaf);
+  return idx >= 0 ? idx : 100;
+}
+
 function applyHashAlias(hash: string): string {
   if (!hash) return hash;
   const id = hash.startsWith("#") ? hash.slice(1) : hash;
@@ -128,7 +165,7 @@ export function rewriteMarkdownHref(
     resolved = resolved.replace(/README$/, leaf).replace(/\/$/, "");
   }
   if (resolved === "AGENTS" || resolved === "agents") {
-    return `/spec/ods/AGENTS${hash}`;
+    return `/spec/ods/intro${hash}`;
   }
 
   if (!resolved) return `${collectionRoot}${hash}`;
