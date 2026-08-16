@@ -1,0 +1,10 @@
+<script>
+  function initAnimations() {
+    const nodes = document.querySelectorAll<HTMLElement>('[data-animate]');
+    if (!('IntersectionObserver' in window)) { nodes.forEach((node) => node.classList.add('is-visible')); return; }
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold: 0.08 });
+    nodes.forEach((node) => observer.observe(node));
+  }
+  initAnimations();
+  document.addEventListener('astro:after-swap', initAnimations);
+</script>

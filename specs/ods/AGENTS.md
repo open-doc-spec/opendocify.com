@@ -2,7 +2,8 @@
 
 When editing this folder:
 
-- Start readers at **intro.md**; keys belong only in **keys.md**
+- Start readers at **intro.md** (vendored from ods-spec `specs/README.md` on origin/main); keys belong only in **keys.md**
+- **glossary.md** is the terminology dictionary
 - **core.md** is format model + levels + lifecycle — not a second key encyclopedia
 - One-word filenames; keep content owned by the file name (`assets` = resources+code, `scope` = non-goals)
 - Relative links between siblings; site URLs are `/spec/ods/<name>`

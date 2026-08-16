@@ -1,0 +1,7 @@
+---
+interface Stat { value: string; label: string; description?: string; }
+interface Props { title?: string; subtitle?: string; stats: Stat[]; }
+const { title, subtitle, stats } = Astro.props;
+---
+
+<section class="border-y px-6 py-16 md:py-24"><div class="container mx-auto max-w-5xl">{(title || subtitle) && <div class="mb-14 flex flex-col items-center space-y-4 text-center" data-animate>{title && <h2 class="text-3xl font-bold leading-[1.1] md:text-5xl">{title}</h2>}{subtitle && <p class="max-w-[85%] text-lg leading-7 text-muted-foreground">{subtitle}</p>}</div>}<dl class="grid grid-cols-2 divide-y divide-border md:grid-cols-4 md:divide-x md:divide-y-0">{stats.map((stat, index) => <div class="flex flex-col items-center px-6 py-8 text-center md:py-0" data-animate data-delay={String(Math.min(index + 1, 5))}><dd class="order-1 text-4xl font-bold tracking-tight">{stat.value}</dd><dt class="order-2 mt-2 text-sm font-semibold">{stat.label}</dt>{stat.description && <dd class="order-3 mt-1 text-sm leading-snug text-muted-foreground">{stat.description}</dd>}</div>)}</dl></div></section>

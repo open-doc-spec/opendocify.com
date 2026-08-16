@@ -1,0 +1,10 @@
+{
+  "name": "opendocify-astrodeck",
+  "foundation": "holger1411/astrodeck",
+  "tiers": {
+    "components": ["button", "card", "badge"],
+    "sections": ["HeroSplit", "Features", "Stats", "CTA"],
+    "layouts": ["BaseLayout", "FullWidthLayout"],
+    "pages": ["index", "features", "examples", "pricing", "download", "changelog", "privacy"]
+  }
+}

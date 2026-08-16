@@ -1,0 +1,114 @@
+---
+import Logo from './Logo.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props { activeNav?: string; variant?: 'boxed' | 'fullWidth'; }
+const { variant = 'boxed' } = Astro.props;
+const items = [
+  { id: 'home', href: '/', label: 'Home' },
+  { id: 'features', href: '/features', label: 'Features' },
+  { id: 'docs', href: '/docs', label: 'Docs' },
+  { id: 'spec', href: '/spec', label: 'Spec' },
+  { id: 'examples', href: '/examples', label: 'Examples' },
+  { id: 'pricing', href: '/pricing', label: 'Pricing' },
+  { id: 'changelog', href: '/changelog', label: 'Changelog' },
+];
+const container = variant === 'fullWidth' ? 'w-full px-4' : 'container mx-auto max-w-6xl px-4 sm:px-6';
+
+function navIdFromPath(pathname: string) {
+  if (pathname === '/') return 'home';
+  if (pathname.startsWith('/features')) return 'features';
+  if (pathname.startsWith('/docs') || pathname.startsWith('/download')) return 'docs';
+  if (pathname.startsWith('/spec') || pathname.startsWith('/specs')) return 'spec';
+  if (pathname.startsWith('/examples')) return 'examples';
+  if (pathname.startsWith('/pricing')) return 'pricing';
+  if (pathname.startsWith('/changelog')) return 'changelog';
+  return '';
+}
+
+const currentNav = navIdFromPath(Astro.url.pathname);
+---
+
+<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div class:list={[container, 'flex h-16 items-center justify-between gap-3']}>
+    <Logo />
+    <nav class="hidden items-center gap-1 text-sm lg:flex" aria-label="Main navigation">
+      {items.map((item) => (
+        <a
+          href={item.href}
+          data-nav={item.id}
+          class:list={['nav-item', currentNav === item.id && 'is-active']}
+          aria-current={currentNav === item.id ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-2">
+      <ThemeToggle />
+      <a href="/docs" class="site-cta">Get started <span aria-hidden="true">→</span></a>
+      <button id="mobile-menu-button" class="inline-flex h-9 w-9 items-center justify-center rounded-md hover:bg-accent lg:hidden" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="text-lg">☰</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden border-t lg:hidden">
+    <nav class:list={[container, 'grid gap-1 py-4']} aria-label="Mobile navigation">
+      {items.map((item) => (
+        <a
+          href={item.href}
+          data-nav={item.id}
+          class:list={['mobile-nav-item', currentNav === item.id && 'is-active']}
+          aria-current={currentNav === item.id ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/docs" class="site-cta site-cta-mobile">Get started →</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function navIdFromPath(pathname: string) {
+    if (pathname === '/') return 'home';
+    if (pathname.startsWith('/features')) return 'features';
+    if (pathname.startsWith('/docs') || pathname.startsWith('/download')) return 'docs';
+    if (pathname.startsWith('/spec') || pathname.startsWith('/specs')) return 'spec';
+    if (pathname.startsWith('/examples')) return 'examples';
+    if (pathname.startsWith('/pricing')) return 'pricing';
+    if (pathname.startsWith('/changelog')) return 'changelog';
+    return '';
+  }
+
+  function syncActiveNav() {
+    const current = navIdFromPath(window.location.pathname);
+    document.querySelectorAll<HTMLElement>('[data-nav]').forEach((item) => {
+      const on = item.dataset.nav === current;
+      item.classList.toggle('is-active', on);
+      if (on) item.setAttribute('aria-current', 'page');
+      else item.removeAttribute('aria-current');
+    });
+  }
+
+  function initMobileMenu() {
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    if (!button || !menu || button.dataset.bound) return;
+    button.dataset.bound = 'true';
+    button.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close navigation menu' : 'Toggle navigation menu');
+    });
+  }
+
+  function initHeader() {
+    syncActiveNav();
+    initMobileMenu();
+  }
+
+  initHeader();
+  document.addEventListener('astro:page-load', initHeader);
+  document.addEventListener('astro:after-swap', initHeader);
+</script>

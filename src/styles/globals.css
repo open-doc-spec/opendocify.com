@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@import './global.css';
+@import './ods-marketing.css';
+@plugin '@tailwindcss/typography';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-background: #f4f4f5;
+  --color-foreground: #18181b;
+  --color-card: #ffffff;
+  --color-card-foreground: #18181b;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #18181b;
+  --color-primary: #000000;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #18181b;
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #3f3f46;
+  --color-accent: #e4e4e7;
+  --color-accent-foreground: #18181b;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
+  --color-ring: #18181b;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --color-background: #000000;
+  --color-foreground: #f4f4f5;
+  --color-card: #18181b;
+  --color-card-foreground: #f4f4f5;
+  --color-popover: #18181b;
+  --color-popover-foreground: #f4f4f5;
+  --color-primary: #ffffff;
+  --color-primary-foreground: #000000;
+  --color-secondary: #18181b;
+  --color-secondary-foreground: #f4f4f5;
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #27272a;
+  --color-accent-foreground: #f4f4f5;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #27272a;
+  --color-input: #27272a;
+  --color-ring: #f4f4f5;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body { background-color: var(--color-background); color: var(--color-foreground); }
+}
+
+/* AstroDeck's scroll-in animation contract. */
+[data-animate] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+[data-animate].is-visible { opacity: 1; transform: translateY(0); }
+[data-animate='fade'] { transform: none; }
+[data-animate='slide-left'] { transform: translateX(-30px); }
+[data-animate='slide-right'] { transform: translateX(30px); }
+[data-animate='scale'] { transform: scale(.95); }
+[data-animate='fade'].is-visible, [data-animate='slide-left'].is-visible, [data-animate='slide-right'].is-visible, [data-animate='scale'].is-visible { transform: none; }
