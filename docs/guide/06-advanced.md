@@ -10,7 +10,7 @@ ods:
 ## How Agents Should Read ODS Workspaces
 
 1. Start at the root `ods.toml`.
-2. Descend through child indexes toward the target document.
+2. Discover the target with `ods overview` / `ods find` / `ods tree` (no folder index files).
 3. Read the target frontmatter first.
 4. Load `depends` transitively up to `context.max-depth` (default 2).
 5. Load `context.load` entries: Document `.md` paths first, then Resource paths.

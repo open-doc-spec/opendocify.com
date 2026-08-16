@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - keys.md
   related:
     - core.md
@@ -187,6 +187,6 @@ Progressive discovery scales effortlessly to monorepos containing tens of thousa
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](assets.md) | [📑 Specification Index](intro.md) | [Next Chapter →](validation.md) |
+| [← Previous Chapter](assets.md) | [📑 Specification Index](README.md) | [Next Chapter →](validation.md) |
 | :--- | :---: | ---: |
 | **07. Assets & Code Bindings** | **Open Document Spec (ODS)** | **09. Validation & Tooling Contract** |

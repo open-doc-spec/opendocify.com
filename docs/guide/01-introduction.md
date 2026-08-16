@@ -62,15 +62,17 @@ There is **no** Level 0–3 ladder. Normative rules: [`specs/ods/intro.md`](/spe
 
 ## Learning path
 
+Authoring track (matches the specification map): [Learn ODS](/docs/learn).
+
 | Step | Doc | You will |
 | --- | --- | --- |
-| 1 | This introduction | Principles and compliance |
-| 2 | [Quickstart](02-quickstart.md) | Init, lint, context |
-| 3 | [Adoption](03-adoption.md) | Enrich an existing repo |
-| 4 | [Tooling](04-tooling.md) | CLI and CI |
-| 5 | [Profiles](05-profiles.md) | Document shapes |
-| 6 | [Advanced](06-advanced.md) | Agents and large workspaces |
-| 7 | [FAQ](faq.md) | Troubleshooting |
+| 0 | [Why ODS exists](/docs/00-why-ods) | The idea, without tools |
+| 1 | [Your first document](/docs/01-first-document) | `ods.toml` + one guide |
+| 2 | [Pick a shape](/docs/02-pick-a-shape) | Standard profiles |
+| 3 | [Link documents](/docs/03-link-documents) | `depends` / `related` |
+| 4 | [Quickstart](02-quickstart.md) | Install the CLI |
+| 5 | [Tooling](04-tooling.md) | CI and discovery commands |
+| 6 | [CLI FAQ](cli-faq.md) | Product/CLI questions |
 
 **Discovery:** use `ods overview` → `ods find` / `ods tag` / `ods tree` → `ods context <id>`. Do **not** commit nested `index.ods.md` files.
 

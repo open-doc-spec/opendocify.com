@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - core.md
   related:
     - profiles.md
@@ -411,7 +411,7 @@ The following keys are allowed under `ods.custom_profile` in a registered custom
 | `optional_keys` | `ods.custom_profile.optional_keys` | list of strings, optional | Names of useful top-level document keys that are not required. |
 | `forbidden_keys` | `ods.custom_profile.forbidden_keys` | list of strings, optional | Names of top-level document keys that should not appear with the profile. |
 
-`ods.custom_profile` is valid only in a registered profile-definition file selected by `custom_profiles` (or a registered pack). It is not copied into documents using the profile and does not make third-party metadata globally required. Tools MUST reject the block in any other document. See [profiles.md](profiles.md#7-custom-profiles--profile-definition-files) for the complete contract.
+`ods.custom_profile` is valid only in a registered profile-definition file selected by `custom_profiles` (or a registered pack). It is not copied into documents using the profile and does not make third-party metadata globally required. Tools MUST reject the block in any other document. See [profiles.md](profiles.md#711-profile-definition-metadata) for the complete contract.
 
 Every `custom_profiles` path in `ods.toml` MUST exist at the exact configured location. A missing path, a non-Markdown file, or invalid profile-definition frontmatter is a `PROF-005` error. An `ods.profile` value that does not resolve to a standard or loaded custom profile is a `PROF-001` error; the diagnostic MUST identify the configured profile paths.
 
@@ -448,6 +448,6 @@ ods:
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](core.md) | [📑 Specification Index](intro.md) | [Next Chapter →](profiles.md) |
+| [← Previous Chapter](core.md) | [📑 Specification Index](README.md) | [Next Chapter →](profiles.md) |
 | :--- | :---: | ---: |
 | **02. Core Format Model & Conformance** | **Open Document Spec (ODS)** | **04. Structural Profiles & Shapes** |

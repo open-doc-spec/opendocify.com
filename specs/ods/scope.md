@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
   related:
     - keys.md
     - graph.md
@@ -25,7 +25,7 @@ This document defines the **Architectural Boundaries** of Open Document Spec (OD
 - **When you need it:** You are proposing a new key, edge type, or file extension.
 - **When you can skip it:** You are adopting the current standard, not extending it.
 - **Learn this first:** [FAQ](../guides/faq.md) · [Extend ODS](../guides/07-extend-ods.md)
-- **Prerequisite chapters:** [README.md](intro.md)
+- **Prerequisite chapters:** [README.md](README.md)
 
 ---
 
@@ -100,6 +100,6 @@ The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](validation.md) | [📑 Specification Index](intro.md) | [Return to Overview →](intro.md) |
+| [← Previous Chapter](validation.md) | [📑 Specification Index](README.md) | [Return to Overview →](README.md) |
 | :--- | :---: | ---: |
 | **09. Validation & Tooling Contract** | **Open Document Spec (ODS)** | **01. Introduction & Overview** |

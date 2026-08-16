@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - keys.md
   related:
     - core.md
@@ -711,6 +711,6 @@ Profile inheritance (e.g. `guide` extends `base-doc` extends `root`) adds signif
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](keys.md) | [📑 Specification Index](intro.md) | [Next Chapter →](graph.md) |
+| [← Previous Chapter](keys.md) | [📑 Specification Index](README.md) | [Next Chapter →](graph.md) |
 | :--- | :---: | ---: |
 | **03. Frontmatter Key Dictionary** | **Open Document Spec (ODS)** | **05. Document Graph & Identity** |

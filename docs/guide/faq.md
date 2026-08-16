@@ -1,62 +1,76 @@
 ---
-description: "Frequently asked questions about file extensions, adoption, profiles vs tags, renames, and background services."
+description: "Short answers to the questions ODS specs usually bury in design-decision sections."
+tags:
+  - learn
+  - ods
+  - questions
+owner: team:ods
 ods:
-  profile: "note"
-  status: "stable"
+  profile: faq
+  status: stable
+  related:
+    - 00-why-ods.md
+    - decision-cards.md
+    - mistakes.md
+    - ../specs/core.md
+    - ../specs/scope.md
+    - ../specs/context.md
 ---
 
-# FAQ and Troubleshooting
+# FAQ
 
-Feature catalog: [Features](/docs/features).
+## Why not a new `.ods` file extension?
 
-## Do I need a special file extension?
+Files must open on GitHub, in VS Code, in Obsidian, and in every Static Site Generator without a plugin. `.md` is the whole point.
 
-No. Documents are plain `.md` only.
+## Why is the title not a frontmatter key?
 
-## Does installing ODS auto-make my Markdown compliant?
+Two titles drift. The heading is what humans see, so it is the only title.
 
-**No.** Without root `ods:`, tools do not rewrite your tree. Plain Markdown is plain Markdown.
+## Why are there no compliance levels?
 
-- Opt in: `ods init .` or `ods init . --adopt`, then `ods lint`.
-- Opt out: `ods disable .` then `ods disable . --write`.
-- Automation (`ods start` / `ods watch`) only rewrites paths when the workspace is enabled.
+"Level 2 of 3" made teams argue about whether CI should pass. `ods lint` either exits 0 or 1.
 
-## How do I remove ODS completely?
+## Why only `depends` and `related`? Where is `implements`?
 
-```bash
-ods stop --unregister .   # if a service was registered
-ods disable . --write
-```
+Automation only needs "required" vs "optional." Richer ontologies add authoring cost without changing the context walk. Explain nuance in prose.
 
-## Profile vs Tags
+## Why doesn't `resources` go into the AI prompt?
 
-| | **Profile** | **Tags** |
-| :--- | :--- | :--- |
-| Means | Document **kind** (structure / expected H2s) | Cross-cutting **topics** |
-| Unknown | Warning | Always allowed |
-| CLI | `ods profiles` | `ods tags`, `ods tag list`/`show`, `ods find --tag` / `--key` |
+Because it often holds multi-megabyte PDFs and images. `context.load` is the explicit, small, text-only injection list.
 
-## Should `depends` / `related` include `.md`?
+## Why default `max-depth` to 2?
 
-Yes. Canonical Document references use editor-jumpable `.md` paths:
+Two hops along real prerequisites usually covers the architecture you need. Deeper walks grow exponentially and drown the prompt.
 
-```yaml
-depends:
-  - website/subscription-service.md
-```
+## Why not hand-written backlinks?
 
-## `ods lint` says everything is fine
+They rot on the first rename. Declare the edge on the dependent document. Let tools compute inbound links.
 
-That is success: the graph and links are consistent. No `.ods/ods-errors.md` (or legacy `ods-error.md`) should remain.
+## Why forbid line numbers in `ods.code`?
 
-## How much RAM does `ods serve` use?
+`:L45` dies when someone adds an import. A symbol name does not.
 
-Local measurements on macOS:
-- Empty ODS workspace: ~7.5 MB
-- 1000-document workspace: ~17 MB
+## Why can't I invent a ninth code role?
 
-For low-memory environments, use polling mode:
+A closed set is how an external agent classifies unknown repos. If it does not fit, pick the nearest role and describe the rest in prose.
 
-```bash
-ODS_LOW_MEMORY=1 ods serve --mode poll --memory-report --poll-secs 30 --root .
-```
+## Why are profile headings warnings, not errors?
+
+Adoption must not punish a draft. Structure is encouraged; a missing `## Risks` should not break the build.
+
+## Why TOML for the workspace file and YAML for documents?
+
+Workspace config is typed tables. Document metadata is the YAML authors already write for Hugo and Astro. Mixing both in YAML made the two layers harder to tell apart.
+
+## Do I have to use the `ods` CLI?
+
+No. The spec is the files on disk. The CLI is the reference engine that lints and builds context. Another tool may implement the same contract.
+
+## Is ODS a competitor to Docusaurus / Hugo / Obsidian?
+
+No. Those render or navigate. ODS labels and links the Markdown they already consume. Unknown keys are preserved.
+
+## Should I start in `specs/` or `guides/`?
+
+Humans: [`guides/README.md`](README.md). Implementers: [`specs/README.md`](../specs/README.md).

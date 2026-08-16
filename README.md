@@ -9,8 +9,8 @@ Marketing and docs site for [Open Document Spec (ODS)](https://github.com/open-d
 | Concern | Repo |
 |---------|------|
 | Site app (Astro) | **This repo** |
-| Guide markdown | Vendored `docs/guide/` (author in monorepo `docs/guide/` until sync) |
-| Spec markdown | Vendored `specs/` (SoT: [ods-spec](https://github.com/open-doc-spec/ods-spec)) |
+| Guide markdown | Learning track vendored from ods-spec `guides/` via `npm run sync:ods-spec`; product/CLI guides authored here |
+| Spec markdown | Vendored `specs/ods/` (SoT: [ods-spec](https://github.com/open-doc-spec/ods-spec) `origin/main`) |
 | Engine / CLI | [open-doc-spec/ods](https://github.com/open-doc-spec/ods) |
 | Install scripts (canonical) | monorepo `src/scripts/install.{sh,ps1}` — keep `public/install.*` in sync |
 
@@ -22,6 +22,7 @@ cd opendocify.com
 npm ci
 npm run dev    # http://localhost:4173
 npm run build
+npm run sync:ods-spec   # after pulling ../ods-spec (or ODS_SPEC_DIR=...)
 ```
 
 ## First-cut policy

@@ -1,0 +1,45 @@
+name: Sync ods-spec
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Checkout ods-spec
+        uses: actions/checkout@v4
+        with:
+          repository: open-doc-spec/ods-spec
+          ref: main
+          path: .tmp/ods-spec
+
+      - name: Vendor specs and learning guides
+        run: node scripts/sync-ods-spec.mjs --source .tmp/ods-spec
+
+      - name: Restore product FAQ if overwritten
+        run: |
+          if [ ! -f docs/guide/cli-faq.md ]; then
+            echo "cli-faq.md missing after sync; leaving spec FAQ as docs/guide/faq.md"
+          fi
+
+      - name: Open PR when vendored files change
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(spec): sync ods-spec origin/main"
+          title: "chore(spec): sync ods-spec origin/main"
+          body: |
+            Automated vendor of [ods-spec](https://github.com/open-doc-spec/ods-spec) `main` into `specs/ods/` and `docs/guide/` learning track.
+
+            Review the lock file `specs/.ods-spec-lock.json` and spot-check glossary hashes / guide links.
+          branch: chore/sync-ods-spec
+          delete-branch: true

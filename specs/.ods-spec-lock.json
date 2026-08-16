@@ -1,0 +1,38 @@
+{
+  "source": "../ods-spec",
+  "commit": "8fb5c6b8178de63e2a541cf4c46717db259c431b",
+  "short": "8fb5c6b",
+  "branch": "origin/main",
+  "syncedAt": "2026-08-16T08:32:30.257Z",
+  "files": {
+    "specs": [
+      "intro.md",
+      "assets.md",
+      "context.md",
+      "core.md",
+      "glossary.md",
+      "graph.md",
+      "indexes.md",
+      "keys.md",
+      "profiles.md",
+      "scope.md",
+      "validation.md",
+      "AGENTS.md"
+    ],
+    "guides": [
+      "00-why-ods.md",
+      "01-first-document.md",
+      "02-pick-a-shape.md",
+      "03-link-documents.md",
+      "04-bind-code-and-files.md",
+      "05-ai-reading-list.md",
+      "06-run-the-workspace.md",
+      "07-extend-ods.md",
+      "learn.md",
+      "decision-cards.md",
+      "faq.md",
+      "mistakes.md"
+    ]
+  },
+  "ref": "origin/main"
+}

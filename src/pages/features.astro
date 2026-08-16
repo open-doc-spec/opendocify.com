@@ -81,8 +81,10 @@ import { REPO_URL } from "../lib/releases";
           <div class="code-box-wrapper">
             <div class="code-box-title">docs/architecture/storage.md</div>
             <pre class="theme-code"><code>---
+description: Storage engine connection pool.
 ods:
-  profile: spec
+  profile: architecture
+  status: stable
   code:
     - path: src/storage/db.rs
       symbol: init_pool()
@@ -195,18 +197,17 @@ profiles:
           <span class="row-tag">Gradual Adoption</span>
           <h3>Simple Adoption Steps</h3>
           <p>
-            Adopt ODS at your own pace: from zero-setup plain Markdown (Level 0) to mapped document boundaries (Level 1), standard templates and labels (Level 2), and automated link verification (Level 3).
+            Start with plain Markdown. Add a root <code>ods.toml</code> when you want a workspace. <code>ods lint</code> is binary: compliant (exit 0) or not (exit 1). There is no Level 0–3 ladder.
           </p>
           <div class="row-cmd">
-            <code>$ ods index --check</code>
+            <code>$ ods lint</code>
           </div>
         </div>
         <div class="row-visual">
           <div class="levels-mini-stack">
-            <div class="l-step"><span>L0</span> Standard text files</div>
-            <div class="l-step"><span>L1</span> Mapped document boundaries</div>
-            <div class="l-step"><span>L2</span> Standard templates & labels</div>
-            <div class="l-step active"><span>L3</span> Automated link verification</div>
+            <div class="l-step"><span>1</span> Plain Markdown files</div>
+            <div class="l-step"><span>2</span> Root ods.toml workspace</div>
+            <div class="l-step active"><span>3</span> ods lint exit 0 or 1</div>
           </div>
         </div>
       </section>
@@ -224,14 +225,14 @@ profiles:
         <div class="profiles-2x2-grid">
           <!-- Card 1: Technical Specs -->
           <div class="p-card">
-            <span class="p-badge">profile: spec</span>
-            <h4>Technical Specs</h4>
+            <span class="p-badge">profile: architecture</span>
+            <h4>Architecture docs</h4>
             <div class="headings-group">
               <span class="headings-label">Required Headings</span>
               <div class="heading-tags">
-                <code class="h-tag">## Summary</code>
+                <code class="h-tag">## Goal</code>
                 <code class="h-tag">## Requirements</code>
-                <code class="h-tag">## Schema</code>
+                <code class="h-tag">## Acceptance Criteria</code>
               </div>
             </div>
           </div>
@@ -265,14 +266,14 @@ profiles:
 
           <!-- Card 4: ADRs & Decision Notes -->
           <div class="p-card">
-            <span class="p-badge">profile: note</span>
+            <span class="p-badge">profile: decision</span>
             <h4>ADRs & Decision Notes</h4>
             <div class="headings-group">
               <span class="headings-label">Required Headings</span>
               <div class="heading-tags">
                 <code class="h-tag">## Context</code>
                 <code class="h-tag">## Decision</code>
-                <code class="h-tag">## Impact</code>
+                <code class="h-tag">## Consequences</code>
               </div>
             </div>
           </div>
@@ -295,32 +296,31 @@ profiles:
         </div>
       </div>
 
-      <!-- Level 0 to 3 Conformance Ladder Progress Graphic -->
       <div class="ladder-graphic-box">
-        <h4 class="ladder-title">Simple Adoption Steps</h4>
+        <h4 class="ladder-title">Binary compliance</h4>
         <div class="ladder-timeline">
           <div class="timeline-step">
-            <span class="step-badge">Level 0</span>
-            <h5 class="l-lbl">Plain Markdown (Zero Setup)</h5>
-            <p>Use existing .md files as-is with zero changes</p>
+            <span class="step-badge">Plain .md</span>
+            <h5 class="l-lbl">No workspace required</h5>
+            <p>Use existing Markdown as-is</p>
           </div>
 
           <div class="timeline-step">
-            <span class="step-badge">Level 1</span>
-            <h5 class="l-lbl">Mapped document boundaries</h5>
-            <p>Root index.md & tags</p>
+            <span class="step-badge">Workspace</span>
+            <h5 class="l-lbl">Root ods.toml</h5>
+            <p>spec = "0.1" marks the tree</p>
           </div>
 
           <div class="timeline-step step-active">
-            <span class="step-badge active-badge">Level 2</span>
-            <h5 class="l-lbl">Standard templates & labels</h5>
-            <p>Profiles & code symbols</p>
+            <span class="step-badge active-badge">Compliant</span>
+            <h5 class="l-lbl">ods lint exits 0</h5>
+            <p>Graph, keys, and profiles check out</p>
           </div>
 
           <div class="timeline-step">
-            <span class="step-badge">Level 3</span>
-            <h5 class="l-lbl">Automated link verification</h5>
-            <p>Instant document scans</p>
+            <span class="step-badge">Fix</span>
+            <h5 class="l-lbl">ods lint exits 1</h5>
+            <p>Repair diagnostics, then re-lint</p>
           </div>
         </div>
       </div>
@@ -334,19 +334,19 @@ profiles:
           <span class="row-tag">Onboard Existing Folders</span>
           <h3>Import Existing Files in Seconds</h3>
           <p>
-            Import your existing text files in seconds. The <code>ods adopt</code> tool automatically sets up labels for all your files so you don't have to edit them manually.
+            Import your existing text files in seconds. <code>ods init --adopt</code> writes a root <code>ods.toml</code> and drafts frontmatter so you don't have to edit every file by hand.
           </p>
           <div class="row-cmd">
-            <code>$ ods adopt docs/</code>
+            <code>$ ods init . --adopt</code>
           </div>
         </div>
         <div class="row-visual">
           <div class="code-box-wrapper">
             <div class="code-box-title">CLI Terminal Log</div>
-            <pre class="theme-code"><code>$ ods adopt docs/
-✓ Scanned 148 Markdown files
-✓ Generated document templates and labels
-✓ Created root project index</code></pre>
+            <pre class="theme-code"><code>$ ods init . --adopt
+✓ Wrote root ods.toml (spec = "0.1")
+✓ Drafted frontmatter on 148 Markdown files
+✓ Ready for ods lint</code></pre>
           </div>
         </div>
       </section>

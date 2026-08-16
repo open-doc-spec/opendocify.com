@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - keys.md
     - graph.md
   related:
@@ -290,6 +290,6 @@ Empirical testing in engineering repositories demonstrates that 2 hops along `de
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](graph.md) | [📑 Specification Index](intro.md) | [Next Chapter →](assets.md) |
+| [← Previous Chapter](graph.md) | [📑 Specification Index](README.md) | [Next Chapter →](assets.md) |
 | :--- | :---: | ---: |
 | **05. Document Graph & Identity** | **Open Document Spec (ODS)** | **07. Assets & Code Bindings** |
