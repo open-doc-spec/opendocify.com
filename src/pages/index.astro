@@ -605,7 +605,13 @@ import { REPO_URL } from "../lib/releases";
             <span id="copy-ast-text">Copy</span>
           </button>
         </div>
-        <pre class="terminal-code-panel"><code id="ast-code-block"></code></pre>
+        <pre class="terminal-code-panel"><code id="ast-code-block"><span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>
+<span class="t-success">✓ Installing ODS...</span>
+<span class="t-success">✓ Reading list enabled</span>
+<span class="t-success">✓ Connected to your AI assistant</span>
+<span class="t-success">✓ Ready to go!</span>
+<hr class="t-hr"/>
+<span class="t-next">&gt; Ask your AI anything.</span></code></pre>
       </div>
     </div>
   </section>
@@ -723,12 +729,12 @@ import { REPO_URL } from "../lib/releases";
             <path d="M28 20 H65 M28 28 H50" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
             <path d="M85 25 H115" stroke="currentColor" stroke-width="2" class="svg-flow"/>
             <rect x="115" y="10" width="65" height="30" rx="4" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.05"/>
-            <text x="123" y="24" fill="currentColor" font-family="JetBrains Mono" font-size="8" font-weight="bold">index.md</text>
+            <text x="123" y="24" fill="currentColor" font-family="JetBrains Mono" font-size="8" font-weight="bold">ods.toml</text>
             <circle cx="165" cy="28" r="3" fill="currentColor" class="svg-pulse"/>
           </svg>
         </div>
         <h3>1. Prepare Your Folder</h3>
-        <p>Run <code>ods init .</code> in your folder. ODS creates a main map file (<code>index.md</code>) so AI knows where to find your files!</p>
+        <p>Run <code>ods init .</code> in your folder. ODS writes a root <code>ods.toml</code> workspace marker. Discovery uses that file plus Markdown frontmatter — no committed <code>index.md</code> map.</p>
         <div class="step-code-box">
           <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-cmd">ods</span> <span class="code-args">init .</span></code>
           <button class="step-copy-btn" data-code="ods init ." title="Copy Command">
@@ -2084,7 +2090,7 @@ import { REPO_URL } from "../lib/releases";
     color: #4ade80 !important;
   }
 
-  .terminal-code-panel {
+  :global(.terminal-code-panel) {
     padding: var(--space-24);
     font-family: 'JetBrains Mono', var(--font-mono);
     font-size: 0.875rem;
@@ -2097,26 +2103,28 @@ import { REPO_URL } from "../lib/releases";
     transition: opacity 0.15s ease;
   }
 
-  .terminal-code-panel.fade-out {
+  :global(.terminal-code-panel.fade-out),
+  :global(#ast-code-block.fade-out) {
     opacity: 0.3;
   }
 
-  /* Syntax Highlighting Tokens */
-  .t-cmd-line { display: block; margin-bottom: 4px; }
-  .t-prompt { color: var(--fg-muted); font-weight: 700; user-select: none; margin-right: 6px; }
-  .t-cmd { color: var(--fg); font-weight: 600; }
-  .t-sub { color: var(--fg-muted); }
-  .t-flag { color: #c084fc; }
-  .t-arg { color: #f59e0b; }
-  .t-success { color: #4ade80; display: block; margin-bottom: 2px; }
-  .t-comment { color: #64748b; font-style: italic; display: block; margin-top: 4px; }
-  .t-next { color: #e2e8f0; display: block; margin-top: 6px; }
-  .t-json { color: #94a3b8; display: block; }
-  .t-cursor {
+  /* Tokens must be :global — snippets are injected via innerHTML and miss Astro scope attrs. */
+  :global(.t-cmd-line) { display: block; margin-bottom: 4px; }
+  :global(.t-prompt) { color: #94a3b8; font-weight: 700; user-select: none; margin-right: 6px; }
+  :global(.t-cmd) { color: #f8fafc; font-weight: 600; }
+  :global(.t-sub) { color: #94a3b8; }
+  :global(.t-flag) { color: #c084fc; }
+  :global(.t-arg) { color: #f59e0b; }
+  :global(.t-success) { color: #4ade80; display: block; margin-bottom: 2px; }
+  :global(.t-comment) { color: #64748b; font-style: italic; display: block; margin-top: 4px; }
+  :global(.t-next) { color: #e2e8f0; display: block; margin-top: 6px; }
+  :global(.t-json) { color: #94a3b8; display: block; }
+  :global(.t-hr) { border: 0; border-top: 1px solid #27272a; margin: 10px 0; }
+  :global(.t-cursor) {
     display: inline-block;
     width: 8px;
     height: 15px;
-    background: var(--fg);
+    background: #f8fafc;
     vertical-align: middle;
     margin-left: 4px;
     animation: blink-cursor 1s infinite;

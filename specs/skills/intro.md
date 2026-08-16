@@ -47,7 +47,7 @@ skill-name/
 | Use **Skills** when… | Use **ODS docs** when… |
 | :--- | :--- |
 | You package **agent procedures** for install into hosts | You document a **product/repo** for humans + agents |
-| Entry point is `SKILL.md` | Entry point is workspace `index.ods.md` + documents |
+| Entry point is `SKILL.md` | Entry point is root `ods.toml` + document frontmatter |
 | Lint with `ods lint --skills` | Lint with bare `ods lint` |
 
 ---
