@@ -10,4 +10,4 @@ This site is an ODS customization of the [AstroDeck](https://github.com/holger14
 - Nav + sitemap must list new modules; keep redirects in `astro.config.mjs` for legacy flat paths
 - DocShell groups specs by dialect folder
 - `public/llms.txt` should list intro + keys first for agents
-- First-cut extract: content is vendored from monorepo; prefer [ods-spec](https://github.com/open-doc-spec/ods-spec) + monorepo `docs/guide` as authoring SoT until sync is automated
+- Spec + learning-guide SoT: sibling [ods-spec](https://github.com/open-doc-spec/ods-spec) (`../ods-spec`). Run `npm run sync:ods-spec` (or `node scripts/sync-ods-spec.mjs --source /path/to/ods-spec`) after pulling that repo. Lock file: `specs/.ods-spec-lock.json`. Product-only guides (`02-quickstart`, tooling, enterprise, use-cases) are not overwritten.

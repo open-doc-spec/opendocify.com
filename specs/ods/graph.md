@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - keys.md
   related:
     - context.md
@@ -181,6 +181,6 @@ Maintaining bidirectional links manually (e.g. Doc A listing Doc B as child, and
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](profiles.md) | [📑 Specification Index](intro.md) | [Next Chapter →](context.md) |
+| [← Previous Chapter](profiles.md) | [📑 Specification Index](README.md) | [Next Chapter →](context.md) |
 | :--- | :---: | ---: |
 | **04. Structural Profiles & Shapes** | **Open Document Spec (ODS)** | **06. Bounded AI Context Scope** |

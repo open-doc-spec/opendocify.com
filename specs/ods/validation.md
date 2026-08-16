@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - core.md
     - keys.md
   related:
@@ -234,6 +234,6 @@ error[ASSET-003]: line numbers are prohibited in code paths
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](indexes.md) | [📑 Specification Index](intro.md) | [Next Chapter →](scope.md) |
+| [← Previous Chapter](indexes.md) | [📑 Specification Index](README.md) | [Next Chapter →](scope.md) |
 | :--- | :---: | ---: |
 | **08. Workspace Config & Progressive Discovery** | **Open Document Spec (ODS)** | **10. Scope & Architectural Non-Goals** |

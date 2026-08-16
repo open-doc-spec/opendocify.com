@@ -170,7 +170,7 @@ ods:
             <div class="code-title">api/v1/auth-service.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
+  profile: architecture
   status: stable
   code:
     - path: proto/auth/v1/service.proto
@@ -214,10 +214,11 @@ ods:
           <div class="ex-code-box">
             <div class="code-title">trials/phase2-oncology-protocol.md</div>
             <pre class="theme-code"><code>---
+description: Phase 2 oncology protocol for compound X7.
+owner: clinical-compliance
 ods:
-  profile: spec
+  profile: architecture
   status: stable
-  owner: clinical-compliance
   depends:
     - trials/assay-validation-protocol.md
     - bio/molecule-compound-x7.md
@@ -261,7 +262,7 @@ ods:
             <pre class="theme-code"><code>---
 ods:
   profile: guide
-  status: active
+  status: stable
   depends:
     - ethics/irb-approval-2026.md
   resources:
@@ -304,7 +305,7 @@ ods:
             <pre class="theme-code"><code>---
 ods:
   profile: feature
-  status: active
+  status: stable
   depends:
     - papers/foundational-lemma-01.md
   code:
@@ -349,7 +350,7 @@ ods:
             <pre class="theme-code"><code>---
 ods:
   profile: guide
-  status: active
+  status: stable
   code:
     - path: scripts/train_bert.py
       symbol: train_epoch()
@@ -392,11 +393,11 @@ ods:
           <div class="ex-code-box">
             <div class="code-title">compliance/soc2-data-retention.md</div>
             <pre class="theme-code"><code>---
+owner: infosec-team
 ods:
-  profile: guide
+  profile: policy
   status: stable
   share: private
-  owner: infosec-team
 ---
 # SOC2 Data Retention Policy
 <!-- ODS-SECRET: START -->
@@ -438,8 +439,8 @@ CONFIDENTIAL M&A VALUATION DETAILS
             <div class="code-title">dealroom/target-valuation.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
-  status: active
+  profile: architecture
+  status: stable
   share: private
   depends:
     - dealroom/audited-financials-2025.md
@@ -480,7 +481,7 @@ ods:
             <div class="code-title">specs/propulsion-valve-assembly.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
+  profile: architecture
   status: stable
   depends:
     - specs/iso-9001-thermal-test.md
@@ -524,7 +525,7 @@ ods:
             <div class="code-title">safety/battery-thermal-management.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
+  profile: architecture
   status: stable
   code:
     - path: firmware/bms/thermal_control.cpp
@@ -568,7 +569,7 @@ ods:
             <pre class="theme-code"><code>---
 ods:
   profile: feature
-  status: active
+  status: stable
   code:
     - path: packages/ui/src/Button.tsx
       symbol: Button()
@@ -655,7 +656,7 @@ ods:
             <pre class="theme-code"><code>---
 ods:
   profile: guide
-  status: active
+  status: stable
   code:
     - path: terraform/modules/rds/main.tf
       role: infrastructure
@@ -698,8 +699,8 @@ ods:
             <div class="code-title">k8s/ingress-routing.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
-  status: active
+  profile: architecture
+  status: stable
   code:
     - path: k8s/helm/templates/ingress.yaml
       role: infrastructure
@@ -732,7 +733,7 @@ ods:
             </div>
           </div>
           <div class="ex-cmd">
-            <code>$ ods index --check policy/</code>
+            <code>$ ods lint policy/</code>
           </div>
         </div>
         <div class="card-right">
@@ -740,7 +741,7 @@ ods:
             <div class="code-title">policy/environmental-compliance-2026.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
+  profile: architecture
   status: stable
   depends:
     - policy/clean-water-act-amendment.md
@@ -783,7 +784,7 @@ ods:
             <div class="code-title">payments/tokenization-engine.md</div>
             <pre class="theme-code"><code>---
 ods:
-  profile: spec
+  profile: architecture
   status: stable
   code:
     - path: src/tokenization/encryptor.cpp

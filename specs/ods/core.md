@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
   related:
     - keys.md
     - graph.md
@@ -26,7 +26,7 @@ This document defines the normative format model, compliance requirements, lifec
 - **When you need it:** You are implementing a parser, writing CI, or deciding where the title lives.
 - **When you can skip it:** You only want to write a first document — use [Your first document](../guides/01-first-document.md).
 - **Learn this first:** [Why ODS exists](../guides/00-why-ods.md) → [Your first document](../guides/01-first-document.md)
-- **Prerequisite chapters:** [README.md](intro.md) (map).
+- **Prerequisite chapters:** [README.md](README.md) (map).
 
 ---
 
@@ -209,6 +209,6 @@ Compliance levels (e.g. Level 0 through 3) created confusion for developers rega
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](intro.md) | [📑 Specification Index](intro.md) | [Next Chapter →](keys.md) |
+| [← Previous Chapter](README.md) | [📑 Specification Index](README.md) | [Next Chapter →](keys.md) |
 | :--- | :---: | ---: |
 | **01. Introduction & Overview** | **Open Document Spec (ODS)** | **03. Frontmatter Key Dictionary** |

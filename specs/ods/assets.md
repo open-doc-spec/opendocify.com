@@ -4,7 +4,7 @@ ods:
   profile: "note"
   status: "stable"
   depends:
-    - intro.md
+    - README.md
     - keys.md
   related:
     - context.md
@@ -220,6 +220,6 @@ A closed taxonomy of 8 standard code roles ensures that external AI coding agent
 
 ## Navigation & Reading Order
 
-| [← Previous Chapter](context.md) | [📑 Specification Index](intro.md) | [Next Chapter →](indexes.md) |
+| [← Previous Chapter](context.md) | [📑 Specification Index](README.md) | [Next Chapter →](indexes.md) |
 | :--- | :---: | ---: |
 | **06. Bounded AI Context Scope** | **Open Document Spec (ODS)** | **08. Workspace Config & Progressive Discovery** |

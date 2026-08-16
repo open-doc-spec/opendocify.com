@@ -10,7 +10,8 @@
     "typecheck": "astro check",
     "lint": "eslint .",
     "format:check": "prettier --check .",
-    "deploy": "NODE_ENV=production npm run build && firebase deploy --only hosting --project prod-ods-260726"
+    "deploy": "NODE_ENV=production npm run build && firebase deploy --only hosting --project prod-ods-260726",
+    "sync:ods-spec": "node scripts/sync-ods-spec.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.2",

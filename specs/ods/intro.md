@@ -100,7 +100,7 @@ Implementer and reviewer order (not the human learning path):
 
 | Chapter | Specification Module | Focus Area & Key Takeaway |
 | :---: | :--- | :--- |
-| **01** | [**`README.md`**](intro.md) *(Current)* | **Overview & Terminology**: 5W1H principles and specification map. |
+| **01** | [**`README.md`**](README.md) *(Current)* | **Overview & Terminology**: 5W1H principles and specification map. |
 | **02** | [**`core.md`**](core.md) | **Format Model**: Frontmatter vs body prose, SSOT, 4 lifecycle operations (`new`, `mv`, `archive`, `rm`). |
 | **03** | [**`keys.md`**](keys.md) | **Key Dictionary**: Top-level vs `ods:` block keys, data types, and copy-paste examples. |
 | **04** | [**`profiles.md`**](profiles.md) | **Profiles & Shapes**: 13 standard profiles (`guide`, `decision`, `feature`, etc.), heading contracts, custom profiles. |
@@ -155,6 +155,6 @@ The `ods` engine operates on the native ODS dialect by default. Sibling dialects
 
 ## Navigation & Reading Order
 
-| Chapter 01 (Current) | [📑 Specification Index](intro.md) | [Next Chapter →](core.md) |
+| Chapter 01 (Current) | [📑 Specification Index](README.md) | [Next Chapter →](core.md) |
 | :--- | :---: | ---: |
 | **01. Introduction & Overview** | **Open Document Spec (ODS)** | **02. Core Format Model & Conformance** |

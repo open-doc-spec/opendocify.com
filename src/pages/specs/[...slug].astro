@@ -4,9 +4,10 @@
 
 import { getCollection, render } from "astro:content";
 import DocShell from "../../components/DocShell.astro";
+import { isUnpublishedSpec } from "../../lib/doc-links";
 
 export async function getStaticPaths() {
-  const specs = await getCollection("specs");
+  const specs = (await getCollection("specs")).filter((entry) => !isUnpublishedSpec(entry.id || ""));
   const paths: Array<{ params: { slug: string | undefined }; props: { entry: any } }> = [];
 
   specs.forEach((entry) => {
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const allEntries = await getCollection("specs");
+const allEntries = (await getCollection("specs")).filter((entry) => !isUnpublishedSpec(entry.id || ""));
 const { Content, headings } = await render(entry);
 ---
 

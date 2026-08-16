@@ -73,7 +73,7 @@ OKF knowledge bundle:
 ods init --okf .    # OKF v0.2 knowledge bundle (extra-spec flag)
 ```
 
-`ods init` (ODS default) makes the folder ODS-compliant by creating a root `ods.toml` with `spec = "0.1"` and generating child index files.
+`ods init` (ODS default) makes the folder ODS-compliant by creating a root `ods.toml` with `spec = "0.1"`. Discovery is CLI-only — do not commit nested `index.ods.md` files.
 
 ### Multi-spec: when do I need a flag?
 
