@@ -1,15 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { publicCollectionPath } from "../lib/doc-links";
 
 interface Heading { depth: number; slug: string; text: string; }
 interface DocEntry { id: string; data: { title?: string; description?: string; status?: string; order?: number; ods?: Record<string, any>; [key: string]: any; }; }
 interface Props { collection: "docs" | "specs"; currentEntry: DocEntry; allEntries: DocEntry[]; Content: any; headings: Heading[]; }
 
 const { collection, currentEntry, allEntries, Content, headings } = Astro.props;
+const collectionPath = publicCollectionPath(collection);
 const normalized = (entry: DocEntry) => (entry.id || "").replace(/\\/g, "/");
 const slugFor = (entry: DocEntry) => normalized(entry).replace(/\.(md|mdx)$/, "");
 const slugLabel = (entry: DocEntry) => slugFor(entry).split("/").pop()?.replace(/^\d+-/, "").replace(/-/g, " ") || entry.id;
 const titleFor = (entry: DocEntry) => entry.data.title || slugLabel(entry);
+const currentSlug = slugFor(currentEntry);
+const currentDir = currentSlug.split("/").slice(0, -1).join("/");
+const docPath = `/${collectionPath}/${currentSlug}`;
 const sortedEntries = [...allEntries].sort((a, b) => {
   const orderA = typeof a.data?.order === "number" ? a.data.order : 999;
   const orderB = typeof b.data?.order === "number" ? b.data.order : 999;
@@ -58,14 +63,14 @@ const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
         <div class="docs-sidebar-content">
           <p class="docs-sidebar-heading">{collection === "docs" ? "User guides" : "Modules"}</p>
           <nav aria-label={`${collection} navigation`}>
-            {categories.map((category) => <div class="sidebar-group"><div class="sidebar-group-title">{category.name}</div>{category.items.map((entry) => <a class:list={["sidebar-link", { active: normalized(entry) === currentId }]} href={`/${collection}/${slugFor(entry)}`}>{slugLabel(entry)}</a>)}</div>)}
+            {categories.map((category) => <div class="sidebar-group"><div class="sidebar-group-title">{category.name}</div>{category.items.map((entry) => <a class:list={["sidebar-link", { active: normalized(entry) === currentId }]} href={`/${collectionPath}/${slugFor(entry)}`}>{slugLabel(entry)}</a>)}</div>)}
           </nav>
         </div>
       </details>
     </aside>
 
     <article class="doc-article">
-      <div class="doc-breadcrumbs"><a href="/">Home</a><span>/</span><a href={`/${collection}`}>{collection === "docs" ? "Docs" : "Spec"}</a><span>/</span><span>{slugLabel(currentEntry)}</span></div>
+      <div class="doc-breadcrumbs"><a href="/">Home</a><span>/</span><a href={`/${collectionPath}`}>{collection === "docs" ? "Docs" : "Spec"}</a><span>/</span><span>{slugLabel(currentEntry)}</span></div>
       <header class="doc-article-header">
         <span class="eyebrow">{collection === "docs" ? "Guide" : "Specification"}</span>
         <h1>{docTitle}</h1>
@@ -76,18 +81,72 @@ const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
         </div>
         {docDescription && <p class="doc-description">{docDescription}</p>}
       </header>
-      <div class:list={["markdown-body", skipDuplicateTitle && "markdown-body-skip-h1"]}><Content /></div>
+      <div
+        class:list={["markdown-body", skipDuplicateTitle && "markdown-body-skip-h1"]}
+        data-doc-root={`/${collectionPath}`}
+        data-doc-dir={currentDir}
+        data-doc-path={docPath}
+      ><Content /></div>
       <footer class="doc-footer-nav">
-        {prevEntry ? <a class="doc-nav-card" href={`/${collection}/${slugFor(prevEntry)}`}><span class="doc-nav-direction">← Previous</span><span class="doc-nav-title">{titleFor(prevEntry)}</span></a> : <div></div>}
-        {nextEntry ? <a class="doc-nav-card next" href={`/${collection}/${slugFor(nextEntry)}`}><span class="doc-nav-direction">Next →</span><span class="doc-nav-title">{titleFor(nextEntry)}</span></a> : <div></div>}
+        {prevEntry ? <a class="doc-nav-card" href={`/${collectionPath}/${slugFor(prevEntry)}`}><span class="doc-nav-direction">← Previous</span><span class="doc-nav-title">{titleFor(prevEntry)}</span></a> : <div></div>}
+        {nextEntry ? <a class="doc-nav-card next" href={`/${collectionPath}/${slugFor(nextEntry)}`}><span class="doc-nav-direction">Next →</span><span class="doc-nav-title">{titleFor(nextEntry)}</span></a> : <div></div>}
       </footer>
     </article>
 
-    <aside class="docs-outline"><div class="outline-title">On this page</div>{headings.filter((heading) => heading.depth >= 2 && heading.depth <= 4).map((heading) => <a class:list={["outline-link", `depth-${heading.depth}`]} href={`#${heading.slug}`}>{heading.text}</a>)}</aside>
+    <aside class="docs-outline"><div class="outline-title">On this page</div>{headings.filter((heading) => heading.depth >= 2 && heading.depth <= 4).map((heading) => <a class:list={["outline-link", `depth-${heading.depth}`]} href={`${docPath}#${heading.slug}`}>{heading.text}</a>)}</aside>
   </div>
 </Layout>
 
 <script is:inline>
+  const GUIDE_ROUTES = {
+    '': '/docs',
+    README: '/docs',
+    '00-why-ods': '/docs',
+    '01-first-document': '/docs/quickstart',
+    '02-pick-a-shape': '/docs/profiles',
+    '03-link-documents': '/docs/adoption',
+    '04-bind-code-and-files': '/docs/advanced',
+    '05-ai-reading-list': '/docs/advanced',
+    '06-run-the-workspace': '/docs/tooling',
+    '07-extend-ods': '/docs/advanced',
+    'decision-cards': '/docs/profiles',
+    faq: '/docs/faq',
+    mistakes: '/docs/troubleshooting-and-diagnostics',
+  };
+  const rewriteMarkdownHref = (href, collectionRoot, currentDir) => {
+    if (!href || /^(https?:|mailto:|tel:)/i.test(href)) return null;
+    if (href.startsWith('#')) return null;
+    if (href.startsWith('/')) {
+      let next = href.replace(/\.mdx?(?=(?:#|$))/i, '');
+      next = next.replace(/^\/docs\/guide\//, '/docs/');
+      return next === href ? null : next;
+    }
+    const hashIndex = href.indexOf('#');
+    const pathPart = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+    const hash = hashIndex >= 0 ? href.slice(hashIndex) : '';
+    if (!pathPart) return null;
+    const stripped = pathPart.replace(/\.mdx?$/i, '');
+    const segments = currentDir ? currentDir.split('/').filter(Boolean) : [];
+    for (const part of stripped.split('/')) {
+      if (!part || part === '.') continue;
+      if (part === '..') segments.pop();
+      else segments.push(part);
+    }
+    let resolved = segments.join('/');
+    if (resolved === 'README' || resolved.endsWith('/README')) {
+      resolved = resolved.replace(/README$/, 'intro').replace(/\/$/, '');
+    }
+    if (resolved === 'guides' || resolved.startsWith('guides/')) {
+      const name = resolved === 'guides' ? '' : resolved.slice('guides/'.length);
+      return (GUIDE_ROUTES[name] || '/docs') + hash;
+    }
+    if (resolved === 'specs' || resolved.startsWith('specs/')) {
+      const rest = resolved === 'specs' ? '' : resolved.slice('specs/'.length);
+      return (rest ? '/spec/' + rest : '/spec') + hash;
+    }
+    if (!resolved) return collectionRoot + hash;
+    return collectionRoot + '/' + resolved + hash;
+  };
   const syncDocsSidebar = () => {
     document.querySelectorAll('.docs-sidebar-details').forEach((details) => {
       if (window.matchMedia('(max-width: 640px)').matches) details.removeAttribute('open');
@@ -95,19 +154,107 @@ const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
     });
   };
   const rewriteDocLinks = () => {
-    document.querySelectorAll('.markdown-body a[href]').forEach((anchor) => {
-      const href = anchor.getAttribute('href');
-      if (!href || /^https?:\/\//.test(href) || href.startsWith('mailto:')) return;
-      const next = href.replace(/\.mdx?(?=(?:#|$))/, '');
-      if (next !== href) anchor.setAttribute('href', next);
+    document.querySelectorAll('.markdown-body[data-doc-root]').forEach((body) => {
+      const root = body.getAttribute('data-doc-root') || '';
+      const dir = body.getAttribute('data-doc-dir') || '';
+      body.querySelectorAll('a[href]').forEach((anchor) => {
+        const href = anchor.getAttribute('href');
+        const next = rewriteMarkdownHref(href, root, dir);
+        if (next) anchor.setAttribute('href', next);
+      });
     });
+  };
+  const enhanceHeadings = () => {
+    const body = document.querySelector('.markdown-body[data-doc-path]');
+    const docPath = body?.getAttribute('data-doc-path') || location.pathname;
+    document.querySelectorAll('.markdown-body h2[id], .markdown-body h3[id], .markdown-body h4[id]').forEach((heading) => {
+      if (heading.querySelector('.heading-anchor')) return;
+      const anchor = document.createElement('a');
+      anchor.className = 'heading-anchor';
+      anchor.href = `${docPath}#${heading.id}`;
+      anchor.setAttribute('aria-label', `Copy link to ${heading.textContent.trim()}`);
+      anchor.textContent = '#';
+      heading.appendChild(anchor);
+    });
+  };
+  const headingFromHash = () => {
+    const id = decodeURIComponent(location.hash.replace(/^#/, ''));
+    if (!id) return null;
+    return document.getElementById(id);
+  };
+  const scrollToHash = () => {
+    const target = headingFromHash();
+    if (target) target.scrollIntoView({ block: 'start' });
+  };
+  const setHash = (id, push) => {
+    if (window.__odsHashLock && !push) return;
+    const url = id ? `${location.pathname}${location.search}#${id}` : `${location.pathname}${location.search}`;
+    if (url === `${location.pathname}${location.search}${location.hash}`) return;
+    if (push) history.pushState(null, '', url);
+    else history.replaceState(null, '', url);
+    syncOutlineActive();
+  };
+  const syncOutlineActive = () => {
+    const current = location.hash.replace(/^#/, '');
+    document.querySelectorAll('.outline-link').forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      const hash = href.includes('#') ? href.slice(href.indexOf('#') + 1) : '';
+      link.classList.toggle('active', Boolean(current) && hash === current);
+    });
+  };
+  const bindHashNavigation = () => {
+    document.querySelectorAll('.outline-link, .heading-anchor').forEach((link) => {
+      if (link.dataset.hashBound) return;
+      link.dataset.hashBound = 'true';
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href') || '';
+        const hashIndex = href.indexOf('#');
+        if (hashIndex < 0) return;
+        const id = decodeURIComponent(href.slice(hashIndex + 1));
+        const path = href.slice(0, hashIndex) || location.pathname;
+        const samePage = !path || path === location.pathname;
+        if (!samePage) return;
+        event.preventDefault();
+        setHash(id, true);
+        document.getElementById(id)?.scrollIntoView({ block: 'start' });
+      });
+    });
+  };
+  const observeSectionHash = () => {
+    const headings = [...document.querySelectorAll('.markdown-body h2[id], .markdown-body h3[id], .markdown-body h4[id]')];
+    if (!headings.length || !('IntersectionObserver' in window)) return;
+    if (window.__odsHeadingObserver) window.__odsHeadingObserver.disconnect();
+    const visible = new Map();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visible.set(entry.target.id, entry.boundingClientRect.top);
+        else visible.delete(entry.target.id);
+      });
+      const next = [...visible.entries()].sort((a, b) => a[1] - b[1])[0];
+      if (next?.[0]) setHash(next[0], false);
+    }, { rootMargin: '-20% 0px -65% 0px', threshold: [0, 1] });
+    headings.forEach((heading) => observer.observe(heading));
+    window.__odsHeadingObserver = observer;
   };
   const initDocsShell = () => {
     syncDocsSidebar();
     rewriteDocLinks();
+    enhanceHeadings();
+    bindHashNavigation();
+    syncOutlineActive();
+    if (location.hash) {
+      window.__odsHashLock = true;
+      scrollToHash();
+      window.setTimeout(() => { window.__odsHashLock = false; }, 500);
+    }
+    observeSectionHash();
   };
   initDocsShell();
   window.addEventListener('resize', syncDocsSidebar, { passive: true });
+  window.addEventListener('hashchange', () => {
+    syncOutlineActive();
+    scrollToHash();
+  });
   document.addEventListener('astro:after-swap', initDocsShell);
   document.addEventListener('astro:page-load', initDocsShell);
 </script>

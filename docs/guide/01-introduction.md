@@ -56,7 +56,7 @@ ODS is built on six foundational dimensions:
 | **Compliant** | `ods lint` reports zero errors |
 | **Non-compliant** | Fix diagnostics, then re-lint |
 
-There is **no** Level 0–3 ladder. Normative rules: [`specs/ods/intro.md`](../../specs/ods/intro.md), [`specs/ods/core.md`](../../specs/ods/core.md), [`specs/ods/validation.md`](../../specs/ods/validation.md).
+There is **no** Level 0–3 ladder. Normative rules: [`specs/ods/intro.md`](/spec/ods/intro), [`specs/ods/core.md`](/spec/ods/core), [`specs/ods/validation.md`](/spec/ods/validation).
 
 ---
 

@@ -150,7 +150,7 @@ check_keys = true
 ignore_keys = []
 ```
 
-When extra specs are set to `enabled: true` in root `ods.toml`, bare `ods lint` automatically validates those declared specs without requiring extra CLI flags. For full details on all supported root configuration options, see [ODS Features & Configuration Keys](/docs/guide/features.md#2-root-odstoml-configuration-keys).
+When extra specs are set to `enabled: true` in root `ods.toml`, bare `ods lint` automatically validates those declared specs without requiring extra CLI flags. For full details on all supported root configuration options, see [ODS Features & Configuration Keys](/docs/features#2-root-odstoml-configuration-keys).
 
 ### Imperative CLI Flags & Key Suppression
 
