@@ -1,0 +1,96 @@
+<script>
+  function setupCodeHighlighting() {
+    const codeBlocks = document.querySelectorAll('.theme-code code, pre code, .ex-cmd code, .row-cmd code');
+    codeBlocks.forEach(function (codeEl) {
+      if (codeEl.getAttribute('data-highlighted') === 'true') return;
+      const text = codeEl.textContent || '';
+      if (!text.trim()) return;
+
+      if (text.trim().startsWith('$')) {
+        const parts = text.trim().split(/\s+/);
+        codeEl.innerHTML = parts
+          .map(function (part) {
+            if (part === '$') return '<span class="tok-prompt">$</span>';
+            if (part === 'ods' || part === 'cargo' || part === 'npm') return '<span class="tok-cmd">' + part + '</span>';
+            if (part.startsWith('--')) return '<span class="tok-flag">' + part + '</span>';
+            if (part.includes('/') || part.endsWith('.md') || part.endsWith('.rs') || part.endsWith('.proto') || part.endsWith('.csv')) {
+              return '<span class="tok-path">' + part + '</span>';
+            }
+            return '<span class="tok-subcmd">' + part + '</span>';
+          })
+          .join(' ');
+      }
+
+      codeEl.setAttribute('data-highlighted', 'true');
+    });
+  }
+
+  function setupScrollAnimations() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+        el.classList.add('is-revealed');
+      });
+      return;
+    }
+
+    const root = document.querySelector('.ods-marketing');
+    if (!root) return;
+
+    const selectors = [
+      '.hero-section',
+      'section',
+      '.reveal-on-scroll',
+      '.metric-card',
+      '.cli-wrap',
+      '.plan-card',
+      '.persona-card',
+      '.ecosystem-card',
+      '.exact-card',
+      '.pathway-col',
+      '.download-card',
+      '.ex-card',
+      '.faq-card',
+    ];
+
+    const elementsToObserve = new Set<Element>();
+    selectors.forEach(function (selector) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        elementsToObserve.add(el);
+      });
+    });
+
+    elementsToObserve.forEach(function (el) {
+      el.classList.add('reveal-on-scroll');
+    });
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -30px 0px' },
+    );
+
+    const viewportHeight = window.innerHeight;
+    elementsToObserve.forEach(function (el) {
+      const htmlEl = el as HTMLElement;
+      const rect = htmlEl.getBoundingClientRect();
+      if (rect.top < viewportHeight - 20 && rect.bottom > 0) {
+        htmlEl.classList.add('is-revealed');
+      } else {
+        observer.observe(htmlEl);
+      }
+    });
+  }
+
+  function initMarketing() {
+    setupCodeHighlighting();
+  }
+
+  initMarketing();
+  document.addEventListener('astro:after-swap', initMarketing);
+</script>

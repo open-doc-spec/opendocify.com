@@ -1,0 +1,580 @@
+/* ODS marketing pages: live-site content/graphics on AstroDeck tokens. */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ods-marketing {
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-160: 160px;
+  --space-200: 200px;
+  --radius-outer: 36px;
+  --radius-container: 36px;
+  --radius-xl: 36px;
+  --radius-inner: 28px;
+  --radius-inside: 28px;
+  --radius-lg: 28px;
+  --radius-child: 20px;
+  --radius-children: 20px;
+  --radius-md: 20px;
+  --radius-sm: 12px;
+  --radius-pill: 9999px;
+  --radius-nested-lg: 28px;
+  --radius-nested-xl: 20px;
+  --font-heading: var(--font-display);
+  --font-body: var(--font-sans);
+  --bg: var(--color-background);
+  --card-bg: var(--color-card);
+  --nested-card-bg: var(--color-muted);
+  --border-color: var(--color-border);
+  --border: 1px solid var(--color-border);
+  --fg: var(--color-foreground);
+  --fg-muted: var(--color-muted-foreground);
+  --fg-dim: var(--color-muted-foreground);
+  --accent: var(--color-primary);
+  --code-bg: var(--color-muted);
+  --action-bg: var(--color-primary);
+  --action-fg: var(--color-primary-foreground);
+  --secondary-action-bg: var(--color-card);
+  --secondary-action-fg: var(--color-foreground);
+  --secondary-action-border: 1px solid var(--color-border);
+  color: var(--fg);
+  overflow-x: clip;
+}
+
+.dark .ods-marketing .hero-glow-blob,
+html[data-theme="dark"] .ods-marketing .hero-glow-blob {
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 768px) {
+  .ods-marketing .page-container,
+  .ods-marketing .section-container,
+  .ods-marketing .hero-section,
+  .ods-marketing .header-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .ods-marketing .hero-actions,
+  .ods-marketing .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.ods-marketing :where(h1, h2, h3, h4) {
+  font-size: revert;
+  letter-spacing: revert;
+  line-height: revert;
+  font-weight: revert;
+  margin: revert;
+}
+
+
+  /* ── Universal Dark Code IDE & Terminal Theme ── */
+  .ex-code-box,
+  .code-box-wrapper,
+  .code-window,
+  .terminal-container,
+  .code-box {
+    background: #090d16 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+  }
+
+  .spec-card pre,
+  .docs-card pre {
+    background: #090d16 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-sm) !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
+  }
+
+  .code-title,
+  .code-box-title,
+  .terminal-header,
+  .code-window-header {
+    background: #141824 !important;
+    color: #94a3b8 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    padding: 16px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* IDE Window Control Dots (Red, Yellow, Green) */
+  .code-title::before,
+  .code-box-title::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #ff5f57 !important;
+    box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840 !important;
+    margin-right: 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .theme-code,
+  pre.theme-code,
+  .terminal-code-panel,
+  .code-box pre,
+  .code-box-wrapper pre,
+  .ex-code-box pre,
+  .step-code-box pre {
+    background: #090d16 !important;
+    color: #e2e8f0 !important;
+    margin: 0 !important;
+    padding: 24px 28px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.85rem !important;
+    line-height: 1.7 !important;
+    overflow-x: auto !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .spec-card pre,
+  .docs-card pre {
+    background: #090d16 !important;
+    color: #e2e8f0 !important;
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  /* IDE Command Box Snippet (`$ ods ...`) */
+  .ex-cmd,
+  .row-cmd {
+    background: #090d16 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 16px 24px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.85rem !important;
+    color: #e2e8f0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    margin-top: 8px !important;
+  }
+
+  /* Syntax Highlighting Tokens */
+  .tok-dash { color: #64748b !important; font-weight: 600; }
+  .tok-key { color: #38bdf8 !important; font-weight: 600; }
+  .tok-val { color: #f472b6 !important; }
+  .tok-path { color: #4ade80 !important; }
+  .tok-fn { color: #fde047 !important; font-weight: 600; }
+  .tok-bullet { color: #94a3b8 !important; }
+  .tok-prompt { color: #22c55e !important; font-weight: bold; }
+  .tok-cmd { color: #38bdf8 !important; font-weight: 600; }
+  .tok-subcmd { color: #f8fafc !important; }
+  .tok-flag { color: #c084fc !important; }
+  .tok-comment { color: #64748b !important; font-style: italic; }
+  
+
+  
+
+  
+
+  
+
+
+
+  /* ── On-Scroll Reveal Animations (Slight, Soft & Fast) ── */
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-on-scroll.is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    will-change: auto;
+  }
+
+  /* Soft scale variant */
+  .reveal-on-scroll.reveal-soft-scale {
+    transform: translateY(12px) scale(0.98);
+  }
+
+  /* Fade only variant */
+  .reveal-on-scroll.reveal-fade {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Fast micro-staggering for grid / container children */
+  .reveal-on-scroll[style*="--reveal-index"] {
+    transition-delay: calc(var(--reveal-index, 0) * 0.04s);
+  }
+
+  /* Reduced motion accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+    .reveal-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  .ods-marketing h1, .ods-marketing h2, .ods-marketing h3, .ods-marketing h4, .ods-marketing h5, .ods-marketing h6,
+  .ods-marketing .tagline, .ods-marketing .hero-heading, .ods-marketing .section-heading, .ods-marketing .page-title, .ods-marketing .feature-title, .ods-marketing .spec-title, .ods-marketing .cta-heading, .ods-marketing .col-title, .ods-marketing .selector-title, .ods-marketing .pathways-title, .ods-marketing .plan-name, .ods-marketing .price-val, .ods-marketing .heading {
+    font-family: var(--font-heading) !important;
+    color: var(--fg) !important;
+    font-weight: 700 !important;
+  }
+
+  .ods-marketing .section-heading {
+    font-size: clamp(2rem, 3.8vw, 2.75rem);
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subheading, .page-subtitle, .section-subtext {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+
+  .ods-marketing a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ods-marketing img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .ods-marketing code, .ods-marketing pre {
+    font-family: var(--font-mono) !important;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  /* ── Editorial Layout Controls ── */
+  
+  /* 1. Global border-radius hierarchy: 36px (Outlined Container) -> 28px (Inside Container) -> 20px (Children) */
+  
+  /* Outlined Container (36px) */
+  .outlined-container, .outer-container, .hero-calculator-box, .assistant-switcher-box, .pathways-box, .cli-wrap, .terminal-container, .schema-table-wrap, .flowchart-box, .token-chart-box, .feature-big-banner, .cta-banner, .examples-cta, .features-bottom-cta, .exact-card, .exact-summary-banner {
+    border-radius: var(--radius-outer) !important; /* 36px */
+  }
+
+  /* Inside Container (28px) */
+  .inside-container, .inner-container, .metric-card, .persona-card, .pathway-card, .workflow-step-card, .ecosystem-card, .profile-card, .plan-card, .calc-card, .guide-card, .cmd-card, .integration-card, .faq-card, .spec-card, .download-card, .example-card-horizontal, .comparison-card, .workflow-card, .pathway-col, .output-card, .ladder-step, .l-step, .p-card, .comp-card, .ex-card, .conformance-card, .ai-chip-item, .exact-graphic-box {
+    border-radius: var(--radius-inner) !important; /* 28px */
+  }
+
+  /* Children inside containers (20px) */
+  button, .btn, input, select, textarea, .calc-select, .hero-secondary-button, .nav-theme-btn, .plan-button, .nav-github, .nav-badge, .pill-badge, .section-tag-badge, .pill-badge-sm, .banner-badge, .banner-item, .rag-bad, .ods-good, .eco-badge, .p-badge, .l-num, .out-lbl, .cli-dots, .cli-copy-btn, .terminal-copy-btn, .term-tab, .assistant-btn, .status-indicator, .child-item, .icon-circle {
+    border-radius: var(--radius-child) !important; /* 20px */
+  }
+
+  .nav-header, .nav-menu-item, .toggle-container, .discount-badge, .hero-actions a, .plan-button.pill, .toggle-btn {
+    border-radius: var(--radius-pill) !important;
+  }
+
+  /* Concentric corner radii adjustments for nested elements */
+  .hero-calculator-box .output-card,
+  .assistant-switcher-box .terminal-container,
+  .pathways-box .pathway-col,
+  .cli-wrap .cli-box {
+    border-radius: var(--radius-inner) !important; /* 28px inside 36px container */
+  }
+  .hero-calculator-box input,
+  .hero-calculator-box select,
+  .assistant-switcher-box button,
+  .output-card button,
+  .pathway-col .btn {
+    border-radius: var(--radius-child) !important; /* 20px children */
+  }
+
+  /* 2. Flat Monochrome Colors & Hierarchies (Light & Dark) */
+  .metrics-grid .metric-card,
+  .persona-card,
+  .pathway-col,
+  .workflow-step-card,
+  .ecosystem-card,
+  .profile-card,
+  .plan-card,
+  .calc-card,
+  .guide-card,
+  .cmd-card,
+  .integration-card,
+  .faq-card,
+  .spec-card,
+  .download-card,
+  .example-card-horizontal,
+  .comparison-card,
+  .assistant-switcher-box,
+  .hero-calculator-box,
+  .pathways-box,
+  .flowchart-box,
+  .token-chart-box,
+  .schema-table-wrap,
+  .matrix-table-wrap,
+  .ladder-step,
+  .l-step,
+  .p-card,
+  .comp-card,
+  .ex-card,
+  .conformance-card {
+    background-color: var(--card-bg) !important;
+    background-image: none !important;
+    border: var(--border) !important;
+  }
+
+  /* Nested container elements */
+  .output-card,
+  .terminal-container,
+  .cli-box,
+  .code-box,
+  .step-code-box,
+  .ex-code-wrap,
+  .cli-tree,
+  .path-prompt-box,
+  .eco-cmd-box,
+  .banner-item {
+    background-color: var(--nested-card-bg) !important;
+    background-image: none !important;
+    border: var(--border) !important;
+  }
+
+  /* Enforce simple borders and borders colors */
+  hr, .border-b, .border-t, .border-l, .border-r,
+  .footer-top-grid, .terminal-tab-bar, .cli-header, .terminal-title-tag,
+  .schema-table th, .schema-table td, .matrix-table th, .matrix-table td, .comparison-table th, .comparison-table td {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Background patterns & glows enabled for premium visual hero aesthetics */
+  .shimmer-btn::after {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .dot-matrix-bg {
+      display: none !important;
+      background: none !important;
+    }
+  }
+  
+  /* Disable hover scale/translate/shadows */
+  .glow-card:hover, .plan-card:hover, .faq-card:hover, .example-card-horizontal:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--fg-dim) !important; /* Editorial hover feedback */
+  }
+
+  /* Remove tagline text gradients */
+  .tagline, .hero-subtext strong, .banner-item h4 {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: var(--fg) !important;
+  }
+
+  /* Enforce standard text visibility */
+  .ods-marketing p, .ods-marketing li, .ods-marketing td, .ods-marketing .faq-answer, .ods-marketing .metric-sub, .ods-marketing .col-links a, .ods-marketing .legal-links a, .ods-marketing .footer-brand-desc, .ods-marketing .hero-subtext, .ods-marketing .cli-log {
+    color: var(--fg-muted) !important;
+  }
+
+  .ods-marketing h1, .ods-marketing h2, .ods-marketing h3, .ods-marketing h4, .ods-marketing h5, .ods-marketing h6, .ods-marketing strong, .ods-marketing th, .ods-marketing .metric-value, .ods-marketing .out-num, .ods-marketing .calc-badge, .ods-marketing .timeline-content li strong, .ods-marketing .status-indicator span, .ods-marketing .ladder-title {
+    color: var(--fg) !important;
+  }
+
+
+  /* Button Actions */
+  .btn-primary,
+  .hero-actions .btn-primary,
+  .plan-card.popular .plan-button,
+  .assistant-btn.active,
+  .term-tab.active,
+  .nav-github {
+    background-color: var(--action-bg) !important;
+    color: var(--action-fg) !important;
+    border: 1px solid var(--action-bg) !important;
+  }
+
+  .btn-primary:hover,
+  .hero-actions .btn-primary:hover,
+  .plan-card.popular .plan-button:hover,
+  .nav-github:hover {
+    opacity: 0.9 !important;
+  }
+
+  /* Secondary Actions / Other Buttons */
+  .btn-secondary,
+  .hero-secondary-button,
+  .plan-button,
+  .assistant-btn,
+  .term-tab {
+    background-color: var(--secondary-action-bg) !important;
+    color: var(--secondary-action-fg) !important;
+    border: var(--secondary-action-border) !important;
+  }
+
+  .btn-secondary:hover,
+  .hero-secondary-button:hover,
+  .plan-button:hover,
+  .assistant-btn:hover,
+  .term-tab:hover {
+    background-color: var(--nested-card-bg) !important;
+    color: var(--fg) !important;
+    border-color: var(--fg-dim) !important;
+  }
+
+  /* Neutralizing Brand Icons inside SVGs (Tux, Antigravity, Claude, etc.) */
+  svg.nav-icon, svg.footer-brand-icon {
+    color: var(--fg) !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+  
+  /* Convert bright SVG paths inside AIIcon and PlatformIcon to monochrome */
+  svg.platform-icon path, svg.platform-icon circle {
+    fill: currentColor !important;
+  }
+  
+  svg path[fill="#D97757"] {
+    fill: currentColor !important;
+  }
+  svg path[fill="#00D2FF"], svg path[stroke="#00D2FF"] {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+  svg circle[stroke="#A7F3D0"], svg polygon[fill="#A7F3D0"] {
+    stroke: currentColor !important;
+    fill: currentColor !important;
+  }
+
+  /* Adjust color accents in spec & badges */
+  .ods-good, .ods-green, .rag-bad {
+    background-color: var(--nested-card-bg) !important;
+    border: var(--border) !important;
+    color: var(--fg) !important;
+  }
+  .bar-fill.ods-green, .r-bar {
+    background-color: var(--action-bg) !important;
+  }
+  .chart-pulse-badge {
+    animation: none !important;
+    background-color: var(--nested-card-bg) !important;
+    color: var(--fg) !important;
+    border: var(--border) !important;
+  }
+
+
+  /* ── Global Editorial Breathing Space between Sections ── */
+  .section-container,
+  .hero-section,
+  .feature-hero-top,
+  .feature-row,
+  .feature-big-banner,
+  .spec-section,
+  .roi-section,
+  .faq-section,
+  .examples-content-grid,
+  .examples-cta,
+  .features-bottom-cta,
+  .timeline,
+  .docs-section,
+  .platform-section,
+  .plans-grid,
+  .spec-cta,
+  .changelog-cta,
+  .cta-banner,
+  .industry-roi-chart-box {
+    margin-top: 130px !important;
+    margin-bottom: 130px !important;
+    scroll-margin-top: 100px;
+    scroll-margin-bottom: 100px;
+  }
+
+  /* Hero section top margin */
+  .hero-section,
+  .feature-hero-top {
+    margin-top: var(--space-32) !important;
+    margin-bottom: 130px !important;
+  }
+
+  /* Reset platform list gap to let margin handle spacing */
+  .platform-list {
+    gap: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .section-container,
+    .hero-section,
+    .feature-hero-top,
+    .feature-row,
+    .feature-big-banner,
+    .spec-section,
+    .roi-section,
+    .faq-section,
+    .examples-content-grid,
+    .examples-cta,
+    .features-bottom-cta,
+    .timeline,
+    .docs-section,
+    .platform-section,
+    .plans-grid,
+    .spec-cta,
+    .changelog-cta,
+    .cta-banner,
+    .industry-roi-chart-box {
+      margin-top: 80px !important;
+      margin-bottom: 80px !important;
+      scroll-margin-top: 70px;
+      scroll-margin-bottom: 70px;
+    }
+
+    .hero-section,
+    .feature-hero-top {
+      margin-top: var(--space-32) !important;
+      margin-bottom: 80px !important;
+    }
+  }

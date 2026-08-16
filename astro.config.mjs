@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
+
 export default defineConfig({
   site: "https://opendocify.com",
   devToolbar: { enabled: false },
@@ -12,6 +13,14 @@ export default defineConfig({
     react(),
     sitemap({ changefreq: "weekly", priority: 0.7 }),
   ],
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

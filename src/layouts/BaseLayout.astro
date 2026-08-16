@@ -10,7 +10,7 @@ import AnimationObserver from '@/components/AnimationObserver.astro';
 
 interface Props { title: string; description?: string; image?: string; type?: 'website' | 'article'; publishedTime?: Date; author?: string; activeNav?: string; }
 const { title, description = 'Open Document Spec gives AI assistants a deterministic map of the exact documents they need.', image, type = 'website', publishedTime, author, activeNav = 'home' } = Astro.props;
-const fullTitle = `${title} | Open Document Spec`;
+const fullTitle = /Open Document Spec|\bODS\b/.test(title) ? title : `${title} | Open Document Spec`;
 const jsonLd = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Open Document Spec (ODS)', url: 'https://opendocify.com', description, applicationCategory: 'DeveloperApplication', operatingSystem: 'macOS, Windows, Linux', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, license: 'https://www.apache.org/licenses/LICENSE-2.0' };
 ---
 

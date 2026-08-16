@@ -1,6 +1,25 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-interface Props { title?: string; description?: string; activeNav?: string; }
-const { title = 'Open Document Spec (ODS) — precise context for AI', description, activeNav = 'home' } = Astro.props;
+import MarketingEnhancements from '../components/MarketingEnhancements.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeNav?: string;
+  shell?: 'marketing' | 'docs';
+}
+
+const {
+  title = 'Open Document Spec (ODS): Built to make your documentation extraordinarily productive',
+  description = 'Open Document Spec enriches plain Markdown repositories with machine-readable YAML frontmatter, explicit dependency graphs, and deterministic AI context loading.',
+  activeNav = 'home',
+  shell = 'marketing',
+} = Astro.props;
 ---
-<BaseLayout title={title} description={description} activeNav={activeNav}><slot /></BaseLayout>
+
+<BaseLayout title={title} description={description} activeNav={activeNav}>
+  <div class={shell === 'docs' ? 'docs-shell' : 'ods-marketing'}>
+    <slot />
+  </div>
+  {shell === 'marketing' && <MarketingEnhancements />}
+</BaseLayout>
