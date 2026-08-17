@@ -5,41 +5,63 @@
 
 import Layout from "../layouts/Layout.astro";
 import { REPO_URL } from "../lib/releases";
+import { changelog } from "../data/changelog";
+
+function withInlineCode(text: string) {
+  return text.split(/(`[^`]+`)/g).map((part) => {
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return { code: true, value: part.slice(1, -1) };
+    }
+    return { code: false, value: part };
+  });
+}
 ---
 
 <Layout title="Changelog: Open Document Spec (ODS)" activeNav="changelog">
   <div class="page-container">
     <div class="header-section">
-      <div class="pill-badge">Release History</div>
+      <div class="pill-badge">ods CLI</div>
       <h1 class="page-title">Changelog</h1>
       <p class="page-subtitle">
-        Latest updates, releases, performance improvements, and spec revisions for ODS.
+        What changed in the <code>ods</code> command — so you know what to type, what to fix in your files, and when to update.
       </p>
     </div>
 
     <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-meta">
-          <span class="version-tag">v0.1.0</span>
-          <span class="date">Initial Release</span>
-        </div>
-        <div class="timeline-content">
-          <h2>Open Document Specification Core Release</h2>
-          <p>Initial release of ODS specification, Rust native CLI, and AI agent integration tools.</p>
-          <ul>
-            <li><strong>Rust Native Core</strong>: Ultra-fast <code>ods</code> binary for linting, indexing, and context extraction.</li>
-            <li><strong>Level 0 to 3 Schema</strong>: Full support for <code>ods:</code> YAML frontmatter block, <code>depends</code>, and <code>related</code> edge graphs.</li>
-            <li><strong>Deterministic Context CLI</strong>: Command <code>ods context &lt;path&gt;</code> to extract bounded dependency trees.</li>
-            <li><strong>Background Daemon</strong>: Native watch mode auto-repairing file moves and links.</li>
-            <li><strong>AI Agent Integrations</strong>: Native skills for Claude Code, Antigravity, Cursor, and Windsurf.</li>
-          </ul>
-        </div>
-      </div>
+      {changelog.map((entry) => (
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="version-tag">{entry.tag}</span>
+            {entry.latest && <span class="latest-tag">Latest</span>}
+            <span class="date">{entry.date}</span>
+          </div>
+          <div class="timeline-content">
+            <h2>
+              {withInlineCode(entry.title).map((part) => (part.code ? <code>{part.value}</code> : part.value))}
+            </h2>
+            <p>
+              {withInlineCode(entry.summary).map((part) => (part.code ? <code>{part.value}</code> : part.value))}
+            </p>
+            <ul>
+              {entry.items.map((item) => (
+                <li>
+                  <strong>{item.label}</strong>
+                  {': '}
+                  {withInlineCode(item.text).map((part) => (part.code ? <code>{part.value}</code> : part.value))}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
     </div>
 
     <div class="changelog-cta">
+      <p class="changelog-note">
+        Sourced from the <code>ods</code> engine changelog. GitHub still has every tag, including internal CI builds.
+      </p>
       <a href={`${REPO_URL}/releases`} target="_blank" rel="noopener noreferrer" class="cta-button">
-        View Full Release Logs on GitHub →
+        Download a release →
       </a>
     </div>
   </div>
@@ -127,6 +149,18 @@ import { REPO_URL } from "../lib/releases";
     border-radius: var(--radius-sm);
   }
 
+  .latest-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-sm);
+    background: var(--ods-accent-soft, #e6f4ea);
+    color: #15803d;
+  }
+
   .date {
     font-size: 0.8rem;
     color: var(--fg-dim);
@@ -137,6 +171,18 @@ import { REPO_URL } from "../lib/releases";
     font-weight: 600;
     color: var(--fg);
     margin-bottom: var(--space-8);
+  }
+
+  .timeline-content h2 code,
+  .page-subtitle code,
+  .timeline-content p code,
+  .timeline-content li code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  .header-section .page-subtitle code {
+    font-size: 0.95em;
   }
 
   .timeline-content p {
@@ -164,6 +210,14 @@ import { REPO_URL } from "../lib/releases";
 
   .changelog-cta {
     text-align: center;
+  }
+
+  .changelog-note {
+    max-width: 36rem;
+    margin: 0 auto var(--space-16);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--fg-muted);
   }
 
   .cta-button {
