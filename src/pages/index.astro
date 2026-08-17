@@ -46,15 +46,6 @@ import { REPO_URL } from "../lib/releases";
       <div class="hero-bottom-gradient-sync"></div>
     </div>
 
-    <div class="pill-badge-wrap">
-      <div class="pill-badge">
-        <span class="pill-dot"></span>
-        <span>Open Document Spec (ODS)</span>
-        <span class="pill-sep">•</span>
-        <span>Smart AI Context Engine</span>
-      </div>
-    </div>
-
     <h1 class="tagline">Make your documents easy for people and AI to understand.</h1>
 
     <p class="hero-subtext">
@@ -151,322 +142,273 @@ import { REPO_URL } from "../lib/releases";
     </div>
   </section>
 
-  <!-- ODS Context Precision Comparison Section -->
+  <!-- ODS Context Precision Visual Flow Section -->
   <section class="section-container cookbook-analogy-section" id="cookbook-example">
-    <h2 class="section-heading">How ODS Works</h2>
-    <p class="section-subheading">ODS builds a precise reading list before AI starts processing, eliminating unnecessary context, reducing cost, and improving accuracy.</p>
+    <h2 class="section-heading">Give AI Less. Let It Understand More.</h2>
+    <p class="section-subheading">ODS finds the information that matters before AI starts processing — reducing noise, cost, and unnecessary context.</p>
 
-    <div class="exact-comparison-wrapper">
-      <!-- 2 Main Cards Grid -->
-      <div class="exact-comparison-grid">
-        
-        <!-- CARD 1: WITHOUT ODS -->
-        <div class="exact-card mode-without">
-          <!-- Top Badge -->
-          <div class="exact-badge badge-red">
-            <span class="dot red"></span>
-            <span>WITHOUT ODS</span>
-          </div>
-
-          <!-- Visual Graphic: Stack of 1000 pages connecting to AI -->
-          <div class="exact-graphic-box">
-            <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="graphic-svg">
-              <!-- Grid of Stacked Pages -->
-              <g class="pages-grid" opacity="0.95">
-                <!-- Row 1 (Back) -->
-                <rect x="25" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="31" y1="30" x2="49" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="31" y1="37" x2="45" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="31" y1="44" x2="49" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="60" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="66" y1="30" x2="84" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="66" y1="37" x2="80" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="66" y1="44" x2="84" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="95" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="101" y1="30" x2="119" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="101" y1="37" x2="115" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="101" y1="44" x2="119" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="130" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="136" y1="30" x2="154" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="136" y1="37" x2="150" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="136" y1="44" x2="154" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="165" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="171" y1="30" x2="189" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="171" y1="37" x2="185" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="171" y1="44" x2="189" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="200" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="206" y1="30" x2="224" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="206" y1="37" x2="220" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="206" y1="44" x2="224" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="235" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="241" y1="30" x2="259" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="241" y1="37" x2="255" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="241" y1="44" x2="259" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <rect x="270" y="20" width="30" height="42" rx="3" fill="var(--bg)" stroke="var(--border-color)" stroke-width="1.2"/>
-                <line x1="276" y1="30" x2="294" y2="30" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="276" y1="37" x2="290" y2="37" stroke="var(--border-color)" stroke-width="1.8"/>
-                <line x1="276" y1="44" x2="294" y2="44" stroke="var(--border-color)" stroke-width="1.8"/>
-
-                <!-- Row 2 (Front) -->
-                <rect x="33" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="39" y1="44" x2="57" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="39" y1="51" x2="53" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="39" y1="58" x2="57" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-
-                <rect x="68" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="74" y1="44" x2="92" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="74" y1="51" x2="88" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="74" y1="58" x2="92" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-
-                <rect x="103" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="109" y1="44" x2="127" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="109" y1="51" x2="123" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="109" y1="58" x2="127" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-
-                <rect x="138" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="144" y1="44" x2="162" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="144" y1="51" x2="158" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="144" y1="58" x2="162" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-
-                <rect x="173" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="179" y1="44" x2="197" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="179" y1="51" x2="193" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="179" y1="58" x2="197" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-
-                <rect x="208" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="214" y1="44" x2="232" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="214" y1="51" x2="228" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="214" y1="58" x2="232" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-
-                <rect x="243" y="34" width="30" height="42" rx="3" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5"/>
-                <line x1="249" y1="44" x2="267" y2="44" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="249" y1="51" x2="263" y2="51" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-                <line x1="249" y1="58" x2="267" y2="58" stroke="var(--fg-muted)" opacity="0.6" stroke-width="1.8"/>
-              </g>
-
-              <!-- Dashed line down to AI -->
-              <line x1="160" y1="84" x2="160" y2="132" stroke="var(--fg-muted)" opacity="0.6" stroke-width="2" stroke-dasharray="4 4"/>
-
-              <!-- Circle AI node -->
-              <circle cx="160" cy="154" r="20" fill="var(--card-bg)" stroke="var(--fg-muted)" stroke-width="2"/>
-              <text x="160" y="159" fill="var(--fg)" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">AI</text>
-            </svg>
-          </div>
-
-          <!-- Metrics Table -->
-          <div class="exact-metrics-table">
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-                <span class="row-title">Pages Read</span>
-              </div>
-              <div class="row-right">
-                <span class="num red">1,000</span>
-                <span class="unit">Pages</span>
-              </div>
-            </div>
-
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
-                <span class="row-title">Text Sent to AI</span>
-              </div>
-              <div class="row-right">
-                <span class="num red">80,000</span>
-                <span class="unit">Words</span>
-              </div>
-            </div>
-
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                <span class="row-title">Response Time</span>
-              </div>
-              <div class="row-right">
-                <span class="num red">25.4</span>
-                <span class="unit">Seconds</span>
-              </div>
-            </div>
-
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-                <span class="row-title">Cost per Query</span>
-              </div>
-              <div class="row-right">
-                <span class="num red">$0.25</span>
-              </div>
+    <div class="ods-flow-wrapper">
+      <!-- Main Continuous Editorial Visual Card -->
+      <div class="ods-flow-card">
+        <!-- 3 Step Header Strip -->
+        <div class="ods-flow-header-grid">
+          <div class="ods-flow-step step-everything">
+            <span class="ods-step-badge">STEP 01</span>
+            <div class="ods-step-text">
+              <span class="ods-step-title">Everything</span>
+              <span class="ods-step-desc">Too much information</span>
             </div>
           </div>
 
-          <!-- Bullet Points -->
-          <ul class="exact-bullet-list">
-            <li>
-              <span class="bullet-cross">✕</span>
-              <span>Reads thousands of irrelevant pages</span>
-            </li>
-            <li>
-              <span class="bullet-cross">✕</span>
-              <span>High token usage and processing cost</span>
-            </li>
-            <li>
-              <span class="bullet-cross">✕</span>
-              <span>Higher risk of context mix-ups and hallucinations</span>
-            </li>
-          </ul>
+          <div class="ods-flow-step step-ods">
+            <span class="ods-step-badge badge-ods">STEP 02</span>
+            <div class="ods-step-text">
+              <span class="ods-step-title">ODS finds what matters</span>
+              <span class="ods-step-desc">Filters before AI starts</span>
+            </div>
+          </div>
+
+          <div class="ods-flow-step step-ai">
+            <span class="ods-step-badge badge-ai">STEP 03</span>
+            <div class="ods-step-text">
+              <span class="ods-step-title">Relevant context</span>
+              <span class="ods-step-desc">Only what AI needs</span>
+            </div>
+          </div>
         </div>
 
-        <!-- CARD 2: WITH ODS -->
-        <div class="exact-card mode-with">
-          <!-- Top Badge -->
-          <div class="exact-badge badge-green">
-            <span class="dot green"></span>
-            <span>WITH ODS</span>
-          </div>
+        <!-- Visual Continuous Flow Canvas -->
+        <div class="ods-flow-visual">
+          <svg viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="ods-flow-svg">
+            <defs>
+              <filter id="ods-glow-green" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <filter id="ods-subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12"/>
+              </filter>
+            </defs>
 
-          <!-- Visual Graphic: 2 Targeted Pages connecting to AI -->
-          <div class="exact-graphic-box">
-            <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="graphic-svg">
-              <!-- Page 1 -->
-              <g class="page-1">
-                <rect x="92" y="22" width="56" height="74" rx="5" fill="var(--card-bg)" stroke="#10b981" stroke-width="2"/>
-                <line x1="106" y1="38" x2="134" y2="38" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
-                <line x1="106" y1="50" x2="128" y2="50" stroke="var(--border-color)" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="106" y1="62" x2="134" y2="62" stroke="var(--border-color)" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="106" y1="74" x2="124" y2="74" stroke="var(--border-color)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- CONVERGING NOISE LINES (Top & Bottom Discarded Paths) -->
+            <g class="noise-lines-group">
+              <path d="M 280 65 C 360 65, 410 160, 470 160" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3" class="animated-dash-slow"/>
+              <path d="M 280 95 C 360 95, 410 165, 470 165" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
+              <path d="M 280 125 C 360 125, 410 170, 470 170" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" class="animated-dash-slow"/>
+              <path d="M 280 235 C 360 235, 410 190, 470 190" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
+              <path d="M 280 265 C 360 265, 410 195, 470 195" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" class="animated-dash-slow"/>
+              <path d="M 280 295 C 360 295, 410 200, 470 200" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
+            </g>
+
+            <!-- CONVERGING RELEVANT PATHS (3 Green Focused Lines into ODS) -->
+            <g class="relevant-lines-input">
+              <path d="M 280 155 C 360 155, 410 175, 470 175" stroke="#10b981" stroke-width="2" opacity="0.75" class="animated-dash"/>
+              <path d="M 280 180 C 360 180, 410 180, 470 180" stroke="#10b981" stroke-width="2.5" opacity="0.95" class="animated-dash"/>
+              <path d="M 280 205 C 360 205, 410 185, 470 185" stroke="#10b981" stroke-width="2" opacity="0.75" class="animated-dash"/>
+            </g>
+
+            <!-- ODS OUTPUT PATHS (3 Green Clean Lines out to Relevant Context) -->
+            <g class="relevant-lines-output">
+              <path d="M 530 175 C 590 175, 630 120, 695 120" stroke="#10b981" stroke-width="2" opacity="0.9" class="animated-dash"/>
+              <path d="M 530 180 C 590 180, 630 180, 695 180" stroke="#10b981" stroke-width="2.5" opacity="1" class="animated-dash"/>
+              <path d="M 530 185 C 590 185, 630 240, 695 240" stroke="#10b981" stroke-width="2" opacity="0.9" class="animated-dash"/>
+            </g>
+
+            <!-- RELEVANT CONTEXT TO AI PATHS -->
+            <g class="ai-input-lines">
+              <path d="M 750 120 C 795 120, 815 165, 850 172" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+              <path d="M 750 180 L 850 180" stroke="#10b981" stroke-width="2.5" opacity="1"/>
+              <path d="M 750 240 C 795 240, 815 195, 850 188" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+            </g>
+
+            <!-- AI TO BETTER ANSWER PATH -->
+            <path d="M 900 180 L 935 180" stroke="#10b981" stroke-width="2" stroke-dasharray="3 3" opacity="0.85"/>
+
+            <!-- ── STEP 01: EVERYTHING DOCUMENT CLUSTER (12 DOCUMENTS) ── -->
+            <g class="doc-cluster">
+              <!-- Row 1: Discarded documents -->
+              <g class="doc-shape doc-discarded" transform="translate(45, 45)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="30" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="24" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="36" x2="32" y2="36" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <circle cx="36" cy="12" r="2" fill="#ef4444" opacity="0.6"/>
               </g>
 
-              <!-- Page 2 -->
-              <g class="page-2">
-                <rect x="172" y="22" width="56" height="74" rx="5" fill="var(--card-bg)" stroke="#10b981" stroke-width="2"/>
-                <line x1="186" y1="38" x2="214" y2="38" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
-                <line x1="186" y1="50" x2="208" y2="50" stroke="var(--border-color)" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="186" y1="62" x2="214" y2="62" stroke="var(--border-color)" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="186" y1="74" x2="204" y2="74" stroke="var(--border-color)" stroke-width="2.5" stroke-linecap="round"/>
+              <g class="doc-shape doc-discarded" transform="translate(100, 32)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="36" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="28" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="32" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
               </g>
 
-              <!-- Dashed lines down from pages to AI -->
-              <path d="M120 96 L160 134" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4"/>
-              <path d="M200 96 L160 134" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4"/>
+              <g class="doc-shape doc-discarded" transform="translate(155, 40)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="32" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="24" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="36" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <circle cx="36" cy="28" r="2" fill="#ef4444" opacity="0.6"/>
+              </g>
 
-              <!-- Circle AI node -->
-              <circle cx="160" cy="154" r="20" fill="var(--card-bg)" stroke="#10b981" stroke-width="2"/>
-              <text x="160" y="159" fill="#10b981" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">AI</text>
-            </svg>
-          </div>
+              <g class="doc-shape doc-discarded" transform="translate(210, 52)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="28" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="20" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+              </g>
 
-          <!-- Metrics Table -->
-          <div class="exact-metrics-table">
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-                <span class="row-title">Pages Read</span>
-              </div>
-              <div class="row-right">
-                <span class="num green">2</span>
-                <span class="unit">Pages</span>
-              </div>
-            </div>
+              <!-- Row 2: Selected 3 Prominent Documents -->
+              <g class="doc-shape doc-prominent" transform="translate(68, 126)">
+                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.8" filter="url(#ods-glow-green)"/>
+                <line x1="9" y1="14" x2="32" y2="14" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                <line x1="9" y1="23" x2="39" y2="23" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <line x1="9" y1="31" x2="27" y2="31" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <line x1="9" y1="39" x2="35" y2="39" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <circle cx="39" cy="14" r="2.5" fill="#10b981"/>
+              </g>
 
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
-                <span class="row-title">Text Sent to AI</span>
-              </div>
-              <div class="row-right">
-                <span class="num green">4,120</span>
-                <span class="unit">Words</span>
-              </div>
-            </div>
+              <g class="doc-shape doc-prominent" transform="translate(133, 150)">
+                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2.2" filter="url(#ods-glow-green)"/>
+                <line x1="9" y1="14" x2="36" y2="14" stroke="#10b981" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="9" y1="23" x2="39" y2="23" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <line x1="9" y1="31" x2="31" y2="31" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <line x1="9" y1="39" x2="23" y2="39" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <circle cx="39" cy="14" r="2.5" fill="#10b981"/>
+              </g>
 
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 16 14"/></svg></span>
-                <span class="row-title">Response Time</span>
-              </div>
-              <div class="row-right">
-                <span class="num green">&lt; 0.3</span>
-                <span class="unit">Seconds</span>
-              </div>
-            </div>
+              <g class="doc-shape doc-prominent" transform="translate(198, 132)">
+                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.8" filter="url(#ods-glow-green)"/>
+                <line x1="9" y1="14" x2="30" y2="14" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                <line x1="9" y1="23" x2="39" y2="23" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <line x1="9" y1="31" x2="33" y2="31" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <line x1="9" y1="39" x2="37" y2="39" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                <circle cx="39" cy="14" r="2.5" fill="#10b981"/>
+              </g>
 
-            <div class="exact-row">
-              <div class="row-left">
-                <span class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-                <span class="row-title">Cost per Query</span>
-              </div>
-              <div class="row-right">
-                <span class="num green">$0.001</span>
-              </div>
-            </div>
-          </div>
+              <!-- Row 3: Discarded documents -->
+              <g class="doc-shape doc-discarded" transform="translate(38, 222)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="36" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="24" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="32" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+              </g>
 
-          <!-- Bullet Points -->
-          <ul class="exact-bullet-list">
-            <li>
-              <span class="bullet-check">✓</span>
-              <span>Reads only the most relevant pages (2 of 1,000)</span>
-            </li>
-            <li>
-              <span class="bullet-check">✓</span>
-              <span>Up to 95% fewer tokens, dramatically lower cost</span>
-            </li>
-            <li>
-              <span class="bullet-check">✓</span>
-              <span>Deterministic accuracy with laser precision</span>
-            </li>
-          </ul>
+              <g class="doc-shape doc-discarded" transform="translate(92, 238)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="28" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="20" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <circle cx="36" cy="20" r="2" fill="#ef4444" opacity="0.6"/>
+              </g>
+
+              <g class="doc-shape doc-discarded" transform="translate(148, 248)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="32" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="24" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+              </g>
+
+              <g class="doc-shape doc-discarded" transform="translate(204, 228)">
+                <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
+                <line x1="8" y1="12" x2="36" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="28" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="32" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <circle cx="36" cy="12" r="2" fill="#ef4444" opacity="0.6"/>
+              </g>
+
+              <g class="doc-shape doc-discarded" transform="translate(236, 178)">
+                <rect width="42" height="52" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.35"/>
+                <line x1="8" y1="12" x2="30" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="20" x2="24" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+                <line x1="8" y1="28" x2="28" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
+              </g>
+            </g>
+
+            <!-- ── STEP 02: ODS FILTER NODE ── -->
+            <g class="ods-filter-node" transform="translate(470, 138)">
+              <!-- Pulsing focus frame -->
+              <rect width="60" height="84" rx="14" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" class="ods-node-glow" filter="url(#ods-glow-green)"/>
+              <rect x="4" y="4" width="52" height="76" rx="10" fill="var(--nested-card-bg)" stroke="var(--border-color)" stroke-width="1"/>
+              
+              <!-- Filter funnel emblem -->
+              <path d="M 19 22 L 41 22 L 34 36 L 34 50 L 26 50 L 26 36 Z" fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+              <circle cx="30" cy="22" r="2" fill="#10b981"/>
+              
+              <text x="30" y="65" fill="var(--fg)" font-family="Inter, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.06em">ODS</text>
+            </g>
+
+            <!-- ── STEP 03: RELEVANT CONTEXT (3 TARGETED DOCUMENTS) ── -->
+            <g class="relevant-context-cluster">
+              <g class="doc-shape doc-output-item" transform="translate(695, 88)">
+                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#ods-subtle-shadow)"/>
+                <line x1="10" y1="14" x2="34" y2="14" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="25" x2="44" y2="25" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="34" x2="38" y2="34" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="43" x2="42" y2="43" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="44" cy="14" r="3" fill="#10b981"/>
+              </g>
+
+              <g class="doc-shape doc-output-item" transform="translate(695, 147)">
+                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2.2" filter="url(#ods-glow-green)"/>
+                <line x1="10" y1="14" x2="40" y2="14" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="25" x2="44" y2="25" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="34" x2="32" y2="34" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="43" x2="38" y2="43" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="44" cy="14" r="3" fill="#10b981"/>
+              </g>
+
+              <g class="doc-shape doc-output-item" transform="translate(695, 206)">
+                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#ods-subtle-shadow)"/>
+                <line x1="10" y1="14" x2="34" y2="14" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="25" x2="44" y2="25" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="34" x2="40" y2="34" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="43" x2="30" y2="43" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="44" cy="14" r="3" fill="#10b981"/>
+              </g>
+            </g>
+
+            <!-- ── AI NODE ── -->
+            <g class="ai-node-cluster" transform="translate(850, 155)">
+              <circle cx="25" cy="25" r="22" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#ods-glow-green)"/>
+              <!-- AI Sparkle Icon -->
+              <path d="M 25 15 L 27.5 22.5 L 35 25 L 27.5 27.5 L 25 35 L 22.5 27.5 L 15 25 L 22.5 22.5 Z" fill="#10b981"/>
+              <text x="25" y="43" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9" font-weight="700" text-anchor="middle">AI</text>
+            </g>
+
+            <!-- ── FINAL CLEAN RESPONSE BADGE ── -->
+            <g class="better-answer-pill" transform="translate(918, 164)">
+              <rect width="64" height="32" rx="16" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="1.5"/>
+              <text x="32" y="20" fill="#10b981" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Answer</text>
+            </g>
+          </svg>
         </div>
-
       </div>
 
-      <!-- BOTTOM SUMMARY BAR (4 Pillars with Vertical Hairline Dividers & Neutral Aesthetic Icons) -->
-      <div class="exact-summary-banner">
-        <div class="summary-item">
-          <div class="sum-icon-circle">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      <!-- Minimal Outcome Summary (3 Concise Pillars) -->
+      <div class="ods-outcomes-grid">
+        <div class="ods-outcome-card">
+          <div class="ods-outcome-header">
+            <span class="ods-outcome-dot"></span>
+            <span class="ods-outcome-title">Less context</span>
           </div>
-          <div class="sum-text-group">
-            <span class="sum-value">95%</span>
-            <span class="sum-label">Less Context</span>
-          </div>
+          <p class="ods-outcome-desc">AI receives only relevant information.</p>
         </div>
 
-        <div class="summary-item">
-          <div class="sum-icon-circle">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+        <div class="ods-outcome-card">
+          <div class="ods-outcome-header">
+            <span class="ods-outcome-dot"></span>
+            <span class="ods-outcome-title">Lower cost</span>
           </div>
-          <div class="sum-text-group">
-            <span class="sum-value">94%</span>
-            <span class="sum-label">Lower Cost</span>
-          </div>
+          <p class="ods-outcome-desc">Less unnecessary processing.</p>
         </div>
 
-        <div class="summary-item">
-          <div class="sum-icon-circle">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <div class="ods-outcome-card">
+          <div class="ods-outcome-header">
+            <span class="ods-outcome-dot"></span>
+            <span class="ods-outcome-title">Better answers</span>
           </div>
-          <div class="sum-text-group">
-            <span class="sum-value">85x</span>
-            <span class="sum-label">Faster Response</span>
-          </div>
-        </div>
-
-        <div class="summary-item">
-          <div class="sum-icon-circle">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </div>
-          <div class="sum-text-group">
-            <span class="sum-value">Higher</span>
-            <span class="sum-label">AI Precision</span>
-          </div>
+          <p class="ods-outcome-desc">Less noise means more focused context.</p>
         </div>
       </div>
     </div>
@@ -623,93 +565,76 @@ import { REPO_URL } from "../lib/releases";
     <p class="section-subheading">Enter your team size and usage to see how much money you can save on AI tools.</p>
 
     <div class="hero-calculator-box glow-card">
-      <div class="calc-header">
-        <span class="calc-badge"><Icon name="lightning" size={14} /> Interactive Cost Savings Calculator</span>
-      </div>
       <div class="calc-grid">
         <div class="calc-inputs">
-          <!-- Group 1: Configuration & Selections (Above Sliders) -->
-          <div class="calc-group-box">
-            <div class="calc-group-title">
-              <span class="calc-group-icon"><Icon name="cpu" size={14} /></span>
-              <span>Model & Region Selection</span>
+          <div class="calc-row-2col">
+            <div class="input-group">
+              <label for="calc-currency-select">Currency</label>
+              <select id="calc-currency-select" class="calc-select">
+                <option value="USD" selected>USD ($) : US Dollar</option>
+                <option value="EUR">EUR (€) : Euro</option>
+                <option value="INR">INR (₹) : Indian Rupee</option>
+              </select>
             </div>
-            <div class="calc-group-fields">
-              <div class="input-group">
-                <label for="calc-currency-select">Select Currency / Language Region:</label>
-                <select id="calc-currency-select" class="calc-select">
-                  <option value="USD" selected>USD ($) : US Dollar</option>
-                  <option value="EUR">EUR (€) : Euro</option>
-                  <option value="INR">INR (₹) : Indian Rupee</option>
-                </select>
-              </div>
 
-              <div class="input-group">
-                <label for="model-select">Select AI Tool / Model:</label>
-                <select id="model-select" class="calc-select">
-                  <option value="gpt-55" selected>GPT-5.5 : $2.50 / 1M tokens (OpenAI)</option>
-                  <option value="gpt-55-mini">GPT-5.5 Mini : $0.20 / 1M tokens (OpenAI)</option>
-                  <option value="gpt-55-nano">GPT-5.5 Nano : $0.05 / 1M tokens (OpenAI)</option>
-                  <option value="o3">o3 : $10.00 / 1M tokens (OpenAI)</option>
-                  <option value="o4-mini">o4-mini : $1.10 / 1M tokens (OpenAI)</option>
-                  <option value="claude-opus-5">Claude Opus 5 : $15.00 / 1M tokens (Anthropic)</option>
-                  <option value="claude-sonnet-46">Claude Sonnet 4.6 : $3.00 / 1M tokens (Anthropic)</option>
-                  <option value="claude-haiku-45">Claude Haiku 4.5 : $0.80 / 1M tokens (Anthropic)</option>
-                  <option value="gemini-36-flash">Gemini 3.6 Flash : $1.50 / 1M tokens (Google)</option>
-                  <option value="gemini-35-flash-lite">Gemini 3.5 Flash Lite : $0.075 / 1M tokens (Google)</option>
-                  <option value="gemini-31-pro">Gemini 3.1 Pro : $1.25 / 1M tokens (Google)</option>
-                  <option value="grok-420">Grok 4.20 : $2.00 / 1M tokens (xAI)</option>
-                  <option value="deepseek-v4-pro">DeepSeek V4 Pro : $0.40 / 1M tokens (DeepSeek)</option>
-                  <option value="deepseek-r1">DeepSeek R1 : $0.55 / 1M tokens (DeepSeek)</option>
-                  <option value="qwen-37-max">Qwen 3.7 Max : $1.20 / 1M tokens (Alibaba)</option>
-                  <option value="kimi-k3">Kimi K3 : $0.60 / 1M tokens (Moonshot AI)</option>
-                  <option value="glm-52">GLM-5.2 : $0.50 / 1M tokens (Z.ai)</option>
-                  <option value="llama-4-maverick">Llama 4 Maverick : $0.30 / 1M tokens (Meta)</option>
-                  <option value="llama-4-scout">Llama 4 Scout : $0.10 / 1M tokens (Meta)</option>
-                  <option value="mistral-large-3">Mistral Large 3 : $2.00 / 1M tokens (Mistral)</option>
-                </select>
-              </div>
+            <div class="input-group">
+              <label for="model-select">AI Tool / Model</label>
+              <select id="model-select" class="calc-select">
+                <option value="gpt-55" selected>GPT-5.5 : $2.50 / 1M tokens (OpenAI)</option>
+                <option value="gpt-55-mini">GPT-5.5 Mini : $0.20 / 1M tokens (OpenAI)</option>
+                <option value="gpt-55-nano">GPT-5.5 Nano : $0.05 / 1M tokens (OpenAI)</option>
+                <option value="o3">o3 : $10.00 / 1M tokens (OpenAI)</option>
+                <option value="o4-mini">o4-mini : $1.10 / 1M tokens (OpenAI)</option>
+                <option value="claude-opus-5">Claude Opus 5 : $15.00 / 1M tokens (Anthropic)</option>
+                <option value="claude-sonnet-46">Claude Sonnet 4.6 : $3.00 / 1M tokens (Anthropic)</option>
+                <option value="claude-haiku-45">Claude Haiku 4.5 : $0.80 / 1M tokens (Anthropic)</option>
+                <option value="gemini-36-flash">Gemini 3.6 Flash : $1.50 / 1M tokens (Google)</option>
+                <option value="gemini-35-flash-lite">Gemini 3.5 Flash Lite : $0.075 / 1M tokens (Google)</option>
+                <option value="gemini-31-pro">Gemini 3.1 Pro : $1.25 / 1M tokens (Google)</option>
+                <option value="grok-420">Grok 4.20 : $2.00 / 1M tokens (xAI)</option>
+                <option value="deepseek-v4-pro">DeepSeek V4 Pro : $0.40 / 1M tokens (DeepSeek)</option>
+                <option value="deepseek-r1">DeepSeek R1 : $0.55 / 1M tokens (DeepSeek)</option>
+                <option value="qwen-37-max">Qwen 3.7 Max : $1.20 / 1M tokens (Alibaba)</option>
+                <option value="kimi-k3">Kimi K3 : $0.60 / 1M tokens (Moonshot AI)</option>
+                <option value="glm-52">GLM-5.2 : $0.50 / 1M tokens (Z.ai)</option>
+                <option value="llama-4-maverick">Llama 4 Maverick : $0.30 / 1M tokens (Meta)</option>
+                <option value="llama-4-scout">Llama 4 Scout : $0.10 / 1M tokens (Meta)</option>
+                <option value="mistral-large-3">Mistral Large 3 : $2.00 / 1M tokens (Mistral)</option>
+              </select>
             </div>
           </div>
 
-          <!-- Group 2: Usage Parameters & Sliders -->
-          <div class="calc-group-box">
-            <div class="calc-group-title">
-              <span class="calc-group-icon"><Icon name="users" size={14} /></span>
-              <span>Team & Daily Usage Parameters</span>
+          <div class="input-group">
+            <div class="input-label-row">
+              <label for="dev-count">Developer Team Size</label>
+              <span id="dev-count-val" class="input-val">10 devs</span>
             </div>
-            <div class="calc-group-fields">
-              <div class="input-group">
-                <div class="input-label-row">
-                  <label for="dev-count">Developer Team Size:</label>
-                  <span id="dev-count-val" class="input-val">10 devs</span>
-                </div>
-                <input type="range" id="dev-count" min="1" max="100" value="10" class="calc-slider" />
-              </div>
+            <input type="range" id="dev-count" min="1" max="100" value="10" class="calc-slider" />
+          </div>
 
-              <div class="input-group">
-                <div class="input-label-row">
-                  <label for="prompts-count">Prompts / Dev / Day:</label>
-                  <span id="prompts-count-val" class="input-val">20 prompts</span>
-                </div>
-                <input type="range" id="prompts-count" min="5" max="50" value="20" class="calc-slider" />
-              </div>
+          <div class="input-group">
+            <div class="input-label-row">
+              <label for="prompts-count">Prompts / Dev / Day</label>
+              <span id="prompts-count-val" class="input-val">20 prompts</span>
             </div>
+            <input type="range" id="prompts-count" min="5" max="50" value="20" class="calc-slider" />
           </div>
         </div>
 
         <div class="calc-outputs">
-          <div class="output-card">
-            <span class="out-num" id="out-tokens-saved">15,576,000</span>
-            <span class="out-lbl">Document Text Saved / Day</span>
+          <div class="output-card highlight-out hero-out-card">
+            <span class="out-lbl hero-lbl">Estimated Annual Savings</span>
+            <span class="out-num hero-num" id="out-annual-saved">$9,735</span>
           </div>
-          <div class="output-card highlight-out">
-            <span class="out-num" id="out-annual-saved">$9,735</span>
-            <span class="out-lbl">Estimated Annual Savings</span>
-          </div>
-          <div class="output-card">
-            <span class="out-num" id="out-speedup">24x</span>
-            <span class="out-lbl">Faster Response Speed</span>
+          <div class="calc-sub-outputs">
+            <div class="output-card sub-out-card">
+              <span class="out-num sub-num" id="out-tokens-saved">15,576,000</span>
+              <span class="out-lbl">Text Saved / Day</span>
+            </div>
+            <div class="output-card sub-out-card">
+              <span class="out-num sub-num" id="out-speedup">24x</span>
+              <span class="out-lbl">Faster Response Speed</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1208,10 +1133,12 @@ import { REPO_URL } from "../lib/releases";
       });
 
       // Always populate command text & output HTML instantly (100% reliable & visible)
-      cmdElem.textContent = item.cmd;
-      outputElem.innerHTML = item.outputHtml;
-      outputElem.style.opacity = '1';
-      outputElem.style.transform = 'none';
+      if (cmdElem) cmdElem.textContent = item.cmd;
+      if (outputElem) {
+        outputElem.innerHTML = item.outputHtml;
+        outputElem.style.opacity = '1';
+        outputElem.style.transform = 'none';
+      }
     }
 
     presetBtns.forEach((btn) => {
@@ -1666,274 +1593,228 @@ import { REPO_URL } from "../lib/releases";
     50% { opacity: 0; }
   }
 
-  /* ── Exact Reference Comparison Section ── */
+  /* ── Redesigned "How ODS Works" Visual Flow Section ── */
   .cookbook-analogy-section {
     margin-bottom: var(--space-48);
   }
 
-  .exact-comparison-wrapper {
+  .ods-flow-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--space-20);
+    gap: 32px;
     width: 100%;
   }
 
-  .exact-comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-20);
-    width: 100%;
-  }
-
-  @media (max-width: 868px) {
-    .exact-comparison-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .exact-card {
+  .ods-flow-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-outer); /* 32px outer card */
-    padding: 24px;
+    border-radius: var(--radius-outer); /* 32px */
+    padding: 36px 32px 32px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
     position: relative;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 30px -4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
   }
 
-  .exact-card.mode-with {
-    border-color: rgba(16, 185, 129, 0.35);
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.04);
+  /* 3-Step Header Strip */
+  .ods-flow-header-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 24px;
+    align-items: flex-start;
   }
 
-  .exact-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .badge-red {
-    color: #ef4444;
-  }
-
-  .badge-green {
-    color: #10b981;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .dot.red { background: #ef4444; }
-  .dot.green { background: #10b981; box-shadow: 0 0 6px #10b981; }
-
-  .exact-graphic-box {
-    background: var(--nested-card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-inner); /* 24px inside card */
-    padding: 24px 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 230px;
-  }
-
-  .graphic-svg {
-    width: 100%;
-    height: auto;
-    max-height: 220px;
-  }
-
-  .exact-metrics-table {
+  .ods-flow-step {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    border-top: 1px dashed var(--border-color);
-    border-bottom: 1px dashed var(--border-color);
-    padding: 16px 0;
-  }
-
-  .exact-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-  }
-
-  .row-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--fg);
-    font-weight: 500;
-  }
-
-  .icon-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: var(--radius-child); /* 12px child item */
-    background: var(--nested-card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--fg-muted);
-  }
-
-  .row-right {
-    display: flex;
-    align-items: baseline;
     gap: 6px;
   }
 
-  .row-right .num {
+  .ods-step-badge {
     font-family: var(--font-mono);
-    font-size: 1.15rem;
-    font-weight: 800;
-  }
-
-  .row-right .num.red { color: #ef4444; }
-  .row-right .num.green { color: #10b981; }
-
-  .row-right .unit {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--fg-muted);
-    font-weight: 500;
+    text-transform: uppercase;
   }
 
-  .exact-bullet-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .exact-bullet-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.86rem;
-    color: var(--fg-muted);
-    line-height: 1.45;
-  }
-
-  .bullet-cross {
-    color: #ef4444;
-    font-weight: bold;
-    font-size: 0.95rem;
-    line-height: 1;
-    margin-top: 2px;
-  }
-
-  .bullet-check {
+  .ods-step-badge.badge-ods {
     color: #10b981;
-    font-weight: bold;
-    font-size: 0.95rem;
-    line-height: 1;
-    margin-top: 2px;
   }
 
-  /* ── Bottom Summary Banner ── */
-  .exact-summary-banner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-outer); /* 32px outer card */
-    padding: 22px 20px;
-    width: 100%;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .exact-summary-banner:hover {
-    box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.06);
-  }
-
-  .summary-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 4px 16px;
-    border-right: 1px solid var(--border-color);
-    transition: transform 0.2s ease;
-  }
-
-  .summary-item:last-child {
-    border-right: none;
-  }
-
-  .summary-item:hover {
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 768px) {
-    .exact-summary-banner {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px 0;
-    }
-    .summary-item {
-      border-right: none;
-      justify-content: flex-start;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .exact-summary-banner {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .sum-icon-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--nested-card-bg);
+  .ods-step-badge.badge-ai {
     color: var(--fg);
-    border: 1px solid var(--border-color);
-    flex-shrink: 0;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   }
 
-  .summary-item:hover .sum-icon-circle {
-    background: var(--fg);
-    color: var(--card-bg);
-    border-color: var(--fg);
-  }
-
-  .sum-text-group {
+  .ods-step-text {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
-  .sum-value {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+  .ods-step-title {
+    font-size: 1.05rem;
+    font-weight: 700;
     color: var(--fg);
+    letter-spacing: -0.01em;
   }
 
-  .sum-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--fg-dim);
+  .ods-step-desc {
+    font-size: 0.84rem;
+    color: var(--fg-muted);
+    font-weight: 450;
+  }
+
+  /* Visual Flow Canvas */
+  .ods-flow-visual {
+    width: 100%;
+    background: var(--nested-card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-inner); /* 24px */
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ods-flow-svg {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+  }
+
+  /* Micro-animations */
+  @keyframes strokeDashFlow {
+    from {
+      stroke-dashoffset: 24;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animated-dash {
+    stroke-dasharray: 6 4;
+    animation: strokeDashFlow 1.2s linear infinite;
+  }
+
+  .animated-dash-slow {
+    animation: strokeDashFlow 2.4s linear infinite;
+  }
+
+  @keyframes odsPulse {
+    0%, 100% {
+      stroke-opacity: 0.6;
+      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.2));
+    }
+    50% {
+      stroke-opacity: 1;
+      filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.45));
+    }
+  }
+
+  .ods-node-glow {
+    animation: odsPulse 2.8s ease-in-out infinite;
+  }
+
+  /* Interactive Hover Transitions for Document Elements */
+  .doc-shape {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .doc-prominent:hover, .doc-output-item:hover {
+    transform: scale(1.06) translateY(-2px);
+  }
+
+  .ods-filter-node {
+    transition: transform 0.3s ease;
+  }
+
+  .ods-filter-node:hover {
+    transform: translate(470px, 138px) scale(1.05);
+  }
+
+  /* Minimal Outcome Pillars */
+  .ods-outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+
+  .ods-outcome-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-inner); /* 24px */
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .ods-outcome-card:hover {
+    border-color: rgba(16, 185, 129, 0.35);
+    box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.06);
+  }
+
+  .ods-outcome-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ods-outcome-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+  }
+
+  .ods-outcome-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--fg);
     letter-spacing: -0.01em;
+  }
+
+  .ods-outcome-desc {
+    font-size: 0.86rem;
+    color: var(--fg-muted);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* Mobile Responsive Behavior */
+  @media (max-width: 868px) {
+    .ods-flow-card {
+      padding: 24px 16px 20px;
+      gap: 20px;
+    }
+
+    .ods-flow-header-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .ods-flow-visual {
+      padding: 16px 8px;
+    }
+
+    .ods-outcomes-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .ods-outcome-card {
+      padding: 18px 20px;
+    }
   }
   /* ── Metrics Strip (Ultra-Minimal Center-Aligned Style) ── */
   .metrics-strip-section {
@@ -3182,7 +3063,7 @@ import { REPO_URL } from "../lib/releases";
 
   .calc-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.25fr 1fr;
     gap: var(--space-32);
     align-items: stretch;
   }
@@ -3190,44 +3071,20 @@ import { REPO_URL } from "../lib/releases";
   .calc-inputs {
     display: flex;
     flex-direction: column;
-    gap: var(--space-16);
-  }
-
-  .calc-group-box {
-    background: var(--nested-card-bg);
-    border: var(--border);
-    border-radius: var(--radius-md);
-    padding: var(--space-20);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-16);
-  }
-
-  .calc-group-title {
-    display: flex;
-    align-items: center;
-    gap: var(--space-8);
-    font-size: 0.75rem;
-    font-weight: 700;
-    font-family: var(--font-mono);
-    color: var(--fg-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding-bottom: var(--space-10);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .calc-group-icon {
-    display: inline-flex;
-    align-items: center;
+    gap: var(--space-20);
     justify-content: center;
-    color: var(--action-fg);
   }
 
-  .calc-group-fields {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-16);
+  .calc-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: var(--space-12);
+  }
+
+  @media (max-width: 600px) {
+    .calc-row-2col {
+      grid-template-columns: 1fr;
+    }
   }
 
   .input-group {
@@ -3263,10 +3120,10 @@ import { REPO_URL } from "../lib/releases";
     cursor: pointer;
   }
 
-  /* Minimal Borderless Select Dropdowns */
+  /* Minimal Select Dropdowns */
   .calc-select {
-    background: var(--card-bg);
-    border: none;
+    background: var(--nested-card-bg);
+    border: var(--border);
     outline: none;
     color: var(--fg);
     padding: 0.65rem 0.95rem;
@@ -3284,11 +3141,11 @@ import { REPO_URL } from "../lib/releases";
     background-repeat: no-repeat;
     background-position: right 0.85rem center;
     padding-right: 2.2rem;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .calc-select:hover {
-    background-color: var(--nested-card-bg);
+    background-color: var(--card-bg);
   }
 
   .calc-select:focus {
@@ -3306,13 +3163,12 @@ import { REPO_URL } from "../lib/releases";
   .calc-outputs {
     display: flex;
     flex-direction: column;
-    gap: var(--space-16);
+    gap: var(--space-12);
     height: 100%;
     justify-content: space-between;
   }
 
   .output-card {
-    flex: 1;
     background: var(--nested-card-bg);
     border: var(--border);
     border-radius: var(--radius-md);
@@ -3320,21 +3176,53 @@ import { REPO_URL } from "../lib/releases";
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 84px;
     box-sizing: border-box;
   }
 
-  .output-card.highlight-out {
+  .output-card.hero-out-card {
+    flex: 1;
+    min-height: 110px;
     background: var(--card-bg);
-    border-color: var(--fg-dim);
+    border: 1.5px solid var(--fg-dim);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
-  .out-num {
+  .hero-lbl {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--fg-muted);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-num {
     font-family: var(--font-mono);
-    font-size: 1.6rem;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--fg);
+    line-height: 1.1;
+    margin-top: var(--space-4);
+  }
+
+  .calc-sub-outputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .sub-out-card {
+    min-height: 75px;
+    padding: var(--space-14) var(--space-18);
+  }
+
+  .sub-num {
+    font-family: var(--font-mono);
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--fg);
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .out-lbl {
@@ -3545,7 +3433,7 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .cli-body {
-    padding: 24px !important;
+    padding: 18px 20px !important;
     background: #090d16 !important;
   }
 
@@ -3557,7 +3445,7 @@ import { REPO_URL } from "../lib/releases";
     padding: 12px 20px !important;
     border-radius: var(--radius-nested-lg) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
   }
 
   .cli-prompt {
@@ -3605,36 +3493,39 @@ import { REPO_URL } from "../lib/releases";
   .cli-output {
     display: flex;
     flex-direction: column;
-    gap: 16px !important;
+    gap: 6px !important;
+    margin-top: 4px !important;
   }
 
   .cli-tree {
     background: #141824 !important;
-    padding: 18px 22px !important;
+    padding: 10px 14px !important;
     border-radius: var(--radius-nested-lg) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    color: #e2e8f0 !important;
-    font-size: 0.825rem !important;
-    line-height: 1.65 !important;
+    color: #94a3b8 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.45 !important;
   }
 
   .tree-tag {
     color: #64748b !important;
-    font-size: 0.775rem !important;
+    font-size: 0.68rem !important;
     margin-left: 4px;
   }
 
   .cli-log {
-    color: #cbd5e1 !important;
-    font-size: 0.8rem !important;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: #71717a !important;
+    font-size: 0.72rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    line-height: 1.35 !important;
   }
 
   .cli-checkmark {
     color: #22c55e !important;
     font-weight: bold;
+    font-size: 0.72rem !important;
   }
 
   /* ── Features Grid ── */

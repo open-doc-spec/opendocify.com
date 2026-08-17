@@ -344,7 +344,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
   .ods-marketing .cli-wrap .cli-log {
-    color: #cbd5e1 !important;
+    color: #71717a !important;
+    font-size: 0.72rem !important;
     background: transparent !important;
     background-color: transparent !important;
   }
