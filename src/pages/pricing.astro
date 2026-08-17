@@ -177,7 +177,7 @@ import { REPO_URL } from "../lib/releases";
     padding: 0.35rem 0.85rem;
     border-radius: 9999px;
     background: var(--color-surface, var(--color-card, rgba(0, 0, 0, 0.03)));
-    border: 1px solid var(--color-border);
+    border: none;
     color: var(--color-text-muted, var(--color-muted-foreground));
     font-size: 0.78rem;
     font-weight: 500;
@@ -224,16 +224,17 @@ import { REPO_URL } from "../lib/releases";
     padding: 2rem;
     border-radius: 1.25rem;
     background: var(--color-card, #ffffff);
-    border: 1px solid var(--color-border);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .pricing-card:hover {
-    border-color: var(--color-border-strong, rgba(0, 0, 0, 0.2));
+    border: none;
+    transform: translateY(-2px);
   }
 
   .pricing-card.featured {
-    border-color: var(--ods-accent, var(--color-primary));
+    border: none;
     box-shadow: 0 4px 20px -4px rgba(16, 185, 129, 0.1);
     position: relative;
   }
@@ -257,7 +258,7 @@ import { REPO_URL } from "../lib/releases";
     font-weight: 600;
     color: #10b981;
     background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    border: none;
     padding: 0.2rem 0.55rem;
     border-radius: 9999px;
   }
@@ -267,7 +268,7 @@ import { REPO_URL } from "../lib/releases";
     font-weight: 600;
     color: var(--color-text-muted, var(--color-muted-foreground));
     background: var(--color-surface-muted, rgba(0, 0, 0, 0.04));
-    border: 1px solid var(--color-border);
+    border: none;
     padding: 0.2rem 0.55rem;
     border-radius: 9999px;
   }

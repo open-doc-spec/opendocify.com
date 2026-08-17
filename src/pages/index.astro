@@ -63,7 +63,7 @@ import { REPO_URL } from "../lib/releases";
     </div>
 
     <!-- Single Unified Interactive CLI & Quick Install Terminal Box inside Hero -->
-    <div class="cli-wrap glow-card">
+    <div class="cli-wrap">
       <div class="cli-header">
         <div class="cli-dots">
           <span class="dot red"></span>
@@ -394,142 +394,117 @@ import { REPO_URL } from "../lib/releases";
     </div>
   </section>
 
-  <!-- Modern Interactive Assistant Setup Section -->
+  <!-- Graphify-Style Assistant Interactive Setup Switcher -->
   <section class="section-container assistant-setup-section" id="setup">
     <div class="setup-header-wrap">
-      <div class="setup-badge">
-        <span class="setup-badge-dot"></span>
-        <span>Quick Setup</span>
-      </div>
-      <h2 class="section-heading">Works with your AI assistant</h2>
+      <h2 class="section-heading">Install ODS in Seconds</h2>
       <p class="section-subheading">
-        One command. Zero configuration. Connects directly to the AI coding tools you already use.
+        One command. Zero config. Works with your existing AI coding assistant.
       </p>
     </div>
 
     <div class="assistant-switcher-box">
-      <!-- Assistant Selector Tabs -->
-      <div class="assistant-selector-nav" role="tablist" aria-label="Select AI Assistant">
-        <button class="assistant-btn active" data-assistant="claude" role="tab" aria-selected="true">
-          <AIIcon name="claude" size={15} class="ast-icon" />
-          <span>Claude Code</span>
-        </button>
-        <button class="assistant-btn" data-assistant="cursor" role="tab" aria-selected="false">
-          <AIIcon name="cursor" size={15} class="ast-icon" />
-          <span>Cursor</span>
-        </button>
-        <button class="assistant-btn" data-assistant="copilot" role="tab" aria-selected="false">
-          <Icon name="copilot" size={15} class="ast-icon" />
-          <span>Copilot</span>
-        </button>
-        <button class="assistant-btn" data-assistant="windsurf" role="tab" aria-selected="false">
-          <AIIcon name="windsurf" size={15} class="ast-icon" />
-          <span>Windsurf</span>
-        </button>
-        <button class="assistant-btn" data-assistant="gemini" role="tab" aria-selected="false">
-          <Icon name="sparkles" size={15} class="ast-icon" />
-          <span>Gemini CLI</span>
-        </button>
-        <button class="assistant-btn" data-assistant="antigravity" role="tab" aria-selected="false">
-          <AIIcon name="antigravity" size={15} class="ast-icon" />
-          <span>Antigravity</span>
-        </button>
-        <button class="assistant-btn" data-assistant="openai" role="tab" aria-selected="false">
-          <AIIcon name="openai" size={15} class="ast-icon" />
-          <span>OpenAI / Codex</span>
-        </button>
-        <button class="assistant-btn" data-assistant="cargo" role="tab" aria-selected="false">
-          <Icon name="rust" size={15} class="ast-icon" />
-          <span>Rust CLI</span>
-        </button>
+      <div class="assistant-selector">
+        <div class="selector-header">
+          <span class="selector-title">CHOOSE YOUR AI ASSISTANT</span>
+          <span class="selector-count-badge">17+ Assistants</span>
+        </div>
+        <div class="assistant-buttons">
+          <button class="assistant-btn active" data-assistant="claude">
+            <AIIcon name="claude" size={16} class="ast-icon" /> Claude Code
+          </button>
+          <button class="assistant-btn" data-assistant="cursor">
+            <AIIcon name="cursor" size={16} class="ast-icon" /> Cursor
+          </button>
+          <button class="assistant-btn" data-assistant="copilot">
+            <Icon name="copilot" size={16} class="ast-icon" /> Copilot
+          </button>
+          <button class="assistant-btn" data-assistant="antigravity">
+            <Icon name="sparkles" size={16} class="ast-icon" /> Antigravity
+          </button>
+          <button class="assistant-btn" data-assistant="gemini">
+            <Icon name="sparkles" size={16} class="ast-icon" /> Gemini CLI
+          </button>
+          <button class="assistant-btn" data-assistant="windsurf">
+            <AIIcon name="windsurf" size={16} class="ast-icon" /> Windsurf
+          </button>
+          <button class="assistant-btn" data-assistant="openai">
+            <AIIcon name="openai" size={16} class="ast-icon" /> OpenAI Codex
+          </button>
+          <button class="assistant-btn" data-assistant="aider">
+            <Icon name="tools" size={16} class="ast-icon" /> Aider
+          </button>
+          <button class="assistant-btn" data-assistant="cargo">
+            <Icon name="rust" size={16} class="ast-icon" /> Rust Cargo / Shell
+          </button>
+        </div>
       </div>
 
-      <!-- Main Split Interactive Card -->
-      <div class="setup-interactive-grid">
-        <!-- Left: Friendly Integration Details -->
-        <div class="setup-info-pane">
-          <div class="setup-info-header">
-            <div class="setup-target-badge">
-              <span id="ast-target-name">Claude Code</span>
-              <span class="setup-badge-sep">•</span>
-              <span id="integration-mode-badge" class="setup-mode-tag">Native Skill</span>
+      <div class="terminal-container">
+        <div class="terminal-tab-bar">
+          <div class="terminal-left-group">
+            <div class="term-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
             </div>
-            <h3 id="ast-heading" class="setup-info-title">Zero-config documentation context</h3>
-            <p id="ast-description" class="setup-info-desc">
-              Installs the ODS skill directly into Claude Code. When you ask questions, Claude automatically resolves and reads only connected documents and specs.
-            </p>
+            <span id="integration-mode-badge" class="integration-mode-badge">Native Skill</span>
           </div>
 
-          <div class="setup-highlights-list">
-            <div class="setup-highlight-item">
-              <div class="highlight-bullet">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <div class="highlight-text">
-                <strong>Instant context resolution</strong>
-                <span>Scans document connections in under 3ms</span>
-              </div>
+          <div class="terminal-center-group">
+            <div class="terminal-tabs">
+              <button class="term-tab active" data-tab="install">Install</button>
+              <button class="term-tab" data-tab="query">Query</button>
+              <button class="term-tab" data-tab="mcp">MCP Config</button>
             </div>
+          </div>
 
-            <div class="setup-highlight-item">
-              <div class="highlight-bullet">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <div class="highlight-text">
-                <strong>Up to 94% lower token costs</strong>
-                <span>Feeds only what matters, avoiding prompt bloat</span>
-              </div>
-            </div>
-
-            <div class="setup-highlight-item">
-              <div class="highlight-bullet">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <div class="highlight-text">
-                <strong>100% local & private</strong>
-                <span>Runs entirely on your machine with zero telemetry</span>
-              </div>
-            </div>
+          <div class="terminal-right-group">
+            <button id="copy-ast-btn" class="terminal-copy-btn" title="Copy Command">
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span id="copy-ast-text">Copy</span>
+            </button>
           </div>
         </div>
-
-        <!-- Right: Modern Terminal Window -->
-        <div class="setup-terminal-pane">
-          <div class="terminal-window">
-            <div class="terminal-tab-bar">
-              <div class="terminal-left-group">
-                <div class="term-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <span id="term-window-title" class="term-window-title">bash — ods install</span>
-              </div>
-              <button id="copy-ast-btn" class="terminal-copy-btn" title="Copy Command" aria-label="Copy Command">
-                <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                <svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span id="copy-ast-text">Copy</span>
-              </button>
-            </div>
-            <pre class="terminal-code-panel"><code id="ast-code-block"><span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>
+        <pre class="terminal-code-panel"><code id="ast-code-block"><span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>
 <span class="t-success">✓ Installing ODS...</span>
 <span class="t-success">✓ Reading list enabled</span>
-<span class="t-success">✓ Connected to Claude Code</span>
+<span class="t-success">✓ Connected to your AI assistant</span>
 <span class="t-success">✓ Ready to go!</span>
 <hr class="t-hr"/>
 <span class="t-next">&gt; Ask your AI anything.</span></code></pre>
-          </div>
+      </div>
+    </div>
+
+    <!-- 3-Pillar Minimal Benefits Strip (Positioned outside container) -->
+    <div class="setup-benefits-row">
+      <div class="setup-benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="benefit-text">
+          <h5 class="benefit-title">One Command Setup</h5>
+          <p class="benefit-desc">No extensions or accounts needed</p>
         </div>
       </div>
-
-      <!-- Bottom Trust Note -->
-      <div class="assistant-footer-bar">
-        <span class="footer-indicator"></span>
-        <span>Works with 17+ AI coding tools</span>
-        <span class="footer-sep">•</span>
-        <span>macOS, Linux & Windows</span>
-        <span class="footer-sep">•</span>
-        <span>Apache 2.0 Open Source</span>
+      <div class="setup-benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="benefit-text">
+          <h5 class="benefit-title">100% Local & Private</h5>
+          <p class="benefit-desc">Zero telemetry or cloud dependencies</p>
+        </div>
+      </div>
+      <div class="setup-benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="benefit-text">
+          <h5 class="benefit-title">94% Cost Savings</h5>
+          <p class="benefit-desc">Fast answers with minimum tokens</p>
+        </div>
       </div>
     </div>
   </section>
@@ -539,7 +514,7 @@ import { REPO_URL } from "../lib/releases";
     <h2 class="section-heading">Estimate Your Team's AI & Cost Savings</h2>
     <p class="section-subheading">Enter your team size and usage to see how much money you can save on AI tools.</p>
 
-    <div class="hero-calculator-box glow-card">
+    <div class="hero-calculator-box">
       <div class="calc-grid">
         <div class="calc-inputs">
           <div class="calc-row-2col">
@@ -622,20 +597,22 @@ import { REPO_URL } from "../lib/releases";
     <p class="section-subheading">Get your documents ready for AI in 3 super easy steps (under 2 minutes)!</p>
 
     <div class="workflow-3-grid">
-      <div class="workflow-step-card glow-card">
-        <div class="step-num-badge">Step 1</div>
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg">
-            <rect x="20" y="10" width="60" height="30" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-            <path d="M28 20 H65 M28 28 H50" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-            <path d="M85 25 H115" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <rect x="115" y="10" width="65" height="30" rx="4" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.05"/>
-            <text x="123" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="8" font-weight="bold">ods.toml</text>
-            <circle cx="165" cy="28" r="3" fill="currentColor" class="svg-pulse"/>
-          </svg>
+      <div class="workflow-step-card">
+        <div class="card-header-row">
+          <div class="step-num-badge">
+            <span class="step-chip-dot"></span>
+            Step 1
+          </div>
+          <div class="card-visual-svg-wrap">
+            <svg viewBox="0 0 100 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg">
+              <rect x="5" y="6" width="90" height="24" rx="5" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.04"/>
+              <text x="14" y="21" fill="currentColor" font-family="Inter, monospace" font-size="9" font-weight="600">ods.toml</text>
+              <circle cx="82" cy="18" r="3" fill="#10b981" class="svg-pulse"/>
+            </svg>
+          </div>
         </div>
-        <h3>1. Prepare Your Folder</h3>
-        <p>Run <code>ods init .</code> in your folder. ODS writes a root <code>ods.toml</code> workspace marker. Discovery uses that file plus Markdown frontmatter — no committed <code>index.md</code> map.</p>
+        <h3>Prepare Your Folder</h3>
+        <p>Run <code>ods init .</code> to create a root <code>ods.toml</code> workspace marker and make your repo ODS-compliant.</p>
         <div class="step-code-box">
           <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-cmd">ods</span> <span class="code-args">init .</span></code>
           <button class="step-copy-btn" data-code="ods init ." title="Copy Command">
@@ -646,24 +623,26 @@ import { REPO_URL } from "../lib/releases";
         </div>
       </div>
 
-      <div class="workflow-step-card glow-card">
-        <div class="step-num-badge">Step 2</div>
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg">
-            <circle cx="35" cy="25" r="9" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.1"/>
-            <circle cx="95" cy="12" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.2"/>
-            <circle cx="95" cy="38" r="7" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.3"/>
-            <circle cx="155" cy="12" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.3"/>
-            <path d="M44 25 L88 12 M102 12 L148 12" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <path d="M44 25 L88 38" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.3"/>
-            <circle cx="155" cy="12" r="10" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" class="svg-spin"/>
-          </svg>
+      <div class="workflow-step-card">
+        <div class="card-header-row">
+          <div class="step-num-badge">
+            <span class="step-chip-dot"></span>
+            Step 2
+          </div>
+          <div class="card-visual-svg-wrap">
+            <svg viewBox="0 0 100 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg">
+              <rect x="5" y="6" width="90" height="24" rx="5" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>
+              <path d="M15 18 H45 M15 22 H35" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+              <circle cx="78" cy="18" r="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+              <path d="M76 18 L77.5 19.5 L80.5 16.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
-        <h3>2. Get Smart Reading Lists</h3>
-        <p>Ask AI to read a file. ODS picks only the exact right pages in under 5 milliseconds, saving 94% on AI reading costs!</p>
+        <h3>Lint & Validate Graph</h3>
+        <p>Run <code>ods lint .</code> to instantly validate your document graph, cross-file references, and frontmatter profiles.</p>
         <div class="step-code-box">
-          <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-cmd">ods</span> <span class="code-args">context doc.md</span></code>
-          <button class="step-copy-btn" data-code="ods context doc.md" title="Copy Command">
+          <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-cmd">ods</span> <span class="code-args">lint .</span></code>
+          <button class="step-copy-btn" data-code="ods lint ." title="Copy Command">
             <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
             <span class="copy-text">Copy</span>
@@ -671,22 +650,25 @@ import { REPO_URL } from "../lib/releases";
         </div>
       </div>
 
-      <div class="workflow-step-card glow-card">
-        <div class="step-num-badge">Step 3</div>
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg">
-            <path d="M30 25 C 60 8, 100 8, 130 25 C 100 42, 60 42, 30 25 Z" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" class="svg-spin"/>
-            <circle cx="30" cy="25" r="5" fill="currentColor"/>
-            <circle cx="130" cy="25" r="5" fill="currentColor"/>
-            <path d="M35 25 H125" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <circle cx="80" cy="25" r="3" fill="currentColor" class="svg-pulse"/>
-          </svg>
+      <div class="workflow-step-card">
+        <div class="card-header-row">
+          <div class="step-num-badge">
+            <span class="step-chip-dot"></span>
+            Step 3
+          </div>
+          <div class="card-visual-svg-wrap">
+            <svg viewBox="0 0 100 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg">
+              <circle cx="25" cy="18" r="9" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4" class="svg-spin"/>
+              <path d="M42 18 H65" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
+              <circle cx="78" cy="18" r="3" fill="#10b981" class="svg-pulse"/>
+            </svg>
+          </div>
         </div>
-        <h3>3. Auto-Fix Broken Links</h3>
-        <p>Keep ODS running in the background. If you move or rename any file, ODS automatically repairs all your document links!</p>
+        <h3>Background Auto-Sync</h3>
+        <p>Run <code>ods start .</code> to launch the background watch service and automatically repair links whenever files move.</p>
         <div class="step-code-box">
-          <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-cmd">ods</span> <span class="code-args">serve</span></code>
-          <button class="step-copy-btn" data-code="ods serve" title="Copy Command">
+          <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-cmd">ods</span> <span class="code-args">start .</span></code>
+          <button class="step-copy-btn" data-code="ods start ." title="Copy Command">
             <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
             <span class="copy-text">Copy</span>
@@ -697,130 +679,225 @@ import { REPO_URL } from "../lib/releases";
   </section>
 
   <!-- Funnel Step 2.7: Universal Adoption: Tech & Non-Tech Alike -->
-  <section class="section-container">
-    <h2 class="section-heading">Built for Everyone: Writers, Managers, and Developers</h2>
-    <p class="section-subheading">ODS is not just for programmers. Anyone who writes documents, guides, guidelines, or research can use ODS without touching a terminal.</p>
+  <section class="section-container persona-adoption-section">
+    <div class="persona-section-header">
+      <span class="persona-section-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        UNIVERSAL ADOPTION
+      </span>
+      <h2 class="section-heading">Built for Everyone: Writers, Managers, and Developers</h2>
+      <p class="section-subheading">ODS is not just for programmers. Anyone who writes documents, guides, guidelines, or research can use ODS without touching a terminal.</p>
+    </div>
 
     <div class="persona-4-grid">
-      <div class="persona-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <rect x="10" y="8" width="40" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="16" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="8">PRD</text>
-            <path d="M50 22 H75" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <rect x="75" y="8" width="45" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="81" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="8">Goals</text>
-            <path d="M120 22 H145" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <circle cx="158" cy="22" r="10" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.1"/>
-            <path d="M153 22 L157 26 L163 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="svg-pulse"/>
+      <div class="persona-card persona-mono">
+        <div class="persona-card-header">
+          <span class="persona-role-chip chip-mono">PRODUCT & STRATEGY</span>
+        </div>
+        <div class="card-visual-svg-wrap persona-svg-hero">
+          <svg viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
+            <rect x="6" y="10" width="50" height="32" rx="7" stroke="var(--fg)" stroke-width="1.8" fill="var(--card-bg)"/>
+            <text x="17" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="10" font-weight="700">PRD</text>
+            
+            <path d="M56 26 H76" stroke="var(--fg-muted)" stroke-width="2" stroke-dasharray="3 2" class="svg-flow"/>
+            
+            <rect x="76" y="10" width="54" height="32" rx="7" stroke="var(--fg)" stroke-width="1.8" fill="var(--card-bg)"/>
+            <text x="84" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="10" font-weight="700">Goals</text>
+            
+            <path d="M130 26 H148" stroke="var(--fg)" stroke-width="2" stroke-dasharray="3 2" class="svg-flow"/>
+            
+            <circle cx="163" cy="26" r="12" stroke="var(--fg)" stroke-width="2" fill="var(--nested-card-bg)"/>
+            <path d="M157 26 L162 30 L169 22" stroke="var(--fg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h3>Product & Business Managers</h3>
-        <p>Connect feature descriptions, goals, and checklists directly to project plans to stay organized.</p>
+        <p>Link PRDs, goals, and checklists directly to project plans.</p>
+        <div class="persona-card-footer">
+          <span class="persona-feature-tag">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Auto-linked PRD specs
+          </span>
+        </div>
       </div>
 
-      <div class="persona-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <rect x="20" y="6" width="140" height="32" rx="6" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="30" y="14" width="35" height="5" rx="2" fill="currentColor" opacity="0.7"/>
-            <rect x="30" y="23" width="50" height="5" rx="2" fill="currentColor" opacity="0.3"/>
-            <rect x="95" y="12" width="55" height="20" rx="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/>
-            <text x="100" y="25" fill="currentColor" font-family="Inter, sans-serif" font-size="7">private</text>
-            <circle cx="143" cy="22" r="3" fill="currentColor" class="svg-pulse"/>
+      <div class="persona-card persona-mono">
+        <div class="persona-card-header">
+          <span class="persona-role-chip chip-mono">COMPLIANCE & LEGAL</span>
+        </div>
+        <div class="card-visual-svg-wrap persona-svg-hero">
+          <svg viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
+            <rect x="6" y="9" width="168" height="34" rx="8" stroke="var(--fg)" stroke-width="1.8" fill="var(--card-bg)"/>
+            <rect x="18" y="17" width="48" height="6" rx="3" fill="var(--fg)" opacity="0.85"/>
+            <rect x="18" y="27" width="56" height="5" rx="2.5" fill="var(--fg-muted)" opacity="0.4"/>
+            <rect x="88" y="15" width="76" height="22" rx="6" stroke="var(--fg)" stroke-width="1.5" fill="var(--nested-card-bg)"/>
+            <text x="94" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="8.5" font-weight="700">share: private</text>
+            <circle cx="154" cy="26" r="3.5" fill="var(--fg)"/>
           </svg>
         </div>
         <h3>Legal, HR & Compliance</h3>
-        <p>Enforce required policy chapters and hide private files or sensitive data using the simple <code>share: private</code> setting.</p>
+        <p>Enforce policy rules and keep sensitive data private.</p>
+        <div class="persona-card-footer">
+          <span class="persona-feature-tag">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Zero cloud exposure
+          </span>
+        </div>
       </div>
 
-      <div class="persona-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <!-- Left box: Paper/Notes -->
-            <rect x="8" y="10" width="38" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="14" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="7" font-weight="bold">Paper</text>
+      <div class="persona-card persona-mono">
+        <div class="persona-card-header">
+          <span class="persona-role-chip chip-mono">ACADEMIC & RESEARCH</span>
+        </div>
+        <div class="card-visual-svg-wrap persona-svg-hero">
+          <svg viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
+            <rect x="6" y="11" width="46" height="30" rx="6" stroke="var(--fg)" stroke-width="1.8" fill="var(--card-bg)"/>
+            <text x="13" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9.5" font-weight="700">Paper</text>
             
-            <!-- Connectors (split into individual paths to avoid subpath animation bug) -->
-            <path d="M46 22 L65 14" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
-            <path d="M46 22 L65 30" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
-            <path d="M115 14 L134 22" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
-            <path d="M115 30 L134 22" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
+            <path d="M52 26 L68 17" stroke="var(--fg-muted)" stroke-width="1.8" class="svg-flow"/>
+            <path d="M52 26 L68 35" stroke="var(--fg-muted)" stroke-width="1.8" class="svg-flow"/>
+            <path d="M112 17 L128 26" stroke="var(--fg-muted)" stroke-width="1.8" class="svg-flow"/>
+            <path d="M112 35 L128 26" stroke="var(--fg-muted)" stroke-width="1.8" class="svg-flow"/>
 
-            <!-- Top middle box: Ref A -->
-            <rect x="65" y="4" width="50" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/>
-            <text x="73" y="14" fill="currentColor" font-family="Inter, sans-serif" font-size="6.5">Ref A</text>
+            <rect x="68" y="7" width="44" height="18" rx="4" stroke="var(--fg-muted)" stroke-width="1.5" fill="var(--card-bg)"/>
+            <text x="75" y="19" fill="var(--fg)" font-family="Inter, sans-serif" font-size="8" font-weight="600">Ref A</text>
 
-            <!-- Bottom middle box: Ref B -->
-            <rect x="65" y="24" width="50" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/>
-            <text x="73" y="34" fill="currentColor" font-family="Inter, sans-serif" font-size="6.5">Ref B</text>
+            <rect x="68" y="27" width="44" height="18" rx="4" stroke="var(--fg-muted)" stroke-width="1.5" fill="var(--card-bg)"/>
+            <text x="75" y="39" fill="var(--fg)" font-family="Inter, sans-serif" font-size="8" font-weight="600">Ref B</text>
 
-            <!-- Right box: Citation / PDF -->
-            <rect x="134" y="10" width="38" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="142" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="7" font-weight="bold">Cite</text>
+            <rect x="128" y="11" width="46" height="30" rx="6" stroke="var(--fg)" stroke-width="1.8" fill="var(--card-bg)"/>
+            <text x="137" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9.5" font-weight="700">Cite</text>
           </svg>
         </div>
         <h3>Researchers & Academics</h3>
-        <p>Easily map and link citations across your research notes, papers, and projects.</p>
+        <p>Map and link citations across research notes and papers.</p>
+        <div class="persona-card-footer">
+          <span class="persona-feature-tag">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Bi-directional citations
+          </span>
+        </div>
       </div>
 
-      <div class="persona-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <rect x="10" y="8" width="50" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="16" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="8">ADR.md</text>
-            <path d="M60 22 H90" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <rect x="90" y="8" width="80" height="28" rx="4" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.05"/>
-            <text x="96" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="8">init_db()</text>
+      <div class="persona-card persona-mono">
+        <div class="persona-card-header">
+          <span class="persona-role-chip chip-mono">ENGINEERING & DEVOPS</span>
+        </div>
+        <div class="card-visual-svg-wrap persona-svg-hero">
+          <svg viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
+            <rect x="6" y="11" width="56" height="30" rx="6" stroke="var(--fg)" stroke-width="1.8" fill="var(--card-bg)"/>
+            <text x="12" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9.5" font-weight="700">ADR.md</text>
+            <path d="M62 26 H86" stroke="var(--fg-muted)" stroke-width="2" stroke-dasharray="3 2" class="svg-flow"/>
+            <rect x="86" y="11" width="88" height="30" rx="6" stroke="var(--fg)" stroke-width="1.8" fill="var(--nested-card-bg)"/>
+            <text x="94" y="29" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9.5" font-weight="700">init_db()</text>
           </svg>
         </div>
         <h3>Engineering & DevOps</h3>
-        <p>Connect your technical plans and guides directly to specific parts of your program code.</p>
+        <p>Connect technical specs and guides directly to source code.</p>
+        <div class="persona-card-footer">
+          <span class="persona-feature-tag">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Source code linking
+          </span>
+        </div>
       </div>
     </div>
 
-    <!-- Dual Adoption Pathways Comparison Box -->
-    <div class="pathways-box glow-card">
+    <!-- Dual Adoption Pathways Comparison Container -->
+    <div class="pathways-box">
       <div class="pathways-header">
-        <span class="pathways-icon-badge">⚡ Quick Onboarding</span>
+        <span class="pathways-icon-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          QUICK ONBOARDING
+        </span>
         <h3 class="pathways-title">Two Easy Ways to Get Started</h3>
+        <p class="pathways-subtitle">Pick the setup path that fits your workflow best — zero complex configuration required.</p>
       </div>
+
       <div class="pathways-grid">
+        <!-- Pathway Option A -->
         <div class="pathway-col non-tech">
-          <div class="path-badge badge-ai">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-            Option A • No-Code AI Skill
+          <div class="pathway-header-strip">
+            <div class="path-badge badge-mono">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              Option A • AI Skill
+            </div>
+            <span class="pathway-type-pill">Non-Technical</span>
           </div>
-          <h4>Use Directly Inside Your AI Assistant</h4>
-          <p>No terminal commands needed. Simply ask your AI assistant (like Claude, Cursor, or Antigravity):</p>
-          <div class="step-code-box path-code-box">
-            <code class="step-code-line"><span class="code-prompt">"</span><span class="code-args">Install the ODS skill and index my documents folder.</span><span class="code-prompt">"</span></code>
-            <button class="step-copy-btn" data-code="Install the ODS skill and index my documents folder." title="Copy Prompt">
-              <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-              <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="copy-text">Copy</span>
-            </button>
+
+          <div class="pathway-content-body">
+            <h4 class="pathway-heading">Inside Your AI Assistant</h4>
+            <p class="pathway-desc">Ask your AI assistant (Claude, Cursor, Copilot or Antigravity):</p>
+            
+            <div class="step-code-box path-code-box glass-code-box">
+              <div class="code-box-header">
+                <span class="code-box-dot dot-mono"></span>
+                <span class="code-box-title">AI Prompt</span>
+              </div>
+              <div class="code-box-main">
+                <code class="step-code-line"><span class="code-sparkle">✨</span> <span class="code-args">Install ODS skill & index my docs</span></code>
+                <button class="step-copy-btn" data-code="Install the ODS skill and index my documents folder." title="Copy Prompt">
+                  <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="copy-text">Copy</span>
+                </button>
+              </div>
+            </div>
           </div>
-          <span class="path-tag">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Best for writers, managers, and designers
-          </span>
+
+          <div class="pathway-footer-strip">
+            <div class="supported-ai-chips">
+              <span class="ai-chip">Claude</span>
+              <span class="ai-chip">Cursor</span>
+              <span class="ai-chip">Antigravity</span>
+            </div>
+            <span class="path-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              For writers, managers & non-programmers
+            </span>
+          </div>
         </div>
 
+        <!-- Pathway Option B -->
         <div class="pathway-col tech">
-          <div class="path-badge badge-terminal">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-            Option B • Terminal Setup
+          <div class="pathway-header-strip">
+            <div class="path-badge badge-mono">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              Option B • Terminal Setup
+            </div>
+            <span class="pathway-type-pill">Developer CLI</span>
           </div>
-          <h4>Quick Direct Tool Setup</h4>
-          <p>Install the fast direct utility command using a single terminal line:</p>
-          <div class="path-prompt-box">
-            <code>$ curl -fsSL https://opendocify.com/install.sh | bash</code>
+
+          <div class="pathway-content-body">
+            <h4 class="pathway-heading">Terminal Setup</h4>
+            <p class="pathway-desc">Run single-line command in your terminal:</p>
+            
+            <div class="step-code-box path-code-box glass-code-box">
+              <div class="code-box-header">
+                <span class="code-box-dot dot-mono"></span>
+                <span class="code-box-title">Shell Terminal</span>
+              </div>
+              <div class="code-box-main">
+                <code class="step-code-line"><span class="code-prompt">$</span> <span class="code-args">curl -fsSL https://opendocify.com/install.sh | bash</span></code>
+                <button class="step-copy-btn" data-code="curl -fsSL https://opendocify.com/install.sh | bash" title="Copy Command">
+                  <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="copy-text">Copy</span>
+                </button>
+              </div>
+            </div>
           </div>
-          <span class="path-tag">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Best for developers, pipelines, and CLI users
-          </span>
+
+          <div class="pathway-footer-strip">
+            <div class="supported-ai-chips">
+              <span class="tech-chip">&lt; 5ms</span>
+              <span class="tech-chip">cargo</span>
+              <span class="tech-chip">npm</span>
+            </div>
+            <span class="path-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              For developers & CLI workflows
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -828,52 +905,230 @@ import { REPO_URL } from "../lib/releases";
 
 
   <!-- Funnel Step 5: Vector RAG vs ODS Technical Matrix -->
-  <section class="section-container">
+  <section class="section-container matrix-section">
+    <div class="matrix-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>
+      </svg>
+      Architecture &amp; Performance Comparison
+    </div>
     <h2 class="section-heading">Vector Search vs ODS Smart Mapping</h2>
     <p class="section-subheading">Why teams prefer ODS over standard vector search tools for linking documentation.</p>
 
-    <div class="matrix-table-wrap glow-card">
+    <div class="matrix-table-wrap">
       <table class="matrix-table">
         <thead>
           <tr>
-            <th>Feature</th>
-            <th>Vector Search (RAG)</th>
-            <th class="highlight-col">ODS Document Map</th>
+            <th class="feature-head">
+              <span class="head-title">Feature / Capability</span>
+            </th>
+            <th class="competitor-head">
+              <div class="col-header-inner">
+                <span class="head-tag legacy-tag">Traditional Approach</span>
+                <span class="head-title">Vector Search (RAG)</span>
+              </div>
+            </th>
+            <th class="ods-head highlight-col">
+              <div class="col-header-inner">
+                <span class="head-tag winner-tag">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                  </svg>
+                  ODS Standard
+                </span>
+                <span class="head-title">ODS Document Map</span>
+              </div>
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="feature-label">How AI Reads Pages</td>
-            <td>Scrambled snippets (confuses the AI)</td>
-            <td class="highlight-col">✓ Full pages in the exact order they are linked</td>
+            <td class="feature-label">
+              <div class="feature-cell-content">
+                <div class="feature-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <span>How AI Reads Pages</span>
+              </div>
+            </td>
+            <td>
+              <div class="cell-status status-bad">
+                <span class="status-icon icon-bad">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>Scrambled snippets <em class="note-bad">(confuses the AI)</em></span>
+              </div>
+            </td>
+            <td class="highlight-col">
+              <div class="cell-status status-good">
+                <span class="status-icon icon-good">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Full pages in the exact order they are linked</span>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td class="feature-label">Text Sent to AI</td>
-            <td>80,000+ words (unrelated text is included)</td>
-            <td class="highlight-col">✓ 4,100 words (saves ~94% space)</td>
+            <td class="feature-label">
+              <div class="feature-cell-content">
+                <div class="feature-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                </div>
+                <span>Text Sent to AI</span>
+              </div>
+            </td>
+            <td>
+              <div class="cell-status status-bad">
+                <span class="status-icon icon-bad">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <div>
+                  <strong class="metric-value value-bad">80,000+ words</strong>
+                  <span class="subtext-detail">Unrelated text is included</span>
+                </div>
+              </div>
+            </td>
+            <td class="highlight-col">
+              <div class="cell-status status-good">
+                <span class="status-icon icon-good">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <div class="metric-with-badge">
+                  <strong class="metric-value value-good">4,100 words</strong>
+                  <span class="saving-pill">Saves ~94% space</span>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td class="feature-label">Search Speed</td>
-            <td>Slow (takes up to 1.5 seconds)</td>
-            <td class="highlight-col">✓ Instant (under 5 milliseconds)</td>
+            <td class="feature-label">
+              <div class="feature-cell-content">
+                <div class="feature-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <span>Search Speed</span>
+              </div>
+            </td>
+            <td>
+              <div class="cell-status status-bad">
+                <span class="status-icon icon-bad">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <div>
+                  <strong class="metric-value value-bad">Slow</strong>
+                  <span class="subtext-detail">Takes up to 1.5 seconds</span>
+                </div>
+              </div>
+            </td>
+            <td class="highlight-col">
+              <div class="cell-status status-good">
+                <span class="status-icon icon-good">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <div class="metric-with-badge">
+                  <strong class="metric-value value-good">Instant</strong>
+                  <span class="speed-pill">&lt; 5 milliseconds</span>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td class="feature-label">Maintenance Cost</td>
-            <td>Expensive database fees ($500+ / month)</td>
-            <td class="highlight-col">✓ $0 (works directly on standard text files)</td>
+            <td class="feature-label">
+              <div class="feature-cell-content">
+                <div class="feature-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <span>Maintenance Cost</span>
+              </div>
+            </td>
+            <td>
+              <div class="cell-status status-bad">
+                <span class="status-icon icon-bad">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <div>
+                  <strong class="metric-value value-bad">$500+ / month</strong>
+                  <span class="subtext-detail">Expensive DB indexing fees</span>
+                </div>
+              </div>
+            </td>
+            <td class="highlight-col">
+              <div class="cell-status status-good">
+                <span class="status-icon icon-good">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <div class="metric-with-badge">
+                  <strong class="metric-value value-good">$0 / Free</strong>
+                  <span class="subtext-detail">Works directly on standard text files</span>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td class="feature-label">Moving or Renaming Files</td>
-            <td>Search database breaks and lists out-of-date files</td>
-            <td class="highlight-col">✓ Links are automatically repaired on the spot</td>
+            <td class="feature-label">
+              <div class="feature-cell-content">
+                <div class="feature-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                </div>
+                <span>Moving or Renaming Files</span>
+              </div>
+            </td>
+            <td>
+              <div class="cell-status status-bad">
+                <span class="status-icon icon-bad">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>Search database breaks &amp; lists out-of-date files</span>
+              </div>
+            </td>
+            <td class="highlight-col">
+              <div class="cell-status status-good">
+                <span class="status-icon icon-good">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Links are automatically repaired on the spot</span>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td class="feature-label">Freedom / Portability</td>
-            <td>High lock-in (dependent on database vendor)</td>
-            <td class="highlight-col">✓ Zero lock-in (standard text documents forever)</td>
+            <td class="feature-label">
+              <div class="feature-cell-content">
+                <div class="feature-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <span>Freedom / Portability</span>
+              </div>
+            </td>
+            <td>
+              <div class="cell-status status-bad">
+                <span class="status-icon icon-bad">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>High lock-in (dependent on database vendor)</span>
+              </div>
+            </td>
+            <td class="highlight-col">
+              <div class="cell-status status-good">
+                <span class="status-icon icon-good">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Zero lock-in (standard text documents forever)</span>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
+
+      <div class="matrix-summary-bar">
+        <div class="summary-content">
+          <span class="summary-sparkle">✨</span>
+          <span><strong>Bottom Line:</strong> ODS Smart Mapping slashes AI token overhead by <strong>~94%</strong> while delivering <strong>sub-5ms search speeds</strong> at <strong>$0 infrastructure cost</strong>.</span>
+        </div>
+        <a href="/spec/ods/intro" class="matrix-cta-link">
+          Explore Spec
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -883,20 +1138,21 @@ import { REPO_URL } from "../lib/releases";
     <p class="section-subheading">Pre-structured profiles to keep documents clean and organized.</p>
 
     <div class="profiles-grid">
-      <div class="profile-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <rect x="15" y="6" width="150" height="32" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M25 14 H90 M25 22 H140 M25 30 H110" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-            <path d="M25 14 H60" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <circle cx="150" cy="14" r="3" fill="currentColor" class="svg-pulse"/>
-          </svg>
+      <div class="profile-card">
+        <div class="profile-card-top">
+          <span class="profile-type-badge">profile: architecture</span>
+          <div class="profile-icon-accent" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
         </div>
         <div class="profile-header">
-          <span class="profile-type-badge">profile: architecture</span>
           <h3>Architecture docs</h3>
+          <p class="profile-desc">Standardize architecture, APIs, and schemas.</p>
         </div>
-        <p class="profile-desc">Standardize architecture, APIs, and schemas.</p>
         <div class="profile-rule">
           <code>## Summary</code>
           <code>## Requirements</code>
@@ -904,20 +1160,24 @@ import { REPO_URL } from "../lib/releases";
         </div>
       </div>
 
-      <div class="profile-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <circle cx="30" cy="22" r="6" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="90" cy="22" r="6" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="150" cy="22" r="6" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.2"/>
-            <path d="M36 22 H84 M96 22 H144" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
-          </svg>
+      <div class="profile-card">
+        <div class="profile-card-top">
+          <span class="profile-type-badge">profile: guide</span>
+          <div class="profile-icon-accent" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3" y1="6" x2="3.01" y2="6"/>
+              <line x1="3" y1="12" x2="3.01" y2="12"/>
+              <line x1="3" y1="18" x2="3.01" y2="18"/>
+            </svg>
+          </div>
         </div>
         <div class="profile-header">
-          <span class="profile-type-badge">profile: guide</span>
           <h3>Runbooks & Guides</h3>
+          <p class="profile-desc">Clear step-by-step setup and operations.</p>
         </div>
-        <p class="profile-desc">Clear step-by-step setup and operations.</p>
         <div class="profile-rule">
           <code>## Overview</code>
           <code>## Prerequisites</code>
@@ -925,40 +1185,43 @@ import { REPO_URL } from "../lib/releases";
         </div>
       </div>
 
-      <div class="profile-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <rect x="20" y="8" width="50" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="26" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="7">User Goal</text>
-            <path d="M70 22 H110" stroke="currentColor" stroke-width="2" class="svg-flow"/>
-            <rect x="110" y="8" width="50" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/>
-            <text x="116" y="24" fill="currentColor" font-family="Inter, sans-serif" font-size="7">Criteria</text>
-          </svg>
+      <div class="profile-card">
+        <div class="profile-card-top">
+          <span class="profile-type-badge">profile: feature</span>
+          <div class="profile-icon-accent" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v8M8 12h8"/>
+            </svg>
+          </div>
         </div>
         <div class="profile-header">
-          <span class="profile-type-badge">profile: feature</span>
           <h3>Product PRDs</h3>
+          <p class="profile-desc">Connect user goals to feature plans.</p>
         </div>
-        <p class="profile-desc">Connect user goals to feature plans.</p>
         <div class="profile-rule">
           <code>## User Goal</code>
           <code>## Acceptance Criteria</code>
         </div>
       </div>
 
-      <div class="profile-card glow-card">
-        <div class="card-visual-svg-wrap">
-          <svg viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="micro-svg-sm">
-            <path d="M20 22 H60 L90 10 M60 22 L90 34" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M90 10 H160 M90 34 H160" stroke="currentColor" stroke-width="1.5" class="svg-flow"/>
-            <circle cx="160" cy="10" r="3" fill="currentColor" class="svg-pulse"/>
-          </svg>
+      <div class="profile-card">
+        <div class="profile-card-top">
+          <span class="profile-type-badge">profile: note</span>
+          <div class="profile-icon-accent" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
         </div>
         <div class="profile-header">
-          <span class="profile-type-badge">profile: note</span>
           <h3>Decision Records</h3>
+          <p class="profile-desc">Track design context, decisions, and impact.</p>
         </div>
-        <p class="profile-desc">Track design context, decisions, and impact.</p>
         <div class="profile-rule">
           <code>## Context</code>
           <code>## Decision</code>
@@ -969,43 +1232,96 @@ import { REPO_URL } from "../lib/releases";
   </section>
 
 
-  <!-- Funnel Step 8: Embedded Pricing Section (Immediate Conversion Trigger) -->
+  <!-- Funnel Step 8: Minimal Pricing Section -->
   <section class="section-container" id="pricing">
     <h2 class="section-heading">Pricing & Tier Options</h2>
-    <p class="section-subheading">Open Document Spec core is 100% free and open-source forever under the Apache 2.0 license, with managed cloud and enterprise features coming soon.</p>
+    <p class="section-subheading">Open Document Spec core is 100% free and open-source forever under the Apache 2.0 license.</p>
 
-    <div class="coming-soon-main-card glow-card">
-      <div class="card-header-badge">
-        <span class="pulse-dot"></span>
-        PRICING & PRO TIERS COMING SOON
+    <div class="pricing-home-grid">
+      <!-- Tier 1: Community Core -->
+      <div class="pricing-home-card featured">
+        <div class="pricing-card-header">
+          <div class="pricing-badge-row">
+            <span class="pricing-tier-name">Community Core</span>
+            <span class="badge-status badge-active">
+              <span class="pulse-dot-green"></span> Free Forever
+            </span>
+          </div>
+          <div class="pricing-price-wrap">
+            <span class="pricing-amount">$0</span>
+            <span class="pricing-period">/ forever</span>
+          </div>
+          <p class="pricing-card-desc">100% open-source local document specification & CLI graph toolchain.</p>
+        </div>
+        <ul class="pricing-feature-list">
+          <li>
+            <svg class="pricing-check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Full ODS Spec & Schema Validation</span>
+          </li>
+          <li>
+            <svg class="pricing-check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Local CLI (`ods context`, `ods lint`)</span>
+          </li>
+          <li>
+            <svg class="pricing-check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Cursor, Antigravity & Copilot Adapters</span>
+          </li>
+          <li>
+            <svg class="pricing-check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Apache 2.0 License & Zero Telemetry</span>
+          </li>
+        </ul>
+        <div class="pricing-card-footer">
+          <a href="/docs" class="pricing-btn pricing-btn-primary">
+            Get Started
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
 
-      <div class="coming-soon-tiers">
-        <div class="tier-pill">
-          <span class="pulse-dot-green"></span>
-          <span class="tier-name">Community Core</span>
-          <span class="tier-badge available">Free forever</span>
+      <!-- Tier 2: ODS Pro Cloud -->
+      <div class="pricing-home-card">
+        <div class="pricing-card-header">
+          <div class="pricing-badge-row">
+            <span class="pricing-tier-name">ODS Pro Cloud</span>
+            <span class="badge-status badge-roadmap">Coming Soon</span>
+          </div>
+          <div class="pricing-price-wrap">
+            <span class="pricing-amount">Cloud</span>
+            <span class="pricing-period">/ team user</span>
+          </div>
+          <p class="pricing-card-desc">Managed real-time sync, cloud indexing, and web doc hosting for teams.</p>
         </div>
-        <div class="tier-pill">
-          <span class="tier-dot"></span>
-          <span class="tier-name">ODS Pro Cloud</span>
-          <span class="tier-badge coming-soon">Coming Soon</span>
-        </div>
-        <div class="tier-pill">
-          <span class="tier-dot"></span>
-          <span class="tier-name">Enterprise Team</span>
-          <span class="tier-badge coming-soon">Coming Soon</span>
+        <ul class="pricing-feature-list">
+          <li>
+            <svg class="pricing-check-icon muted" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Multi-user real-time graph sync</span>
+          </li>
+          <li>
+            <svg class="pricing-check-icon muted" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Automated graph drift & health alerts</span>
+          </li>
+          <li>
+            <svg class="pricing-check-icon muted" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Vector index & hybrid search pipeline</span>
+          </li>
+          <li>
+            <svg class="pricing-check-icon muted" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span>Zero-config web docs preview</span>
+          </li>
+        </ul>
+        <div class="pricing-card-footer">
+          <a href={`${REPO_URL}/discussions`} target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">
+            Follow Roadmap
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
-
-      <p class="card-main-subtext">
-        Open Document Spec core is completely free and open-source under the Apache 2.0 license. Managed cloud synchronization, live team collaboration, and enterprise compliance features are launching soon.
-      </p>
     </div>
   </section>
 
   <!-- Funnel Step 9: Call to Action Banner -->
-  <section class="cta-banner glow-card">
+  <section class="cta-banner">
     <h2 class="cta-heading">Ready to make your documents easy to read and manage?</h2>
     <p class="cta-subheading">Get started with ODS in under 2 minutes.</p>
     <div class="cta-buttons">
@@ -1348,7 +1664,7 @@ import { REPO_URL } from "../lib/releases";
     margin: var(--space-32) auto 0 auto;
     background: #09090b !important;
     background-color: #09090b !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
     border-radius: var(--radius-outer) !important;
     overflow: hidden !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
@@ -1622,13 +1938,13 @@ import { REPO_URL } from "../lib/releases";
     background: var(--nested-card-bg);
     border: 1px solid var(--border-color);
     padding: 2px 10px;
-    border-radius: 12px;
+    border-radius: var(--radius-child);
     width: fit-content;
     line-height: 1.2;
   }
 
   .ods-step-title {
-    font-size: 1.15rem;
+    font-size: 1.025rem;
     font-weight: 700;
     color: var(--fg);
     letter-spacing: -0.015em;
@@ -1837,7 +2153,7 @@ import { REPO_URL } from "../lib/releases";
     text-align: center !important;
   }
 
-  /* ── Assistant Interactive Setup Section (Mature, Minimal, Friendly) ── */
+  /* ── Assistant Interactive Setup Switcher (Mature, Minimal, Friendly) ── */
   .assistant-setup-section {
     margin-bottom: var(--space-64);
     position: relative;
@@ -1845,7 +2161,7 @@ import { REPO_URL } from "../lib/releases";
 
   .setup-header-wrap {
     text-align: center;
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto var(--space-28);
   }
 
@@ -1861,7 +2177,7 @@ import { REPO_URL } from "../lib/releases";
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 12px;
   }
@@ -1886,51 +2202,77 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .assistant-switcher-box {
-    max-width: 960px;
+    max-width: 920px;
+    width: 100%;
     margin: 0 auto;
     border-radius: var(--radius-xl);
-    padding: var(--space-24);
+    padding: var(--space-28);
     display: flex;
     flex-direction: column;
-    gap: var(--space-16);
+    gap: var(--space-20);
     border: 1px solid rgba(0, 0, 0, 0.08) !important;
     background: #ffffff !important;
-    box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.06) !important;
+    box-shadow: none !important;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   :root[data-theme="dark"] .assistant-switcher-box {
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
     background: #111114 !important;
-    box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: none !important;
   }
 
-  /* Selector Tab Strip */
-  .assistant-selector-nav {
+  /* Selector Bar */
+  .assistant-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .selector-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px;
+  }
+
+  .selector-title {
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+  }
+
+  .selector-count-badge {
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: #16a34a;
+    font-family: var(--font-mono);
+  }
+
+  :root[data-theme="dark"] .selector-count-badge {
+    color: #4ade80;
+  }
+
+  .assistant-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
-    padding: 4px;
-    border-radius: 12px;
-    background: #f4f4f5;
-    border: 1px solid #e4e4e7;
-  }
-
-  :root[data-theme="dark"] .assistant-selector-nav {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.07);
+    gap: 8px;
   }
 
   .assistant-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 7px 12px;
+    gap: 7px;
+    padding: 7px 14px;
     border-radius: 8px !important;
-    border: 1px solid transparent !important;
-    background: transparent !important;
-    color: #52525b !important;
+    border: 1px solid #e4e4e7 !important;
+    background: #ffffff !important;
+    color: #18181b !important;
     font-size: 0.8125rem;
     font-weight: 550;
     cursor: pointer;
@@ -1940,17 +2282,20 @@ import { REPO_URL } from "../lib/releases";
   }
 
   :root[data-theme="dark"] .assistant-btn {
-    color: #a1a1aa !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: #e4e4e7 !important;
   }
 
   .assistant-btn:hover {
-    color: #09090b !important;
-    background: rgba(0, 0, 0, 0.04) !important;
+    border-color: #a1a1aa !important;
+    background: #f8fafc !important;
+    transform: translateY(-1px);
   }
 
   :root[data-theme="dark"] .assistant-btn:hover {
-    color: #f4f4f5 !important;
-    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
   }
 
   .assistant-btn:active {
@@ -1963,176 +2308,30 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .assistant-btn:hover .ast-icon {
-    transform: scale(1.06);
+    transform: scale(1.08);
   }
 
   .assistant-btn.active {
-    background: #ffffff !important;
-    color: #09090b !important;
-    border-color: rgba(0, 0, 0, 0.08) !important;
+    background: #09090b !important;
+    color: #ffffff !important;
+    border-color: #09090b !important;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 
   :root[data-theme="dark"] .assistant-btn.active {
-    background: #1f1f23 !important;
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: #ffffff !important;
+    color: #09090b !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
   }
 
-  /* 2-Column Split Interactive Stage */
-  .setup-interactive-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-    margin: 4px 0;
-  }
-
-  .setup-info-pane {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 18px;
-    padding: 8px 4px;
-  }
-
-  .setup-info-header {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .setup-target-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8125rem;
-    font-weight: 650;
-    color: #09090b;
-  }
-
-  :root[data-theme="dark"] .setup-target-badge {
-    color: #f4f4f5;
-  }
-
-  .setup-badge-sep {
-    color: #a1a1aa;
-    font-size: 0.75rem;
-  }
-
-  .setup-mode-tag {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: #16a34a;
-    background: #e6f4ea;
-    border: 1px solid rgba(22, 163, 74, 0.2);
-    padding: 2px 8px;
-    border-radius: 9999px;
-  }
-
-  :root[data-theme="dark"] .setup-mode-tag {
-    color: #4ade80;
-    background: rgba(34, 197, 94, 0.12);
-    border-color: rgba(34, 197, 94, 0.25);
-  }
-
-  .setup-info-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #09090b;
-    margin: 2px 0 0 0;
-    line-height: 1.3;
-    letter-spacing: -0.015em;
-  }
-
-  :root[data-theme="dark"] .setup-info-title {
-    color: #ffffff;
-  }
-
-  .setup-info-desc {
-    font-size: 0.875rem;
-    color: #52525b;
-    line-height: 1.55;
-    margin: 0;
-  }
-
-  :root[data-theme="dark"] .setup-info-desc {
-    color: #a1a1aa;
-  }
-
-  .setup-highlights-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .setup-highlight-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .highlight-bullet {
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background: rgba(16, 185, 129, 0.12);
-    color: #10b981;
-    margin-top: 1px;
-  }
-
-  :root[data-theme="dark"] .highlight-bullet {
-    background: rgba(34, 197, 94, 0.15);
-    color: #4ade80;
-  }
-
-  .highlight-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    font-size: 0.8125rem;
-    line-height: 1.35;
-  }
-
-  .highlight-text strong {
-    color: #18181b;
-    font-weight: 600;
-  }
-
-  :root[data-theme="dark"] .highlight-text strong {
-    color: #f4f4f5;
-  }
-
-  .highlight-text span {
-    color: #71717a;
-    font-size: 0.775rem;
-  }
-
-  :root[data-theme="dark"] .highlight-text span {
-    color: #a1a1aa;
-  }
-
-  /* Right Column: Terminal Window */
-  .setup-terminal-pane {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .terminal-window {
+  /* Terminal Container */
+  .terminal-container {
+    border-radius: var(--radius-inner);
+    border: 1px solid #27272a !important;
     background: #09090b !important;
-    border: 1px solid #27272a;
-    border-radius: 12px;
-    box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.35);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    box-shadow: none !important;
     overflow: hidden;
   }
 
@@ -2141,23 +2340,22 @@ import { REPO_URL } from "../lib/releases";
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: #0d0d10 !important;
-    border-bottom: 1px solid #1c1c20 !important;
+    background: #0c0c0e !important;
+    border-bottom: 1px solid #1f1f23 !important;
     gap: 12px;
+    flex-wrap: wrap;
   }
 
   .terminal-left-group {
     display: flex;
     align-items: center;
-    gap: 10px;
-    min-width: 0;
+    gap: 12px;
   }
 
   .term-dots {
     display: flex;
     align-items: center;
     gap: 6px;
-    flex-shrink: 0;
   }
 
   .dot {
@@ -2170,30 +2368,85 @@ import { REPO_URL } from "../lib/releases";
   .dot-yellow { background-color: #ffbd2e; }
   .dot-green { background-color: #27c93f; }
 
-  .term-window-title {
+  .integration-mode-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+  }
+
+  :root[data-theme="light"] .integration-mode-badge {
+    color: #0284c7;
+    background: rgba(2, 132, 199, 0.08);
+    border-color: rgba(2, 132, 199, 0.2);
+  }
+
+  .terminal-center-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .terminal-tabs {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .term-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-family: var(--font-mono);
     font-size: 0.725rem;
-    color: #71717a;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none !important;
+    background: transparent !important;
+    color: #94a3b8 !important;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .term-tab:hover {
+    color: #f1f5f9 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .term-tab.active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+  }
+
+  .terminal-right-group {
+    display: flex;
+    align-items: center;
   }
 
   .terminal-copy-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: #e2e8f0 !important;
+    color: #cbd5e1 !important;
     font-family: var(--font-mono);
-    font-size: 0.725rem;
-    font-weight: 500;
-    padding: 4px 9px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.15s ease;
-    flex-shrink: 0;
   }
 
   .terminal-copy-btn:hover {
@@ -2209,17 +2462,16 @@ import { REPO_URL } from "../lib/releases";
   }
 
   :global(.terminal-code-panel) {
-    padding: 16px 18px;
+    padding: 16px 20px;
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    line-height: 1.6;
+    font-size: 0.84rem;
+    line-height: 1.65;
     color: #e2e8f0;
     margin: 0;
     overflow-x: auto;
     white-space: pre-wrap;
     background: transparent;
-    flex: 1;
-    transition: opacity 0.12s ease;
+    transition: opacity 0.15s ease;
   }
 
   :global(.terminal-code-panel.fade-out),
@@ -2227,55 +2479,109 @@ import { REPO_URL } from "../lib/releases";
     opacity: 0.3;
   }
 
-  /* Bottom Trust Bar */
-  .assistant-footer-bar {
+  /* 3-Pillar Minimal Benefits Strip (Positioned Outside Container) */
+  .setup-benefits-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 920px;
+    width: 100%;
+    margin: 18px auto 0;
+    box-sizing: border-box;
+  }
+
+  .setup-benefit-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: var(--radius-xl); /* 24px corner radius matching main switcher box */
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :root[data-theme="dark"] .setup-benefit-card {
+    background: #111114;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    box-shadow: none !important;
+  }
+
+  .setup-benefit-card:hover {
+    border-color: rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-1px);
+    box-shadow: none !important;
+  }
+
+  .benefit-icon-wrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    font-size: 0.775rem;
-    color: #71717a;
-    padding-top: 12px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    flex-wrap: wrap;
-    text-align: center;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
   }
 
-  :root[data-theme="dark"] .assistant-footer-bar {
-    color: #a1a1aa;
-    border-top-color: rgba(255, 255, 255, 0.06);
+  :root[data-theme="dark"] .benefit-icon-wrap {
+    background: rgba(52, 211, 153, 0.12);
+    color: #34d399;
   }
 
-  .footer-indicator {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #10b981;
+  .benefit-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .footer-sep {
-    color: #a1a1aa;
+  .benefit-title {
+    font-size: 0.8125rem;
+    font-weight: 650;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .benefit-desc {
     font-size: 0.75rem;
-    opacity: 0.6;
+    color: var(--color-text-subtle);
+    margin: 0;
+    line-height: 1.35;
   }
 
   @media (max-width: 768px) {
     .assistant-switcher-box {
-      padding: var(--space-16);
+      padding: var(--space-20);
+      gap: var(--space-16);
     }
-    .setup-interactive-grid {
+    .setup-benefits-row {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 8px;
     }
-    .assistant-selector-nav {
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      padding-bottom: 6px;
-      -webkit-overflow-scrolling: touch;
+    .terminal-tab-bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
     }
-    .assistant-btn {
-      white-space: nowrap;
-      flex-shrink: 0;
+    .terminal-left-group, .terminal-center-group, .terminal-right-group {
+      justify-content: space-between;
+      width: 100%;
+    }
+    .terminal-tabs {
+      width: 100%;
+      justify-content: stretch;
+    }
+    .term-tab {
+      flex: 1;
+      justify-content: center;
+    }
+    .terminal-copy-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -2559,7 +2865,8 @@ import { REPO_URL } from "../lib/releases";
   .hero-calculator-box {
     width: min(92vw, 860px);
     background: var(--card-bg);
-    border: var(--border);
+    border: none !important;
+    box-shadow: none !important;
     border-radius: var(--radius-xl);
     padding: var(--space-32);
     margin: 0 auto var(--space-48);
@@ -2578,24 +2885,46 @@ import { REPO_URL } from "../lib/releases";
   .persona-4-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: var(--space-24);
+    gap: var(--space-20);
     margin-bottom: var(--space-32);
     text-align: left;
   }
 
   .persona-card {
     background: var(--card-bg);
-    border: var(--border);
+    border: none !important;
+    box-shadow: none !important;
     border-radius: var(--radius-lg);
-    padding: var(--space-32);
+    padding: var(--space-20) var(--space-16);
     display: flex;
     flex-direction: column;
-    gap: var(--space-20);
+    gap: var(--space-12);
   }
 
-  .p-icon {
-    font-size: 1.8rem;
-    margin-bottom: var(--space-20);
+  .persona-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .persona-card .card-visual-svg-wrap.persona-svg-hero {
+    max-width: 100%;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 1;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin-bottom: var(--space-4);
+  }
+
+  .persona-card .card-visual-svg-wrap.persona-svg-hero svg {
+    width: 100%;
+    height: 100%;
+    max-height: 52px;
+    overflow: visible;
   }
 
   .persona-card h3 {
@@ -2603,51 +2932,208 @@ import { REPO_URL } from "../lib/releases";
     font-weight: 600;
     color: var(--fg);
     margin: 0;
+    line-height: 1.3;
   }
 
   .persona-card p {
     font-size: 0.85rem;
     color: var(--fg-muted);
-    line-height: 1.55;
+    line-height: 1.5;
     margin: 0;
   }
 
-  .pathways-box {
-    background: linear-gradient(180deg, var(--card-bg) 0%, var(--nested-card-bg) 100%);
-    border: var(--border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-32) var(--space-32);
+  /* ── Universal Personas & Dual Adoption Pathways (Black & Gray Theme) ── */
+
+  .persona-adoption-section {
+    margin-top: var(--space-32);
+    margin-bottom: var(--space-48);
+  }
+
+  .persona-section-header {
+    text-align: center;
+    margin-bottom: var(--space-32);
+  }
+
+  .persona-section-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    background: var(--nested-card-bg);
+    color: var(--fg);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--space-12);
+  }
+
+  .persona-4-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-20);
+    margin-bottom: var(--space-40);
     text-align: left;
-    box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.04);
+  }
+
+  .persona-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-xl);
+    padding: var(--space-24) var(--space-20);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-14);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .persona-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--fg-muted);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
+  }
+
+  :root[data-theme="dark"] .persona-card:hover {
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  }
+
+  .persona-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .persona-role-chip {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--nested-card-bg);
+    color: var(--fg);
+    border: 1px solid var(--border-color);
+  }
+
+  .persona-card .card-visual-svg-wrap.persona-svg-hero {
+    max-width: 100%;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 1;
+    background: var(--nested-card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 6px 10px;
+  }
+
+  .persona-card .card-visual-svg-wrap.persona-svg-hero svg {
+    width: 100%;
+    height: 100%;
+    max-height: 52px;
+    overflow: visible;
+  }
+
+  .persona-card h3 {
+    font-size: 1.08rem;
+    font-weight: 650;
+    color: var(--fg);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  .persona-card p {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .persona-card-footer {
+    margin-top: auto;
+    padding-top: var(--space-8);
+  }
+
+  .persona-feature-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .persona-feature-tag svg {
+    color: var(--fg);
+  }
+
+  /* ── Quick Onboarding Pathways ── */
+
+  .pathways-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-32);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+
+  :root[data-theme="dark"] .pathways-box {
+    background: rgba(18, 18, 22, 0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6);
   }
 
   .pathways-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    margin-bottom: var(--space-28);
+    gap: 8px;
+    margin-bottom: var(--space-32);
     text-align: center;
   }
 
   .pathways-icon-badge {
     font-family: var(--font-mono);
     font-size: 0.68rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 5px 14px;
-    border-radius: 14px;
-    background: rgba(0, 0, 0, 0.04);
-    color: var(--fg-muted);
-    letter-spacing: 0.03em;
+    border-radius: 9999px;
+    background: var(--nested-card-bg);
+    color: var(--fg);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border-color);
   }
 
   .pathways-title {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 750;
     color: var(--fg);
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+  }
+
+  .pathways-subtitle {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    margin: 0;
+    max-width: 520px;
+    line-height: 1.45;
   }
 
   .pathways-grid {
@@ -2656,81 +3142,149 @@ import { REPO_URL } from "../lib/releases";
     gap: var(--space-24);
   }
 
+  @media (max-width: 768px) {
+    .pathways-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .pathway-col {
     min-width: 0;
-    background: var(--card-bg);
-    border: var(--border);
-    border-radius: var(--radius-lg);
+    background: var(--nested-card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
     padding: var(--space-24);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: var(--space-20);
     box-sizing: border-box;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: all 0.25s ease;
   }
 
   .pathway-col:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.08);
-    border-color: rgba(0, 0, 0, 0.15);
+    border-color: var(--fg-muted);
+    transform: translateY(-2px);
   }
 
-  .pathway-col.non-tech {
-    background: linear-gradient(180deg, rgba(99, 102, 241, 0.03) 0%, var(--card-bg) 40%);
+  .pathway-header-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .pathway-col.tech {
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.03) 0%, var(--card-bg) 40%);
+  .pathway-type-pill {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--fg-muted);
   }
 
   .path-badge {
     font-family: var(--font-mono);
     font-size: 0.725rem;
-    font-weight: 600;
+    font-weight: 650;
     padding: 6px 14px;
-    border-radius: var(--radius-child);
+    border-radius: 9999px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: var(--space-12);
     width: fit-content;
     white-space: nowrap;
     line-height: 1.3;
-  }
-
-  .path-badge.badge-ai {
-    background: rgba(99, 102, 241, 0.08);
-    color: #4f46e5;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-  }
-
-  .path-badge.badge-terminal {
-    background: rgba(16, 185, 129, 0.08);
-    color: #059669;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-  }
-
-  .pathway-col h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    background: var(--card-bg);
     color: var(--fg);
-    margin-bottom: var(--space-8);
+    border: 1px solid var(--border-color);
   }
 
-  .pathway-col p {
+  .pathway-heading {
+    font-size: 1.15rem;
+    font-weight: 650;
+    color: var(--fg);
+    margin-bottom: var(--space-6);
+  }
+
+  .pathway-desc {
     font-size: 0.85rem;
     color: var(--fg-muted);
-    line-height: 1.55;
-    margin-bottom: var(--space-16);
+    line-height: 1.5;
+    margin-bottom: var(--space-14);
   }
 
-  .path-code-box {
-    background: #0d1117;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-child);
+  .glass-code-box {
+    background: #09090b !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    padding: 0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .code-box-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .code-box-dot.dot-mono {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #a1a1aa;
+    display: inline-block;
+  }
+
+  .code-box-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .code-box-main {
     padding: 12px 14px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
-    margin-bottom: var(--space-16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .code-sparkle {
+    font-size: 0.85rem;
+    margin-right: 2px;
+  }
+
+  .pathway-footer-strip {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .supported-ai-chips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .ai-chip, .tech-chip {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--card-bg);
+    color: var(--fg);
+    border: 1px solid var(--border-color);
   }
 
   .path-tag {
@@ -2740,15 +3294,15 @@ import { REPO_URL } from "../lib/releases";
     font-size: 0.775rem;
     font-weight: 500;
     color: var(--fg-muted);
-    background: var(--nested-card-bg);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     padding: 6px 12px;
     border-radius: var(--radius-child);
     width: fit-content;
   }
 
   .path-tag svg {
-    color: #10b981;
+    color: var(--fg);
     flex-shrink: 0;
   }
 
@@ -2883,36 +3437,99 @@ import { REPO_URL } from "../lib/releases";
     background: var(--fg);
   }
 
+  .card-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+
   .step-num-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    background: #e6f4ea;
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    color: #16a34a;
     font-family: var(--font-mono);
-    font-size: 0.725rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    padding: var(--space-4) var(--space-8);
-    background: var(--action-bg);
-    color: var(--action-fg);
-    border-radius: var(--radius-sm);
-    display: inline-block;
-    margin-bottom: var(--space-20);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    width: fit-content;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+
+  :root[data-theme="dark"] .step-num-badge {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+  }
+
+  .step-chip-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 5px rgba(22, 163, 74, 0.6);
+  }
+
+  :root[data-theme="dark"] .step-chip-dot {
+    background: #4ade80;
+    box-shadow: 0 0 5px rgba(74, 222, 128, 0.6);
   }
 
   .workflow-step-card {
-    padding: var(--space-32);
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-20);
+    gap: 16px;
+    background: #ffffff;
+    border: none !important;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :root[data-theme="dark"] .workflow-step-card {
+    background: #111114;
+    border: none !important;
+    box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4);
+  }
+
+  .workflow-step-card:hover {
+    border: none !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.12);
+  }
+
+  :root[data-theme="dark"] .workflow-step-card:hover {
+    box-shadow: 0 12px 36px -6px rgba(0, 0, 0, 0.6);
+  }
+
+  .card-visual-svg-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0.7;
+    max-width: 100px;
   }
 
   .workflow-step-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--fg);
     margin: 0;
   }
 
   .workflow-step-card p {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: var(--fg-muted);
-    line-height: 1.55;
+    line-height: 1.5;
     margin: 0;
   }
 
@@ -2925,7 +3542,7 @@ import { REPO_URL } from "../lib/releases";
     font-size: 0.82rem;
     background: #09090b !important;
     padding: 10px 16px;
-    border-radius: 16px;
+    border-radius: var(--radius-child);
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     color: #e4e4e7;
     margin-top: auto;
@@ -3020,8 +3637,8 @@ import { REPO_URL } from "../lib/releases";
 
   .calc-grid {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: var(--space-32);
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--space-24);
     align-items: stretch;
   }
 
@@ -3030,11 +3647,20 @@ import { REPO_URL } from "../lib/releases";
     flex-direction: column;
     gap: var(--space-20);
     justify-content: center;
+    padding: var(--space-24);
+    background: var(--nested-card-bg);
+    border: var(--border);
+    border-radius: var(--radius-inner);
+    box-sizing: border-box;
+  }
+
+  .calc-inputs .calc-select {
+    background-color: var(--card-bg);
   }
 
   .calc-row-2col {
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: var(--space-12);
   }
 
@@ -3685,33 +4311,132 @@ import { REPO_URL } from "../lib/releases";
 
   /* ── Matrix Comparison Table ── */
 
+  .matrix-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .matrix-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--nested-card-bg);
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: var(--space-12);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   .matrix-table-wrap {
     overflow-x: auto;
-    border: var(--border);
-    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-inner);
     background: var(--card-bg);
+    box-shadow: none !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    margin-top: var(--space-16);
+    width: 100%;
+  }
+
+  .matrix-table-wrap:hover {
+    box-shadow: 0 20px 48px -14px rgba(0, 0, 0, 0.12);
   }
 
   .matrix-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: left;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 
   .matrix-table th {
-    padding: var(--space-16);
+    padding: var(--space-20) var(--space-24);
     background: var(--nested-card-bg);
-    border-bottom: var(--border);
+    border-bottom: 1px solid var(--border-color);
     font-weight: 600;
     color: var(--fg);
+    vertical-align: bottom;
+  }
+
+  .matrix-table th.feature-head {
+    width: 28%;
+  }
+  
+  .matrix-table th.competitor-head {
+    width: 36%;
+  }
+
+  .matrix-table th.ods-head {
+    width: 36%;
+    position: relative;
+    background: rgba(16, 185, 129, 0.06) !important;
+  }
+
+  .col-header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .head-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
+
+  .head-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 9px;
+    border-radius: var(--radius-pill);
+    width: fit-content;
+  }
+
+  .legacy-tag {
+    background: rgba(148, 163, 184, 0.15);
+    color: var(--fg-muted);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+  }
+
+  .winner-tag {
+    background: rgba(16, 185, 129, 0.14);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+
+  .dark .winner-tag {
+    background: rgba(52, 211, 153, 0.18);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.4);
   }
 
   .matrix-table td {
-    padding: var(--space-12) var(--space-16);
-    border-bottom: var(--border);
+    padding: var(--space-16) var(--space-24);
+    border-bottom: 1px solid var(--border-color);
     color: var(--fg-muted);
-    line-height: 1.4;
+    line-height: 1.5;
+    transition: background 0.2s ease;
+  }
+
+  .matrix-table tr:hover td {
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  .dark .matrix-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .matrix-table tr:last-child td {
@@ -3723,9 +4448,187 @@ import { REPO_URL } from "../lib/releases";
     color: var(--fg) !important;
   }
 
+  .feature-cell-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--nested-card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--fg-muted);
+    flex-shrink: 0;
+  }
+
   .highlight-col {
-    background: var(--nested-card-bg) !important;
+    background: rgba(16, 185, 129, 0.035) !important;
     color: var(--fg) !important;
+  }
+
+  .dark .highlight-col {
+    background: rgba(16, 185, 129, 0.06) !important;
+  }
+
+  .matrix-table tr:hover td.highlight-col {
+    background: rgba(16, 185, 129, 0.075) !important;
+  }
+
+  /* Status Badges & Metrics */
+  .cell-status {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .status-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .icon-bad {
+    background: rgba(239, 68, 68, 0.12);
+    color: #ef4444;
+  }
+
+  .icon-good {
+    background: rgba(16, 185, 129, 0.16);
+    color: #10b981;
+  }
+
+  .dark .icon-good {
+    background: rgba(52, 211, 153, 0.22);
+    color: #34d399;
+  }
+
+  .note-bad {
+    font-style: normal;
+    color: var(--fg-muted);
+    font-size: 0.8rem;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .value-bad {
+    color: #dc2626;
+  }
+
+  .dark .value-bad {
+    color: #f87171;
+  }
+
+  .value-good {
+    color: #059669;
+  }
+
+  .dark .value-good {
+    color: #34d399;
+  }
+
+  .subtext-detail {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+    margin-top: 2px;
+  }
+
+  .metric-with-badge {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .saving-pill {
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-pill);
+    background: rgba(16, 185, 129, 0.15);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .dark .saving-pill {
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.4);
+  }
+
+  .speed-pill {
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-pill);
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563eb;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .dark .speed-pill {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+    border-color: rgba(96, 165, 250, 0.4);
+  }
+
+  /* Summary Footer Bar */
+  .matrix-summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-24);
+    background: var(--nested-card-bg);
+    border-top: none;
+    font-size: 0.85rem;
+  }
+
+  .summary-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--fg);
+  }
+
+  .summary-sparkle {
+    font-size: 1.1rem;
+  }
+
+  .matrix-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+
+  .matrix-cta-link:hover {
+    border-color: var(--accent);
+    transform: translateX(2px);
   }
 
   .matrix-table code {
@@ -3742,75 +4645,114 @@ import { REPO_URL } from "../lib/releases";
 
   .profiles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-16);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-20);
     text-align: left;
   }
 
   .profile-card {
     background: var(--card-bg);
-    border: var(--border);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     border-radius: var(--radius-lg);
-    padding: var(--space-32);
+    padding: var(--space-28);
     display: flex;
     flex-direction: column;
-    gap: var(--space-20);
+    gap: var(--space-16);
+    text-align: left;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .profile-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-12);
+  }
+
+  .profile-type-badge {
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 600;
+    padding: var(--space-4) var(--space-10);
+    background: var(--action-bg);
+    color: var(--action-fg);
+    border-radius: 9999px;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    margin: 0;
+    width: fit-content;
+  }
+
+  .profile-icon-accent {
+    color: var(--fg-muted);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .profile-card:hover .profile-icon-accent {
+    opacity: 1;
+    color: var(--fg);
   }
 
   .profile-header {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
-  }
-
-  .profile-type-badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: var(--space-4) var(--space-8);
-    background: var(--action-bg);
-    color: var(--action-fg);
-    border-radius: var(--radius-sm);
-    display: inline-block;
-    margin: 0;
-    width: fit-content;
+    gap: var(--space-6);
   }
 
   .profile-card h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--fg);
     margin: 0;
+    letter-spacing: -0.01em;
   }
 
   .profile-desc {
-    font-size: 0.825rem;
+    font-size: 0.85rem;
     color: var(--fg-muted);
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 0;
   }
 
   .profile-rule {
     font-family: var(--font-mono);
     font-size: 0.725rem;
-    color: var(--fg-dim);
-    background: var(--nested-card-bg);
-    padding: var(--space-8) var(--space-12);
-    border-radius: var(--radius-sm);
-    border: var(--border);
+    background: transparent;
+    border: none;
+    padding: var(--space-8) 0 0 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
     align-items: center;
+    margin-top: auto;
   }
 
   .profile-rule code {
     color: var(--fg);
-    background: rgba(0, 0, 0, 0.04);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.7rem;
+    background: var(--nested-card-bg);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.725rem;
     font-weight: 500;
+    border: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .profile-rule code:hover {
+    background: var(--action-bg);
+    color: var(--action-fg);
   }
 
   /* ── Ecosystem Grid ── */
@@ -3848,7 +4790,7 @@ import { REPO_URL } from "../lib/releases";
     line-height: 1.6;
   }
 
-  /* ── Embedded Pricing Section ── */
+  /* ── Minimalist Pricing Section (Home Page) ── */
   #pricing {
     margin-top: var(--space-48);
     margin-bottom: var(--space-64);
@@ -3856,104 +4798,193 @@ import { REPO_URL } from "../lib/releases";
     padding-bottom: var(--space-16);
   }
 
-  .coming-soon-main-card {
-    background: var(--card-bg);
-    border: var(--border);
+  .pricing-home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: var(--space-24);
+    margin-top: var(--space-32);
+    margin-bottom: var(--space-24);
+  }
+
+  .pricing-home-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--nested-card-bg);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     border-radius: var(--radius-lg);
-    padding: var(--space-48) var(--space-48);
-    text-align: center;
+    padding: var(--space-28);
+    transition: transform 0.2s ease, background-color 0.2s ease;
     position: relative;
   }
 
-  .card-header-badge {
+  .pricing-home-card:hover {
+    transform: translateY(-2px);
+    background: var(--card-bg);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .pricing-home-card.featured {
+    background: var(--card-bg);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .pricing-card-header {
+    margin-bottom: var(--space-20);
+  }
+
+  .pricing-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+  }
+
+  .pricing-tier-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--fg);
+  }
+
+  .badge-status {
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--action-fg);
+    gap: 0.4rem;
+    border: none !important;
+    outline: none !important;
+  }
+
+  .badge-status.badge-active {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+  }
+
+  .badge-status.badge-roadmap {
     background: var(--action-bg);
-    padding: 0.45rem 1.15rem;
-    border-radius: var(--radius-pill);
-    margin-bottom: var(--space-20);
-    letter-spacing: 0.04em;
+    color: var(--action-fg);
+    opacity: 0.85;
+  }
+
+  .pricing-price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: var(--space-8);
+  }
+
+  .pricing-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--fg);
+    letter-spacing: -0.03em;
     line-height: 1;
-    max-width: 100%;
   }
 
-  .pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: var(--action-fg);
-    box-shadow: 0 0 8px var(--action-fg);
-    animation: pulse-glow 2s infinite;
+  .pricing-period {
+    font-size: 0.825rem;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+  }
+
+  .pricing-card-desc {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .pricing-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-24) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    flex-grow: 1;
+  }
+
+  .pricing-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--fg);
+    line-height: 1.4;
+  }
+
+  .pricing-check-icon {
+    width: 16px;
+    height: 16px;
+    color: #10b981;
     flex-shrink: 0;
+    margin-top: 2px;
   }
 
-  @keyframes pulse-glow {
-    0% { opacity: 0.4; transform: scale(0.9); }
-    50% { opacity: 1; transform: scale(1.2); }
-    100% { opacity: 0.4; transform: scale(0.9); }
+  .pricing-check-icon.muted {
+    color: var(--fg-muted);
+    opacity: 0.5;
   }
 
-  .card-main-heading {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 700;
-    color: var(--fg);
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-16);
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.25;
+  .pricing-card-footer {
+    margin-top: auto;
   }
 
-  .coming-soon-main-card .card-main-subtext {
-    font-size: 1.025rem !important;
-    color: var(--fg-muted) !important;
-    line-height: 1.65 !important;
-    text-align: center !important;
-    text-wrap: pretty !important;
-    max-width: 660px !important;
-    margin: 0 auto var(--space-28) !important;
-    display: block !important;
-  }
-
-  .coming-soon-tiers {
-    display: flex;
+  .pricing-btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    gap: var(--space-12);
-    margin-bottom: var(--space-32);
-    flex-wrap: wrap;
+    gap: 0.4rem;
+    width: 100%;
+    height: 2.6rem;
+    padding: 0 var(--space-20);
+    border-radius: var(--radius-pill) !important;
+    font-family: var(--font-mono);
+    font-size: 0.825rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-align: center;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
   }
 
-  .tier-pill {
-    display: flex;
-    align-items: center;
-    gap: var(--space-12);
+  .pricing-btn-primary {
+    background: var(--action-bg);
+    color: var(--action-fg);
+    border: none !important;
+  }
+
+  .pricing-btn-primary:hover {
+    opacity: 0.9;
+    border: none !important;
+  }
+
+  .pricing-btn-secondary {
+    background: var(--secondary-action-bg);
+    color: var(--secondary-action-fg);
+    border: none !important;
+  }
+
+  .pricing-btn-secondary:hover {
     background: var(--nested-card-bg);
-    border: var(--border);
-    border-radius: var(--radius-pill);
-    padding: var(--space-8) var(--space-16);
-    font-size: 0.9rem;
-    font-weight: 550;
-    color: var(--fg);
-    transition: border-color 0.2s ease;
-  }
-
-  .tier-pill:hover {
-    border-color: var(--fg-dim);
-  }
-
-  .tier-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--fg-muted);
-    opacity: 0.6;
+    border: none !important;
   }
 
   .pulse-dot-green {
@@ -3979,17 +5010,19 @@ import { REPO_URL } from "../lib/releases";
     padding: 0.2rem 0.6rem;
     border-radius: var(--radius-pill);
     line-height: 1;
+    border: none !important;
   }
 
   .tier-badge.available {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(16, 185, 129, 0.12);
     color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: none !important;
   }
 
   .tier-badge.coming-soon {
     background: var(--action-bg);
     color: var(--action-fg);
+    border: none !important;
   }
 
   .card-actions {
@@ -4057,40 +5090,9 @@ import { REPO_URL } from "../lib/releases";
       padding-bottom: 0;
     }
 
-    .coming-soon-main-card {
-      padding: var(--space-28) var(--space-16);
-    }
-
-    .card-header-badge {
-      font-size: 0.7rem;
-      padding: 0.35rem 0.85rem;
-      margin-bottom: var(--space-20);
-    }
-
-    .card-main-heading {
-      font-size: 1.35rem;
-      margin-bottom: var(--space-12);
-    }
-
-    .coming-soon-main-card .card-main-subtext {
-      font-size: 0.9rem !important;
-      line-height: 1.55 !important;
-      margin-bottom: var(--space-28) !important;
-      text-align: center !important;
-      text-wrap: balance !important;
-    }
-
-    .coming-soon-tiers {
-      flex-direction: column;
-      align-items: stretch;
-      gap: var(--space-12);
-      margin-bottom: var(--space-36);
-    }
-
-    .tier-pill {
-      justify-content: space-between;
-      padding: var(--space-12) var(--space-16);
-      font-size: 0.9rem;
+    .pricing-home-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
     }
 
     .card-actions {
@@ -4119,7 +5121,8 @@ import { REPO_URL } from "../lib/releases";
     width: min(92vw, 1100px);
     margin: 0 auto var(--space-64);
     background: var(--card-bg);
-    border: var(--border);
+    border: none !important;
+    box-shadow: none !important;
     border-radius: var(--radius-xl);
     padding: var(--space-64) var(--space-32);
     text-align: center;
@@ -4168,6 +5171,8 @@ import { REPO_URL } from "../lib/releases";
       grid-template-columns: 1fr;
       gap: var(--space-24);
     }
+  }
+
   @media (max-width: 992px) {
     .pathways-grid {
       grid-template-columns: 1fr !important;
@@ -4361,125 +5366,121 @@ import { REPO_URL } from "../lib/releases";
 
 <script>
   function setupAssistantSwitcher() {
-    interface AssistantData {
-      name: string;
-      mode: string;
-      heading: string;
-      desc: string;
-      winTitle: string;
-      code: string;
-    }
-
-    const assistantMetadata: Record<string, AssistantData> = {
+    const assistantMetadata: Record<string, { mode: string; data: Record<string, string> }> = {
       claude: {
-        name: "Claude Code",
         mode: "Native Skill",
-        heading: "Zero-config documentation context",
-        desc: "Installs the ODS skill directly into Claude Code. When you prompt Claude, it automatically resolves and reads only connected documents and specs.",
-        winTitle: "bash — ods install",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>\n<span class="t-success">✓ Installing ODS...</span>\n<span class="t-success">✓ Reading list enabled</span>\n<span class="t-success">✓ Connected to Claude Code</span>\n<span class="t-success">✓ Ready to go!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Claude anything about your documentation.</span>'
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>\n<span class="t-success">✓ Installing ODS...</span>\n<span class="t-success">✓ Reading list enabled</span>\n<span class="t-success">✓ Connected to your AI assistant</span>\n<span class="t-success">✓ Ready to go!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask your AI anything.</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">/ods context</span> <span class="t-arg">specs/ods/intro.md</span></span>\n<span class="t-success">✓ Scanned document connections in 2.8ms</span>\n<span class="t-success">✓ Loaded reading list: 3 files, 4,120 tokens (saves 94.97% AI costs)</span>\n<span class="t-json">├── specs/ods/intro.md (Main page)</span>\n<span class="t-json">├── docs/guide/01-introduction.md (linked page)</span>\n<span class="t-json">└── src/crates/ods-core/src/graph.rs (connected code)</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--assistant</span> <span class="t-arg">claude</span></span>\n<span class="t-success">✓ Added ODS MCP Server to ~/.claude/claude_desktop_config.json</span>\n<span class="t-success">✓ Tools available: ods_get_context, ods_verify_graph, ods_list_deps</span>'
+        }
       },
       cursor: {
-        name: "Cursor",
-        mode: "Rules & MCP",
-        heading: "Smart doc context for Cursor Composer",
-        desc: "Generates workspace rules at .cursor/rules/ods.mdc so Cursor Composer and Chat pull only relevant doc nodes without blowing token limits.",
-        winTitle: "bash — ods skill install --target cursor",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">cursor</span></span>\n<span class="t-success">✓ Added .cursor/rules/ods.mdc to workspace</span>\n<span class="t-success">✓ Mapped document connections</span>\n<span class="t-success">✓ Ready for Cursor Composer</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Cursor Composer: "How does the ODS graph work?"</span>'
+        mode: "Rules Integration",
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">cursor</span></span>\n<span class="t-success">✓ Added .cursor/rules/ods.mdc to workspace</span>\n<span class="t-success">✓ Reading labeled document connections...</span>\n<span class="t-next">&gt; Ask Cursor Composer: <span class="t-arg">"How does the ODS graph work?"</span></span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">@ods context</span> <span class="t-arg">docs/architecture.md</span></span>\n<span class="t-success">✓ Reading list attached to prompt window</span>\n<span class="t-success">✓ Injected 4 related pages (&lt; 3,800 tokens total)</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp generate-config</span> <span class="t-flag">--format</span> <span class="t-arg">cursor</span></span>\n<span class="t-comment"># Copy to Cursor Settings -&gt; Features -&gt; MCP Servers:</span>\n<span class="t-json">Name: ODS Graph Engine</span>\n<span class="t-json">Command: ods</span>\n<span class="t-json">Args: mcp serve</span>'
+        }
       },
       copilot: {
-        name: "GitHub Copilot",
         mode: "Workspace Skill",
-        heading: "Context agent for Copilot Workspace",
-        desc: "Configures workspace instructions in .github/copilot-instructions.md so Copilot queries connected document maps in real-time.",
-        winTitle: "bash — ods skill install --target copilot",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">copilot</span></span>\n<span class="t-success">✓ Configured GitHub Copilot instructions</span>\n<span class="t-success">✓ Smart reading list enabled</span>\n<span class="t-success">✓ Connected to workspace agent</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask @copilot with automatic doc link context.</span>'
-      },
-      windsurf: {
-        name: "Windsurf",
-        mode: "Cascade Flow Hook",
-        heading: "Precision context for Windsurf Cascade",
-        desc: "Prevents Windsurf Cascade from reading unnecessary project files by dynamically attaching the ODS graph structure to prompt flows.",
-        winTitle: "bash — ods skill install --target windsurf",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Windsurf Cascade flow hook registered</span>\n<span class="t-success">✓ Linked documentation map active</span>\n<span class="t-success">✓ Prompt token overhead reduced by 94%</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Cascade flow hook active for all workspace prompts.</span>'
-      },
-      gemini: {
-        name: "Gemini CLI",
-        mode: "CLI Extension",
-        heading: "Direct CLI extension for Gemini",
-        desc: "Integrates ODS document resolution directly into the Gemini CLI environment, loading related pages into your prompt context in <3ms.",
-        winTitle: "bash — ods skill install --target gemini-cli",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">gemini-cli</span></span>\n<span class="t-success">✓ Added ODS extension to Gemini CLI</span>\n<span class="t-success">✓ Auto-injected linked documentation context</span>\n<span class="t-success">✓ Ready to run!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Type "gemini --ods" in your terminal.</span>'
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">copilot</span></span>\n<span class="t-success">✓ Configured GitHub Copilot workspace agent skill (.github/copilot-instructions.md)</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">@copilot /ods context</span> <span class="t-arg">guide/02-frontmatter.md</span></span>\n<span class="t-success">✓ Built smart reading list in 3.1ms</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--port</span> <span class="t-arg">8080</span></span>\n<span class="t-success">✓ ODS MCP Server listening on localhost:8080 for GitHub Copilot Workspace</span>'
+        }
       },
       antigravity: {
-        name: "Antigravity",
         mode: "Built-in Skill",
-        heading: "Agent skill for Antigravity IDE & CLI",
-        desc: "Installs the ODS skill into ~/.gemini/config/skills/ods/SKILL.md enabling instant doc graph queries and automated specification auditing.",
-        winTitle: "bash — ods skill install --target antigravity",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Installed ODS skill to ~/.gemini/config/skills/ods/</span>\n<span class="t-success">✓ Direct terminal execution enabled</span>\n<span class="t-success">✓ Document scan completed in 1.9ms</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Antigravity: "Audit doc graph references"</span>'
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Installed ODS skill to ~/.gemini/config/skills/ods/SKILL.md</span>\n<span class="t-success">✓ Direct terminal execution enabled</span>\n<span class="t-next">&gt; Ask Antigravity: <span class="t-arg">"Audit doc graph references"</span></span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">/ods context</span> <span class="t-arg">specs/ods/intro.md</span></span>\n<span class="t-success">✓ Document scan completed in 1.9ms</span>\n<span class="t-success">✓ Smart reading list injected into prompt window</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Added ODS server entry to Antigravity MCP registry</span>'
+        }
+      },
+      gemini: {
+        mode: "CLI Extension",
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">gemini-cli</span></span>\n<span class="t-success">✓ Added ODS extension to Gemini CLI environment</span>\n<span class="t-next">&gt; Type <span class="t-arg">"gemini --ods"</span> in terminal</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gemini</span> <span class="t-flag">--ods-context</span> <span class="t-arg">docs/guide/01-introduction.md</span></span>\n<span class="t-success">✓ Loaded 3 linked pages into Gemini prompt context</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--stdio</span></span>\n<span class="t-success">✓ Connecting stdio transport for Gemini CLI...</span>'
+        }
+      },
+      windsurf: {
+        mode: "Terminal Hook",
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Windsurf Cascade flow hook registered</span>\n<span class="t-success">✓ Prevents Windsurf from reading unrelated project files</span>\n<span class="t-next">&gt; Flow hook active for all workspace prompts</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">ods context</span> <span class="t-arg">in flow hooks</span></span>\n<span class="t-success">✓ Auto-injected linked documentation context</span>\n<span class="t-success">✓ Reduced word count by 94.97%</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp generate-config</span> <span class="t-flag">--format</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Configured Windsurf MCP provider</span>'
+        }
       },
       openai: {
-        name: "OpenAI / Codex",
-        mode: "MCP Server",
-        heading: "MCP connector for OpenAI & ChatGPT",
-        desc: "Registers the ODS Model Context Protocol server, enabling standard tool calling and graph queries with 94% lower prompt overhead.",
-        winTitle: "bash — ods mcp enable --target openai",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">openai</span></span>\n<span class="t-success">✓ ODS MCP Server registered for OpenAI</span>\n<span class="t-success">✓ Listening for tool calling via stdio transport</span>\n<span class="t-success">✓ Drastically reduces prompt tokens</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ready for OpenAI tool calls and GPT context windows.</span>'
+        mode: "MCP Connector",
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">openai</span></span>\n<span class="t-success">✓ ODS MCP Server registered for OpenAI / Codex tools</span>\n<span class="t-success">✓ Drastically reduces prompt tokens on large code bases</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">graph</span> <span class="t-flag">--format</span> <span class="t-arg">json</span></span>\n<span class="t-success">✓ Exported JSON document graph for GPT context window</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--stdio</span></span>\n<span class="t-success">✓ Listening on stdio for OpenAI tool calling</span>'
+        }
+      },
+      aider: {
+        mode: "Pre-Hook",
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">install</span> <span class="t-flag">--aider</span></span>\n<span class="t-success">✓ Created .aider.conf.yml with ODS graph context pre-hook</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">aider</span> <span class="t-flag">--read</span> <span class="t-arg">docs/guide/01-introduction.md</span> <span class="t-flag">--ods-graph</span></span>\n<span class="t-success">✓ Autoloaded linked document pages</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span></span>\n<span class="t-success">✓ Aider MCP interface ready</span>'
+        }
       },
       cargo: {
-        name: "Rust CLI",
-        mode: "CLI Binary",
-        heading: "Ultra-fast standalone binary",
-        desc: "Zero-dependency compiled Rust binary for CI/CD, local terminal inspection, and custom automated documentation validation pipelines.",
-        winTitle: "bash — cargo install ods",
-        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">cargo</span> <span class="t-sub">install</span> <span class="t-arg">ods</span></span>\n<span class="t-comment"># Or via 1-line shell script:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-success">✓ Installed ods v0.1.0 to /usr/local/bin/ods</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Type "ods --help" to get started.</span>'
+        mode: "Direct CLI Binary",
+        data: {
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">cargo</span> <span class="t-sub">install</span> <span class="t-arg">ods</span></span>\n<span class="t-comment"># Or via 1-line shell script:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-success">✓ Installed ods v0.1.0 to /usr/local/bin/ods</span>',
+          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">context</span> <span class="t-arg">docs/guide/01-introduction.md</span> <span class="t-flag">--format</span> <span class="t-arg">json</span></span>\n<span class="t-json">{</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"root"</span>: <span class="t-sub">"docs/guide/01-introduction.md"</span>,</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"cost_savings_pct"</span>: <span class="t-flag">94.97</span>,</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"nodes"</span>: [<span class="t-sub">"specs/ods/intro.md"</span>, <span class="t-sub">"src/crates/ods-core/src/graph.rs"</span>]</span>\n<span class="t-json">}</span>',
+          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">serve</span> <span class="t-flag">--daemon</span></span>\n<span class="t-success">✓ Smart background link repair started (pid 84210)</span>\n<span class="t-success">✓ Automatically repairing links and checking for errors</span>'
+        }
       }
     };
 
     let activeAssistant = 'claude';
+    let activeTab = 'install';
 
     const astButtons = document.querySelectorAll('.assistant-btn');
+    const termTabs = document.querySelectorAll('.term-tab');
     const codeBlock = document.getElementById('ast-code-block');
-    const targetName = document.getElementById('ast-target-name');
     const modeBadge = document.getElementById('integration-mode-badge');
-    const astHeading = document.getElementById('ast-heading');
-    const astDesc = document.getElementById('ast-description');
-    const winTitle = document.getElementById('term-window-title');
     const copyBtn = document.getElementById('copy-ast-btn');
     const copyText = document.getElementById('copy-ast-text');
     const copyIcon = copyBtn?.querySelector('.copy-icon') as HTMLElement | null;
     const checkIcon = copyBtn?.querySelector('.check-icon') as HTMLElement | null;
 
-    function updateAssistantView() {
-      const data = assistantMetadata[activeAssistant];
-      if (!data) return;
-
-      if (targetName) targetName.textContent = data.name;
-      if (modeBadge) modeBadge.textContent = data.mode;
-      if (astHeading) astHeading.textContent = data.heading;
-      if (astDesc) astDesc.textContent = data.desc;
-      if (winTitle) winTitle.textContent = data.winTitle;
-
-      if (codeBlock) {
-        codeBlock.classList.add('fade-out');
-        setTimeout(() => {
-          codeBlock.innerHTML = data.code + '<span class="t-cursor"></span>';
-          codeBlock.classList.remove('fade-out');
-        }, 70);
+    function updateTerminal() {
+      if (!codeBlock) return;
+      codeBlock.classList.add('fade-out');
+      if (modeBadge) {
+        modeBadge.textContent = assistantMetadata[activeAssistant]?.mode || 'AI Skill';
       }
+      setTimeout(() => {
+        const snippet = assistantMetadata[activeAssistant]?.data?.[activeTab] || '';
+        codeBlock.innerHTML = snippet + '<span class="t-cursor"></span>';
+        codeBlock.classList.remove('fade-out');
+      }, 80);
     }
 
     astButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        astButtons.forEach((b) => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
+        astButtons.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
         activeAssistant = btn.getAttribute('data-assistant') || 'claude';
-        updateAssistantView();
+        updateTerminal();
+      });
+    });
+
+    termTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        termTabs.forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+        activeTab = tab.getAttribute('data-tab') || 'install';
+        updateTerminal();
       });
     });
 
@@ -4539,7 +5540,7 @@ import { REPO_URL } from "../lib/releases";
     });
 
     // Initial render
-    updateAssistantView();
+    updateTerminal();
   }
 
   if (document.readyState === 'loading') {
