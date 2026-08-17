@@ -7,7 +7,7 @@ Open Document Spec (ODS) is an open-source, local-first specification. The CLI t
 - Website: https://opendocify.com
 - Documentation: https://opendocify.com/docs
 - Specification: https://opendocify.com/spec
-- GitHub Repository: https://github.com/StaytunedLLP/open-document-spec
+- GitHub: https://github.com/open-doc-spec
 - License: Apache License 2.0
 
 ## Key Features & Capabilities

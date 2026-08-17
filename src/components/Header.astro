@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import { ORG_URL } from '../lib/releases';
 
 interface Props { activeNav?: string; variant?: 'boxed' | 'fullWidth'; }
 const { variant = 'boxed' } = Astro.props;
@@ -46,7 +47,7 @@ const currentNav = navIdFromPath(Astro.url.pathname);
     </nav>
     <div class="flex items-center gap-2">
       <a
-        href="https://github.com/open-doc-spec"
+        href={ORG_URL}
         class="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground/60 transition-colors hover:bg-accent hover:text-foreground"
         target="_blank"
         rel="noopener noreferrer"
