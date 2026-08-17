@@ -3,7 +3,8 @@
 // Layer: Marketing util
 // Exports: repo/release URLs plus the latest-release fetch helper.
 
-const REPO = "StaytunedLLP/open-document-spec";
+const REPO = "open-doc-spec/ods";
+export const ORG_URL = "https://github.com/open-doc-spec";
 export const REPO_URL = `https://github.com/${REPO}`;
 
 export const RELEASES_URL = `https://github.com/${REPO}/releases`;

@@ -6,7 +6,7 @@
 import AIIcon from "../components/AIIcon.astro";
 import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
-import { REPO_URL } from "../lib/releases";
+import { ORG_URL, REPO_URL } from "../lib/releases";
 ---
 
 <Layout activeNav="home">
@@ -1112,8 +1112,8 @@ import { REPO_URL } from "../lib/releases";
         <span>Get Started with AI Skill</span>
         <span class="hero-button-arrow">→</span>
       </a>
-      <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="hero-secondary-button">
-        GitHub Repository ↗
+      <a href={ORG_URL} target="_blank" rel="noopener noreferrer" class="hero-secondary-button">
+        GitHub ↗
       </a>
     </div>
   </section>
