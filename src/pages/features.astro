@@ -1,478 +1,342 @@
 ---
 // FILE: features.astro
-// Purpose: ods-Style Product Feature Showcase with Alternating Zig-Zag Sections & Interspersed Pareto Highlights.
+// Purpose: ods-Style Product Feature Showcase driven dynamically by src/store/features.md content store.
 // Layer: Marketing page
 
 import Layout from "../layouts/Layout.astro";
 import AIIcon from "../components/AIIcon.astro";
-import Icon from "../components/Icon.astro";
 import { REPO_URL } from "../lib/releases";
+import { frontmatter } from "../store/features.md";
+
+type AIIconType = "claude" | "openai" | "cursor" | "windsurf" | "antigravity" | "grok";
+
+interface Metric {
+  val: string;
+  lbl: string;
+}
+
+interface FeatureRow {
+  tag: string;
+  title: string;
+  description: string;
+  cmd: string;
+  visualType: string;
+  codeBoxTitle?: string;
+  codeContent?: string;
+  chips?: Array<{ name: string; icon: AIIconType }>;
+  levels?: Array<{ num: string; text: string; active?: boolean }>;
+  ragBad?: string;
+  odsGood?: string;
+  reverse: boolean;
+}
+
+interface BannerItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface ProfileItem {
+  badge: string;
+  title: string;
+  headingsLabel: string;
+  headings: string[];
+}
+
+interface StepItem {
+  badge: string;
+  title: string;
+  description: string;
+  active?: boolean;
+}
 ---
 
 <Layout title="All Core Features: Open Document Spec (ODS)" activeNav="features">
   <div class="dot-matrix-bg"></div>
 
   <div class="page-container">
+    <!-- HEADER SECTION -->
     <div class="header-section">
-      <div class="pill-badge">Complete Product Capability Showcase</div>
-      <h1 class="page-title">ODS Product Features</h1>
-      <p class="page-subtitle">
-        Discover how Open Document Spec adds simple labels to your text files (.md) and connects them together so AI assistants can find what they need instantly.
-      </p>
+      <div class="pill-badge">{frontmatter.header.pillBadge}</div>
+      <h1 class="page-title">{frontmatter.header.pageTitle}</h1>
+      <p class="page-subtitle" set:html={frontmatter.header.pageSubtitle}></p>
     </div>
 
     <!-- TOP CORE FEATURE #1 (HERO HIGHLIGHT) -->
     <section class="feature-hero-top glow-card">
       <div class="hero-feat-left">
-        <span class="pill-badge-sm">Featured Capability</span>
-        <h2>Smart AI Reading Lists</h2>
-        <p>
-          Gives your AI assistant only the exact documents linked to your files, avoiding massive folder dumps. This speeds up answers and cuts AI usage costs by <strong>up to 94.97%</strong>.
-        </p>
+        <span class="pill-badge-sm">{frontmatter.heroFeature.badge}</span>
+        <h2>{frontmatter.heroFeature.title}</h2>
+        <p set:html={frontmatter.heroFeature.description}></p>
         <div class="hero-feat-metrics">
-          <div class="m-card">
-            <span class="m-val">~94%</span>
-            <span class="m-lbl">Lower AI Cost</span>
-          </div>
-          <div class="m-card">
-            <span class="m-val">4,100</span>
-            <span class="m-lbl">Exact Words Sent</span>
-          </div>
-          <div class="m-card">
-            <span class="m-val">&lt; 5ms</span>
-            <span class="m-lbl">Document Scan</span>
-          </div>
+          {frontmatter.heroFeature.metrics.map((m: Metric) => (
+            <div class="m-card">
+              <span class="m-val">{m.val}</span>
+              <span class="m-lbl">{m.lbl}</span>
+            </div>
+          ))}
         </div>
         <div class="hero-cmd-box">
-          <code>$ ods context docs/guide/01-introduction.md</code>
+          <code>{frontmatter.heroFeature.cmd}</code>
         </div>
       </div>
 
       <div class="hero-feat-right">
         <div class="code-box-wrapper">
-          <div class="code-box-title">Linked Document Reading List</div>
-          <pre class="theme-code"><code>Smart Reading List for [01-introduction.md]:
-├── docs/guide/01-introduction.md (Main page)
-├── specs/ods/intro.md (linked page)
-├── docs/guide/05-profiles.md (related page)
-└── src/crates/ods-core/src/graph.rs (connected code)
-
-✓ Total Context: 4,120 words (saves 94.97% compared to reading all documents)
-✓ Annual Savings: 94.97% less cost</code></pre>
+          <div class="code-box-title">{frontmatter.heroFeature.codeBoxTitle}</div>
+          <pre class="theme-code"><code>{frontmatter.heroFeature.codeContent}</code></pre>
         </div>
       </div>
     </section>
 
     <!-- ALTERNATING ROW PAIR 1 -->
     <div class="feature-rows-group">
-      <!-- Feature Row 1 (Text Left, Code Right) -->
-      <section class="feature-row glow-card">
-        <div class="row-text">
-          <span class="row-tag">Code Connections</span>
-          <h3>Connecting Code to Documents</h3>
-          <p>
-            Link your text pages directly to specific functions, rules, or testing files inside your program code.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods context src/storage/db.rs</code>
+      {frontmatter.rowsGroup1.map((row: FeatureRow) => (
+        <section class={`feature-row glow-card ${row.reverse ? 'reverse' : ''}`}>
+          <div class="row-text">
+            <span class="row-tag">{row.tag}</span>
+            <h3>{row.title}</h3>
+            <p set:html={row.description}></p>
+            <div class="row-cmd">
+              <code>{row.cmd}</code>
+            </div>
           </div>
-        </div>
-        <div class="row-visual">
-          <div class="code-box-wrapper">
-            <div class="code-box-title">docs/architecture/storage.md</div>
-            <pre class="theme-code"><code>---
-description: Storage engine connection pool.
-ods:
-  profile: architecture
-  status: stable
-  code:
-    - path: src/storage/db.rs
-      symbol: init_pool()
-      role: implementation
-    - path: tests/db_test.rs
-      role: test
----</code></pre>
+          <div class="row-visual">
+            <div class="code-box-wrapper">
+              <div class="code-box-title">{row.codeBoxTitle}</div>
+              <pre class="theme-code"><code>{row.codeContent}</code></pre>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Feature Row 2 (Code Left, Text Right: REVERSE) -->
-      <section class="feature-row reverse glow-card">
-        <div class="row-text">
-          <span class="row-tag">Open Standard</span>
-          <h3>Works with Standard Text Files</h3>
-          <p>
-            No hidden databases or complex formats. A root <code>ods.toml</code> marks the workspace. Documents stay plain <code>.md</code> with optional YAML frontmatter. You own your files forever.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods init</code>
-          </div>
-        </div>
-        <div class="row-visual">
-          <div class="code-box-wrapper">
-            <div class="code-box-title">Root ods.toml</div>
-            <pre class="theme-code"><code># ods.toml — workspace boundary
-spec = "0.1"
-
-ignore = [
-  "node_modules",
-  "dist",
-]</code></pre>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
     </div>
 
     <!-- CORE HIGHLIGHT #1 (AUTO-HEALING DAEMON) -->
     <section class="feature-big-banner glow-card">
       <div class="big-banner-header">
-        <span class="banner-badge">Smart Link Repair</span>
-        <h2>Automatic Link Repair Background Tool</h2>
-        <p>Never break a link when you rename files, restructure folders, or change project layouts.</p>
+        <span class="banner-badge">{frontmatter.banner1.badge}</span>
+        <h2>{frontmatter.banner1.title}</h2>
+        <p>{frontmatter.banner1.description}</p>
       </div>
 
       <div class="big-banner-grid">
-        <div class="banner-item">
-          <div class="banner-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-            </svg>
+        {frontmatter.banner1.items.map((item: BannerItem) => (
+          <div class="banner-item">
+            <div class="banner-item-icon">
+              {item.icon === 'link' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              )}
+              {item.icon === 'activity' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              )}
+              {item.icon === 'shield-check' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              )}
+            </div>
+            <h4>{item.title}</h4>
+            <p>{item.description}</p>
           </div>
-          <h4>Instant Link Updates</h4>
-          <p>Renaming or moving document files automatically updates all connections and links in other files across your folder.</p>
-        </div>
-
-        <div class="banner-item">
-          <div class="banner-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-          </div>
-          <h4>Automatic Background Checker</h4>
-          <p>A fast helper utility listens to file changes in the background and keeps your links up to date instantly.</p>
-        </div>
-
-        <div class="banner-item">
-          <div class="banner-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-          </div>
-          <h4>Error Checking on Save</h4>
-          <p>Run the checker tool in your save workflow to detect broken document links or missing required sections automatically.</p>
-        </div>
+        ))}
       </div>
     </section>
 
     <!-- ALTERNATING ROW PAIR 2 -->
     <div class="feature-rows-group">
-      <!-- Feature Row 3 (Text Left, Visual Right) -->
-      <section class="feature-row glow-card">
-        <div class="row-text">
-          <span class="row-tag">AI Tool Support</span>
-          <h3>Works Natively with AI Tools</h3>
-          <p>
-            Plugs straight into Claude Code, Antigravity, Cursor, Windsurf, and other AI systems as a helper skill.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods context --json</code>
+      {frontmatter.rowsGroup2.map((row: FeatureRow) => (
+        <section class={`feature-row glow-card ${row.reverse ? 'reverse' : ''}`}>
+          <div class="row-text">
+            <span class="row-tag">{row.tag}</span>
+            <h3>{row.title}</h3>
+            <p set:html={row.description}></p>
+            <div class="row-cmd">
+              <code>{row.cmd}</code>
+            </div>
           </div>
-        </div>
-        <div class="row-visual">
-          <div class="ai-chips-box">
-            <div class="ai-chip-item"><AIIcon name="claude" size={24} /> <span>Claude Code</span></div>
-            <div class="ai-chip-item"><AIIcon name="antigravity" size={24} /> <span>Antigravity</span></div>
-            <div class="ai-chip-item"><AIIcon name="cursor" size={24} /> <span>Cursor</span></div>
-            <div class="ai-chip-item"><AIIcon name="windsurf" size={24} /> <span>Windsurf</span></div>
+          <div class="row-visual">
+            {row.visualType === 'ai-chips' && row.chips && (
+              <div class="ai-chips-box">
+                {row.chips.map((chip: { name: string; icon: AIIconType }) => (
+                  <div class="ai-chip-item"><AIIcon name={chip.icon} size={24} /> <span>{chip.name}</span></div>
+                ))}
+              </div>
+            )}
+            {row.visualType === 'levels-stack' && row.levels && (
+              <div class="levels-mini-stack">
+                {row.levels.map((lvl: { num: string; text: string; active?: boolean }) => (
+                  <div class={`l-step ${lvl.active ? 'active' : ''}`}><span>{lvl.num}</span> {lvl.text}</div>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      </section>
-
-      <!-- Feature Row 4 (Visual Left, Text Right: REVERSE) -->
-      <section class="feature-row reverse glow-card">
-        <div class="row-text">
-          <span class="row-tag">Gradual Adoption</span>
-          <h3>Simple Adoption Steps</h3>
-          <p>
-            Start with plain Markdown. Add a root <code>ods.toml</code> when you want a workspace. <code>ods lint</code> is binary: compliant (exit 0) or not (exit 1). There is no Level 0–3 ladder.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods lint</code>
-          </div>
-        </div>
-        <div class="row-visual">
-          <div class="levels-mini-stack">
-            <div class="l-step"><span>1</span> Plain Markdown files</div>
-            <div class="l-step"><span>2</span> Root ods.toml workspace</div>
-            <div class="l-step active"><span>3</span> ods lint exit 0 or 1</div>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
     </div>
 
     <!-- CORE HIGHLIGHT #2 (ENTERPRISE PROFILES) -->
     <section class="feature-big-banner glow-card section-ods-templates">
       <div class="big-banner-header">
-        <span class="banner-badge">Document Organization</span>
-        <h2>ODS Templates: Simple Document Structure</h2>
-        <p>Keep your documents consistent and organized without manual formatting debates.</p>
+        <span class="banner-badge">{frontmatter.bannerTemplates.badge}</span>
+        <h2>{frontmatter.bannerTemplates.title}</h2>
+        <p>{frontmatter.bannerTemplates.description}</p>
       </div>
 
       <div class="profiles-section-wrapper">
         <div class="profiles-2x2-grid">
-          <!-- Card 1: Technical Specs -->
-          <div class="p-card">
-            <span class="p-badge">profile: architecture</span>
-            <h4>Architecture docs</h4>
-            <div class="headings-group">
-              <span class="headings-label">Required Headings</span>
-              <div class="heading-tags">
-                <code class="h-tag">## Goal</code>
-                <code class="h-tag">## Requirements</code>
-                <code class="h-tag">## Acceptance Criteria</code>
+          {frontmatter.bannerTemplates.profiles.map((p: ProfileItem) => (
+            <div class="p-card">
+              <span class="p-badge">{p.badge}</span>
+              <h4>{p.title}</h4>
+              <div class="headings-group">
+                <span class="headings-label">{p.headingsLabel}</span>
+                <div class="heading-tags">
+                  {p.headings.map((h: string) => (
+                    <code class="h-tag">{h}</code>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Card 2: Runbooks & Guides -->
-          <div class="p-card">
-            <span class="p-badge">profile: guide</span>
-            <h4>Runbooks & Guides</h4>
-            <div class="headings-group">
-              <span class="headings-label">Required Headings</span>
-              <div class="heading-tags">
-                <code class="h-tag">## Overview</code>
-                <code class="h-tag">## Prerequisites</code>
-                <code class="h-tag">## Steps</code>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: Product PRDs -->
-          <div class="p-card">
-            <span class="p-badge">profile: feature</span>
-            <h4>Product PRDs</h4>
-            <div class="headings-group">
-              <span class="headings-label">Required Headings</span>
-              <div class="heading-tags">
-                <code class="h-tag">## User Goal</code>
-                <code class="h-tag">## Acceptance Criteria</code>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: ADRs & Decision Notes -->
-          <div class="p-card">
-            <span class="p-badge">profile: decision</span>
-            <h4>ADRs & Decision Notes</h4>
-            <div class="headings-group">
-              <span class="headings-label">Required Headings</span>
-              <div class="heading-tags">
-                <code class="h-tag">## Context</code>
-                <code class="h-tag">## Decision</code>
-                <code class="h-tag">## Consequences</code>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
-        <!-- Custom Template Card -->
         <div class="p-card custom-featured-card">
           <div class="custom-card-header">
-            <span class="p-badge">profile: custom-security-audit</span>
-            <h4>100% Custom Document Templates</h4>
+            <span class="p-badge">{frontmatter.bannerTemplates.customTemplate.badge}</span>
+            <h4>{frontmatter.bannerTemplates.customTemplate.title}</h4>
           </div>
           <div class="headings-group">
-            <span class="headings-label">Custom Required Sections</span>
+            <span class="headings-label">{frontmatter.bannerTemplates.customTemplate.headingsLabel}</span>
             <div class="heading-tags">
-              <code class="h-tag">## Executive Summary</code>
-              <code class="h-tag">## Threat Model</code>
-              <code class="h-tag">## Audit Findings</code>
+              {frontmatter.bannerTemplates.customTemplate.headings.map((h: string) => (
+                <code class="h-tag">{h}</code>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       <div class="ladder-graphic-box">
-        <h4 class="ladder-title">Binary compliance</h4>
+        <h4 class="ladder-title">{frontmatter.bannerTemplates.ladder.title}</h4>
         <div class="ladder-timeline">
-          <div class="timeline-step">
-            <span class="step-badge">Plain .md</span>
-            <h5 class="l-lbl">No workspace required</h5>
-            <p>Use existing Markdown as-is</p>
-          </div>
-
-          <div class="timeline-step">
-            <span class="step-badge">Workspace</span>
-            <h5 class="l-lbl">Root ods.toml</h5>
-            <p>spec = "0.1" marks the tree</p>
-          </div>
-
-          <div class="timeline-step step-active">
-            <span class="step-badge active-badge">Compliant</span>
-            <h5 class="l-lbl">ods lint exits 0</h5>
-            <p>Graph, keys, and profiles check out</p>
-          </div>
-
-          <div class="timeline-step">
-            <span class="step-badge">Fix</span>
-            <h5 class="l-lbl">ods lint exits 1</h5>
-            <p>Repair diagnostics, then re-lint</p>
-          </div>
+          {frontmatter.bannerTemplates.ladder.steps.map((step: StepItem) => (
+            <div class={`timeline-step ${step.active ? 'step-active' : ''}`}>
+              <span class={`step-badge ${step.active ? 'active-badge' : ''}`}>{step.badge}</span>
+              <h5 class="l-lbl">{step.title}</h5>
+              <p>{step.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     <!-- ALTERNATING ROW PAIR 3 -->
     <div class="feature-rows-group">
-      <!-- Feature Row 5 (Text Left, Code Right) -->
-      <section class="feature-row glow-card">
-        <div class="row-text">
-          <span class="row-tag">Onboard Existing Folders</span>
-          <h3>Import Existing Files in Seconds</h3>
-          <p>
-            Import your existing text files in seconds. <code>ods init --adopt</code> writes a root <code>ods.toml</code> and drafts frontmatter so you don't have to edit every file by hand.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods init . --adopt</code>
+      {frontmatter.rowsGroup3.map((row: FeatureRow) => (
+        <section class={`feature-row glow-card ${row.reverse ? 'reverse' : ''}`}>
+          <div class="row-text">
+            <span class="row-tag">{row.tag}</span>
+            <h3>{row.title}</h3>
+            <p set:html={row.description}></p>
+            <div class="row-cmd">
+              <code>{row.cmd}</code>
+            </div>
           </div>
-        </div>
-        <div class="row-visual">
-          <div class="code-box-wrapper">
-            <div class="code-box-title">CLI Terminal Log</div>
-            <pre class="theme-code"><code>$ ods init . --adopt
-✓ Wrote root ods.toml (spec = "0.1")
-✓ Drafted frontmatter on 148 Markdown files
-✓ Ready for ods lint</code></pre>
+          <div class="row-visual">
+            {row.visualType === 'code' && (
+              <div class="code-box-wrapper">
+                <div class="code-box-title">{row.codeBoxTitle}</div>
+                <pre class="theme-code"><code>{row.codeContent}</code></pre>
+              </div>
+            )}
+            {row.visualType === 'rag-vs' && (
+              <div class="rag-vs-box">
+                <div class="rag-bad">{row.ragBad}</div>
+                <div class="ods-good">{row.odsGood}</div>
+              </div>
+            )}
           </div>
-        </div>
-      </section>
-
-      <!-- Feature Row 6 (Code Left, Text Right: REVERSE) -->
-      <section class="feature-row reverse glow-card">
-        <div class="row-text">
-          <span class="row-tag">Better Than Vector Search</span>
-          <h3>Hallucination-Free Reading Lists</h3>
-          <p>
-            Avoid expensive search database hosting and errors. ODS delivers highly accurate reading lists to your AI by using the direct connections you specify.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods graph --format dot</code>
-          </div>
-        </div>
-        <div class="row-visual">
-          <div class="rag-vs-box">
-            <div class="rag-bad">❌ Vector Search: 80,000 words (scrambled snippets)</div>
-            <div class="ods-good">✓ ODS Map: 4,100 words (instant linked pages)</div>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
     </div>
 
     <!-- CORE HIGHLIGHT #3 (SOC2 PRIVACY SHIELD) -->
     <section class="feature-big-banner glow-card">
       <div class="big-banner-header">
-        <span class="banner-badge">Privacy & Security</span>
-        <h2>Keep Sensitive Data Secure</h2>
-        <p>Built-in controls to prevent private data or secret keys from leaking to external AI tools.</p>
+        <span class="banner-badge">{frontmatter.bannerSecurity.badge}</span>
+        <h2>{frontmatter.bannerSecurity.title}</h2>
+        <p>{frontmatter.bannerSecurity.description}</p>
       </div>
 
       <div class="big-banner-grid">
-        <div class="banner-item">
-          <div class="banner-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
+        {frontmatter.bannerSecurity.items.map((item: BannerItem) => (
+          <div class="banner-item">
+            <div class="banner-item-icon">
+              {item.icon === 'lock' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              )}
+              {item.icon === 'eye-off' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              )}
+              {item.icon === 'refresh-cw' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 2v6h-6"></path>
+                  <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                  <path d="M3 22v-6h6"></path>
+                  <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                </svg>
+              )}
+            </div>
+            <h4>{item.title}</h4>
+            <p set:html={item.description}></p>
           </div>
-          <h4>Private File Filters</h4>
-          <p>Pages marked with <code>share: private</code> are hidden and never sent to AI tools.</p>
-        </div>
-
-        <div class="banner-item">
-          <div class="banner-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
-              <line x1="1" y1="1" x2="23" y2="23"></line>
-            </svg>
-          </div>
-          <h4>Inline Secret Blurring</h4>
-          <p>Secrets placed inside secret labels are automatically stripped out before sending to AI tools.</p>
-        </div>
-
-        <div class="banner-item">
-          <div class="banner-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 2v6h-6"></path>
-              <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
-              <path d="M3 22v-6h6"></path>
-              <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
-            </svg>
-          </div>
-          <h4>Settings Backup & Restore</h4>
-          <p>Use the backup and restore tools to quickly clean or restore your files before sharing them.</p>
-        </div>
+        ))}
       </div>
     </section>
 
     <!-- ALTERNATING ROW PAIR 4 -->
     <div class="feature-rows-group">
-      <!-- Feature Row 7 (Text Left, Code Right) -->
-      <section class="feature-row glow-card">
-        <div class="row-text">
-          <span class="row-tag">Cost Savings Stats</span>
-          <h3>View Your Savings Stats</h3>
-          <p>
-            View estimated savings and cost reductions across your team using the built-in stats command.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods bench stats</code>
+      {frontmatter.rowsGroup4.map((row: FeatureRow) => (
+        <section class={`feature-row glow-card ${row.reverse ? 'reverse' : ''}`}>
+          <div class="row-text">
+            <span class="row-tag">{row.tag}</span>
+            <h3>{row.title}</h3>
+            <p set:html={row.description}></p>
+            <div class="row-cmd">
+              <code>{row.cmd}</code>
+            </div>
           </div>
-        </div>
-        <div class="row-visual">
-          <div class="code-box-wrapper">
-            <div class="code-box-title">ods bench stats</div>
-            <pre class="theme-code"><code>$ ods bench stats
-✓ Workspace Files: 240 docs
-✓ Word Savings: 94.97%
-✓ Estimated Annual Savings: $34,800</code></pre>
+          <div class="row-visual">
+            <div class="code-box-wrapper">
+              <div class="code-box-title">{row.codeBoxTitle}</div>
+              <pre class="theme-code"><code>{row.codeContent}</code></pre>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Feature Row 8 (Code Left, Text Right: REVERSE) -->
-      <section class="feature-row reverse glow-card">
-        <div class="row-text">
-          <span class="row-tag">Label Management</span>
-          <h3>Update Labels in Bulk</h3>
-          <p>
-            Search, filter, and rename labels across all your documents with a single quick command.
-          </p>
-          <div class="row-cmd">
-            <code>$ ods tag rename old-tag new-tag</code>
-          </div>
-        </div>
-        <div class="row-visual">
-          <div class="code-box-wrapper">
-            <div class="code-box-title">Bulk Label Rename</div>
-            <pre class="theme-code"><code>$ ods tag rename deprecated legacy
-✓ Updated 38 files in 12ms</code></pre>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
     </div>
 
     <!-- CTA & Key Reference Redirection Section -->
     <div class="features-bottom-cta glow-card">
       <div class="cta-left">
-        <h2>Want to see the technical details?</h2>
-        <p>All standard labels, properties, and terminal command flags are documented in the developer guides.</p>
+        <h2>{frontmatter.bottomCTA.title}</h2>
+        <p>{frontmatter.bottomCTA.subtitle}</p>
       </div>
       <div class="cta-btns">
-        <a href="/docs/features" class="primary-btn">View Developer Dictionary →</a>
-        <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="secondary-btn">GitHub Repository ↗</a>
+        <a href={frontmatter.bottomCTA.primaryBtnLink} class="primary-btn">{frontmatter.bottomCTA.primaryBtnText}</a>
+        <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="secondary-btn">{frontmatter.bottomCTA.secondaryBtnText}</a>
       </div>
     </div>
 
@@ -800,8 +664,6 @@ ignore = [
     color: var(--fg);
   }
 
-  /* ── Level 0-3 Conformance Ladder Graphic ── */
-
   /* ── Redesigned ODS Templates Section (Strict Theme Tokens) ── */
 
   .profiles-section-wrapper {
@@ -828,13 +690,6 @@ ignore = [
     justify-content: space-between;
   }
 
-  .p-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-12);
-  }
-
   .p-badge {
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -853,13 +708,6 @@ ignore = [
     color: var(--fg);
     margin-bottom: var(--space-8);
     margin-top: 0;
-  }
-
-  .p-desc {
-    font-size: 0.84rem;
-    color: var(--fg-muted);
-    line-height: 1.5;
-    margin-bottom: var(--space-16);
   }
 
   .headings-group {
@@ -918,7 +766,7 @@ ignore = [
     margin: 0;
   }
 
-  /* ── Simple Adoption Steps (Minimal & Highly Visible) ── */
+  /* ── Simple Adoption Steps ── */
 
   .ladder-graphic-box {
     margin-top: var(--space-28);
@@ -927,10 +775,6 @@ ignore = [
     border-radius: var(--radius-lg);
     padding: var(--space-24) var(--space-20);
     text-align: center;
-  }
-
-  .ladder-header {
-    margin-bottom: var(--space-20);
   }
 
   .ladder-title {
@@ -1018,7 +862,7 @@ ignore = [
   .code-box-title::before {
     content: "";
     display: inline-block;
-    width: 10px;
+    width: 100px;
     height: 10px;
     border-radius: 50%;
     background: #ff5f57;
@@ -1140,33 +984,6 @@ ignore = [
     align-items: center;
   }
 
-  .btn-primary {
-    background: #ffffff;
-    color: #09090b;
-    padding: 0.75rem 1.5rem;
-    border-radius: 999px;
-    font-weight: 600;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    transition: transform 0.2s ease;
-  }
-
-  .btn-primary:hover {
-    transform: scale(1.03);
-  }
-
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: 0.75rem 1.4rem;
-    border-radius: 999px;
-    font-weight: 500;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
   /* Responsiveness */
 
   @media (max-width: 960px) {
@@ -1222,8 +1039,7 @@ ignore = [
   }
 
   @media (max-width: 768px) {
-    .profiles-2x2-grid,
-    .custom-banner-grid {
+    .profiles-2x2-grid {
       grid-template-columns: 1fr;
       gap: var(--space-16);
     }
@@ -1234,9 +1050,6 @@ ignore = [
     .ladder-timeline {
       grid-template-columns: 1fr;
       gap: 1rem;
-    }
-    .timeline-arrow {
-      display: none;
     }
   }
 

@@ -22,9 +22,9 @@
   --radius-lg: 1.25rem;
   --radius-xl: 1.75rem;
   --radius-pill: 999px;
-  --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -317,36 +317,59 @@ html[data-theme='dark'] .theme-toggle .moon-icon, .theme-toggle .sun-icon { disp
 
 /* Docs and specification shell */
 .docs-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr) 180px; gap: var(--space-8); padding: var(--space-10) 0 var(--space-20); }
-.docs-sidebar { position: sticky; top: 6rem; align-self: start; max-height: calc(100vh - 7rem); overflow: auto; min-width: 0; }
+.docs-sidebar { position: sticky; top: 5.5rem; align-self: start; max-height: calc(100vh - 6.5rem); overflow-y: auto; min-width: 0; }
 .docs-sidebar-details { display: block; }
 .docs-sidebar-summary { list-style: none; }
 .docs-sidebar-summary::-webkit-details-marker { display: none; }
 .docs-sidebar-summary-title, .docs-sidebar-summary-current, .docs-sidebar-summary-icon { display: none; }
-.docs-sidebar-heading { margin: 0 0 1rem; color: var(--color-text); font-size: 0.95rem; font-weight: 700; letter-spacing: -0.02em; }
-.sidebar-group { margin-bottom: 1.3rem; }
-.sidebar-group-title { margin-bottom: .45rem; color: var(--color-text-subtle); font: .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
+.docs-sidebar-content {
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+.docs-sidebar-heading {
+  margin: 0 0 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: var(--border);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.sidebar-group { margin-bottom: 1.25rem; }
+.sidebar-group:last-child { margin-bottom: 0; }
+.sidebar-group-title { margin-bottom: .45rem; padding: 0 0.5rem; color: var(--color-text-subtle); font: .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
 .sidebar-link {
   display: block;
-  border-left: 2px solid transparent;
-  border-radius: 0 0.4rem 0.4rem 0;
-  padding: .4rem .65rem;
+  border-radius: 0.4rem;
+  padding: .42rem .65rem;
   color: var(--color-text-muted);
-  font-size: .82rem;
+  font-size: .84rem;
   line-height: 1.35;
+  border-bottom: 2px solid transparent;
+  transition: color .15s ease, background .15s ease, border-color .15s ease;
+  text-decoration: none;
 }
 .sidebar-link:hover { color: var(--color-text); background: var(--color-surface-muted); }
 .sidebar-link.active {
-  border-color: var(--color-text);
   color: var(--color-text);
   background: var(--color-surface-muted);
   font-weight: 600;
+  border-bottom: 2px solid var(--color-text);
+}
+.dark .docs-sidebar-content,
+html[data-theme='dark'] .docs-sidebar-content {
+  background: #18181b;
+  border-color: #27272a;
 }
 .dark .sidebar-link,
-html[data-theme='dark'] .sidebar-link { color: #d4d4d8; }
+html[data-theme='dark'] .sidebar-link { color: #a1a1aa; }
 .dark .sidebar-link:hover,
 html[data-theme='dark'] .sidebar-link:hover { color: #fafafa; background: #27272a; }
 .dark .sidebar-link.active,
-html[data-theme='dark'] .sidebar-link.active { color: #fafafa; background: #27272a; border-color: #fafafa; }
+html[data-theme='dark'] .sidebar-link.active { color: #fafafa; background: #27272a; border-bottom: 2px solid #fafafa; }
 .doc-article { min-width: 0; }.doc-breadcrumbs { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.1rem; color: var(--color-text-subtle); font: .72rem var(--font-mono); }.doc-breadcrumbs a:hover { color: var(--ods-accent-strong); }
 .doc-article-header { padding-bottom: var(--space-6); border-bottom: var(--border); }
 .doc-article-header h1 { margin: .55rem 0 .75rem; max-width: 18ch; font-size: clamp(1.75rem, 3.4vw, 2.35rem); line-height: 1.15; letter-spacing: -0.03em; overflow-wrap: break-word; }

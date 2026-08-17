@@ -14,7 +14,7 @@ const docs = defineCollection({
 });
 
 const specs = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./specs", ignore: ["**/AGENTS.md"] }),
+  loader: glob({ pattern: ["**/*.{md,mdx}", "!**/AGENTS.md"], base: "./specs" }),
   schema: z.object({
     title: z.string().optional(),
     description: z.string().optional(),
