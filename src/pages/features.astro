@@ -6,7 +6,7 @@
 import Layout from "../layouts/Layout.astro";
 import AIIcon from "../components/AIIcon.astro";
 import Icon from "../components/Icon.astro";
-import { REPO_URL } from "../lib/releases";
+import { ORG_URL } from "../lib/releases";
 ---
 
 <Layout title="All Core Features: Open Document Spec (ODS)" activeNav="features">
@@ -102,7 +102,7 @@ ods:
           <span class="row-tag">Open Standard</span>
           <h3>Works with Standard Text Files</h3>
           <p>
-            No hidden databases or complex formats. ODS works on top of simple, standard text files (.md) with clean labels at the top. You own your files forever.
+            No hidden databases or complex formats. A root <code>ods.toml</code> marks the workspace. Documents stay plain <code>.md</code> with optional YAML frontmatter. You own your files forever.
           </p>
           <div class="row-cmd">
             <code>$ ods init</code>
@@ -110,15 +110,14 @@ ods:
         </div>
         <div class="row-visual">
           <div class="code-box-wrapper">
-            <div class="code-box-title">Root index.md</div>
-            <pre class="theme-code"><code>---
-ods: 0.1
-ods: ">=0.0.8"
-profiles:
-  - spec
-  - guide
----
-# Workspace Index Tree</code></pre>
+            <div class="code-box-title">Root ods.toml</div>
+            <pre class="theme-code"><code># ods.toml — workspace boundary
+spec = "0.1"
+
+ignore = [
+  "node_modules",
+  "dist",
+]</code></pre>
           </div>
         </div>
       </section>
@@ -473,7 +472,7 @@ profiles:
       </div>
       <div class="cta-btns">
         <a href="/docs/features" class="primary-btn">View Developer Dictionary →</a>
-        <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="secondary-btn">GitHub Repository ↗</a>
+        <a href={ORG_URL} target="_blank" rel="noopener noreferrer" class="secondary-btn">GitHub ↗</a>
       </div>
     </div>
 

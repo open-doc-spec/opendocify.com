@@ -66,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
           ODS stores configuration and index files exclusively inside your local filesystem:
         </p>
         <ul>
-          <li><strong>Workspace Indexes (<code>index.md</code>)</strong>: Generated directly inside your repository tree so they can be versioned with Git.</li>
+          <li><strong>Workspace marker (<code>ods.toml</code>)</strong>: A single root config file you version with Git. Discovery is computed from that file plus Markdown frontmatter — ODS does not commit folder <code>index.md</code> maps.</li>
           <li><strong>Global Configuration (<code>~/.ods/odsconfig.toml</code>)</strong>: Stores registered workspace paths and user preferences on your local disk.</li>
           <li><strong>Daemon IPC State</strong>: The background daemon (<code>ods serve</code>) uses OS-native local inter-process communication (IPC) or loopback sockets with zero public network listeners.</li>
         </ul>
@@ -107,7 +107,7 @@ import Layout from "../layouts/Layout.astro";
       <section class="policy-section">
         <h2>5. Updates & Version Checking</h2>
         <p>
-          When running <code>ods update --check</code>, the CLI makes an anonymous HTTPS GET request to GitHub's public API (<code>api.github.com/repos/StaytunedLLP/open-document-specs/releases/latest</code>) solely to check if a higher version tag exists. No workspace data, repository contents, or user identifiers are included in this check.
+          When running <code>ods update --check</code>, the CLI makes an anonymous HTTPS GET request to GitHub's public API (<code>api.github.com/repos/open-doc-spec/ods/releases/latest</code>) solely to check if a higher version tag exists. No workspace data, repository contents, or user identifiers are included in this check.
         </p>
       </section>
 
@@ -118,7 +118,7 @@ import Layout from "../layouts/Layout.astro";
           Open Document Spec core is open-source software licensed under the <strong>Apache License, Version 2.0</strong>. You are free to inspect, audit, modify, and self-host all ODS core components.
         </p>
         <p class="contact-info">
-          For security inquiries or vulnerability reports, please visit our <a href="https://github.com/StaytunedLLP/open-document-specs" target="_blank" rel="noopener noreferrer">GitHub Repository</a> or contact <strong>Staytuned LLP</strong>.
+          For security inquiries or vulnerability reports, please visit our <a href="https://github.com/open-doc-spec" target="_blank" rel="noopener noreferrer">GitHub organization</a>.
         </p>
       </section>
     </main>

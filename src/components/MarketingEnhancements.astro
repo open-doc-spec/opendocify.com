@@ -2,6 +2,7 @@
   function setupCodeHighlighting() {
     const codeBlocks = document.querySelectorAll('.theme-code code, pre code, .ex-cmd code, .row-cmd code');
     codeBlocks.forEach(function (codeEl) {
+      if (codeEl.id === 'ast-code-block') return;
       if (codeEl.getAttribute('data-highlighted') === 'true') return;
       const text = codeEl.textContent || '';
       if (!text.trim()) return;

@@ -294,6 +294,34 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     color: inherit;
   }
 
+  /* Install terminal stays a dark IDE even in light mode. Injected token
+     spans inherit this color if theme tokens (--fg) would otherwise be black. */
+  .ods-marketing .terminal-container,
+  .ods-marketing .terminal-container .terminal-tab-bar {
+    background: #09090b !important;
+    background-color: #09090b !important;
+    color: #e2e8f0;
+  }
+
+  .ods-marketing .terminal-code-panel,
+  .ods-marketing .terminal-code-panel code,
+  .ods-marketing #ast-code-block {
+    color: #e2e8f0 !important;
+    background: transparent !important;
+    text-align: left !important;
+    display: block !important;
+  }
+
+  .ods-marketing #ast-code-block .t-prompt,
+  .ods-marketing #ast-code-block .t-sub,
+  .ods-marketing #ast-code-block .t-json { color: #94a3b8 !important; }
+  .ods-marketing #ast-code-block .t-cmd { color: #f8fafc !important; }
+  .ods-marketing #ast-code-block .t-flag { color: #c084fc !important; }
+  .ods-marketing #ast-code-block .t-arg { color: #f59e0b !important; }
+  .ods-marketing #ast-code-block .t-success { color: #4ade80 !important; }
+  .ods-marketing #ast-code-block .t-comment { color: #64748b !important; }
+  .ods-marketing #ast-code-block .t-next { color: #e2e8f0 !important; }
+
   /* ── Editorial Layout Controls ── */
   
   /* 1. Global border-radius hierarchy: 36px (Outlined Container) -> 28px (Inside Container) -> 20px (Children) */
