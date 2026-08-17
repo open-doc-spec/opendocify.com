@@ -394,147 +394,142 @@ import { REPO_URL } from "../lib/releases";
     </div>
   </section>
 
-  <!-- Graphify-Style Assistant Interactive Setup Switcher -->
+  <!-- Modern Interactive Assistant Setup Section -->
   <section class="section-container assistant-setup-section" id="setup">
-    <h2 class="section-heading">Install ODS in Seconds</h2>
-    <p class="section-subheading">
-      One command. No extensions. No account.<br />
-      Works with your existing AI assistant.
-    </p>
+    <div class="setup-header-wrap">
+      <div class="setup-badge">
+        <span class="setup-badge-dot"></span>
+        <span>Quick Setup</span>
+      </div>
+      <h2 class="section-heading">Works with your AI assistant</h2>
+      <p class="section-subheading">
+        One command. Zero configuration. Connects directly to the AI coding tools you already use.
+      </p>
+    </div>
 
-    <div class="assistant-switcher-box glow-card">
-      <div class="assistant-selector">
-        <div class="selector-header">
-          <span class="selector-title">CHOOSE YOUR AI ASSISTANT</span>
-        </div>
-        <div class="assistant-buttons">
-          <button class="assistant-btn active" data-assistant="claude">
-            <AIIcon name="claude" size={16} class="ast-icon" /> Claude Code
-          </button>
-          <button class="assistant-btn" data-assistant="cursor">
-            <AIIcon name="cursor" size={16} class="ast-icon" /> Cursor
-          </button>
-          <button class="assistant-btn" data-assistant="copilot">
-            <Icon name="copilot" size={16} class="ast-icon" /> Copilot
-          </button>
-          <button class="assistant-btn" data-assistant="gemini">
-            <Icon name="sparkles" size={16} class="ast-icon" /> Gemini CLI
-          </button>
-          <button class="assistant-btn" data-assistant="windsurf">
-            <AIIcon name="windsurf" size={16} class="ast-icon" /> Windsurf
-          </button>
-          <button class="assistant-btn" data-assistant="openai">
-            <AIIcon name="openai" size={16} class="ast-icon" /> OpenAI Codex
-          </button>
-          <button class="assistant-btn" data-assistant="aider">
-            <Icon name="tools" size={16} class="ast-icon" /> Aider
-          </button>
-          <button class="assistant-btn" data-assistant="cargo">
-            <Icon name="rust" size={16} class="ast-icon" /> Rust Cargo / Shell
-          </button>
-          <span class="more-assistants-pill">+12 More</span>
-        </div>
-        <div class="assistant-footer-note">
-          <span class="footer-dot">•</span> Supports 17+ AI coding assistants
-        </div>
+    <div class="assistant-switcher-box">
+      <!-- Assistant Selector Tabs -->
+      <div class="assistant-selector-nav" role="tablist" aria-label="Select AI Assistant">
+        <button class="assistant-btn active" data-assistant="claude" role="tab" aria-selected="true">
+          <AIIcon name="claude" size={15} class="ast-icon" />
+          <span>Claude Code</span>
+        </button>
+        <button class="assistant-btn" data-assistant="cursor" role="tab" aria-selected="false">
+          <AIIcon name="cursor" size={15} class="ast-icon" />
+          <span>Cursor</span>
+        </button>
+        <button class="assistant-btn" data-assistant="copilot" role="tab" aria-selected="false">
+          <Icon name="copilot" size={15} class="ast-icon" />
+          <span>Copilot</span>
+        </button>
+        <button class="assistant-btn" data-assistant="windsurf" role="tab" aria-selected="false">
+          <AIIcon name="windsurf" size={15} class="ast-icon" />
+          <span>Windsurf</span>
+        </button>
+        <button class="assistant-btn" data-assistant="gemini" role="tab" aria-selected="false">
+          <Icon name="sparkles" size={15} class="ast-icon" />
+          <span>Gemini CLI</span>
+        </button>
+        <button class="assistant-btn" data-assistant="antigravity" role="tab" aria-selected="false">
+          <AIIcon name="antigravity" size={15} class="ast-icon" />
+          <span>Antigravity</span>
+        </button>
+        <button class="assistant-btn" data-assistant="openai" role="tab" aria-selected="false">
+          <AIIcon name="openai" size={15} class="ast-icon" />
+          <span>OpenAI / Codex</span>
+        </button>
+        <button class="assistant-btn" data-assistant="cargo" role="tab" aria-selected="false">
+          <Icon name="rust" size={15} class="ast-icon" />
+          <span>Rust CLI</span>
+        </button>
       </div>
 
-      <!-- Step-by-Step Flow Pipeline inside Container below AI Assistant selector -->
-      <div class="ods-steps-pipeline">
-        <!-- Step 01 -->
-        <div class="ods-step-item">
-          <div class="ods-step-icon-circle">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
+      <!-- Main Split Interactive Card -->
+      <div class="setup-interactive-grid">
+        <!-- Left: Friendly Integration Details -->
+        <div class="setup-info-pane">
+          <div class="setup-info-header">
+            <div class="setup-target-badge">
+              <span id="ast-target-name">Claude Code</span>
+              <span class="setup-badge-sep">•</span>
+              <span id="integration-mode-badge" class="setup-mode-tag">Native Skill</span>
+            </div>
+            <h3 id="ast-heading" class="setup-info-title">Zero-config documentation context</h3>
+            <p id="ast-description" class="setup-info-desc">
+              Installs the ODS skill directly into Claude Code. When you ask questions, Claude automatically resolves and reads only connected documents and specs.
+            </p>
           </div>
-          <span class="ods-step-num">01</span>
-          <h4 class="ods-step-title">Ask AI</h4>
-          <p class="ods-step-desc">You prompt your AI assistant</p>
-        </div>
 
-        <!-- Connecting Line 1 -> 2 -->
-        <div class="ods-step-connector">
-          <div class="connector-line"></div>
-          <div class="connector-dot"></div>
-        </div>
+          <div class="setup-highlights-list">
+            <div class="setup-highlight-item">
+              <div class="highlight-bullet">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="highlight-text">
+                <strong>Instant context resolution</strong>
+                <span>Scans document connections in under 3ms</span>
+              </div>
+            </div>
 
-        <!-- Step 02 -->
-        <div class="ods-step-item">
-          <div class="ods-step-icon-circle">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-              <polyline points="2 17 12 22 22 17"/>
-              <polyline points="2 12 12 17 22 12"/>
-            </svg>
-          </div>
-          <span class="ods-step-num">02</span>
-          <h4 class="ods-step-title">Install ODS</h4>
-          <p class="ods-step-desc">ODS loads the smart reading map</p>
-        </div>
+            <div class="setup-highlight-item">
+              <div class="highlight-bullet">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="highlight-text">
+                <strong>Up to 94% lower token costs</strong>
+                <span>Feeds only what matters, avoiding prompt bloat</span>
+              </div>
+            </div>
 
-        <!-- Connecting Line 2 -> 3 -->
-        <div class="ods-step-connector">
-          <div class="connector-line"></div>
-          <div class="connector-dot"></div>
-        </div>
-
-        <!-- Step 03 -->
-        <div class="ods-step-item">
-          <div class="ods-step-icon-circle">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-            </svg>
-          </div>
-          <span class="ods-step-num">03</span>
-          <h4 class="ods-step-title">Read Relevant Pages</h4>
-          <p class="ods-step-desc">AI reads only what matters (&lt;5ms)</p>
-        </div>
-
-        <!-- Connecting Line 3 -> 4 -->
-        <div class="ods-step-connector">
-          <div class="connector-line"></div>
-          <div class="connector-dot"></div>
-        </div>
-
-        <!-- Step 04 -->
-        <div class="ods-step-item">
-          <div class="ods-step-icon-circle">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            </svg>
-          </div>
-          <span class="ods-step-num">04</span>
-          <h4 class="ods-step-title">Get Fast Answers</h4>
-          <p class="ods-step-desc">Accurate answers with 94% less tokens</p>
-        </div>
-      </div>
-
-      <div class="terminal-container">
-        <div class="terminal-tab-bar">
-          <div class="terminal-left-group">
-            <div class="term-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
+            <div class="setup-highlight-item">
+              <div class="highlight-bullet">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="highlight-text">
+                <strong>100% local & private</strong>
+                <span>Runs entirely on your machine with zero telemetry</span>
+              </div>
             </div>
           </div>
-          <button id="copy-ast-btn" class="terminal-copy-btn" title="Copy Command">
-            <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-            <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span id="copy-ast-text">Copy</span>
-          </button>
         </div>
-        <pre class="terminal-code-panel"><code id="ast-code-block"><span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>
+
+        <!-- Right: Modern Terminal Window -->
+        <div class="setup-terminal-pane">
+          <div class="terminal-window">
+            <div class="terminal-tab-bar">
+              <div class="terminal-left-group">
+                <div class="term-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span id="term-window-title" class="term-window-title">bash — ods install</span>
+              </div>
+              <button id="copy-ast-btn" class="terminal-copy-btn" title="Copy Command" aria-label="Copy Command">
+                <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                <svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span id="copy-ast-text">Copy</span>
+              </button>
+            </div>
+            <pre class="terminal-code-panel"><code id="ast-code-block"><span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>
 <span class="t-success">✓ Installing ODS...</span>
 <span class="t-success">✓ Reading list enabled</span>
-<span class="t-success">✓ Connected to your AI assistant</span>
+<span class="t-success">✓ Connected to Claude Code</span>
 <span class="t-success">✓ Ready to go!</span>
 <hr class="t-hr"/>
 <span class="t-next">&gt; Ask your AI anything.</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Trust Note -->
+      <div class="assistant-footer-bar">
+        <span class="footer-indicator"></span>
+        <span>Works with 17+ AI coding tools</span>
+        <span class="footer-sep">•</span>
+        <span>macOS, Linux & Windows</span>
+        <span class="footer-sep">•</span>
+        <span>Apache 2.0 Open Source</span>
       </div>
     </div>
   </section>
@@ -1588,7 +1583,7 @@ import { REPO_URL } from "../lib/releases";
 
   .ods-flow-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: var(--radius-outer); /* 32px */
     padding: 40px 36px 36px;
     display: flex;
@@ -1652,7 +1647,7 @@ import { REPO_URL } from "../lib/releases";
   .ods-flow-visual {
     width: 100%;
     background: var(--nested-card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: var(--radius-inner); /* 24px */
     padding: 28px 20px;
     display: flex;
@@ -1730,18 +1725,18 @@ import { REPO_URL } from "../lib/releases";
 
   .ods-outcome-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: var(--radius-inner); /* 24px */
     padding: 20px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
   }
 
   .ods-outcome-card:hover {
-    border-color: rgba(16, 185, 129, 0.35);
     box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.1);
     transform: translateY(-2px);
   }
@@ -1842,7 +1837,7 @@ import { REPO_URL } from "../lib/releases";
     text-align: center !important;
   }
 
-  /* ── Assistant Interactive Setup Switcher (Mature, Minimal, Friendly) ── */
+  /* ── Assistant Interactive Setup Section (Mature, Minimal, Friendly) ── */
   .assistant-setup-section {
     margin-bottom: var(--space-64);
     position: relative;
@@ -1850,7 +1845,7 @@ import { REPO_URL } from "../lib/releases";
 
   .setup-header-wrap {
     text-align: center;
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto var(--space-28);
   }
 
@@ -1866,7 +1861,7 @@ import { REPO_URL } from "../lib/releases";
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     margin-bottom: 12px;
   }
@@ -1891,75 +1886,51 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .assistant-switcher-box {
-    max-width: 920px;
+    max-width: 960px;
     margin: 0 auto;
     border-radius: var(--radius-xl);
-    padding: var(--space-28);
+    padding: var(--space-24);
     display: flex;
     flex-direction: column;
-    gap: var(--space-20);
+    gap: var(--space-16);
     border: 1px solid rgba(0, 0, 0, 0.08) !important;
     background: #ffffff !important;
-    box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.06) !important;
     position: relative;
     overflow: hidden;
   }
 
   :root[data-theme="dark"] .assistant-switcher-box {
-    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     background: #111114 !important;
     box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.5) !important;
   }
 
-  /* Selector Bar */
-  .assistant-selector {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .selector-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2px;
-  }
-
-  .selector-title {
-    font-family: var(--font-mono);
-    font-size: 0.725rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--fg-dim);
-    text-transform: uppercase;
-  }
-
-  .selector-count-badge {
-    font-size: 0.725rem;
-    font-weight: 600;
-    color: #16a34a;
-    font-family: var(--font-mono);
-  }
-
-  :root[data-theme="dark"] .selector-count-badge {
-    color: #4ade80;
-  }
-
-  .assistant-buttons {
+  /* Selector Tab Strip */
+  .assistant-selector-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 12px;
+    background: #f4f4f5;
+    border: 1px solid #e4e4e7;
+  }
+
+  :root[data-theme="dark"] .assistant-selector-nav {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.07);
   }
 
   .assistant-btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 7px 14px;
+    gap: 6px;
+    padding: 7px 12px;
     border-radius: 8px !important;
-    border: 1px solid #e4e4e7 !important;
-    background: #ffffff !important;
-    color: #18181b !important;
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    color: #52525b !important;
     font-size: 0.8125rem;
     font-weight: 550;
     cursor: pointer;
@@ -1969,20 +1940,17 @@ import { REPO_URL } from "../lib/releases";
   }
 
   :root[data-theme="dark"] .assistant-btn {
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    color: #e4e4e7 !important;
+    color: #a1a1aa !important;
   }
 
   .assistant-btn:hover {
-    border-color: #a1a1aa !important;
-    background: #f8fafc !important;
-    transform: translateY(-1px);
+    color: #09090b !important;
+    background: rgba(0, 0, 0, 0.04) !important;
   }
 
   :root[data-theme="dark"] .assistant-btn:hover {
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
+    color: #f4f4f5 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
   }
 
   .assistant-btn:active {
@@ -1995,30 +1963,176 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .assistant-btn:hover .ast-icon {
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 
   .assistant-btn.active {
-    background: #09090b !important;
-    color: #ffffff !important;
-    border-color: #09090b !important;
+    background: #ffffff !important;
+    color: #09090b !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
   :root[data-theme="dark"] .assistant-btn.active {
-    background: #ffffff !important;
-    color: #09090b !important;
-    border-color: #ffffff !important;
-    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
+    background: #1f1f23 !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
 
-  /* Terminal Container */
-  .terminal-container {
-    border-radius: 12px;
-    border: 1px solid #27272a !important;
+  /* 2-Column Split Interactive Stage */
+  .setup-interactive-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+    margin: 4px 0;
+  }
+
+  .setup-info-pane {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 8px 4px;
+  }
+
+  .setup-info-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .setup-target-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    font-weight: 650;
+    color: #09090b;
+  }
+
+  :root[data-theme="dark"] .setup-target-badge {
+    color: #f4f4f5;
+  }
+
+  .setup-badge-sep {
+    color: #a1a1aa;
+    font-size: 0.75rem;
+  }
+
+  .setup-mode-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #16a34a;
+    background: #e6f4ea;
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  :root[data-theme="dark"] .setup-mode-tag {
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.25);
+  }
+
+  .setup-info-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #09090b;
+    margin: 2px 0 0 0;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  :root[data-theme="dark"] .setup-info-title {
+    color: #ffffff;
+  }
+
+  .setup-info-desc {
+    font-size: 0.875rem;
+    color: #52525b;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  :root[data-theme="dark"] .setup-info-desc {
+    color: #a1a1aa;
+  }
+
+  .setup-highlights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .setup-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .highlight-bullet {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    margin-top: 1px;
+  }
+
+  :root[data-theme="dark"] .highlight-bullet {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+  }
+
+  .highlight-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+  }
+
+  .highlight-text strong {
+    color: #18181b;
+    font-weight: 600;
+  }
+
+  :root[data-theme="dark"] .highlight-text strong {
+    color: #f4f4f5;
+  }
+
+  .highlight-text span {
+    color: #71717a;
+    font-size: 0.775rem;
+  }
+
+  :root[data-theme="dark"] .highlight-text span {
+    color: #a1a1aa;
+  }
+
+  /* Right Column: Terminal Window */
+  .setup-terminal-pane {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .terminal-window {
     background: #09090b !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -2027,22 +2141,23 @@ import { REPO_URL } from "../lib/releases";
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: #0c0c0e !important;
-    border-bottom: 1px solid #1f1f23 !important;
+    background: #0d0d10 !important;
+    border-bottom: 1px solid #1c1c20 !important;
     gap: 12px;
-    flex-wrap: wrap;
   }
 
   .terminal-left-group {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    min-width: 0;
   }
 
   .term-dots {
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-shrink: 0;
   }
 
   .dot {
@@ -2055,85 +2170,30 @@ import { REPO_URL } from "../lib/releases";
   .dot-yellow { background-color: #ffbd2e; }
   .dot-green { background-color: #27c93f; }
 
-  .integration-mode-badge {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.1);
-    padding: 2px 8px;
-    border-radius: 5px;
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    letter-spacing: 0.02em;
-    transition: all 0.2s ease;
-  }
-
-  :root[data-theme="light"] .integration-mode-badge {
-    color: #0284c7;
-    background: rgba(2, 132, 199, 0.08);
-    border-color: rgba(2, 132, 199, 0.2);
-  }
-
-  .terminal-center-group {
-    display: flex;
-    align-items: center;
-  }
-
-  .terminal-tabs {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 3px;
-    border-radius: 7px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .term-tab {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+  .term-window-title {
     font-family: var(--font-mono);
     font-size: 0.725rem;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 5px;
-    border: none !important;
-    background: transparent !important;
-    color: #94a3b8 !important;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  .term-tab:hover {
-    color: #f1f5f9 !important;
-    background: rgba(255, 255, 255, 0.06) !important;
-  }
-
-  .term-tab.active {
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #ffffff !important;
-    font-weight: 600;
-  }
-
-  .terminal-right-group {
-    display: flex;
-    align-items: center;
+    color: #71717a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .terminal-copy-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: #cbd5e1 !important;
+    color: #e2e8f0 !important;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: 4px 10px;
+    font-size: 0.725rem;
+    font-weight: 500;
+    padding: 4px 9px;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.15s ease;
+    flex-shrink: 0;
   }
 
   .terminal-copy-btn:hover {
@@ -2149,16 +2209,17 @@ import { REPO_URL } from "../lib/releases";
   }
 
   :global(.terminal-code-panel) {
-    padding: 16px 20px;
+    padding: 16px 18px;
     font-family: var(--font-mono);
-    font-size: 0.84rem;
-    line-height: 1.65;
+    font-size: 0.8125rem;
+    line-height: 1.6;
     color: #e2e8f0;
     margin: 0;
     overflow-x: auto;
     white-space: pre-wrap;
     background: transparent;
-    transition: opacity 0.15s ease;
+    flex: 1;
+    transition: opacity 0.12s ease;
   }
 
   :global(.terminal-code-panel.fade-out),
@@ -2166,102 +2227,55 @@ import { REPO_URL } from "../lib/releases";
     opacity: 0.3;
   }
 
-  /* 3-Pillar Minimal Benefits Strip */
-  .setup-benefits-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 2px;
-  }
-
-  .setup-benefit-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    background: #f8fafc;
-    border: 1px solid #e4e4e7;
-    transition: all 0.2s ease;
-  }
-
-  :root[data-theme="dark"] .setup-benefit-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.07);
-  }
-
-  .setup-benefit-card:hover {
-    border-color: rgba(16, 185, 129, 0.3);
-    transform: translateY(-1px);
-  }
-
-  .benefit-icon-wrap {
-    width: 30px;
-    height: 30px;
-    border-radius: 7px;
+  /* Bottom Trust Bar */
+  .assistant-footer-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    gap: 8px;
+    font-size: 0.775rem;
+    color: #71717a;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    flex-wrap: wrap;
+    text-align: center;
   }
 
-  :root[data-theme="dark"] .benefit-icon-wrap {
-    background: rgba(52, 211, 153, 0.12);
-    color: #34d399;
+  :root[data-theme="dark"] .assistant-footer-bar {
+    color: #a1a1aa;
+    border-top-color: rgba(255, 255, 255, 0.06);
   }
 
-  .benefit-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  .footer-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
   }
 
-  .benefit-title {
-    font-size: 0.8125rem;
-    font-weight: 650;
-    color: var(--color-text);
-    margin: 0;
-    line-height: 1.25;
-  }
-
-  .benefit-desc {
+  .footer-sep {
+    color: #a1a1aa;
     font-size: 0.75rem;
-    color: var(--color-text-subtle);
-    margin: 0;
-    line-height: 1.35;
+    opacity: 0.6;
   }
 
   @media (max-width: 768px) {
     .assistant-switcher-box {
-      padding: var(--space-20);
-      gap: var(--space-16);
+      padding: var(--space-16);
     }
-    .setup-benefits-row {
+    .setup-interactive-grid {
       grid-template-columns: 1fr;
-      gap: 8px;
+      gap: 16px;
     }
-    .terminal-tab-bar {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 10px;
+    .assistant-selector-nav {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
     }
-    .terminal-left-group, .terminal-center-group, .terminal-right-group {
-      justify-content: space-between;
-      width: 100%;
-    }
-    .terminal-tabs {
-      width: 100%;
-      justify-content: stretch;
-    }
-    .term-tab {
-      flex: 1;
-      justify-content: center;
-    }
-    .terminal-copy-btn {
-      width: 100%;
-      justify-content: center;
+    .assistant-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
     }
   }
 
@@ -4347,121 +4361,125 @@ import { REPO_URL } from "../lib/releases";
 
 <script>
   function setupAssistantSwitcher() {
-    const assistantMetadata: Record<string, { mode: string; data: Record<string, string> }> = {
+    interface AssistantData {
+      name: string;
+      mode: string;
+      heading: string;
+      desc: string;
+      winTitle: string;
+      code: string;
+    }
+
+    const assistantMetadata: Record<string, AssistantData> = {
       claude: {
+        name: "Claude Code",
         mode: "Native Skill",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>\n<span class="t-success">✓ Installing ODS...</span>\n<span class="t-success">✓ Reading list enabled</span>\n<span class="t-success">✓ Connected to your AI assistant</span>\n<span class="t-success">✓ Ready to go!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask your AI anything.</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">/ods context</span> <span class="t-arg">specs/ods/intro.md</span></span>\n<span class="t-success">✓ Scanned document connections in 2.8ms</span>\n<span class="t-success">✓ Loaded reading list: 3 files, 4,120 tokens (saves 94.97% AI costs)</span>\n<span class="t-json">├── specs/ods/intro.md (Main page)</span>\n<span class="t-json">├── docs/guide/01-introduction.md (linked page)</span>\n<span class="t-json">└── src/crates/ods-core/src/graph.rs (connected code)</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--assistant</span> <span class="t-arg">claude</span></span>\n<span class="t-success">✓ Added ODS MCP Server to ~/.claude/claude_desktop_config.json</span>\n<span class="t-success">✓ Tools available: ods_get_context, ods_verify_graph, ods_list_deps</span>'
-        }
+        heading: "Zero-config documentation context",
+        desc: "Installs the ODS skill directly into Claude Code. When you prompt Claude, it automatically resolves and reads only connected documents and specs.",
+        winTitle: "bash — ods install",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>\n<span class="t-success">✓ Installing ODS...</span>\n<span class="t-success">✓ Reading list enabled</span>\n<span class="t-success">✓ Connected to Claude Code</span>\n<span class="t-success">✓ Ready to go!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Claude anything about your documentation.</span>'
       },
       cursor: {
-        mode: "Rules Integration",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">cursor</span></span>\n<span class="t-success">✓ Added .cursor/rules/ods.mdc to workspace</span>\n<span class="t-success">✓ Reading labeled document connections...</span>\n<span class="t-next">&gt; Ask Cursor Composer: <span class="t-arg">"How does the ODS graph work?"</span></span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">@ods context</span> <span class="t-arg">docs/architecture.md</span></span>\n<span class="t-success">✓ Reading list attached to prompt window</span>\n<span class="t-success">✓ Injected 4 related pages (&lt; 3,800 tokens total)</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp generate-config</span> <span class="t-flag">--format</span> <span class="t-arg">cursor</span></span>\n<span class="t-comment"># Copy to Cursor Settings -&gt; Features -&gt; MCP Servers:</span>\n<span class="t-json">Name: ODS Graph Engine</span>\n<span class="t-json">Command: ods</span>\n<span class="t-json">Args: mcp serve</span>'
-        }
+        name: "Cursor",
+        mode: "Rules & MCP",
+        heading: "Smart doc context for Cursor Composer",
+        desc: "Generates workspace rules at .cursor/rules/ods.mdc so Cursor Composer and Chat pull only relevant doc nodes without blowing token limits.",
+        winTitle: "bash — ods skill install --target cursor",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">cursor</span></span>\n<span class="t-success">✓ Added .cursor/rules/ods.mdc to workspace</span>\n<span class="t-success">✓ Mapped document connections</span>\n<span class="t-success">✓ Ready for Cursor Composer</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Cursor Composer: "How does the ODS graph work?"</span>'
       },
       copilot: {
+        name: "GitHub Copilot",
         mode: "Workspace Skill",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">copilot</span></span>\n<span class="t-success">✓ Configured GitHub Copilot workspace agent skill (.github/copilot-instructions.md)</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">@copilot /ods context</span> <span class="t-arg">guide/02-frontmatter.md</span></span>\n<span class="t-success">✓ Built smart reading list in 3.1ms</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--port</span> <span class="t-arg">8080</span></span>\n<span class="t-success">✓ ODS MCP Server listening on localhost:8080 for GitHub Copilot Workspace</span>'
-        }
-      },
-      antigravity: {
-        mode: "Built-in Skill",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Installed ODS skill to ~/.gemini/config/skills/ods/SKILL.md</span>\n<span class="t-success">✓ Direct terminal execution enabled</span>\n<span class="t-next">&gt; Ask Antigravity: <span class="t-arg">"Audit doc graph references"</span></span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">/ods context</span> <span class="t-arg">specs/ods/intro.md</span></span>\n<span class="t-success">✓ Document scan completed in 1.9ms</span>\n<span class="t-success">✓ Smart reading list injected into prompt window</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Added ODS server entry to Antigravity MCP registry</span>'
-        }
-      },
-      gemini: {
-        mode: "CLI Extension",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">gemini-cli</span></span>\n<span class="t-success">✓ Added ODS extension to Gemini CLI environment</span>\n<span class="t-next">&gt; Type <span class="t-arg">"gemini --ods"</span> in terminal</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gemini</span> <span class="t-flag">--ods-context</span> <span class="t-arg">docs/guide/01-introduction.md</span></span>\n<span class="t-success">✓ Loaded 3 linked pages into Gemini prompt context</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--stdio</span></span>\n<span class="t-success">✓ Connecting stdio transport for Gemini CLI...</span>'
-        }
+        heading: "Context agent for Copilot Workspace",
+        desc: "Configures workspace instructions in .github/copilot-instructions.md so Copilot queries connected document maps in real-time.",
+        winTitle: "bash — ods skill install --target copilot",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">copilot</span></span>\n<span class="t-success">✓ Configured GitHub Copilot instructions</span>\n<span class="t-success">✓ Smart reading list enabled</span>\n<span class="t-success">✓ Connected to workspace agent</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask @copilot with automatic doc link context.</span>'
       },
       windsurf: {
-        mode: "Terminal Hook",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Windsurf Cascade flow hook registered</span>\n<span class="t-success">✓ Prevents Windsurf from reading unrelated project files</span>\n<span class="t-next">&gt; Flow hook active for all workspace prompts</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">ods context</span> <span class="t-arg">in flow hooks</span></span>\n<span class="t-success">✓ Auto-injected linked documentation context</span>\n<span class="t-success">✓ Reduced word count by 94.97%</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp generate-config</span> <span class="t-flag">--format</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Configured Windsurf MCP provider</span>'
-        }
+        name: "Windsurf",
+        mode: "Cascade Flow Hook",
+        heading: "Precision context for Windsurf Cascade",
+        desc: "Prevents Windsurf Cascade from reading unnecessary project files by dynamically attaching the ODS graph structure to prompt flows.",
+        winTitle: "bash — ods skill install --target windsurf",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Windsurf Cascade flow hook registered</span>\n<span class="t-success">✓ Linked documentation map active</span>\n<span class="t-success">✓ Prompt token overhead reduced by 94%</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Cascade flow hook active for all workspace prompts.</span>'
+      },
+      gemini: {
+        name: "Gemini CLI",
+        mode: "CLI Extension",
+        heading: "Direct CLI extension for Gemini",
+        desc: "Integrates ODS document resolution directly into the Gemini CLI environment, loading related pages into your prompt context in <3ms.",
+        winTitle: "bash — ods skill install --target gemini-cli",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">gemini-cli</span></span>\n<span class="t-success">✓ Added ODS extension to Gemini CLI</span>\n<span class="t-success">✓ Auto-injected linked documentation context</span>\n<span class="t-success">✓ Ready to run!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Type "gemini --ods" in your terminal.</span>'
+      },
+      antigravity: {
+        name: "Antigravity",
+        mode: "Built-in Skill",
+        heading: "Agent skill for Antigravity IDE & CLI",
+        desc: "Installs the ODS skill into ~/.gemini/config/skills/ods/SKILL.md enabling instant doc graph queries and automated specification auditing.",
+        winTitle: "bash — ods skill install --target antigravity",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Installed ODS skill to ~/.gemini/config/skills/ods/</span>\n<span class="t-success">✓ Direct terminal execution enabled</span>\n<span class="t-success">✓ Document scan completed in 1.9ms</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Antigravity: "Audit doc graph references"</span>'
       },
       openai: {
-        mode: "MCP Connector",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">openai</span></span>\n<span class="t-success">✓ ODS MCP Server registered for OpenAI / Codex tools</span>\n<span class="t-success">✓ Drastically reduces prompt tokens on large code bases</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">graph</span> <span class="t-flag">--format</span> <span class="t-arg">json</span></span>\n<span class="t-success">✓ Exported JSON document graph for GPT context window</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--stdio</span></span>\n<span class="t-success">✓ Listening on stdio for OpenAI tool calling</span>'
-        }
-      },
-      aider: {
-        mode: "Pre-Hook",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">install</span> <span class="t-flag">--aider</span></span>\n<span class="t-success">✓ Created .aider.conf.yml with ODS graph context pre-hook</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">aider</span> <span class="t-flag">--read</span> <span class="t-arg">docs/guide/01-introduction.md</span> <span class="t-flag">--ods-graph</span></span>\n<span class="t-success">✓ Autoloaded linked document pages</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span></span>\n<span class="t-success">✓ Aider MCP interface ready</span>'
-        }
+        name: "OpenAI / Codex",
+        mode: "MCP Server",
+        heading: "MCP connector for OpenAI & ChatGPT",
+        desc: "Registers the ODS Model Context Protocol server, enabling standard tool calling and graph queries with 94% lower prompt overhead.",
+        winTitle: "bash — ods mcp enable --target openai",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">openai</span></span>\n<span class="t-success">✓ ODS MCP Server registered for OpenAI</span>\n<span class="t-success">✓ Listening for tool calling via stdio transport</span>\n<span class="t-success">✓ Drastically reduces prompt tokens</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ready for OpenAI tool calls and GPT context windows.</span>'
       },
       cargo: {
-        mode: "Direct CLI Binary",
-        data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">cargo</span> <span class="t-sub">install</span> <span class="t-arg">ods</span></span>\n<span class="t-comment"># Or via 1-line shell script:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-success">✓ Installed ods v0.1.0 to /usr/local/bin/ods</span>',
-          query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">context</span> <span class="t-arg">docs/guide/01-introduction.md</span> <span class="t-flag">--format</span> <span class="t-arg">json</span></span>\n<span class="t-json">{</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"root"</span>: <span class="t-sub">"docs/guide/01-introduction.md"</span>,</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"cost_savings_pct"</span>: <span class="t-flag">94.97</span>,</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"nodes"</span>: [<span class="t-sub">"specs/ods/intro.md"</span>, <span class="t-sub">"src/crates/ods-core/src/graph.rs"</span>]</span>\n<span class="t-json">}</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">serve</span> <span class="t-flag">--daemon</span></span>\n<span class="t-success">✓ Smart background link repair started (pid 84210)</span>\n<span class="t-success">✓ Automatically repairing links and checking for errors</span>'
-        }
+        name: "Rust CLI",
+        mode: "CLI Binary",
+        heading: "Ultra-fast standalone binary",
+        desc: "Zero-dependency compiled Rust binary for CI/CD, local terminal inspection, and custom automated documentation validation pipelines.",
+        winTitle: "bash — cargo install ods",
+        code: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">cargo</span> <span class="t-sub">install</span> <span class="t-arg">ods</span></span>\n<span class="t-comment"># Or via 1-line shell script:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-success">✓ Installed ods v0.1.0 to /usr/local/bin/ods</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Type "ods --help" to get started.</span>'
       }
     };
 
     let activeAssistant = 'claude';
-    let activeTab = 'install';
 
     const astButtons = document.querySelectorAll('.assistant-btn');
-    const termTabs = document.querySelectorAll('.term-tab');
     const codeBlock = document.getElementById('ast-code-block');
+    const targetName = document.getElementById('ast-target-name');
     const modeBadge = document.getElementById('integration-mode-badge');
+    const astHeading = document.getElementById('ast-heading');
+    const astDesc = document.getElementById('ast-description');
+    const winTitle = document.getElementById('term-window-title');
     const copyBtn = document.getElementById('copy-ast-btn');
     const copyText = document.getElementById('copy-ast-text');
     const copyIcon = copyBtn?.querySelector('.copy-icon') as HTMLElement | null;
     const checkIcon = copyBtn?.querySelector('.check-icon') as HTMLElement | null;
 
-    function updateTerminal() {
-      if (!codeBlock) return;
-      codeBlock.classList.add('fade-out');
-      if (modeBadge) {
-        modeBadge.textContent = assistantMetadata[activeAssistant]?.mode || 'AI Skill';
+    function updateAssistantView() {
+      const data = assistantMetadata[activeAssistant];
+      if (!data) return;
+
+      if (targetName) targetName.textContent = data.name;
+      if (modeBadge) modeBadge.textContent = data.mode;
+      if (astHeading) astHeading.textContent = data.heading;
+      if (astDesc) astDesc.textContent = data.desc;
+      if (winTitle) winTitle.textContent = data.winTitle;
+
+      if (codeBlock) {
+        codeBlock.classList.add('fade-out');
+        setTimeout(() => {
+          codeBlock.innerHTML = data.code + '<span class="t-cursor"></span>';
+          codeBlock.classList.remove('fade-out');
+        }, 70);
       }
-      setTimeout(() => {
-        const snippet = assistantMetadata[activeAssistant]?.data?.[activeTab] || '';
-        codeBlock.innerHTML = snippet + '<span class="t-cursor"></span>';
-        codeBlock.classList.remove('fade-out');
-      }, 80);
     }
 
     astButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        astButtons.forEach((b) => b.classList.remove('active'));
+        astButtons.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
         activeAssistant = btn.getAttribute('data-assistant') || 'claude';
-        updateTerminal();
-      });
-    });
-
-    termTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        termTabs.forEach((t) => t.classList.remove('active'));
-        tab.classList.add('active');
-        activeTab = tab.getAttribute('data-tab') || 'install';
-        updateTerminal();
+        updateAssistantView();
       });
     });
 
@@ -4521,7 +4539,7 @@ import { REPO_URL } from "../lib/releases";
     });
 
     // Initial render
-    updateTerminal();
+    updateAssistantView();
   }
 
   if (document.readyState === 'loading') {
