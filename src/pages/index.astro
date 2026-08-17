@@ -153,81 +153,65 @@ import { REPO_URL } from "../lib/releases";
         <!-- 3 Step Header Strip -->
         <div class="ods-flow-header-grid">
           <div class="ods-flow-step step-everything">
-            <span class="ods-step-badge">STEP 01</span>
-            <div class="ods-step-text">
-              <span class="ods-step-title">Everything</span>
-              <span class="ods-step-desc">Too much information</span>
-            </div>
+            <span class="ods-step-badge">01</span>
+            <span class="ods-step-title">Everything</span>
+            <span class="ods-step-desc">Too much information</span>
           </div>
 
           <div class="ods-flow-step step-ods">
-            <span class="ods-step-badge badge-ods">STEP 02</span>
-            <div class="ods-step-text">
-              <span class="ods-step-title">ODS finds what matters</span>
-              <span class="ods-step-desc">Filters before AI starts</span>
-            </div>
+            <span class="ods-step-badge">02</span>
+            <span class="ods-step-title">ODS finds what matters</span>
+            <span class="ods-step-desc">Filters before AI starts</span>
           </div>
 
           <div class="ods-flow-step step-ai">
-            <span class="ods-step-badge badge-ai">STEP 03</span>
-            <div class="ods-step-text">
-              <span class="ods-step-title">Relevant context</span>
-              <span class="ods-step-desc">Only what AI needs</span>
-            </div>
+            <span class="ods-step-badge">03</span>
+            <span class="ods-step-title">Relevant context</span>
+            <span class="ods-step-desc">Only what AI needs</span>
           </div>
         </div>
 
         <!-- Visual Continuous Flow Canvas -->
         <div class="ods-flow-visual">
           <svg viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="ods-flow-svg">
-            <defs>
-              <filter id="ods-glow-green" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="8" result="blur"/>
-                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-              </filter>
-              <filter id="ods-subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
-                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12"/>
-              </filter>
-            </defs>
-
             <!-- CONVERGING NOISE LINES (Top & Bottom Discarded Paths) -->
             <g class="noise-lines-group">
-              <path d="M 280 65 C 360 65, 410 160, 470 160" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3" class="animated-dash-slow"/>
-              <path d="M 280 95 C 360 95, 410 165, 470 165" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
-              <path d="M 280 125 C 360 125, 410 170, 470 170" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" class="animated-dash-slow"/>
-              <path d="M 280 235 C 360 235, 410 190, 470 190" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
-              <path d="M 280 265 C 360 265, 410 195, 470 195" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" class="animated-dash-slow"/>
-              <path d="M 280 295 C 360 295, 410 200, 470 200" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
+              <path d="M 240 65 C 310 65, 340 160, 390 160" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3" class="animated-dash-slow"/>
+              <path d="M 240 95 C 310 95, 340 165, 390 165" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
+              <path d="M 240 125 C 310 125, 340 170, 390 170" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" class="animated-dash-slow"/>
+              <path d="M 240 235 C 310 235, 340 190, 390 190" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
+              <path d="M 240 265 C 310 265, 340 195, 390 195" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" class="animated-dash-slow"/>
+              <path d="M 240 295 C 310 295, 340 200, 390 200" stroke="var(--fg-muted)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.2" class="animated-dash-slow"/>
             </g>
 
             <!-- CONVERGING RELEVANT PATHS (3 Green Focused Lines into ODS) -->
             <g class="relevant-lines-input">
-              <path d="M 280 155 C 360 155, 410 175, 470 175" stroke="#10b981" stroke-width="2" opacity="0.75" class="animated-dash"/>
-              <path d="M 280 180 C 360 180, 410 180, 470 180" stroke="#10b981" stroke-width="2.5" opacity="0.95" class="animated-dash"/>
-              <path d="M 280 205 C 360 205, 410 185, 470 185" stroke="#10b981" stroke-width="2" opacity="0.75" class="animated-dash"/>
+              <path d="M 240 155 C 305 155, 345 175, 390 175" stroke="#10b981" stroke-width="2" opacity="0.75" class="animated-dash"/>
+              <path d="M 240 180 L 390 180" stroke="#10b981" stroke-width="2.5" opacity="0.95" class="animated-dash"/>
+              <path d="M 240 205 C 305 205, 345 185, 390 185" stroke="#10b981" stroke-width="2" opacity="0.75" class="animated-dash"/>
             </g>
 
             <!-- ODS OUTPUT PATHS (3 Green Clean Lines out to Relevant Context) -->
             <g class="relevant-lines-output">
-              <path d="M 530 175 C 590 175, 630 120, 695 120" stroke="#10b981" stroke-width="2" opacity="0.9" class="animated-dash"/>
-              <path d="M 530 180 C 590 180, 630 180, 695 180" stroke="#10b981" stroke-width="2.5" opacity="1" class="animated-dash"/>
-              <path d="M 530 185 C 590 185, 630 240, 695 240" stroke="#10b981" stroke-width="2" opacity="0.9" class="animated-dash"/>
+              <path d="M 454 175 C 495 175, 520 120, 560 120" stroke="#10b981" stroke-width="2" opacity="0.9" class="animated-dash"/>
+              <path d="M 454 180 L 560 180" stroke="#10b981" stroke-width="2.5" opacity="1" class="animated-dash"/>
+              <path d="M 454 185 C 495 185, 520 240, 560 240" stroke="#10b981" stroke-width="2" opacity="0.9" class="animated-dash"/>
             </g>
 
             <!-- RELEVANT CONTEXT TO AI PATHS -->
             <g class="ai-input-lines">
-              <path d="M 750 120 C 795 120, 815 165, 850 172" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
-              <path d="M 750 180 L 850 180" stroke="#10b981" stroke-width="2.5" opacity="1"/>
-              <path d="M 750 240 C 795 240, 815 195, 850 188" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+              <path d="M 614 120 C 665 120, 690 170, 725 172" stroke="#10b981" stroke-width="2" opacity="0.85" class="animated-dash"/>
+              <path d="M 614 180 L 725 180" stroke="#10b981" stroke-width="2.5" opacity="1" class="animated-dash"/>
+              <path d="M 614 240 C 665 240, 690 190, 725 188" stroke="#10b981" stroke-width="2" opacity="0.85" class="animated-dash"/>
             </g>
 
             <!-- AI TO BETTER ANSWER PATH -->
-            <path d="M 900 180 L 935 180" stroke="#10b981" stroke-width="2" stroke-dasharray="3 3" opacity="0.85"/>
+            <path d="M 771 180 L 820 180" stroke="#10b981" stroke-width="2.5" opacity="1" class="animated-dash"/>
 
             <!-- ── STEP 01: EVERYTHING DOCUMENT CLUSTER (12 DOCUMENTS) ── -->
             <g class="doc-cluster">
               <!-- Row 1: Discarded documents -->
-              <g class="doc-shape doc-discarded" transform="translate(45, 45)">
+              <g class="doc-shape doc-discarded" transform="translate(35, 45)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="30" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
@@ -236,14 +220,14 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="36" cy="12" r="2" fill="#ef4444" opacity="0.6"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(100, 32)">
+              <g class="doc-shape doc-discarded" transform="translate(90, 32)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="36" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="28" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="28" x2="32" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(155, 40)">
+              <g class="doc-shape doc-discarded" transform="translate(145, 40)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="32" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="24" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
@@ -251,7 +235,7 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="36" cy="28" r="2" fill="#ef4444" opacity="0.6"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(210, 52)">
+              <g class="doc-shape doc-discarded" transform="translate(200, 52)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="28" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
@@ -259,8 +243,8 @@ import { REPO_URL } from "../lib/releases";
               </g>
 
               <!-- Row 2: Selected 3 Prominent Documents -->
-              <g class="doc-shape doc-prominent" transform="translate(68, 126)">
-                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.8" filter="url(#ods-glow-green)"/>
+              <g class="doc-shape doc-prominent" transform="translate(58, 126)">
+                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.8"/>
                 <line x1="9" y1="14" x2="32" y2="14" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
                 <line x1="9" y1="23" x2="39" y2="23" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
                 <line x1="9" y1="31" x2="27" y2="31" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
@@ -268,8 +252,8 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="39" cy="14" r="2.5" fill="#10b981"/>
               </g>
 
-              <g class="doc-shape doc-prominent" transform="translate(133, 150)">
-                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2.2" filter="url(#ods-glow-green)"/>
+              <g class="doc-shape doc-prominent" transform="translate(123, 150)">
+                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2.2"/>
                 <line x1="9" y1="14" x2="36" y2="14" stroke="#10b981" stroke-width="2.2" stroke-linecap="round"/>
                 <line x1="9" y1="23" x2="39" y2="23" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
                 <line x1="9" y1="31" x2="31" y2="31" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
@@ -277,8 +261,8 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="39" cy="14" r="2.5" fill="#10b981"/>
               </g>
 
-              <g class="doc-shape doc-prominent" transform="translate(198, 132)">
-                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.8" filter="url(#ods-glow-green)"/>
+              <g class="doc-shape doc-prominent" transform="translate(188, 132)">
+                <rect width="48" height="60" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.8"/>
                 <line x1="9" y1="14" x2="30" y2="14" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
                 <line x1="9" y1="23" x2="39" y2="23" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
                 <line x1="9" y1="31" x2="33" y2="31" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
@@ -287,14 +271,14 @@ import { REPO_URL } from "../lib/releases";
               </g>
 
               <!-- Row 3: Discarded documents -->
-              <g class="doc-shape doc-discarded" transform="translate(38, 222)">
+              <g class="doc-shape doc-discarded" transform="translate(28, 222)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="36" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="24" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="28" x2="32" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(92, 238)">
+              <g class="doc-shape doc-discarded" transform="translate(82, 238)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="28" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
@@ -302,14 +286,14 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="36" cy="20" r="2" fill="#ef4444" opacity="0.6"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(148, 248)">
+              <g class="doc-shape doc-discarded" transform="translate(138, 248)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="32" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="36" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="28" x2="24" y2="28" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(204, 228)">
+              <g class="doc-shape doc-discarded" transform="translate(194, 228)">
                 <rect width="44" height="56" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.45"/>
                 <line x1="8" y1="12" x2="36" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="28" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
@@ -317,7 +301,7 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="36" cy="12" r="2" fill="#ef4444" opacity="0.6"/>
               </g>
 
-              <g class="doc-shape doc-discarded" transform="translate(236, 178)">
+              <g class="doc-shape doc-discarded" transform="translate(226, 178)">
                 <rect width="42" height="52" rx="5" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.2" opacity="0.35"/>
                 <line x1="8" y1="12" x2="30" y2="12" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
                 <line x1="8" y1="20" x2="24" y2="20" stroke="var(--fg-muted)" opacity="0.3" stroke-width="1.5"/>
@@ -326,22 +310,27 @@ import { REPO_URL } from "../lib/releases";
             </g>
 
             <!-- ── STEP 02: ODS FILTER NODE ── -->
-            <g class="ods-filter-node" transform="translate(470, 138)">
+            <g class="ods-filter-node" transform="translate(390, 138)">
               <!-- Pulsing focus frame -->
-              <rect width="60" height="84" rx="14" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" class="ods-node-glow" filter="url(#ods-glow-green)"/>
-              <rect x="4" y="4" width="52" height="76" rx="10" fill="var(--nested-card-bg)" stroke="var(--border-color)" stroke-width="1"/>
+              <rect width="64" height="84" rx="14" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" class="ods-node-glow"/>
+              <rect x="4" y="4" width="56" height="76" rx="10" fill="var(--nested-card-bg)" stroke="var(--border-color)" stroke-width="1"/>
               
-              <!-- Filter funnel emblem -->
-              <path d="M 19 22 L 41 22 L 34 36 L 34 50 L 26 50 L 26 36 Z" fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-              <circle cx="30" cy="22" r="2" fill="#10b981"/>
+              <!-- Official ODS Logo Brand Mark -->
+              <g transform="translate(16, 12) scale(0.20)">
+                <path d="M99 14C105.5 14 140.5 52 140.5 56H120C108.402 56 99 46.598 99 35V14Z" fill="#10b981" />
+                <path d="M6 106.443V35C6 23.402 15.402 14 27 14H99M99 14C105.5 14 140.5 52 140.5 56M99 14V35C99 46.598 108.402 56 120 56H140.5M140.5 56V106.443M52 92.5L28 115M73.5 103.5V144M94 92.5L118 115" stroke="#10b981" stroke-width="10" stroke-linecap="round" />
+                <circle cx="73" cy="80" r="11" fill="#10b981" />
+                <circle cx="12" cy="134" r="11" fill="#10b981" />
+                <circle cx="134" cy="134" r="11" fill="#10b981" />
+              </g>
               
-              <text x="30" y="65" fill="var(--fg)" font-family="Inter, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.06em">ODS</text>
+              <text x="32" y="66" fill="var(--fg)" font-family="Inter, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.06em">ODS</text>
             </g>
 
             <!-- ── STEP 03: RELEVANT CONTEXT (3 TARGETED DOCUMENTS) ── -->
             <g class="relevant-context-cluster">
-              <g class="doc-shape doc-output-item" transform="translate(695, 88)">
-                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#ods-subtle-shadow)"/>
+              <g class="doc-shape doc-output-item" transform="translate(560, 88)">
+                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2"/>
                 <line x1="10" y1="14" x2="34" y2="14" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
                 <line x1="10" y1="25" x2="44" y2="25" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
                 <line x1="10" y1="34" x2="38" y2="34" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
@@ -349,8 +338,8 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="44" cy="14" r="3" fill="#10b981"/>
               </g>
 
-              <g class="doc-shape doc-output-item" transform="translate(695, 147)">
-                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2.2" filter="url(#ods-glow-green)"/>
+              <g class="doc-shape doc-output-item" transform="translate(560, 147)">
+                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2.2"/>
                 <line x1="10" y1="14" x2="40" y2="14" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
                 <line x1="10" y1="25" x2="44" y2="25" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
                 <line x1="10" y1="34" x2="32" y2="34" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
@@ -358,8 +347,8 @@ import { REPO_URL } from "../lib/releases";
                 <circle cx="44" cy="14" r="3" fill="#10b981"/>
               </g>
 
-              <g class="doc-shape doc-output-item" transform="translate(695, 206)">
-                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#ods-subtle-shadow)"/>
+              <g class="doc-shape doc-output-item" transform="translate(560, 206)">
+                <rect width="54" height="66" rx="6" fill="var(--card-bg)" stroke="#10b981" stroke-width="2"/>
                 <line x1="10" y1="14" x2="34" y2="14" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
                 <line x1="10" y1="25" x2="44" y2="25" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
                 <line x1="10" y1="34" x2="40" y2="34" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
@@ -369,17 +358,20 @@ import { REPO_URL } from "../lib/releases";
             </g>
 
             <!-- ── AI NODE ── -->
-            <g class="ai-node-cluster" transform="translate(850, 155)">
-              <circle cx="25" cy="25" r="22" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#ods-glow-green)"/>
-              <!-- AI Sparkle Icon -->
-              <path d="M 25 15 L 27.5 22.5 L 35 25 L 27.5 27.5 L 25 35 L 22.5 27.5 L 15 25 L 22.5 22.5 Z" fill="#10b981"/>
-              <text x="25" y="43" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9" font-weight="700" text-anchor="middle">AI</text>
+            <g class="ai-node-cluster" transform="translate(725, 155)">
+              <circle cx="24" cy="24" r="22" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.8"/>
+              <!-- AI Sparkle Icon in black/theme fg -->
+              <path d="M 24 13 L 26.5 21.5 L 35 24 L 26.5 26.5 L 24 35 L 21.5 26.5 L 13 24 L 21.5 21.5 Z" fill="var(--fg)"/>
+              <text x="24" y="43" fill="var(--fg)" font-family="Inter, sans-serif" font-size="9" font-weight="800" text-anchor="middle">AI</text>
             </g>
 
-            <!-- ── FINAL CLEAN RESPONSE BADGE ── -->
-            <g class="better-answer-pill" transform="translate(918, 164)">
-              <rect width="64" height="32" rx="16" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="1.5"/>
-              <text x="32" y="20" fill="#10b981" font-family="Inter, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Answer</text>
+            <!-- ── FINAL CLEAN CHECKED RESPONSE BADGE ── -->
+            <g class="better-answer-pill" transform="translate(820, 160)">
+              <rect width="98" height="38" rx="19" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.6"/>
+              <!-- Checkmark circle icon -->
+              <circle cx="20" cy="19" r="8" fill="#10b981"/>
+              <path d="M 16.5 19 L 18.8 21.3 L 23.5 16.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <text x="58" y="23" fill="#10b981" font-family="Inter, sans-serif" font-size="11" font-weight="750" text-anchor="middle">Answer</text>
             </g>
           </svg>
         </div>
@@ -388,27 +380,15 @@ import { REPO_URL } from "../lib/releases";
       <!-- Minimal Outcome Summary (3 Concise Pillars) -->
       <div class="ods-outcomes-grid">
         <div class="ods-outcome-card">
-          <div class="ods-outcome-header">
-            <span class="ods-outcome-dot"></span>
-            <span class="ods-outcome-title">Less context</span>
-          </div>
-          <p class="ods-outcome-desc">AI receives only relevant information.</p>
+          <span class="ods-outcome-title">Less Context</span>
         </div>
 
         <div class="ods-outcome-card">
-          <div class="ods-outcome-header">
-            <span class="ods-outcome-dot"></span>
-            <span class="ods-outcome-title">Lower cost</span>
-          </div>
-          <p class="ods-outcome-desc">Less unnecessary processing.</p>
+          <span class="ods-outcome-title">Lower Cost</span>
         </div>
 
         <div class="ods-outcome-card">
-          <div class="ods-outcome-header">
-            <span class="ods-outcome-dot"></span>
-            <span class="ods-outcome-title">Better answers</span>
-          </div>
-          <p class="ods-outcome-desc">Less noise means more focused context.</p>
+          <span class="ods-outcome-title">Better Answers</span>
         </div>
       </div>
     </div>
@@ -1601,71 +1581,71 @@ import { REPO_URL } from "../lib/releases";
   .ods-flow-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 36px;
     width: 100%;
+    margin-top: 12px;
   }
 
   .ods-flow-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-outer); /* 32px */
-    padding: 36px 32px 32px;
+    padding: 40px 36px 36px;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 32px;
     position: relative;
-    box-shadow: 0 4px 30px -4px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.04);
     overflow: hidden;
   }
 
   /* 3-Step Header Strip */
   .ods-flow-header-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
     align-items: flex-start;
+    justify-items: center;
   }
 
   .ods-flow-step {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     gap: 6px;
+    max-width: 280px;
   }
 
   .ods-step-badge {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--fg-muted);
-    text-transform: uppercase;
-  }
-
-  .ods-step-badge.badge-ods {
-    color: #10b981;
-  }
-
-  .ods-step-badge.badge-ai {
-    color: var(--fg);
-  }
-
-  .ods-step-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    background: var(--nested-card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2px 10px;
+    border-radius: 12px;
+    width: fit-content;
+    line-height: 1.2;
   }
 
   .ods-step-title {
-    font-size: 1.05rem;
+    font-size: 1.025rem;
     font-weight: 700;
     color: var(--fg);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin-top: 4px;
   }
 
   .ods-step-desc {
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     color: var(--fg-muted);
-    font-weight: 450;
+    font-weight: 400;
+    line-height: 1.4;
   }
 
   /* Visual Flow Canvas */
@@ -1674,7 +1654,7 @@ import { REPO_URL } from "../lib/releases";
     background: var(--nested-card-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-inner); /* 24px */
-    padding: 24px 16px;
+    padding: 28px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1689,7 +1669,7 @@ import { REPO_URL } from "../lib/releases";
   /* Micro-animations */
   @keyframes strokeDashFlow {
     from {
-      stroke-dashoffset: 24;
+      stroke-dashoffset: 20;
     }
     to {
       stroke-dashoffset: 0;
@@ -1698,21 +1678,24 @@ import { REPO_URL } from "../lib/releases";
 
   .animated-dash {
     stroke-dasharray: 6 4;
-    animation: strokeDashFlow 1.2s linear infinite;
+    animation: strokeDashFlow 0.9s linear infinite;
+    will-change: stroke-dashoffset;
   }
 
   .animated-dash-slow {
-    animation: strokeDashFlow 2.4s linear infinite;
+    stroke-dasharray: 4 4;
+    animation: strokeDashFlow 1.8s linear infinite;
+    will-change: stroke-dashoffset;
   }
 
   @keyframes odsPulse {
     0%, 100% {
-      stroke-opacity: 0.6;
-      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.2));
+      stroke: #10b981;
+      stroke-opacity: 0.7;
     }
     50% {
+      stroke: #34d399;
       stroke-opacity: 1;
-      filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.45));
     }
   }
 
@@ -1734,10 +1717,10 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .ods-filter-node:hover {
-    transform: translate(470px, 138px) scale(1.05);
+    transform: translate(390px, 138px) scale(1.05);
   }
 
-  /* Minimal Outcome Pillars */
+  /* Minimal Outcome Summary Cards */
   .ods-outcomes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1749,44 +1732,26 @@ import { REPO_URL } from "../lib/releases";
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-inner); /* 24px */
-    padding: 22px 24px;
+    padding: 20px 24px;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
   }
 
   .ods-outcome-card:hover {
     border-color: rgba(16, 185, 129, 0.35);
-    box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.06);
-  }
-
-  .ods-outcome-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .ods-outcome-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.1);
+    transform: translateY(-2px);
   }
 
   .ods-outcome-title {
-    font-size: 0.98rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 750;
     color: var(--fg);
-    letter-spacing: -0.01em;
-  }
-
-  .ods-outcome-desc {
-    font-size: 0.86rem;
-    color: var(--fg-muted);
-    margin: 0;
-    line-height: 1.45;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
   }
 
   /* Mobile Responsive Behavior */
@@ -1877,155 +1842,62 @@ import { REPO_URL } from "../lib/releases";
     text-align: center !important;
   }
 
-  /* ── Assistant Interactive Setup Switcher ── */
+  /* ── Assistant Interactive Setup Switcher (Mature, Minimal, Friendly) ── */
   .assistant-setup-section {
     margin-bottom: var(--space-64);
     position: relative;
   }
 
-  .assistant-setup-section .section-tag-badge {
+  .setup-header-wrap {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-28);
+  }
+
+  .setup-badge {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 6px 14px;
+    gap: 6px;
+    padding: 4px 12px;
     border-radius: 9999px;
     background: #e6f4ea;
     border: 1px solid rgba(22, 163, 74, 0.2);
     color: #16a34a;
     font-family: var(--font-mono);
-    font-size: 0.725rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
   }
 
-  :root[data-theme="dark"] .assistant-setup-section .section-tag-badge {
+  :root[data-theme="dark"] .setup-badge {
     background: rgba(34, 197, 94, 0.12);
     border-color: rgba(34, 197, 94, 0.25);
     color: #4ade80;
   }
 
-  /* ── Step-by-Step Flow Pipeline ── */
-  .ods-steps-pipeline {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 8px 0 12px 0;
-    position: relative;
-    gap: 12px;
-  }
-
-  @media (max-width: 768px) {
-    .ods-steps-pipeline {
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-    .ods-step-connector {
-      display: none;
-    }
-  }
-
-  .ods-step-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-    max-width: 190px;
-    z-index: 1;
-  }
-
-  .ods-step-icon-circle {
-    width: 60px;
-    height: 60px;
+  .setup-badge-dot {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    border: 1.5px solid #e4e4e7;
-    background: #f8fafc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #18181b;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    background: #16a34a;
+    box-shadow: 0 0 6px rgba(22, 163, 74, 0.6);
   }
 
-  :root[data-theme="dark"] .ods-step-icon-circle {
-    border-color: rgba(255, 255, 255, 0.15);
-    background: #18181b;
-    color: #ffffff;
-  }
-
-  .ods-step-item:hover .ods-step-icon-circle {
-    transform: translateY(-2px);
-    border-color: #16a34a;
-  }
-
-  .ods-step-num {
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: #16a34a;
-    margin-bottom: 6px;
-  }
-
-  .ods-step-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #09090b;
-    margin: 0 0 6px 0;
-    line-height: 1.25;
-  }
-
-  :root[data-theme="dark"] .ods-step-title {
-    color: #f4f4f5;
-  }
-
-  .ods-step-desc {
-    font-size: 0.8125rem;
-    color: #71717a;
-    margin: 0;
-    line-height: 1.4;
-  }
-
-  .ods-step-connector {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-top: 30px;
-    padding: 0 4px;
-  }
-
-  .connector-line {
-    width: 100%;
-    border-top: 2px dashed #cbd5e1;
-    height: 0;
-  }
-
-  :root[data-theme="dark"] .connector-line {
-    border-top-color: rgba(255, 255, 255, 0.2);
-  }
-
-  .connector-dot {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #16a34a;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  :root[data-theme="dark"] .setup-badge-dot {
+    background: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
   }
 
   .assistant-switcher-box {
+    max-width: 920px;
+    margin: 0 auto;
     border-radius: var(--radius-xl);
-    padding: var(--space-32);
+    padding: var(--space-28);
     display: flex;
     flex-direction: column;
-    gap: var(--space-28);
+    gap: var(--space-20);
     border: 1px solid rgba(0, 0, 0, 0.08) !important;
     background: #ffffff !important;
     box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08) !important;
@@ -2034,123 +1906,119 @@ import { REPO_URL } from "../lib/releases";
   }
 
   :root[data-theme="dark"] .assistant-switcher-box {
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: #121215 !important;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    background: #111114 !important;
+    box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.5) !important;
   }
 
+  /* Selector Bar */
   .assistant-selector {
     display: flex;
     flex-direction: column;
-    gap: var(--space-16);
+    gap: 10px;
   }
 
   .selector-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 2px;
   }
 
   .selector-title {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.725rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     color: var(--fg-dim);
     text-transform: uppercase;
+  }
+
+  .selector-count-badge {
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: #16a34a;
+    font-family: var(--font-mono);
+  }
+
+  :root[data-theme="dark"] .selector-count-badge {
+    color: #4ade80;
   }
 
   .assistant-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 
   .assistant-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
+    gap: 7px;
+    padding: 7px 14px;
     border-radius: 8px !important;
     border: 1px solid #e4e4e7 !important;
     background: #ffffff !important;
     color: #18181b !important;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 0.8125rem;
+    font-weight: 550;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
     user-select: none;
+    line-height: 1;
   }
 
   :root[data-theme="dark"] .assistant-btn {
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    color: #f4f4f5 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: #e4e4e7 !important;
   }
 
   .assistant-btn:hover {
     border-color: #a1a1aa !important;
+    background: #f8fafc !important;
     transform: translateY(-1px);
   }
 
+  :root[data-theme="dark"] .assistant-btn:hover {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .assistant-btn:active {
+    transform: scale(0.97);
+  }
+
   .assistant-btn .ast-icon {
+    flex-shrink: 0;
     transition: transform 0.2s ease;
   }
 
   .assistant-btn:hover .ast-icon {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
   .assistant-btn.active {
     background: #09090b !important;
     color: #ffffff !important;
     border-color: #09090b !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 
   :root[data-theme="dark"] .assistant-btn.active {
     background: #ffffff !important;
     color: #09090b !important;
     border-color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
   }
 
-  .more-assistants-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 18px;
-    border-radius: 8px;
-    background: #e6f4ea;
-    color: #16a34a;
-    font-size: 0.875rem;
-    font-weight: 600;
-    user-select: none;
-  }
-
-  :root[data-theme="dark"] .more-assistants-pill {
-    background: rgba(34, 197, 94, 0.15);
-    color: #4ade80;
-  }
-
-  .assistant-footer-note {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.825rem;
-    color: #71717a;
-    font-weight: 500;
-    margin-top: 4px;
-  }
-
-  .footer-dot {
-    color: #16a34a;
-    font-size: 1.1rem;
-    line-height: 1;
-  }
-
+  /* Terminal Container */
   .terminal-container {
     border-radius: 12px;
     border: 1px solid #27272a !important;
     background: #09090b !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
     overflow: hidden;
   }
 
@@ -2158,9 +2026,9 @@ import { REPO_URL } from "../lib/releases";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 18px;
-    background: #09090b !important;
-    border-bottom: 1px solid #18181b !important;
+    padding: 10px 14px;
+    background: #0c0c0e !important;
+    border-bottom: 1px solid #1f1f23 !important;
     gap: 12px;
     flex-wrap: wrap;
   }
@@ -2168,7 +2036,7 @@ import { REPO_URL } from "../lib/releases";
   .terminal-left-group {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
 
   .term-dots {
@@ -2178,8 +2046,8 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
   }
 
@@ -2187,26 +2055,15 @@ import { REPO_URL } from "../lib/releases";
   .dot-yellow { background-color: #ffbd2e; }
   .dot-green { background-color: #27c93f; }
 
-  .terminal-title-tag {
-    font-family: var(--font-mono);
-    font-size: 0.775rem;
-    font-weight: 600;
-    color: #94a3b8;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 3px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
   .integration-mode-badge {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: #38bdf8;
     background: rgba(56, 189, 248, 0.1);
-    padding: 3px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
     letter-spacing: 0.02em;
     transition: all 0.2s ease;
   }
@@ -2217,47 +2074,35 @@ import { REPO_URL } from "../lib/releases";
     border-color: rgba(2, 132, 199, 0.2);
   }
 
-  .prompt-symbol {
-    color: var(--fg-muted);
-    margin-right: 2px;
+  .terminal-center-group {
+    display: flex;
+    align-items: center;
   }
 
   .terminal-tabs {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(0, 0, 0, 0.25);
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.05);
     padding: 3px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .term-tab {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     font-family: var(--font-mono);
     font-size: 0.725rem;
-    padding: 5px 12px;
-    border-radius: 6px;
-    border: 1px solid transparent !important;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none !important;
     background: transparent !important;
     color: #94a3b8 !important;
     cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .tab-step {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: inherit;
+    transition: all 0.15s ease;
   }
 
   .term-tab:hover {
@@ -2268,13 +2113,12 @@ import { REPO_URL } from "../lib/releases";
   .term-tab.active {
     background: rgba(255, 255, 255, 0.15) !important;
     color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
     font-weight: 600;
   }
 
-  .term-tab.active .tab-step {
-    background: #ffffff;
-    color: #000000;
+  .terminal-right-group {
+    display: flex;
+    align-items: center;
   }
 
   .terminal-copy-btn {
@@ -2286,10 +2130,10 @@ import { REPO_URL } from "../lib/releases";
     color: #cbd5e1 !important;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
   }
 
   .terminal-copy-btn:hover {
@@ -2305,10 +2149,10 @@ import { REPO_URL } from "../lib/releases";
   }
 
   :global(.terminal-code-panel) {
-    padding: var(--space-24);
+    padding: 16px 20px;
     font-family: var(--font-mono);
-    font-size: 0.875rem;
-    line-height: 1.7;
+    font-size: 0.84rem;
+    line-height: 1.65;
     color: #e2e8f0;
     margin: 0;
     overflow-x: auto;
@@ -2320,6 +2164,105 @@ import { REPO_URL } from "../lib/releases";
   :global(.terminal-code-panel.fade-out),
   :global(#ast-code-block.fade-out) {
     opacity: 0.3;
+  }
+
+  /* 3-Pillar Minimal Benefits Strip */
+  .setup-benefits-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 2px;
+  }
+
+  .setup-benefit-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #e4e4e7;
+    transition: all 0.2s ease;
+  }
+
+  :root[data-theme="dark"] .setup-benefit-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  .setup-benefit-card:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .benefit-icon-wrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  :root[data-theme="dark"] .benefit-icon-wrap {
+    background: rgba(52, 211, 153, 0.12);
+    color: #34d399;
+  }
+
+  .benefit-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .benefit-title {
+    font-size: 0.8125rem;
+    font-weight: 650;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .benefit-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-subtle);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  @media (max-width: 768px) {
+    .assistant-switcher-box {
+      padding: var(--space-20);
+      gap: var(--space-16);
+    }
+    .setup-benefits-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .terminal-tab-bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .terminal-left-group, .terminal-center-group, .terminal-right-group {
+      justify-content: space-between;
+      width: 100%;
+    }
+    .terminal-tabs {
+      width: 100%;
+      justify-content: stretch;
+    }
+    .term-tab {
+      flex: 1;
+      justify-content: center;
+    }
+    .terminal-copy-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   /* Tokens must be :global — snippets are injected via innerHTML and miss Astro scope attrs. */
@@ -4387,32 +4330,6 @@ import { REPO_URL } from "../lib/releases";
     }
     .metrics-grid {
       grid-template-columns: 1fr;
-    }
-
-    /* Terminal Setup Widget Mobile Stack */
-    .terminal-tab-bar {
-      flex-wrap: wrap;
-      gap: var(--space-8);
-      justify-content: space-between;
-    }
-    .terminal-title-tag {
-      display: none;
-    }
-    .terminal-tabs {
-      flex-direction: column;
-      align-items: stretch;
-      gap: var(--space-8);
-      width: 100%;
-    }
-    .term-tab {
-      width: 100%;
-      text-align: center;
-      padding: var(--space-8) var(--space-12);
-    }
-    .terminal-copy-btn {
-      width: 100%;
-      justify-content: center;
-      padding: var(--space-8) var(--space-12);
     }
   }
 

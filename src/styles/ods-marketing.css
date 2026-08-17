@@ -263,12 +263,14 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     font-family: var(--font-heading) !important;
     color: var(--fg) !important;
     font-weight: 700 !important;
+    line-height: 1.12 !important;
   }
 
   .ods-marketing .section-heading {
-    font-size: clamp(2rem, 3.8vw, 2.75rem);
+    font-size: clamp(2.1rem, 4vw, 2.85rem);
     font-weight: 700 !important;
-    letter-spacing: -0.02em;
+    line-height: 1.12 !important;
+    letter-spacing: -0.028em !important;
   }
 
   .section-subheading, .page-subtitle, .section-subtext {
@@ -607,7 +609,38 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
 
-  /* ── Global Editorial Breathing Space between Sections ── */
+  /* ── Global Editorial Breathing Space & Dividers between Sections ── */
+  .section-divider {
+    width: min(88vw, 1000px);
+    height: 1px;
+    margin: 48px auto;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 15%,
+      rgba(255, 255, 255, 0.14) 50%,
+      rgba(255, 255, 255, 0.04) 85%,
+      transparent 100%
+    );
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    top: -2.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ods-accent, #10b981);
+    opacity: 0.45;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  }
+
   .section-container,
   .hero-section,
   .feature-hero-top,
@@ -627,17 +660,19 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .changelog-cta,
   .cta-banner,
   .industry-roi-chart-box {
-    margin-top: 130px !important;
-    margin-bottom: 130px !important;
-    scroll-margin-top: 100px;
-    scroll-margin-bottom: 100px;
+    margin-top: 150px !important;
+    margin-bottom: 150px !important;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+    scroll-margin-top: 120px;
+    scroll-margin-bottom: 120px;
   }
 
   /* Hero section top margin */
   .hero-section,
   .feature-hero-top {
     margin-top: var(--space-32) !important;
-    margin-bottom: 130px !important;
+    margin-bottom: 150px !important;
   }
 
   /* Reset platform list gap to let margin handle spacing */
@@ -646,6 +681,11 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
   @media (max-width: 768px) {
+    .section-divider {
+      margin: 32px auto;
+      width: min(92vw, 600px);
+    }
+
     .section-container,
     .hero-section,
     .feature-hero-top,
@@ -665,15 +705,18 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     .changelog-cta,
     .cta-banner,
     .industry-roi-chart-box {
-      margin-top: 80px !important;
-      margin-bottom: 80px !important;
-      scroll-margin-top: 70px;
-      scroll-margin-bottom: 70px;
+      margin-top: 96px !important;
+      margin-bottom: 96px !important;
+      padding-top: var(--space-4);
+      padding-bottom: var(--space-4);
+      scroll-margin-top: 85px;
+      scroll-margin-bottom: 85px;
     }
 
     .hero-section,
     .feature-hero-top {
       margin-top: var(--space-32) !important;
-      margin-bottom: 80px !important;
+      margin-bottom: 96px !important;
     }
   }
+
