@@ -30,19 +30,19 @@
   --space-128: 128px;
   --space-160: 160px;
   --space-200: 200px;
-  --radius-outer: 36px;
-  --radius-container: 36px;
-  --radius-xl: 36px;
-  --radius-inner: 28px;
-  --radius-inside: 28px;
-  --radius-lg: 28px;
-  --radius-child: 20px;
-  --radius-children: 20px;
-  --radius-md: 20px;
+  --radius-outer: 32px;
+  --radius-container: 32px;
+  --radius-xl: 32px;
+  --radius-inner: 24px;
+  --radius-inside: 24px;
+  --radius-lg: 24px;
+  --radius-child: 12px;
+  --radius-children: 12px;
+  --radius-md: 12px;
   --radius-sm: 12px;
   --radius-pill: 9999px;
-  --radius-nested-lg: 28px;
-  --radius-nested-xl: 20px;
+  --radius-nested-lg: 24px;
+  --radius-nested-xl: 12px;
   --font-heading: var(--font-display);
   --font-body: var(--font-sans);
   --bg: var(--color-background);
@@ -297,10 +297,56 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   /* Install terminal stays a dark IDE even in light mode. Injected token
      spans inherit this color if theme tokens (--fg) would otherwise be black. */
   .ods-marketing .terminal-container,
-  .ods-marketing .terminal-container .terminal-tab-bar {
+  .ods-marketing .terminal-container .terminal-tab-bar,
+  .ods-marketing .cli-wrap {
     background: #09090b !important;
     background-color: #09090b !important;
+    color: #e2e8f0 !important;
+  }
+
+  .ods-marketing .cli-wrap,
+  .ods-marketing .cli-wrap * {
     color: #e2e8f0;
+  }
+
+  .ods-marketing .cli-wrap .cli-header {
+    background: #141824 !important;
+    background-color: #141824 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-preset-bar {
+    background: #0d121d !important;
+    background-color: #0d121d !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-body {
+    background: #090d16 !important;
+    background-color: #090d16 !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-line {
+    background: #141824 !important;
+    background-color: #141824 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-tree {
+    background: #141824 !important;
+    background-color: #141824 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #f1f5f9 !important;
+  }
+
+  .ods-marketing .cli-wrap .tree-tag {
+    color: #94a3b8 !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-log {
+    color: #cbd5e1 !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   .ods-marketing .terminal-code-panel,
@@ -324,25 +370,50 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
 
   /* ── Editorial Layout Controls ── */
   
-  /* 1. Global border-radius hierarchy: 36px (Outlined Container) -> 28px (Inside Container) -> 20px (Children) */
+  /* 1. Global border-radius hierarchy: 32px (Outer Card/Container) -> 24px (Inside Card) -> 12px (Children/Inner Elements) */
   
-  /* Outlined Container (36px) */
+  /* Outlined Container (32px) */
   .outlined-container, .outer-container, .hero-calculator-box, .assistant-switcher-box, .pathways-box, .cli-wrap, .terminal-container, .schema-table-wrap, .flowchart-box, .token-chart-box, .feature-big-banner, .cta-banner, .examples-cta, .features-bottom-cta, .exact-card, .exact-summary-banner {
-    border-radius: var(--radius-outer) !important; /* 36px */
+    border-radius: var(--radius-outer) !important; /* 32px */
   }
 
-  /* Inside Container (28px) */
+  /* Inside Container (24px) */
   .inside-container, .inner-container, .metric-card, .persona-card, .pathway-card, .workflow-step-card, .ecosystem-card, .profile-card, .plan-card, .calc-card, .guide-card, .cmd-card, .integration-card, .faq-card, .spec-card, .download-card, .example-card-horizontal, .comparison-card, .workflow-card, .pathway-col, .output-card, .ladder-step, .l-step, .p-card, .comp-card, .ex-card, .conformance-card, .ai-chip-item, .exact-graphic-box {
-    border-radius: var(--radius-inner) !important; /* 28px */
+    border-radius: var(--radius-inner) !important; /* 24px */
   }
 
-  /* Children inside containers (20px) */
+  /* Children inside containers (12px) */
   button, .btn, input, select, textarea, .calc-select, .hero-secondary-button, .nav-theme-btn, .plan-button, .nav-github, .nav-badge, .pill-badge, .section-tag-badge, .pill-badge-sm, .banner-badge, .banner-item, .rag-bad, .ods-good, .eco-badge, .p-badge, .l-num, .out-lbl, .cli-dots, .cli-copy-btn, .terminal-copy-btn, .term-tab, .assistant-btn, .status-indicator, .child-item, .icon-circle {
-    border-radius: var(--radius-child) !important; /* 20px */
+    border-radius: var(--radius-child) !important; /* 12px */
   }
 
   .nav-header, .nav-menu-item, .toggle-container, .discount-badge, .hero-actions a, .plan-button.pill, .toggle-btn {
     border-radius: var(--radius-pill) !important;
+  }
+
+  /* Remove unwanted outlines in containers */
+  .section-container,
+  .page-container,
+  .container,
+  .outer-container,
+  .outlined-container,
+  .inside-container,
+  .inner-container,
+  .hero-calculator-box,
+  .assistant-switcher-box,
+  .pathways-box,
+  .cli-wrap,
+  .terminal-container,
+  .schema-table-wrap,
+  .flowchart-box,
+  .token-chart-box,
+  .feature-big-banner,
+  .cta-banner,
+  .exact-card,
+  .exact-summary-banner,
+  .exact-graphic-box {
+    outline: none !important;
+    outline-offset: 0 !important;
   }
 
   /* Concentric corner radii adjustments for nested elements */
@@ -350,14 +421,14 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .assistant-switcher-box .terminal-container,
   .pathways-box .pathway-col,
   .cli-wrap .cli-box {
-    border-radius: var(--radius-inner) !important; /* 28px inside 36px container */
+    border-radius: var(--radius-inner) !important; /* 24px inside 32px container */
   }
   .hero-calculator-box input,
   .hero-calculator-box select,
   .assistant-switcher-box button,
   .output-card button,
   .pathway-col .btn {
-    border-radius: var(--radius-child) !important; /* 20px children */
+    border-radius: var(--radius-child) !important; /* 12px children */
   }
 
   /* 2. Flat Monochrome Colors & Hierarchies (Light & Dark) */
@@ -402,7 +473,6 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .code-box,
   .step-code-box,
   .ex-code-wrap,
-  .cli-tree,
   .path-prompt-box,
   .eco-cmd-box,
   .banner-item {

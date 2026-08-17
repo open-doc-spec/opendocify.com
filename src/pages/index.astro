@@ -51,14 +51,14 @@ import { REPO_URL } from "../lib/releases";
         <span class="pill-dot"></span>
         <span>Open Document Spec (ODS)</span>
         <span class="pill-sep">•</span>
-        <span>Skill-First AI Context Engine</span>
+        <span>Smart AI Context Engine</span>
       </div>
     </div>
 
     <h1 class="tagline">Make your documents easy for people and AI to understand.</h1>
 
     <p class="hero-subtext">
-      Think of <strong>Open Document Spec (ODS)</strong> like smart sticky notes for your files. Instead of making AI (like ChatGPT, Claude, or Cursor) read a whole giant folder to answer one question, ODS shows it the exact right page, giving you faster answers while <strong>saving up to 94% in AI costs</strong>!
+      ODS maps connections across your files so AI tools (Claude, Cursor, Copilot & Antigravity) read only what they need — giving you <strong>instant answers</strong> while <strong>saving up to 94% in AI costs</strong>.
     </p>
 
     <div class="hero-actions">
@@ -71,11 +71,7 @@ import { REPO_URL } from "../lib/releases";
       <a href="/features" class="hero-secondary-button">Explore All 38 Features →</a>
     </div>
 
-    <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="other-platforms">
-      Install the direct tool for your terminal (Shell or Cargo) →
-    </a>
-
-    <!-- Interactive CLI Terminal Simulator Box inside Hero -->
+    <!-- Single Unified Interactive CLI & Quick Install Terminal Box inside Hero -->
     <div class="cli-wrap glow-card">
       <div class="cli-header">
         <div class="cli-dots">
@@ -83,27 +79,48 @@ import { REPO_URL } from "../lib/releases";
           <span class="dot yellow"></span>
           <span class="dot green"></span>
         </div>
-        <span class="cli-title">ODS Smart Reading List Tool</span>
-        <span class="cli-tag">SUPER-FAST &lt; 5MS</span>
+        <div class="cli-title-group">
+          <span class="cli-title">ODS Interactive Terminal</span>
+          <span class="cli-tag">SUPER-FAST &lt; 5MS</span>
+        </div>
+        <button id="hero-cli-replay" class="cli-replay-btn" title="Replay typing animation">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          <span>Replay</span>
+        </button>
       </div>
+
+      <!-- Unified Preset Bar: Install Methods + CLI Commands -->
+      <div class="cli-preset-bar">
+        <div class="preset-group">
+          <span class="preset-label">INSTALL:</span>
+          <button class="hero-cmd-preset active" data-preset="curl">curl</button>
+          <button class="hero-cmd-preset" data-preset="cargo">cargo</button>
+          <button class="hero-cmd-preset" data-preset="npm">npm</button>
+        </div>
+        <div class="preset-divider" aria-hidden="true"></div>
+        <div class="preset-group">
+          <span class="preset-label">COMMANDS:</span>
+          <button class="hero-cmd-preset" data-preset="context">$ ods context</button>
+          <button class="hero-cmd-preset" data-preset="lint">$ ods lint</button>
+          <button class="hero-cmd-preset" data-preset="graph">$ ods graph</button>
+        </div>
+      </div>
+
       <div class="cli-body">
         <div class="cli-line">
           <span class="cli-prompt">$</span>
-          <span class="cli-command">ods context docs/guide/01-introduction.md</span>
+          <span id="hero-typing-cmd" class="cli-command">curl -fsSL https://opendocify.com/install.sh | bash</span><span class="t-cursor"></span>
           <button id="copy-cmd-btn" class="cli-copy-btn" title="Copy Command">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="copy-label">Copy</span>
           </button>
         </div>
-        <div class="cli-output">
-          <div class="cli-tree">
-            Smart Reading List for [01-introduction.md]:<br/>
-            ├── docs/guide/01-introduction.md <span class="tree-tag">(Main page)</span><br/>
-            ├── specs/ods/intro.md <span class="tree-tag">(linked page)</span><br/>
-            ├── docs/guide/05-profiles.md <span class="tree-tag">(related page)</span><br/>
-            └── src/crates/ods-core/src/graph.rs <span class="tree-tag">(connected code)</span>
-          </div>
-          <div class="cli-log"><span class="cli-checkmark">✓</span> Total Context Size: 4,120 tokens (saves 94% compared to reading all documents)</div>
-          <div class="cli-log"><span class="cli-checkmark">✓</span> Annual Savings: 94.97% less cost and faster AI assistant answers</div>
+        <div id="hero-cli-output" class="cli-output">
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Downloading latest ODS release binary package...</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Verified checksum & installed ods v0.1.0 to /usr/local/bin/ods</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Initialized workspace environment (~/.ods)</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Cursor, Claude, Copilot & Antigravity</div>
         </div>
       </div>
     </div>
@@ -112,40 +129,24 @@ import { REPO_URL } from "../lib/releases";
   <!-- Metrics & Social Proof Strip -->
   <section class="section-container metrics-strip-section">
     <div class="metrics-grid">
-      <div class="metric-card minimal-card glow-card">
-        <div class="metric-value-row">
-          <span class="metric-value">94.97%</span>
-          <span class="metric-icon-subtle"><Icon name="sparkles" size={18} /></span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">94.97%</div>
         <div class="metric-label">Saved in AI Cost</div>
-        <p class="metric-sub">Sends only the exact pages AI needs.</p>
       </div>
 
-      <div class="metric-card minimal-card glow-card">
-        <div class="metric-value-row">
-          <span class="metric-value">&lt; 5ms</span>
-          <span class="metric-icon-subtle"><Icon name="lightning" size={18} /></span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">&lt; 5ms</div>
         <div class="metric-label">Scanning Speed</div>
-        <p class="metric-sub">Instant context lookup in under 5ms.</p>
       </div>
 
-      <div class="metric-card minimal-card glow-card">
-        <div class="metric-value-row">
-          <span class="metric-value">17+</span>
-          <span class="metric-icon-subtle"><Icon name="robot" size={18} /></span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">17+</div>
         <div class="metric-label">AI Tools Supported</div>
-        <p class="metric-sub">ChatGPT, Claude, Cursor & 17+ tools.</p>
       </div>
 
-      <div class="metric-card minimal-card glow-card">
-        <div class="metric-value-row">
-          <span class="metric-value">100%</span>
-          <span class="metric-icon-subtle"><Icon name="shield" size={18} /></span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">100%</div>
         <div class="metric-label">Private & Secure</div>
-        <p class="metric-sub">Runs completely local on your machine.</p>
       </div>
     </div>
   </section>
@@ -1120,15 +1121,134 @@ import { REPO_URL } from "../lib/releases";
 </Layout>
 
 <script>
-  function setupCopyButton() {
-    const copyBtn = document.getElementById("copy-cmd-btn");
-    if (!copyBtn) return;
+  function setupHeroTypingTerminal() {
+    const cmdElem = document.getElementById('hero-typing-cmd');
+    const outputElem = document.getElementById('hero-cli-output');
+    const replayBtn = document.getElementById('hero-cli-replay');
+    const presetBtns = document.querySelectorAll<HTMLButtonElement>('.hero-cmd-preset');
+    const copyBtn = document.getElementById('copy-cmd-btn');
 
-    copyBtn.addEventListener("click", () => {
-      navigator.clipboard.writeText("ods context docs/guide/01-introduction.md");
-      copyBtn.classList.add("copied");
-      setTimeout(() => copyBtn.classList.remove("copied"), 2000);
+    if (!cmdElem || !outputElem) return;
+
+    const presets: Record<string, { cmd: string; outputHtml: string }> = {
+      curl: {
+        cmd: 'curl -fsSL https://opendocify.com/install.sh | bash',
+        outputHtml: `
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Downloading latest ODS release binary package...</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Verified checksum & installed ods v0.1.0 to /usr/local/bin/ods</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Initialized workspace environment (~/.ods)</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Cursor, Claude, Copilot & Antigravity</div>
+        `
+      },
+      cargo: {
+        cmd: 'cargo install ods',
+        outputHtml: `
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Compiling ods v0.1.0 from crates.io...</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Optimized release build created [target/release/ods]</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Binary installed to ~/.cargo/bin/ods</div>
+        `
+      },
+      npm: {
+        cmd: 'npm install -g @ods/cli',
+        outputHtml: `
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Fetching @ods/cli package from npm registry...</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Linked binary executable node_modules/@ods/cli/bin/ods</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Complete! Run \`ods init\` in any document repository</div>
+        `
+      },
+      context: {
+        cmd: 'ods context docs/guide/01-introduction.md',
+        outputHtml: `
+          <div class="cli-tree">
+            Smart Reading List for [01-introduction.md]:<br/>
+            ├── docs/guide/01-introduction.md <span class="tree-tag">(Main page)</span><br/>
+            ├── specs/ods/intro.md <span class="tree-tag">(linked page)</span><br/>
+            ├── docs/guide/05-profiles.md <span class="tree-tag">(related page)</span><br/>
+            └── src/crates/ods-core/src/graph.rs <span class="tree-tag">(connected code)</span>
+          </div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Total Context Size: 4,120 tokens (saves 94.97% AI token costs)</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Instant Lookup: Reading map built in 2.8ms</div>
+        `
+      },
+      lint: {
+        cmd: 'ods lint .',
+        outputHtml: `
+          <div class="cli-tree">
+            Scanning 48 documents in current workspace...<br/>
+            ├── Frontmatter metadata schemas: OK<br/>
+            ├── 142 document cross-references: OK<br/>
+            └── Graph consistency across 4 profiles: OK
+          </div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Workspace clean: 0 errors, 0 broken links (1.9ms)</div>
+        `
+      },
+      graph: {
+        cmd: 'ods graph .',
+        outputHtml: `
+          <div class="cli-tree">
+            Generating document graph edges...<br/>
+            ├── Nodes: 48 documents, 182 graph edges<br/>
+            └── Graph map written to .ods/graph.md
+          </div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Graph synchronized with 17+ AI coding assistants (2.1ms)</div>
+        `
+      }
+    };
+
+    let activePreset = 'curl';
+    let currentRawCmd = presets.curl.cmd;
+
+    function renderCommand(presetKey: string) {
+      activePreset = presetKey;
+      const item = presets[presetKey] || presets.curl;
+      currentRawCmd = item.cmd;
+
+      presetBtns.forEach((btn) => {
+        btn.classList.toggle('active', btn.getAttribute('data-preset') === presetKey);
+      });
+
+      // Always populate command text & output HTML instantly (100% reliable & visible)
+      cmdElem.textContent = item.cmd;
+      outputElem.innerHTML = item.outputHtml;
+      outputElem.style.opacity = '1';
+      outputElem.style.transform = 'none';
+    }
+
+    presetBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const presetKey = btn.getAttribute('data-preset');
+        if (presetKey) renderCommand(presetKey);
+      });
     });
+
+    if (replayBtn) {
+      replayBtn.addEventListener('click', () => {
+        renderCommand(activePreset);
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(currentRawCmd);
+        copyBtn.classList.add('copied');
+        const copyLabel = copyBtn.querySelector('.copy-label') as HTMLElement | null;
+        const copyIcon = copyBtn.querySelector('.copy-icon') as HTMLElement | null;
+        const checkIcon = copyBtn.querySelector('.check-icon') as HTMLElement | null;
+        if (copyLabel) copyLabel.textContent = 'Copied!';
+        if (copyIcon) copyIcon.style.display = 'none';
+        if (checkIcon) checkIcon.style.display = 'inline-block';
+
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          if (copyLabel) copyLabel.textContent = 'Copy';
+          if (copyIcon) copyIcon.style.display = 'inline-block';
+          if (checkIcon) checkIcon.style.display = 'none';
+        }, 2000);
+      });
+    }
+
+    // Render statically & instantly on initial page load
+    renderCommand('curl');
   }
 
   function setupTokenCalculator() {
@@ -1305,12 +1425,247 @@ import { REPO_URL } from "../lib/releases";
     });
   }
 
-  setupCopyButton();
-  setupTokenCalculator();
-  setupHomePricingToggle();
+  function initHomeScripts() {
+    setupHeroTypingTerminal();
+    setupTokenCalculator();
+    setupHomePricingToggle();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomeScripts);
+  } else {
+    initHomeScripts();
+  }
 </script>
 
 <style>
+  /* ── Unified Interactive CLI Terminal & Typing Animation ── */
+  .cli-wrap {
+    max-width: 820px;
+    width: 100%;
+    margin: var(--space-32) auto 0 auto;
+    background: #09090b !important;
+    background-color: #09090b !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-outer) !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .cli-header {
+    background: #141824 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 14px 20px !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cli-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cli-title {
+    color: #cbd5e1 !important;
+    font-weight: 600 !important;
+  }
+
+  .cli-replay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #94a3b8 !important;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: var(--radius-child) !important;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    margin-left: auto;
+  }
+
+  .cli-replay-btn:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #f8fafc !important;
+  }
+
+  .cli-preset-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #0d121d !important;
+    padding: 10px 20px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    overflow-x: auto;
+    flex-wrap: wrap;
+  }
+
+  .preset-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .preset-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .preset-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    margin-right: 2px;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  .hero-cmd-preset {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #94a3b8 !important;
+    padding: 4px 12px;
+    font-family: var(--font-mono) !important;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--radius-child) !important;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+  }
+
+  .hero-cmd-preset:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #f8fafc !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .hero-cmd-preset.active {
+    background: rgba(56, 189, 248, 0.18) !important;
+    color: #38bdf8 !important;
+    border-color: rgba(56, 189, 248, 0.45) !important;
+    font-weight: 600;
+  }
+
+  .cli-body {
+    background: #090d16 !important;
+    color: #e2e8f0 !important;
+    padding: 16px 20px !important;
+  }
+
+  .cli-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: var(--radius-inner) !important;
+    padding: 8px 14px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .cli-prompt {
+    color: #22c55e !important;
+    font-family: var(--font-mono) !important;
+    font-weight: 700;
+    font-size: 0.8rem !important;
+    user-select: none;
+  }
+
+  .cli-command {
+    font-family: var(--font-mono) !important;
+    color: #38bdf8 !important;
+    font-size: 0.8rem !important;
+    word-break: break-all;
+  }
+
+  .cli-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #e2e8f0 !important;
+    padding: 4px 10px;
+    font-size: 0.7rem !important;
+    font-weight: 600;
+    border-radius: var(--radius-child) !important;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .cli-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    color: #ffffff !important;
+  }
+
+  .cli-copy-btn.copied {
+    background: rgba(34, 197, 94, 0.2) !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+    color: #4ade80 !important;
+  }
+
+  /* Force dark inner tree box (Fixes white background box bug) */
+  .cli-tree {
+    background: #141824 !important;
+    background-color: #141824 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-inner) !important;
+    padding: 12px 16px !important;
+    margin-bottom: 10px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.76rem !important;
+    line-height: 1.6 !important;
+    color: #f8fafc !important;
+  }
+
+  .tree-tag {
+    color: #38bdf8 !important;
+    font-size: 0.70rem !important;
+    font-weight: 500;
+  }
+
+  .cli-log {
+    color: #94a3b8 !important;
+    font-size: 0.74rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-top: 4px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    line-height: 1.4 !important;
+  }
+
+  .cli-checkmark {
+    color: #4ade80 !important;
+    font-weight: bold !important;
+    font-size: 0.74rem !important;
+  }
+
+  .t-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1em;
+    background: #38bdf8;
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.9s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   /* ── Exact Reference Comparison Section ── */
   .cookbook-analogy-section {
     margin-bottom: var(--space-48);
@@ -1339,7 +1694,7 @@ import { REPO_URL } from "../lib/releases";
   .exact-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-outer); /* 36px outlined container */
+    border-radius: var(--radius-outer); /* 32px outer card */
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -1383,7 +1738,7 @@ import { REPO_URL } from "../lib/releases";
   .exact-graphic-box {
     background: var(--nested-card-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-inner); /* 28px inside container */
+    border-radius: var(--radius-inner); /* 24px inside card */
     padding: 24px 16px;
     display: flex;
     justify-content: center;
@@ -1427,7 +1782,7 @@ import { REPO_URL } from "../lib/releases";
     justify-content: center;
     width: 28px;
     height: 28px;
-    border-radius: var(--radius-child); /* 20px child item */
+    border-radius: var(--radius-child); /* 12px child item */
     background: var(--nested-card-bg);
     border: 1px solid var(--border-color);
     color: var(--fg-muted);
@@ -1494,7 +1849,7 @@ import { REPO_URL } from "../lib/releases";
     grid-template-columns: repeat(4, 1fr);
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-outer); /* 36px outlined container */
+    border-radius: var(--radius-outer); /* 32px outer card */
     padding: 22px 20px;
     width: 100%;
     box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
@@ -1580,87 +1935,65 @@ import { REPO_URL } from "../lib/releases";
     color: var(--fg-dim);
     letter-spacing: -0.01em;
   }
-  /* ── Metrics Strip (Minimal Editorial Style) ── */
+  /* ── Metrics Strip (Ultra-Minimal Center-Aligned Style) ── */
   .metrics-strip-section {
-    margin-top: var(--space-48);
+    margin-top: var(--space-32);
     margin-bottom: var(--space-48);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+    border: none !important;
   }
 
   .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-20);
+    gap: var(--space-24);
     width: 100%;
   }
 
-  .metrics-grid .metric-card.minimal-card {
-    padding: 36px 24px !important;
-    border-radius: var(--radius-lg);
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    gap: 8px !important;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease !important;
-  }
-
-  .metrics-grid .metric-card.minimal-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--fg) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  }
-
-  .metric-value-row {
+  .metric-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 4px;
+    text-align: center;
+    gap: 6px;
+    padding: var(--space-8) var(--space-12);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    position: relative;
   }
 
-  .metric-icon-subtle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--fg);
-    opacity: 0.55;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  .metric-card:hover .metric-icon-subtle {
-    opacity: 1;
-    transform: scale(1.1);
+  .metrics-grid .metric-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: calc(var(--space-12) * -1);
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: var(--border-color);
+    opacity: 0.4;
   }
 
   .metric-value {
     font-family: var(--font-mono);
-    font-size: clamp(1.9rem, 2.3vw, 2.4rem);
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
     font-weight: 800;
     color: var(--fg);
     letter-spacing: -0.04em;
-    line-height: 1.1;
-    text-align: left !important;
+    line-height: 1;
+    text-align: center !important;
   }
 
   .metric-label {
-    font-size: 0.925rem;
-    font-weight: 700;
-    color: var(--fg);
-    margin-top: 2px;
-    letter-spacing: -0.01em;
-    text-align: left !important;
-  }
-
-  .metric-sub {
     font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--fg-dim);
-    line-height: 1.4;
-    margin-top: 0;
-    text-align: left !important;
+    margin-top: 2px;
+    text-align: center !important;
   }
 
   /* ── Assistant Interactive Setup Switcher ── */
@@ -2517,7 +2850,7 @@ import { REPO_URL } from "../lib/releases";
     font-size: 0.725rem;
     font-weight: 600;
     padding: 6px 14px;
-    border-radius: 20px;
+    border-radius: var(--radius-child);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -2556,7 +2889,7 @@ import { REPO_URL } from "../lib/releases";
   .path-code-box {
     background: #0d1117;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: var(--radius-child);
     padding: 12px 14px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
     margin-bottom: var(--space-16);
@@ -2572,7 +2905,7 @@ import { REPO_URL } from "../lib/releases";
     background: var(--nested-card-bg);
     border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-child);
     width: fit-content;
   }
 
@@ -4118,7 +4451,11 @@ import { REPO_URL } from "../lib/releases";
       border-radius: 10px !important;
     }
     .metrics-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-24);
+    }
+    .metrics-grid .metric-item::after {
+      display: none;
     }
     .matrix-table {
       min-width: 650px;
