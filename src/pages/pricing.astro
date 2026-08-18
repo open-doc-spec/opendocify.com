@@ -27,59 +27,65 @@ import { REPO_URL } from "../lib/releases";
       <div class="pricing-card featured">
         <div class="card-top">
           <div class="card-badge-row">
-            <span class="tier-label">Community</span>
-            <span class="badge-active">Free Forever</span>
+            <span class="tier-label">Community Core</span>
+            <span class="badge-status badge-active">
+              <span class="pulse-dot-green"></span> Free Forever
+            </span>
           </div>
           <div class="card-price">
-            <span class="price-val">$0</span>
+            <div class="price-val-wrap">
+              <span class="price-currency">$</span>
+              <span class="price-val">0</span>
+            </div>
             <span class="price-period">/ forever</span>
           </div>
           <p class="card-desc">
-            The full specification, schema validation, and CLI toolchain for local AI document graphs.
+            100% open-source local document specification & CLI graph toolchain.
           </p>
         </div>
 
-        <ul class="card-features">
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Full Open Document Specification (ODS)</span>
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>CLI toolchain & 17+ AI agent adapters</span>
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Up to 94% prompt token reduction</span>
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Local markdown indexing & validation</span>
-          </li>
-          <li>
-            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>100% open source under Apache 2.0</span>
-          </li>
-        </ul>
+        <div class="card-features-group">
+          <span class="features-group-label">Included Features</span>
+          <ul class="card-features">
+            <li>
+              <span class="check-bullet">
+                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Full ODS Spec & Schema Validation</span>
+            </li>
+            <li>
+              <span class="check-bullet">
+                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Local CLI (<code>ods context</code>, <code>ods lint</code>)</span>
+            </li>
+            <li>
+              <span class="check-bullet">
+                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Cursor, Antigravity & Copilot Adapters</span>
+            </li>
+            <li>
+              <span class="check-bullet">
+                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Apache 2.0 License & Zero Telemetry</span>
+            </li>
+          </ul>
+        </div>
 
         <div class="card-actions">
-          <a href="/docs" class="btn btn-primary">
-            Get Started Free
+          <a href="/docs" class="btn btn-primary btn-full">
+            Get Started
             <span aria-hidden="true">→</span>
-          </a>
-          <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            GitHub
-            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
@@ -88,48 +94,61 @@ import { REPO_URL } from "../lib/releases";
       <div class="pricing-card">
         <div class="card-top">
           <div class="card-badge-row">
-            <span class="tier-label">Cloud & Teams</span>
-            <span class="badge-roadmap">In Development</span>
+            <span class="tier-label">ODS Pro Cloud</span>
+            <span class="badge-status badge-roadmap">Coming Soon</span>
           </div>
           <div class="card-price">
-            <span class="price-val">Cloud</span>
-            <span class="price-period">/ upcoming</span>
+            <div class="price-val-wrap">
+              <span class="price-val price-val-text">Cloud</span>
+            </div>
+            <span class="price-period">/ team user</span>
           </div>
           <p class="card-desc">
-            Hosted team synchronization, compliance automation, and distributed graph collaboration.
+            Managed real-time sync, cloud indexing, and web doc hosting for teams.
           </p>
         </div>
 
-        <ul class="card-features">
-          <li>
-            <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Multi-repo cloud synchronization</span>
-          </li>
-          <li>
-            <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Automated graph drift & health detection</span>
-          </li>
-          <li>
-            <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Enterprise SSO & centralized audit logs</span>
-          </li>
-          <li>
-            <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span>Centralized organization workspaces</span>
-          </li>
-        </ul>
+        <div class="card-features-group">
+          <span class="features-group-label">Planned Features</span>
+          <ul class="card-features">
+            <li>
+              <span class="check-bullet muted">
+                <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Multi-user real-time graph sync</span>
+            </li>
+            <li>
+              <span class="check-bullet muted">
+                <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Automated graph drift & health alerts</span>
+            </li>
+            <li>
+              <span class="check-bullet muted">
+                <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Vector index & hybrid search pipeline</span>
+            </li>
+            <li>
+              <span class="check-bullet muted">
+                <svg class="check-icon muted" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>Zero-config web docs preview</span>
+            </li>
+          </ul>
+        </div>
 
         <div class="card-actions">
           <a href={`${REPO_URL}/discussions`} target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full">
-            Follow Roadmap on GitHub
+            Follow Roadmap
             <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -212,7 +231,7 @@ import { REPO_URL } from "../lib/releases";
   .pricing-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: stretch;
     margin-bottom: 3rem;
   }
@@ -221,117 +240,284 @@ import { REPO_URL } from "../lib/releases";
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem;
+    text-align: left;
+    padding: 1.5rem;
     border-radius: 1.25rem;
     background: var(--color-card, #ffffff);
-    border: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .dark .pricing-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
   }
 
   .pricing-card:hover {
-    border: none;
     transform: translateY(-2px);
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .pricing-card:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
   }
 
   .pricing-card.featured {
-    border: none;
-    box-shadow: 0 4px 20px -4px rgba(16, 185, 129, 0.1);
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 12px 36px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
     position: relative;
+  }
+
+  .dark .pricing-card.featured {
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .card-top {
+    text-align: left;
+    margin-bottom: 0.75rem;
   }
 
   .card-badge-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 0.65rem;
+    text-align: left;
   }
 
   .tier-label {
-    font-size: 0.95rem;
+    text-align: left;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--color-text, var(--color-foreground));
     letter-spacing: -0.01em;
   }
 
-  .badge-active {
-    font-size: 0.72rem;
+  .badge-status {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.725rem;
     font-weight: 600;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.1);
-    border: none;
-    padding: 0.2rem 0.55rem;
+    padding: 0.2rem 0.6rem;
     border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: none !important;
+    outline: none !important;
   }
 
-  .badge-roadmap {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--color-text-muted, var(--color-muted-foreground));
-    background: var(--color-surface-muted, rgba(0, 0, 0, 0.04));
-    border: none;
-    padding: 0.2rem 0.55rem;
-    border-radius: 9999px;
+  .badge-status.badge-active {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: none !important;
+    outline: none !important;
+  }
+
+  .dark .badge-status.badge-active {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
+    border: none !important;
+    outline: none !important;
+  }
+
+  .badge-status.badge-roadmap {
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--color-text, var(--color-foreground));
+    opacity: 0.85;
+    border: none !important;
+    outline: none !important;
+  }
+
+  .dark .badge-status.badge-roadmap {
+    background: rgba(255, 255, 255, 0.08);
+    border: none !important;
+    outline: none !important;
+  }
+
+  .pulse-dot-green {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    animation: pulse-glow-green 2s infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse-glow-green {
+    0% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.4; transform: scale(0.9); }
   }
 
   .card-price {
     display: flex;
     align-items: baseline;
-    gap: 0.4rem;
-    margin-bottom: 0.75rem;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.45rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-val-wrap {
+    display: inline-flex;
+    align-items: flex-start;
+    line-height: 1;
+    text-align: left;
+  }
+
+  .price-currency {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text, var(--color-foreground));
+    margin-top: 0.15rem;
+    margin-right: 2px;
+    line-height: 1;
+    opacity: 0.85;
   }
 
   .price-val {
-    font-size: 2.25rem;
+    font-size: 3.25rem;
     font-weight: 800;
     color: var(--color-text, var(--color-foreground));
-    line-height: 1;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    text-align: left;
+  }
+
+  .price-val-text {
+    font-size: 2.25rem;
+    font-weight: 800;
     letter-spacing: -0.03em;
-    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    text-align: left;
   }
 
   .price-period {
     font-size: 0.85rem;
     color: var(--color-text-muted, var(--color-muted-foreground));
     font-weight: 500;
+    font-family: var(--font-mono, monospace);
   }
 
   .card-desc {
-    font-size: 0.88rem;
+    text-align: left;
+    font-size: 0.85rem;
     color: var(--color-text-muted, var(--color-muted-foreground));
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    line-height: 1.45;
+    margin: 0;
+    min-height: 2.5rem;
+  }
+
+  .card-features-group {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.025);
+    border: none !important;
+    outline: none !important;
+    border-radius: 0.75rem;
+    padding: 14px 16px;
+    margin: 1rem 0 1.25rem 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dark .card-features-group {
+    background: rgba(255, 255, 255, 0.025);
+    border: none !important;
+    outline: none !important;
+  }
+
+  .features-group-label {
+    text-align: left;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted, var(--color-muted-foreground));
+    margin-bottom: 0.6rem;
+    display: block;
+    opacity: 0.8;
   }
 
   .card-features {
+    text-align: left;
     list-style: none;
     padding: 0;
-    margin: 0 0 2rem 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    flex-grow: 1;
+    gap: 0.55rem;
   }
 
   .card-features li {
+    text-align: left;
     display: flex;
-    align-items: flex-start;
-    gap: 0.65rem;
-    font-size: 0.85rem;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.55rem;
+    font-size: 0.835rem;
     color: var(--color-text, var(--color-foreground));
-    line-height: 1.45;
+    line-height: 1.35;
+  }
+
+  .card-features code {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.76rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none !important;
+    outline: none !important;
+    color: var(--color-text, var(--color-foreground));
+  }
+
+  .dark .card-features code {
+    background: rgba(255, 255, 255, 0.08);
+    border: none !important;
+    outline: none !important;
+  }
+
+  .check-bullet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.14);
+    color: #10b981;
+    flex-shrink: 0;
+  }
+
+  .check-bullet.muted {
+    background: rgba(120, 120, 120, 0.1);
+    color: var(--color-text-muted, var(--color-muted-foreground));
+    opacity: 0.7;
   }
 
   .check-icon {
-    width: 1rem;
-    height: 1rem;
-    color: #10b981;
+    width: 11px;
+    height: 11px;
+    color: currentColor;
     flex-shrink: 0;
-    margin-top: 0.15rem;
   }
 
   .check-icon.muted {
-    color: var(--color-text-subtle, var(--color-muted-foreground));
-    opacity: 0.6;
+    color: currentColor;
   }
 
   .card-actions {
@@ -345,37 +531,49 @@ import { REPO_URL } from "../lib/releases";
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.35rem;
-    font-size: 0.85rem;
+    gap: 0.45rem;
+    width: 100%;
+    height: 2.65rem;
+    padding: 0 1.25rem;
+    border-radius: 9999px;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.825rem;
     font-weight: 600;
-    padding: 0.65rem 1.25rem;
-    border-radius: 0.65rem;
     text-decoration: none;
-    transition: all 0.18s ease;
-    line-height: 1;
+    transition: all 0.2s ease;
+    text-align: center;
+    box-sizing: border-box;
     cursor: pointer;
+    border: none !important;
+    outline: none !important;
   }
 
   .btn-primary {
     background: var(--color-foreground, #0f172a);
     color: var(--color-background, #ffffff);
-    flex: 1;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .btn-primary:hover {
-    opacity: 0.9;
+    opacity: 0.92;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .btn-secondary {
-    background: var(--color-surface, rgba(0, 0, 0, 0.03));
+    background: var(--color-card, #ffffff);
     color: var(--color-text, var(--color-foreground));
-    border: 1px solid var(--color-border);
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   }
 
   .btn-secondary:hover {
-    background: var(--color-surface-muted, rgba(0, 0, 0, 0.06));
-    border-color: var(--color-border-strong, rgba(0, 0, 0, 0.2));
+    background: var(--color-surface-muted, rgba(0, 0, 0, 0.04));
+    border: none !important;
+    outline: none !important;
+    transform: translateY(-1px);
   }
 
   .btn-full {
@@ -390,7 +588,8 @@ import { REPO_URL } from "../lib/releases";
     padding: 1.5rem 2rem;
     border-radius: 1rem;
     background: var(--color-surface, var(--color-card, rgba(0, 0, 0, 0.02)));
-    border: 1px solid var(--color-border);
+    border: none !important;
+    outline: none !important;
   }
 
   .metric-item {

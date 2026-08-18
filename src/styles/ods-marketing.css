@@ -104,7 +104,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .terminal-container,
   .code-box {
     background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
+    outline: none !important;
     border-radius: var(--radius-lg) !important;
     overflow: hidden !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
@@ -113,7 +114,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .spec-card pre,
   .docs-card pre {
     background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
+    outline: none !important;
     border-radius: var(--radius-sm) !important;
     overflow: hidden !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
@@ -125,7 +127,9 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .code-window-header {
     background: #141824 !important;
     color: #94a3b8 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
     font-family: var(--font-mono) !important;
     font-size: 0.8rem !important;
     font-weight: 500 !important;
@@ -184,7 +188,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ex-cmd,
   .row-cmd {
     background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
+    outline: none !important;
     border-radius: var(--radius-md) !important;
     padding: 16px 24px !important;
     font-family: var(--font-mono) !important;
@@ -314,13 +319,17 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ods-marketing .cli-wrap .cli-header {
     background: #141824 !important;
     background-color: #141824 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
   }
 
   .ods-marketing .cli-wrap .cli-preset-bar {
     background: #0d121d !important;
     background-color: #0d121d !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
   }
 
   .ods-marketing .cli-wrap .cli-body {
@@ -331,13 +340,15 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ods-marketing .cli-wrap .cli-line {
     background: #141824 !important;
     background-color: #141824 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    outline: none !important;
   }
 
   .ods-marketing .cli-wrap .cli-tree {
     background: #141824 !important;
     background-color: #141824 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    outline: none !important;
     color: #f1f5f9 !important;
   }
 
@@ -394,7 +405,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     border-radius: var(--radius-pill) !important;
   }
 
-  /* Remove unwanted outlines in containers */
+  /* Remove unwanted outlines and borders in all section containers & outer boxes */
   .section-container,
   .page-container,
   .container,
@@ -408,19 +419,48 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .cli-wrap,
   .terminal-container,
   .schema-table-wrap,
+  .matrix-table-wrap,
   .flowchart-box,
   .token-chart-box,
   .feature-big-banner,
   .cta-banner,
+  .examples-cta,
+  .features-bottom-cta,
   .exact-card,
   .exact-summary-banner,
-  .exact-graphic-box {
+  .exact-graphic-box,
+  .hero-section,
+  .header-section,
+  .feature-hero-top,
+  .feature-row,
+  .spec-section,
+  .roi-section,
+  .faq-section,
+  .examples-content-grid,
+  .timeline,
+  .docs-section,
+  .platform-section,
+  .plans-grid,
+  .spec-cta,
+  .changelog-cta,
+  .industry-roi-chart-box,
+  .cookbook-analogy-section,
+  .metrics-strip-section,
+  .assistant-setup-section,
+  .persona-adoption-section,
+  .matrix-section,
+  .templates-section,
+  .pricing-grid {
     outline: none !important;
     outline-offset: 0 !important;
+    border: none !important;
   }
 
   /* Concentric corner radii adjustments for nested elements */
   .hero-calculator-box .output-card,
+  .hero-calculator-box .calc-hero-card,
+  .hero-calculator-box .calc-metric-card,
+  .hero-calculator-box .calc-inputs-panel,
   .assistant-switcher-box .terminal-container,
   .pathways-box .pathway-col,
   .cli-wrap .cli-box {
@@ -428,13 +468,14 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
   .hero-calculator-box input,
   .hero-calculator-box select,
+  .hero-calculator-box .calc-select,
   .assistant-switcher-box button,
   .output-card button,
   .pathway-col .btn {
     border-radius: var(--radius-child) !important; /* 12px children */
   }
 
-  /* 2. Flat Monochrome Colors & Hierarchies (Light & Dark) */
+  /* 2. Flat Monochrome Colors & Hierarchies - All Cards: No Outlines / No Borders */
   .metrics-grid .metric-card,
   .persona-card,
   .pathway-col,
@@ -442,6 +483,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ecosystem-card,
   .profile-card,
   .plan-card,
+  .pricing-home-card,
+  .pricing-card,
   .calc-card,
   .guide-card,
   .cmd-card,
@@ -451,6 +494,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .download-card,
   .example-card-horizontal,
   .comparison-card,
+  .workflow-card,
   .assistant-switcher-box,
   .hero-calculator-box,
   .pathways-box,
@@ -463,13 +507,26 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .p-card,
   .comp-card,
   .ex-card,
-  .conformance-card {
+  .conformance-card,
+  .glow-card,
+  .exact-card,
+  .exact-summary-banner,
+  .exact-graphic-box,
+  .ods-flow-card,
+  .ods-outcome-card,
+  .setup-benefit-card,
+  .m-card,
+  .stat-card,
+  .doc-nav-card,
+  .card,
+  [class*="-card"] {
     background-color: var(--card-bg) !important;
     background-image: none !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
   }
 
-  /* Nested container elements */
+  /* Nested container elements & all inner card divs */
   .output-card,
   .terminal-container,
   .cli-box,
@@ -478,15 +535,69 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ex-code-wrap,
   .path-prompt-box,
   .eco-cmd-box,
-  .banner-item {
+  .banner-item,
+  .pricing-features-group,
+  .card-features-group,
+  .inside-container,
+  .inner-container,
+  .calc-hero-card,
+  .calc-metric-card,
+  .calc-inputs-panel {
     background-color: var(--nested-card-bg) !important;
     background-image: none !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  /* Universal removal of outline and borders in all card inner divs & nested elements */
+  .card div,
+  [class*="-card"] div,
+  .glow-card div,
+  .pricing-home-card div,
+  .pricing-card div,
+  .persona-card div,
+  .workflow-step-card div,
+  .ecosystem-card div,
+  .profile-card div,
+  .plan-card div,
+  .calc-card div,
+  .faq-card div,
+  .comparison-card div,
+  .exact-card div,
+  .exact-summary-banner div,
+  .hero-calculator-box div,
+  .assistant-switcher-box div,
+  .pathways-box div,
+  .cli-wrap div,
+  .pricing-badge-row,
+  .card-badge-row,
+  .badge-status,
+  .calc-hero-card,
+  .calc-metric-card,
+  .calc-inputs-panel,
+  .code-window-header,
+  .terminal-header,
+  .terminal-tab-bar,
+  .code-title,
+  .code-box-title,
+  .code-box-wrapper,
+  .code-window,
+  .ex-code-box,
+  .ex-cmd,
+  .row-cmd,
+  .hero-cmd-box,
+  .persona-card-header,
+  .persona-card-footer,
+  .card-top,
+  .card-actions {
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0 !important;
   }
 
   /* Enforce simple borders and borders colors */
   hr, .border-b, .border-t, .border-l, .border-r,
-  .footer-top-grid, .terminal-tab-bar, .cli-header, .terminal-title-tag,
+  .footer-top-grid, .terminal-title-tag,
   .schema-table th, .schema-table td, .matrix-table th, .matrix-table td, .comparison-table th, .comparison-table td {
     border-color: var(--border-color) !important;
   }
@@ -503,11 +614,12 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     }
   }
   
-  /* Disable hover scale/translate/shadows */
-  .glow-card:hover, .plan-card:hover, .faq-card:hover, .example-card-horizontal:hover {
+  /* Disable hover scale/translate/shadows & borders */
+  .glow-card:hover, .plan-card:hover, .faq-card:hover, .example-card-horizontal:hover, .profile-card:hover, .pricing-home-card:hover, .pricing-card:hover {
     transform: none !important;
     box-shadow: none !important;
-    border-color: var(--fg-dim) !important; /* Editorial hover feedback */
+    border: none !important;
+    outline: none !important;
   }
 
   /* Remove tagline text gradients */
@@ -595,7 +707,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   /* Adjust color accents in spec & badges */
   .ods-good, .ods-green, .rag-bad {
     background-color: var(--nested-card-bg) !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
     color: var(--fg) !important;
   }
   .bar-fill.ods-green, .r-bar {
@@ -605,7 +718,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     animation: none !important;
     background-color: var(--nested-card-bg) !important;
     color: var(--fg) !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
   }
 
 
