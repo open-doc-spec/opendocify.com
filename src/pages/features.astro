@@ -5,7 +5,7 @@
 
 import Layout from "../layouts/Layout.astro";
 import AIIcon from "../components/AIIcon.astro";
-import { REPO_URL } from "../lib/releases";
+import { ORG_URL, REPO_URL } from "../lib/releases";
 import { frontmatter } from "../store/features.md";
 
 type AIIconType = "claude" | "openai" | "cursor" | "windsurf" | "antigravity" | "grok";
@@ -336,7 +336,7 @@ interface StepItem {
       </div>
       <div class="cta-btns">
         <a href={frontmatter.bottomCTA.primaryBtnLink} class="primary-btn">{frontmatter.bottomCTA.primaryBtnText}</a>
-        <a href={REPO_URL} target="_blank" rel="noopener noreferrer" class="secondary-btn">{frontmatter.bottomCTA.secondaryBtnText}</a>
+        <a href={ORG_URL} target="_blank" rel="noopener noreferrer" class="secondary-btn">{frontmatter.bottomCTA.secondaryBtnText}</a>
       </div>
     </div>
 
