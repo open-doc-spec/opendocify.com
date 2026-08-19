@@ -89,11 +89,16 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ods-marketing .page-container,
   .ods-marketing .section-container,
   .ods-marketing .hero-section,
-  .ods-marketing .header-section {
+  .ods-marketing .header-section,
+  .ods-marketing .features-page,
+  .ods-marketing .download-page-container,
+  .ods-marketing .privacy-container,
+  .ods-marketing .pricing-container,
+  .ods-marketing .changelog-container {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
     box-sizing: border-box !important;
   }
 
@@ -101,6 +106,41 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ods-marketing .cta-buttons {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
+  }
+
+  .ods-marketing .cta-banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2.5rem 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .ods-marketing .hero-calculator-box,
+  .ods-marketing .assistant-switcher-box,
+  .ods-marketing .setup-benefits-row,
+  .ods-marketing .matrix-panel,
+  .ods-marketing .ods-flow-card,
+  .ods-marketing .features-hero-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ods-marketing .features-grid,
+  .ods-marketing .pricing-grid,
+  .ods-marketing .bento-grid,
+  .ods-marketing .guarantee-cards,
+  .ods-marketing .download-cards,
+  .ods-marketing .profiles-grid,
+  .ods-marketing .persona-4-grid,
+  .ods-marketing .workflow-3-grid,
+  .ods-marketing .metrics-grid,
+  .ods-marketing .calc-grid,
+  .ods-marketing .ods-outcomes-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -358,23 +398,39 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     outline: none !important;
   }
 
-  .ods-marketing .cli-wrap .cli-tree {
+  .ods-marketing .cli-wrap .cli-tree,
+  .ods-marketing .cli-wrap-inner .cli-tree,
+  .ods-marketing .hero-experience-box .cli-tree {
     background: #141417 !important;
     background-color: #141417 !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     outline: none !important;
-    color: #f1f5f9 !important;
+    color: #cbd5e1 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.55 !important;
+    font-family: var(--font-mono, monospace) !important;
+    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    margin-bottom: 8px !important;
   }
 
-  .ods-marketing .cli-wrap .tree-tag {
+  .ods-marketing .cli-wrap .tree-tag,
+  .ods-marketing .cli-wrap-inner .tree-tag,
+  .ods-marketing .hero-experience-box .tree-tag {
     color: #38bdf8 !important;
+    font-size: 0.70rem !important;
+    font-weight: 500 !important;
   }
 
-  .ods-marketing .cli-wrap .cli-log {
+  .ods-marketing .cli-wrap .cli-log,
+  .ods-marketing .cli-wrap-inner .cli-log,
+  .ods-marketing .hero-experience-box .cli-log {
     color: #94a3b8 !important;
-    font-size: 0.76rem !important;
+    font-size: 0.74rem !important;
     background: transparent !important;
     background-color: transparent !important;
+    line-height: 1.5 !important;
+    font-family: var(--font-mono, monospace) !important;
   }
 
   .ods-marketing .terminal-code-panel,
@@ -642,7 +698,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
   /* Enforce standard text visibility */
-  .ods-marketing p, .ods-marketing li, .ods-marketing td, .ods-marketing .faq-answer, .ods-marketing .metric-sub, .ods-marketing .col-links a, .ods-marketing .legal-links a, .ods-marketing .footer-brand-desc, .ods-marketing .hero-subtext, .ods-marketing .cli-log {
+  .ods-marketing p, .ods-marketing li, .ods-marketing td, .ods-marketing .faq-answer, .ods-marketing .metric-sub, .ods-marketing .col-links a, .ods-marketing .legal-links a, .ods-marketing .footer-brand-desc, .ods-marketing .hero-subtext {
     color: var(--fg-muted) !important;
   }
 

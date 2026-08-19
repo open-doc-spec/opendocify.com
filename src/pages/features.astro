@@ -1800,23 +1800,37 @@ interface DXItem {
 
   @media (max-width: 768px) {
     .features-page {
-      padding-top: var(--space-32);
-      padding-bottom: var(--space-64);
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: var(--space-24) 1rem var(--space-64) 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .features-hero {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .bento-card {
-      padding: var(--space-24);
+      padding: var(--space-20) var(--space-16) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .ai-chips-bento-grid,
     .profiles-matrix {
       grid-template-columns: 1fr;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .cta-inner-card {
       flex-direction: column;
       text-align: center;
-      padding: var(--space-36) var(--space-24);
+      padding: var(--space-32) var(--space-16) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .cta-subtitle {
@@ -1825,22 +1839,30 @@ interface DXItem {
 
     .cta-buttons {
       width: 100%;
-      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .cta-primary-btn,
     .cta-secondary-btn {
-      width: 100%;
+      width: 100% !important;
+      justify-content: center;
+      box-sizing: border-box !important;
     }
   }
 
   @media (max-width: 480px) {
     .quick-stats-strip {
       grid-template-columns: 1fr;
+      width: 100%;
     }
 
     .step-chips-row {
       gap: 8px;
+    }
+
+    .bento-card {
+      padding: 16px 12px !important;
     }
   }
 </style>

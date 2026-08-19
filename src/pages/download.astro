@@ -227,9 +227,27 @@ import { RELEASES_URL } from "../lib/releases";
     text-decoration: underline;
   }
 
-  @media (max-width: 640px) {
-    .main {
-      padding: var(--space-32) var(--space-16) var(--space-48);
+  @media (max-width: 768px) {
+    .download-page-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 1rem var(--space-48) 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .platforms,
+    .platform-section,
+    .download-cards,
+    .download-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .download-header {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 1rem !important;
+      box-sizing: border-box !important;
     }
   }
 </style>

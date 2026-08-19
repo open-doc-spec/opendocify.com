@@ -660,15 +660,38 @@ import HeroGradient from "../components/HeroGradient.astro";
 
   /* ── Mobile ── */
   @media (max-width: 720px) {
+    .pricing-page {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: var(--space-16) 1rem clamp(3rem, 6vw, 4rem) 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .pricing-header {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
     .pricing-grid {
       grid-template-columns: 1fr;
       gap: 1.25rem;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .pricing-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 1.25rem !important;
     }
 
     .metrics-strip {
       flex-direction: column;
       gap: 1.25rem;
       padding: 1.25rem;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .metric-sep {
