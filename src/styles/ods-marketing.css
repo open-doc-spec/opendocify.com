@@ -69,6 +69,22 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   mix-blend-mode: screen;
 }
 
+/* ── Universal End-to-End Full-Width Hero Wrappers ── */
+.page-hero-wrapper,
+.features-hero-wrapper,
+.pricing-hero-wrapper,
+.changelog-hero-wrapper,
+.download-hero-wrapper,
+.privacy-hero-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
 @media (max-width: 768px) {
   .ods-marketing .page-container,
   .ods-marketing .section-container,
@@ -394,12 +410,13 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     border-radius: var(--radius-inner) !important; /* 24px */
   }
 
-  /* Children inside containers (12px) */
-  button, .btn, input, select, textarea, .calc-select, .hero-secondary-button, .nav-theme-btn, .plan-button, .nav-github, .nav-badge, .pill-badge, .section-tag-badge, .pill-badge-sm, .banner-badge, .banner-item, .rag-bad, .ods-good, .eco-badge, .p-badge, .l-num, .out-lbl, .cli-dots, .cli-copy-btn, .terminal-copy-btn, .term-tab, .assistant-btn, .status-indicator, .child-item, .icon-circle {
+  /* Children inputs & non-button elements inside containers (12px) */
+  input, select, textarea, .calc-select, .banner-item, .rag-bad, .ods-good, .eco-badge, .p-badge, .l-num, .out-lbl, .child-item {
     border-radius: var(--radius-child) !important; /* 12px */
   }
 
-  .nav-header, .nav-menu-item, .toggle-container, .discount-badge, .hero-actions a, .plan-button.pill, .toggle-btn {
+  /* All Buttons, Icon Buttons, CTAs, Badges & Pills: Pill shape (rounded-full) */
+  button, .btn, .button, .site-cta, .hero-button, .hero-secondary-button, .plan-button, .assistant-btn, .filter-btn, .filter-button, .term-tab, .curr-pill-btn, .hero-cmd-preset, .nav-theme-btn, .nav-github, .theme-toggle, .nav-toggle, .cli-copy-btn, .terminal-copy-btn, .step-copy-btn, .cli-replay-btn, .nav-badge, .pill-badge, .section-tag-badge, .pill-badge-sm, .banner-badge, .discount-badge, .toggle-btn, .toggle-container, .nav-header, .nav-menu-item, .hero-actions a, .status-indicator, .icon-circle, .pathway-col .btn, .assistant-switcher-box button, .output-card button, .cta-button, .primary-btn, .secondary-btn {
     border-radius: var(--radius-pill) !important;
   }
 
@@ -446,6 +463,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .metrics-strip-section,
   .assistant-setup-section,
   .persona-adoption-section,
+  .pathways-section,
   .matrix-section,
   .templates-section,
   .pricing-grid {
@@ -466,11 +484,13 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
   .hero-calculator-box input,
   .hero-calculator-box select,
-  .hero-calculator-box .calc-select,
+  .hero-calculator-box .calc-select {
+    border-radius: var(--radius-child) !important; /* 12px children */
+  }
   .assistant-switcher-box button,
   .output-card button,
   .pathway-col .btn {
-    border-radius: var(--radius-child) !important; /* 12px children */
+    border-radius: var(--radius-pill) !important;
   }
 
   /* 2. Flat Monochrome Colors & Hierarchies - All Cards: No Outlines / No Borders */
@@ -603,13 +623,6 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   /* Background patterns & glows enabled for premium visual hero aesthetics */
   .shimmer-btn::after {
     display: none !important;
-  }
-
-  @media (max-width: 768px) {
-    .dot-matrix-bg {
-      display: none !important;
-      background: none !important;
-    }
   }
   
   /* Disable hover scale/translate/shadows & borders */

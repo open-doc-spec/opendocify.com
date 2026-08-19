@@ -1,39 +1,65 @@
 ---
+# Store content for features.astro
+
 header:
-  pillBadge: "Complete Product Capability Showcase"
-  pageTitle: "ODS Product Features"
-  pageSubtitle: "Discover how Open Document Spec adds simple labels to your text files (.md) and connects them together so AI assistants can find what they need instantly."
+  pillBadge: 'Architecture & Engine Showcase'
+  pageTitle: 'Engineered for Deterministic AI Context'
+  pageSubtitle: 'Open Document Spec (ODS) turns scattered markdown documentation into a structured, queryable knowledge graph with deterministic linting, binary compliance, and automated bi-directional code linking.'
+  quickStats:
+    - val: '100%'
+      lbl: 'Deterministic Accuracy'
+    - val: '0'
+      lbl: 'Vector Search Hallucinations'
+    - val: '0.1'
+      lbl: 'ODS Core Specification'
+    - val: '< 5ms'
+      lbl: 'Local Context Traversal'
 
-heroFeature:
-  badge: "Featured Capability"
-  title: "Smart AI Reading Lists"
-  description: "Gives your AI assistant only the exact documents linked to your files, avoiding massive folder dumps. This speeds up answers and cuts AI usage costs by **up to 94.97%**."
-  metrics:
-    - val: "~94%"
-      lbl: "Lower AI Cost"
-    - val: "4,100"
-      lbl: "Exact Words Sent"
-    - val: "< 5ms"
-      lbl: "Document Scan"
-  cmd: "$ ods context docs/guide/01-introduction.md"
-  codeBoxTitle: "Linked Document Reading List"
-  codeContent: |
-    Smart Reading List for [01-introduction.md]:
-    ├── docs/guide/01-introduction.md (Main page)
-    ├── specs/ods/intro.md (linked page)
-    ├── docs/guide/05-profiles.md (related page)
-    └── src/crates/ods-core/src/graph.rs (connected code)
+step1_context:
+  stepNumber: '01'
+  stepCategory: 'Context Engine'
+  title: 'Deterministic AI Context Graph'
+  description: 'Eliminate token-wasting probabilistic vector search. ODS constructs a deterministic DAG linking code symbols to exact documentation anchors.'
+  heroCard:
+    badge: 'Context Engine'
+    title: 'Precision AI Reading Lists'
+    description: 'When an AI agent modifies a function, ODS delivers <strong>exact required reading lists</strong> with zero vector search hallucinations, zero chunking noise, and deterministic relevance.'
+    cmd: 'ods context src/auth/jwt.rs'
+    codeTitle: 'AI Context Graph Extraction'
+    codeContent: |
+      $ ods context src/auth/jwt.rs
+      → docs/architecture/auth.md (score: 1.0, role: spec)
+      → docs/security/tokens.md (score: 0.95, role: policy)
+      → tests/jwt_validation_test.rs (score: 0.90, role: test)
+      ✓ 3 verified documents delivered in 3.8ms
+    metrics:
+      - val: '3.8ms'
+        lbl: 'Traversal Speed'
+      - val: '100%'
+        lbl: 'Deterministic Match'
+      - val: '0'
+        lbl: 'Chunking Noise'
+  compareCard:
+    badge: 'Accuracy Benchmark'
+    title: 'ODS Graph vs Vector Search (RAG)'
+    description: 'Compare deterministic DAG traversal against traditional embedding search for codebase documentation.'
+    ragLabel: 'Vector Embeddings (RAG)'
+    ragText: 'Probabilistic similarity. Misses critical architectural edge-cases, returns noisy chunks, and hallucinates outdated schema definitions.'
+    odsLabel: 'ODS Deterministic Graph'
+    odsText: 'Explicit symbol-to-spec binding. Always retrieves the exact authoritative documentation, bound test suites, and required ADRs.'
+    cmd: 'ods graph --inspect'
 
-    ✓ Total Context: 4,120 words (saves 94.97% compared to reading all documents)
-    ✓ Annual Savings: 94.97% less cost
-
-rowsGroup1:
-  - tag: "Code Connections"
-    title: "Connecting Code to Documents"
-    description: "Link your text pages directly to specific functions, rules, or testing files inside your program code."
-    cmd: "$ ods context src/storage/db.rs"
-    visualType: "code"
-    codeBoxTitle: "docs/architecture/storage.md"
+step2_binding:
+  stepNumber: '02'
+  stepCategory: 'Code & Spec Graph'
+  title: 'Bi-Directional Code & Specification Linking'
+  description: 'Bind documentation pages directly to program functions, data schemas, and test suites so your AI understands both the architectural intent and the actual codebase.'
+  codeBindingCard:
+    badge: 'Symbol Binding'
+    title: 'Connecting Code to Documents'
+    description: 'Declare implementation symbols and test files directly inside document frontmatter. The graph automatically discovers related source files.'
+    cmd: 'ods context src/storage/db.rs'
+    codeTitle: 'docs/architecture/storage.md'
     codeContent: |
       ---
       description: Storage engine connection pool.
@@ -47,187 +73,121 @@ rowsGroup1:
           - path: tests/db_test.rs
             role: test
       ---
-    reverse: false
-
-  - tag: "Open Standard"
-    title: "Works with Standard Text Files"
-    description: "No hidden databases or complex formats. A root <code>ods.toml</code> marks the workspace. Documents stay plain <code>.md</code> with optional YAML frontmatter. You own your files forever."
-    cmd: "$ ods init"
-    visualType: "code"
-    codeBoxTitle: "Root ods.toml"
-    codeContent: |
-      # ods.toml — workspace boundary
-      spec = "0.1"
-
-      ignore = [
-        "node_modules",
-        "dist",
-      ]
-    reverse: true
-
-banner1:
-  badge: "Smart Link Repair"
-  title: "Automatic Link Repair Background Tool"
-  description: "Never break a link when you rename files, restructure folders, or change project layouts."
-  items:
-    - icon: "link"
-      title: "Instant Link Updates"
-      description: "Renaming or moving document files automatically updates all connections and links in other files across your folder."
-    - icon: "activity"
-      title: "Automatic Background Checker"
-      description: "A fast helper utility listens to file changes in the background and keeps your links up to date instantly."
-    - icon: "shield-check"
-      title: "Error Checking on Save"
-      description: "Run the checker tool in your save workflow to detect broken document links or missing required sections automatically."
-
-rowsGroup2:
-  - tag: "AI Tool Support"
-    title: "Works Natively with AI Tools"
-    description: "Plugs straight into Claude Code, Antigravity, Cursor, Windsurf, and other AI systems as a helper skill."
-    cmd: "$ ods context --json"
-    visualType: "ai-chips"
+  aiToolingCard:
+    badge: 'AI Tool Integration'
+    title: 'Universal AI Assistant Support'
+    description: 'Plugs directly into Claude Code, Antigravity, Cursor, and Windsurf via standard JSON context streams without changing your editor workflow.'
+    cmd: 'ods context --json'
+    jsonTitle: 'AI Protocol Context Stream'
+    jsonContent: |
+      {
+        "symbol": "init_pool()",
+        "doc": "docs/architecture/storage.md",
+        "role": "implementation",
+        "tests": ["tests/db_test.rs"],
+        "verified": true
+      }
     chips:
-      - name: "Claude Code"
-        icon: "claude"
-      - name: "Antigravity"
-        icon: "antigravity"
-      - name: "Cursor"
-        icon: "cursor"
-      - name: "Windsurf"
-        icon: "windsurf"
-    reverse: false
+      - name: 'Claude Code'
+        icon: 'claude'
+      - name: 'Antigravity'
+        icon: 'antigravity'
+      - name: 'Cursor'
+        icon: 'cursor'
+      - name: 'Windsurf'
+        icon: 'windsurf'
 
-  - tag: "Gradual Adoption"
-    title: "Simple Adoption Steps"
-    description: "Start with plain Markdown. Add a root <code>ods.toml</code> when you want a workspace. <code>ods lint</code> is binary: compliant (exit 0) or not (exit 1). There is no Level 0–3 ladder."
-    cmd: "$ ods lint"
-    visualType: "levels-stack"
-    levels:
-      - num: "1"
-        text: "Plain Markdown files"
-      - num: "2"
-        text: "Root ods.toml workspace"
-      - num: "3"
-        text: "ods lint exit 0 or 1"
-        active: true
-    reverse: true
-
-bannerTemplates:
-  badge: "Document Organization"
-  title: "ODS Templates: Simple Document Structure"
-  description: "Keep your documents consistent and organized without manual formatting debates."
-  profiles:
-    - badge: "profile: architecture"
-      title: "Architecture docs"
-      headingsLabel: "Required Headings"
-      headings: ["## Goal", "## Requirements", "## Acceptance Criteria"]
-    - badge: "profile: guide"
-      title: "Runbooks & Guides"
-      headingsLabel: "Required Headings"
-      headings: ["## Overview", "## Prerequisites", "## Steps"]
-    - badge: "profile: feature"
-      title: "Product PRDs"
-      headingsLabel: "Required Headings"
-      headings: ["## User Goal", "## Acceptance Criteria"]
-    - badge: "profile: decision"
-      title: "ADRs & Decision Notes"
-      headingsLabel: "Required Headings"
-      headings: ["## Context", "## Decision", "## Consequences"]
-  customTemplate:
-    badge: "profile: custom-security-audit"
-    title: "100% Custom Document Templates"
-    headingsLabel: "Custom Required Sections"
-    headings: ["## Executive Summary", "## Threat Model", "## Audit Findings"]
-  ladder:
-    title: "Binary compliance"
+step3_profiles:
+  stepNumber: '03'
+  stepCategory: 'Standards & Profiles'
+  title: 'Structured Document Profiles & Binary Compliance'
+  description: 'Eliminate formatting confusion with standardized document profile schemas, required section headings, and a binary compliance validation engine.'
+  profilesCard:
+    badge: 'Document Profiles'
+    title: 'Standard Schema Profiles'
+    description: 'Enforce consistent structure across architecture docs, runbooks, PRDs, and ADRs with automated heading validation.'
+    profiles:
+      - badge: 'architecture'
+        title: 'Architecture Spec'
+        description: 'Enforces system goals, component requirements, and acceptance criteria.'
+        headings: ['## Goal', '## Requirements', '## Acceptance Criteria']
+      - badge: 'guide'
+        title: 'Runbooks & Guides'
+        description: 'Enforces operational overview, prerequisites, and sequential steps.'
+        headings: ['## Overview', '## Prerequisites', '## Steps']
+      - badge: 'feature'
+        title: 'Product PRDs'
+        description: 'Enforces user problem statements and explicit acceptance criteria.'
+        headings: ['## User Goal', '## Acceptance Criteria']
+      - badge: 'decision'
+        title: 'ADRs & Decision Notes'
+        description: 'Enforces architectural context, chosen decision, and trade-off consequences.'
+        headings: ['## Context', '## Decision', '## Consequences']
+  ladderCard:
+    badge: 'Adoption Pipeline'
+    title: 'Binary Compliance Engine'
+    description: 'Gradual adoption with zero vendor lock-in. <code>ods lint</code> is binary: compliant (exit 0) or diagnostic failure (exit 1).'
     steps:
-      - badge: "Plain .md"
-        title: "No workspace required"
-        description: "Use existing Markdown as-is"
-      - badge: "Workspace"
-        title: "Root ods.toml"
-        description: "spec = \"0.1\" marks the tree"
-      - badge: "Compliant"
-        title: "ods lint exits 0"
-        description: "Graph, keys, and profiles check out"
+      - badge: '01'
+        title: 'Plain Markdown'
+        description: 'Zero workspace config required. Use standard Markdown as-is.'
+      - badge: '02'
+        title: 'Root Workspace'
+        description: 'Add a root ods.toml (spec = "0.1") to mark repository boundary.'
+      - badge: '03'
+        title: 'ods lint: Exit 0'
+        description: 'Graph connections, schema keys, and profile headings fully valid.'
         active: true
-      - badge: "Fix"
-        title: "ods lint exits 1"
-        description: "Repair diagnostics, then re-lint"
+      - badge: '04'
+        title: 'Deterministic Diagnostics'
+        description: 'Pinpoint exact broken links, missing headings, or stale symbol bindings.'
 
-rowsGroup3:
-  - tag: "Onboard Existing Folders"
-    title: "Import Existing Files in Seconds"
-    description: "Import your existing text files in seconds. <code>ods init --adopt</code> writes a root <code>ods.toml</code> and drafts frontmatter so you don't have to edit every file by hand."
-    cmd: "$ ods init . --adopt"
-    visualType: "code"
-    codeBoxTitle: "CLI Terminal Log"
-    codeContent: |
-      $ ods init . --adopt
-      ✓ Wrote root ods.toml (spec = "0.1")
-      ✓ Drafted frontmatter on 148 Markdown files
-      ✓ Ready for ods lint
-    reverse: false
-
-  - tag: "Better Than Vector Search"
-    title: "Hallucination-Free Reading Lists"
-    description: "Avoid expensive search database hosting and errors. ODS delivers highly accurate reading lists to your AI by using the direct connections you specify."
-    cmd: "$ ods graph --format dot"
-    visualType: "rag-vs"
-    ragBad: "❌ Vector Search: 80,000 words (scrambled snippets)"
-    odsGood: "✓ ODS Map: 4,100 words (instant linked pages)"
-    reverse: true
-
-bannerSecurity:
-  badge: "Privacy & Security"
-  title: "Keep Sensitive Data Secure"
-  description: "Built-in controls to prevent private data or secret keys from leaking to external AI tools."
+step4_security:
+  stepNumber: '04'
+  stepCategory: 'Security & Privacy'
+  title: 'Enterprise-Grade Privacy & Secret Shield'
+  description: 'Built-in redaction, token isolation, and security controls ensure proprietary credentials, confidential files, and API secrets never leak into external AI prompts.'
   items:
-    - icon: "lock"
-      title: "Private File Filters"
-      description: "Pages marked with <code>share: private</code> are hidden and never sent to AI tools."
-    - icon: "eye-off"
-      title: "Inline Secret Blurring"
-      description: "Secrets placed inside secret labels are automatically stripped out before sending to AI tools."
-    - icon: "refresh-cw"
-      title: "Settings Backup & Restore"
-      description: "Use the backup and restore tools to quickly clean or restore your files before sharing them."
+    - icon: 'lock'
+      badge: 'File Isolation'
+      title: 'Private File Filters'
+      description: 'Pages marked with <code>share: private</code> are strictly quarantined and never forwarded to external AI tools or API prompts.'
+    - icon: 'eye-off'
+      badge: 'Secret Redaction'
+      title: 'Inline Secret Blurring'
+      description: 'Secrets and keys placed inside encrypted/secret tags are automatically stripped and masked before dispatching to AI assistants.'
+    - icon: 'refresh'
+      badge: 'Config State'
+      title: 'Snapshot & State Restoration'
+      description: 'Easily backup, audit, and verify document workspace state before and after AI agent batch refactoring operations.'
 
-rowsGroup4:
-  - tag: "Cost Savings Stats"
-    title: "View Your Savings Stats"
-    description: "View estimated savings and cost reductions across your team using the built-in stats command."
-    cmd: "$ ods bench stats"
-    visualType: "code"
-    codeBoxTitle: "ods bench stats"
-    codeContent: |
-      $ ods bench stats
-      ✓ Workspace Files: 240 docs
-      ✓ Word Savings: 94.97%
-      ✓ Estimated Annual Savings: $34,800
-    reverse: false
-
-  - tag: "Label Management"
-    title: "Update Labels in Bulk"
-    description: "Search, filter, and rename labels across all your documents with a single quick command."
-    cmd: "$ ods tag rename old-tag new-tag"
-    visualType: "code"
-    codeBoxTitle: "Bulk Label Rename"
-    codeContent: |
-      $ ods tag rename deprecated legacy
-      ✓ Updated 38 files in 12ms
-    reverse: true
+step5_dx:
+  stepNumber: '05'
+  stepCategory: 'Developer DX & Automation'
+  title: 'Automated Tooling, Background Healing & Scale'
+  description: 'Maintain a pristine documentation repository effortlessly with background link-repair daemons, single-command workspace migration, and team ROI analytics.'
+  items:
+    - icon: 'link'
+      badge: 'Link Integrity'
+      title: 'Auto-Healing Link Daemon'
+      description: 'Move or rename markdown files freely — background daemons instantly update relative paths and cross-document links across the repository.'
+      cmd: 'ods watch'
+    - icon: 'rocket'
+      badge: 'Instant Onboarding'
+      title: '1-Command Folder Adoption'
+      description: 'Migrate hundreds of existing markdown files in seconds. <code>ods init --adopt</code> drafts frontmatter and sets up workspace boundaries.'
+      cmd: 'ods init . --adopt'
+    - icon: 'tools'
+      badge: 'Refactoring & ROI'
+      title: 'Bulk Tag Refactoring & Analytics'
+      description: 'Search, filter, and rename tags across your entire workspace, while calculating annual token savings benchmarks with precision.'
+      cmd: 'ods stats'
 
 bottomCTA:
-  title: "Want to see the technical details?"
-  subtitle: "All standard labels, properties, and terminal command flags are documented in the developer guides."
-  primaryBtnText: "View Developer Dictionary →"
-  primaryBtnLink: "/docs/features"
-  secondaryBtnText: "GitHub Repository ↗"
+  title: 'Ready to Upgrade Your AI Documentation DX?'
+  subtitle: 'Join high-velocity teams using Open Document Spec to eliminate AI hallucinations and automate code-to-spec synchronization.'
+  primaryBtnText: 'Read the Quickstart'
+  primaryBtnLink: '/docs/quickstart'
+  secondaryBtnText: 'Explore the Spec'
+  secondaryBtnLink: '/spec'
 ---
-
-# ODS Product Features Store
-
-This file stores all text, copy, metrics, feature cards, code blocks, banners, and links for the ODS Product Features page (`/features`).
-
-Edit any field in the YAML frontmatter above to immediately update the live feature page.

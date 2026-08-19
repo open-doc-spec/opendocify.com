@@ -10,6 +10,11 @@ const preferred = ["learn.md", "learn", "00-why-ods.md", "01-introduction.md"];
 const defaultEntry =
   preferred.map((id) => allEntries.find((entry) => (entry.id || "").replace(/\\/g, "/") === id || (entry.id || "").endsWith("/" + id))).find(Boolean) ||
   allEntries[0];
+
+if (!defaultEntry) {
+  return Astro.redirect("/404");
+}
+
 const { Content, headings } = await render(defaultEntry);
 ---
 
