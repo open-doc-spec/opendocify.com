@@ -99,9 +99,11 @@ import { REPO_URL } from "../lib/releases";
 
       <div class="cli-body">
         <div class="cli-line">
-          <span class="cli-prompt">$</span>
-          <span id="hero-typing-cmd" class="cli-command">curl -fsSL https://opendocify.com/install.sh | bash</span><span class="t-cursor"></span>
-          <button id="copy-cmd-btn" class="cli-copy-btn" title="Copy Command">
+          <div class="cli-cmd-container">
+            <span class="cli-prompt">$</span>
+            <span id="hero-typing-cmd" class="cli-command">curl -fsSL https://opendocify.com/install.sh | bash</span><span class="t-cursor"></span>
+          </div>
+          <button id="copy-cmd-btn" class="cli-copy-btn" type="button" title="Copy Command">
             <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
             <span class="copy-label">Copy</span>
@@ -1417,7 +1419,7 @@ import { REPO_URL } from "../lib/releases";
         </div>
 
         <div class="pricing-card-footer">
-          <a href={`${REPO_URL}/discussions`} target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">
+          <a href="https://github.com/open-doc-spec/ods" target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary pricing-btn-outline">
             Follow Roadmap
             <span aria-hidden="true">↗</span>
           </a>
@@ -1447,7 +1449,6 @@ import { REPO_URL } from "../lib/releases";
     const cmdElem = document.getElementById('hero-typing-cmd');
     const outputElem = document.getElementById('hero-cli-output');
     const replayBtn = document.getElementById('hero-cli-replay');
-    const presetBtns = document.querySelectorAll<HTMLButtonElement>('.hero-cmd-preset');
     const copyBtn = document.getElementById('copy-cmd-btn');
 
     if (!cmdElem || !outputElem) return;
@@ -1465,9 +1466,10 @@ import { REPO_URL } from "../lib/releases";
       cargo: {
         cmd: 'cargo install ods',
         outputHtml: `
-          <div class="cli-log"><span class="cli-checkmark">✓</span> Compiling ods v0.1.0 from crates.io...</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Fetching and compiling ods v0.1.0 from crates.io...</div>
           <div class="cli-log"><span class="cli-checkmark">✓</span> Optimized release build created [target/release/ods]</div>
-          <div class="cli-log"><span class="cli-checkmark">✓</span> Binary installed to ~/.cargo/bin/ods</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Installed binary executable to ~/.cargo/bin/ods</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Cursor, Claude, Copilot & Antigravity</div>
         `
       },
       npm: {
@@ -1475,7 +1477,8 @@ import { REPO_URL } from "../lib/releases";
         outputHtml: `
           <div class="cli-log"><span class="cli-checkmark">✓</span> Fetching @ods/cli package from npm registry...</div>
           <div class="cli-log"><span class="cli-checkmark">✓</span> Linked binary executable node_modules/@ods/cli/bin/ods</div>
-          <div class="cli-log"><span class="cli-checkmark">✓</span> Complete! Run \`ods init\` in any document repository</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Initialized workspace environment (~/.ods)</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Cursor, Claude, Copilot & Antigravity</div>
         `
       },
       context: {
@@ -1525,12 +1528,13 @@ import { REPO_URL } from "../lib/releases";
       const item = presets[presetKey] || presets.curl;
       currentRawCmd = item.cmd;
 
-      presetBtns.forEach((btn) => {
+      document.querySelectorAll('.hero-cmd-preset').forEach((btn) => {
         btn.classList.toggle('active', btn.getAttribute('data-preset') === presetKey);
       });
 
-      // Always populate command text & output HTML instantly (100% reliable & visible)
-      if (cmdElem) cmdElem.textContent = item.cmd;
+      if (cmdElem) {
+        cmdElem.textContent = item.cmd;
+      }
       if (outputElem) {
         outputElem.innerHTML = item.outputHtml;
         outputElem.style.opacity = '1';
@@ -1538,21 +1542,38 @@ import { REPO_URL } from "../lib/releases";
       }
     }
 
-    presetBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
+    // Direct button event binding
+    document.querySelectorAll<HTMLButtonElement>('.hero-cmd-preset').forEach((btn) => {
+      btn.onclick = (e) => {
+        e.preventDefault();
         const presetKey = btn.getAttribute('data-preset');
         if (presetKey) renderCommand(presetKey);
-      });
+      };
     });
 
-    if (replayBtn) {
-      replayBtn.addEventListener('click', () => {
-        renderCommand(activePreset);
+    // Delegated container click binding for resilience across re-renders
+    const presetBar = document.querySelector('.cli-preset-bar');
+    if (presetBar) {
+      presetBar.addEventListener('click', (e) => {
+        const target = (e.target as HTMLElement).closest('.hero-cmd-preset');
+        if (target) {
+          e.preventDefault();
+          const presetKey = target.getAttribute('data-preset');
+          if (presetKey) renderCommand(presetKey);
+        }
       });
     }
 
+    if (replayBtn) {
+      replayBtn.onclick = (e) => {
+        e.preventDefault();
+        renderCommand(activePreset);
+      };
+    }
+
     if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
+      copyBtn.onclick = (e) => {
+        e.preventDefault();
         navigator.clipboard.writeText(currentRawCmd);
         copyBtn.classList.add('copied');
         const copyLabel = copyBtn.querySelector('.copy-label') as HTMLElement | null;
@@ -1568,10 +1589,10 @@ import { REPO_URL } from "../lib/releases";
           if (copyIcon) copyIcon.style.display = 'inline-block';
           if (checkIcon) checkIcon.style.display = 'none';
         }, 2000);
-      });
+      };
     }
 
-    // Render statically & instantly on initial page load
+    // Initial render
     renderCommand('curl');
   }
 
@@ -1789,6 +1810,7 @@ import { REPO_URL } from "../lib/releases";
     setupHomePricingToggle();
   }
 
+  document.addEventListener('astro:page-load', initHomeScripts);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHomeScripts);
   } else {
@@ -1802,22 +1824,41 @@ import { REPO_URL } from "../lib/releases";
     max-width: 820px;
     width: 100%;
     margin: var(--space-32) auto 0 auto;
-    background: #09090b !important;
-    background-color: #09090b !important;
-    border: none !important;
-    border-radius: var(--radius-outer) !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-outer, 12px) !important;
     overflow: hidden !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    text-align: left;
   }
 
   .cli-header {
-    background: #141824 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding: 14px 20px !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 12px 18px !important;
     display: flex;
     align-items: center;
     gap: 12px;
   }
+
+  .cli-dots {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+  }
+
+  .cli-dots .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .cli-dots .dot.red { background: #ff5f56 !important; }
+  .cli-dots .dot.yellow { background: #ffbd2e !important; }
+  .cli-dots .dot.green { background: #27c93f !important; }
 
   .cli-title-group {
     display: flex;
@@ -1826,37 +1867,53 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .cli-title {
-    color: #cbd5e1 !important;
+    color: #e2e8f0 !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
+    font-family: var(--font-mono, monospace) !important;
+  }
+
+  .cli-tag {
+    font-size: 0.65rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+    color: #38bdf8 !important;
+    background: rgba(56, 189, 248, 0.1) !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+    padding: 2px 7px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase;
   }
 
   .cli-replay-btn {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: #18181b !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
     color: #94a3b8 !important;
     padding: 4px 10px;
     font-size: 0.72rem;
     font-weight: 600;
-    border-radius: var(--radius-child) !important;
+    border-radius: 6px !important;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.15s ease;
     margin-left: auto;
   }
 
   .cli-replay-btn:hover {
-    background: rgba(255, 255, 255, 0.14) !important;
+    background: #27272a !important;
     color: #f8fafc !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
   }
 
   .cli-preset-bar {
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: #0d121d !important;
-    padding: 10px 20px !important;
+    gap: 14px;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    padding: 10px 18px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     overflow-x: auto;
     flex-wrap: wrap;
@@ -1871,7 +1928,7 @@ import { REPO_URL } from "../lib/releases";
   .preset-divider {
     width: 1px;
     height: 18px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.15);
   }
 
   .preset-label {
@@ -1885,104 +1942,129 @@ import { REPO_URL } from "../lib/releases";
   }
 
   .hero-cmd-preset {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #18181b !important;
+    background-color: #18181b !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     color: #94a3b8 !important;
     padding: 4px 12px;
-    font-family: var(--font-mono) !important;
+    font-family: var(--font-mono, monospace) !important;
     font-size: 0.75rem;
     font-weight: 500;
-    border-radius: var(--radius-child) !important;
+    border-radius: 6px !important;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.15s ease;
     white-space: nowrap;
   }
 
   .hero-cmd-preset:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: #27272a !important;
     color: #f8fafc !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
   }
 
   .hero-cmd-preset.active {
-    background: rgba(56, 189, 248, 0.18) !important;
+    background: rgba(56, 189, 248, 0.15) !important;
     color: #38bdf8 !important;
-    border-color: rgba(56, 189, 248, 0.45) !important;
+    border-color: #38bdf8 !important;
     font-weight: 600;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.18);
   }
 
   .cli-body {
-    background: #090d16 !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
     color: #e2e8f0 !important;
-    padding: 16px 20px !important;
+    padding: 16px 18px 18px 18px !important;
   }
 
+  /* Grey container for command line with high visibility */
   .cli-line {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: var(--radius-inner) !important;
-    padding: 8px 14px !important;
-    margin-bottom: 10px !important;
+    justify-content: space-between;
+    gap: 10px;
+    background: #1c1d22 !important;
+    background-color: #1c1d22 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    margin-bottom: 12px !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .cli-cmd-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
   }
 
   .cli-prompt {
-    color: #22c55e !important;
-    font-family: var(--font-mono) !important;
+    color: #10b981 !important;
+    font-family: var(--font-mono, monospace) !important;
     font-weight: 700;
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
     user-select: none;
+    flex-shrink: 0;
   }
 
   .cli-command {
-    font-family: var(--font-mono) !important;
-    color: #38bdf8 !important;
-    font-size: 0.8rem !important;
+    font-family: var(--font-mono, monospace) !important;
+    color: #f1f5f9 !important;
+    font-size: 0.82rem !important;
+    font-weight: 500;
     word-break: break-all;
   }
 
   .cli-copy-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    gap: 6px;
+    background: #27272a !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
     color: #e2e8f0 !important;
-    padding: 4px 10px;
-    font-size: 0.7rem !important;
+    padding: 5px 12px;
+    font-size: 0.72rem !important;
     font-weight: 600;
-    border-radius: var(--radius-child) !important;
+    border-radius: 6px !important;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.15s ease;
     margin-left: auto;
     flex-shrink: 0;
   }
 
   .cli-copy-btn:hover {
-    background: rgba(255, 255, 255, 0.16) !important;
+    background: #3f3f46 !important;
     color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
   }
 
   .cli-copy-btn.copied {
-    background: rgba(34, 197, 94, 0.2) !important;
-    border-color: rgba(34, 197, 94, 0.4) !important;
-    color: #4ade80 !important;
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: rgba(16, 185, 129, 0.5) !important;
+    color: #34d399 !important;
   }
 
-  /* Force dark inner tree box (Fixes white background box bug) */
+  .cli-output {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: opacity 0.15s ease;
+  }
+
+  /* Dark inner tree box */
   .cli-tree {
-    background: #141824 !important;
-    background-color: #141824 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: var(--radius-inner) !important;
+    background: #141417 !important;
+    background-color: #141417 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
     padding: 12px 16px !important;
-    margin-bottom: 10px !important;
-    font-family: var(--font-mono) !important;
+    margin-bottom: 8px !important;
+    font-family: var(--font-mono, monospace) !important;
     font-size: 0.76rem !important;
     line-height: 1.6 !important;
-    color: #f8fafc !important;
+    color: #e2e8f0 !important;
   }
 
   .tree-tag {
@@ -1993,20 +2075,21 @@ import { REPO_URL } from "../lib/releases";
 
   .cli-log {
     color: #94a3b8 !important;
-    font-size: 0.74rem !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 0.76rem !important;
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    margin-top: 4px !important;
+    gap: 8px !important;
+    margin-top: 3px !important;
     background: transparent !important;
     background-color: transparent !important;
     line-height: 1.4 !important;
   }
 
   .cli-checkmark {
-    color: #4ade80 !important;
+    color: #10b981 !important;
     font-weight: bold !important;
-    font-size: 0.74rem !important;
+    font-size: 0.76rem !important;
   }
 
   .t-cursor {
@@ -4425,159 +4508,6 @@ import { REPO_URL } from "../lib/releases";
     overflow-x: auto;
   }
 
-  /* ── CLI Simulator Box ── */
-
-  .cli-wrap {
-    width: min(92vw, 820px);
-    margin: 0 auto;
-    background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: var(--radius-xl) !important;
-    overflow: hidden;
-    opacity: 0;
-    animation: fade-in 0.38s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32) !important;
-  }
-
-  .cli-header {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 14px 24px !important;
-    background: #141824 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  }
-
-  .cli-dots {
-    display: flex;
-    gap: 8px;
-    justify-self: start;
-  }
-
-  .cli-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  .cli-dots .dot.red { background: #ff5f57 !important; }
-  .cli-dots .dot.yellow { background: #febc2e !important; }
-  .cli-dots .dot.green { background: #28c840 !important; }
-
-  .cli-title {
-    font-family: var(--font-mono) !important;
-    font-size: 0.8rem !important;
-    font-weight: 500 !important;
-    color: #94a3b8 !important;
-    letter-spacing: 0.02em !important;
-    text-align: center;
-  }
-
-  .cli-tag {
-    font-family: var(--font-mono) !important;
-    font-size: 0.7rem !important;
-    color: #64748b !important;
-    justify-self: end;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .cli-body {
-    padding: 18px 20px !important;
-    background: #090d16 !important;
-  }
-
-  .cli-line {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #141824 !important;
-    padding: 12px 20px !important;
-    border-radius: var(--radius-nested-lg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    margin-bottom: 10px !important;
-  }
-
-  .cli-prompt {
-    color: #22c55e !important;
-    margin-right: 12px !important;
-    font-weight: bold;
-  }
-
-  .cli-command {
-    color: #f8fafc !important;
-    font-weight: 500;
-    flex: 1;
-    font-family: var(--font-mono) !important;
-    font-size: 0.85rem !important;
-  }
-
-  .cli-copy-btn {
-    background: transparent;
-    border: none;
-    color: #64748b !important;
-    cursor: pointer;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    border-radius: 4px;
-  }
-
-  .cli-copy-btn:hover {
-    color: #f8fafc !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-  }
-
-  .cli-copy-btn.copied {
-    color: #4ade80 !important;
-    background: rgba(34, 197, 94, 0.15) !important;
-  }
-
-  .cli-copy-btn.copied svg {
-    color: #4ade80 !important;
-    stroke: #4ade80 !important;
-  }
-
-  .cli-output {
-    display: flex;
-    flex-direction: column;
-    gap: 6px !important;
-    margin-top: 4px !important;
-  }
-
-  .cli-tree {
-    background: #141824 !important;
-    padding: 10px 14px !important;
-    border-radius: var(--radius-nested-lg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    color: #94a3b8 !important;
-    font-size: 0.72rem !important;
-    line-height: 1.45 !important;
-  }
-
-  .tree-tag {
-    color: #64748b !important;
-    font-size: 0.68rem !important;
-    margin-left: 4px;
-  }
-
-  .cli-log {
-    color: #71717a !important;
-    font-size: 0.72rem !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    line-height: 1.35 !important;
-  }
-
-  .cli-checkmark {
-    color: #22c55e !important;
-    font-weight: bold;
-    font-size: 0.72rem !important;
-  }
-
   /* ── Features Grid ── */
 
   .features-grid {
@@ -5972,15 +5902,15 @@ import { REPO_URL } from "../lib/releases";
     text-decoration: none;
     transition: all 0.2s ease;
     text-align: center;
-    border: none !important;
     outline: none !important;
-    box-shadow: none !important;
     box-sizing: border-box;
+    cursor: pointer;
   }
 
   .pricing-btn-primary {
     background: var(--action-bg);
     color: var(--action-fg);
+    border: 1px solid transparent;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
@@ -5990,19 +5920,32 @@ import { REPO_URL } from "../lib/releases";
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .pricing-btn-secondary {
-    background: var(--card-bg);
-    color: var(--fg);
-    border: none !important;
-    outline: none !important;
+  .pricing-btn-secondary,
+  .pricing-btn-outline {
+    background: transparent !important;
+    color: var(--fg) !important;
+    border: 1px solid var(--color-border, #e4e4e7) !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
   }
 
-  .pricing-btn-secondary:hover {
-    background: var(--nested-card-bg);
-    border: none !important;
-    outline: none !important;
+  .pricing-btn-secondary:hover,
+  .pricing-btn-outline:hover {
+    background: var(--nested-card-bg) !important;
+    border-color: var(--fg) !important;
     transform: translateY(-1px);
+  }
+
+  .dark .pricing-btn-secondary,
+  .dark .pricing-btn-outline {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    color: var(--fg) !important;
+  }
+
+  .dark .pricing-btn-secondary:hover,
+  .dark .pricing-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
   }
 
   .pulse-dot-green {
@@ -6558,6 +6501,7 @@ import { REPO_URL } from "../lib/releases";
     updateTerminal();
   }
 
+  document.addEventListener('astro:page-load', setupAssistantSwitcher);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupAssistantSwitcher);
   } else {

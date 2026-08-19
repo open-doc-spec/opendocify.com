@@ -301,14 +301,14 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     color: inherit;
   }
 
-  /* Install terminal stays a dark IDE even in light mode. Injected token
-     spans inherit this color if theme tokens (--fg) would otherwise be black. */
+  /* Install terminal stays a sleek black IDE. */
   .ods-marketing .terminal-container,
   .ods-marketing .terminal-container .terminal-tab-bar,
   .ods-marketing .cli-wrap {
-    background: #09090b !important;
-    background-color: #09090b !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
     color: #e2e8f0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
   }
 
   .ods-marketing .cli-wrap,
@@ -317,48 +317,46 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
   .ods-marketing .cli-wrap .cli-header {
-    background: #141824 !important;
-    background-color: #141824 !important;
-    border: none !important;
-    border-bottom: none !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     outline: none !important;
   }
 
   .ods-marketing .cli-wrap .cli-preset-bar {
-    background: #0d121d !important;
-    background-color: #0d121d !important;
-    border: none !important;
-    border-bottom: none !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     outline: none !important;
   }
 
   .ods-marketing .cli-wrap .cli-body {
-    background: #090d16 !important;
-    background-color: #090d16 !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
   }
 
   .ods-marketing .cli-wrap .cli-line {
-    background: #141824 !important;
-    background-color: #141824 !important;
-    border: none !important;
+    background: #1c1d22 !important;
+    background-color: #1c1d22 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     outline: none !important;
   }
 
   .ods-marketing .cli-wrap .cli-tree {
-    background: #141824 !important;
-    background-color: #141824 !important;
-    border: none !important;
+    background: #141417 !important;
+    background-color: #141417 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     outline: none !important;
     color: #f1f5f9 !important;
   }
 
   .ods-marketing .cli-wrap .tree-tag {
-    color: #94a3b8 !important;
+    color: #38bdf8 !important;
   }
 
   .ods-marketing .cli-wrap .cli-log {
-    color: #71717a !important;
-    font-size: 0.72rem !important;
+    color: #94a3b8 !important;
+    font-size: 0.76rem !important;
     background: transparent !important;
     background-color: transparent !important;
   }

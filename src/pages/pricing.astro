@@ -4,7 +4,6 @@
 // Layer: Marketing page
 
 import Layout from "../layouts/Layout.astro";
-import { REPO_URL } from "../lib/releases";
 ---
 
 <Layout title="Pricing: Open Document Spec (ODS)" activeNav="pricing">
@@ -147,7 +146,7 @@ import { REPO_URL } from "../lib/releases";
         </div>
 
         <div class="card-actions">
-          <a href={`${REPO_URL}/discussions`} target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full">
+          <a href="https://github.com/open-doc-spec/ods" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-outline btn-full">
             Follow Roadmap
             <span aria-hidden="true">↗</span>
           </a>
@@ -544,14 +543,13 @@ import { REPO_URL } from "../lib/releases";
     text-align: center;
     box-sizing: border-box;
     cursor: pointer;
-    border: none !important;
     outline: none !important;
   }
 
   .btn-primary {
     background: var(--color-foreground, #0f172a);
     color: var(--color-background, #ffffff);
-    border: none;
+    border: 1px solid transparent;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
@@ -561,19 +559,32 @@ import { REPO_URL } from "../lib/releases";
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .btn-secondary {
-    background: var(--color-card, #ffffff);
-    color: var(--color-text, var(--color-foreground));
-    border: none !important;
-    outline: none !important;
+  .btn-secondary,
+  .btn-outline {
+    background: transparent !important;
+    color: var(--color-text, var(--color-foreground)) !important;
+    border: 1px solid var(--color-border, #e4e4e7) !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   }
 
-  .btn-secondary:hover {
-    background: var(--color-surface-muted, rgba(0, 0, 0, 0.04));
-    border: none !important;
-    outline: none !important;
+  .btn-secondary:hover,
+  .btn-outline:hover {
+    background: var(--color-surface-muted, rgba(0, 0, 0, 0.04)) !important;
+    border-color: var(--color-foreground, #0f172a) !important;
     transform: translateY(-1px);
+  }
+
+  .dark .btn-secondary,
+  .dark .btn-outline {
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: var(--color-text, var(--color-foreground)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  .dark .btn-secondary:hover,
+  .dark .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
   }
 
   .btn-full {
