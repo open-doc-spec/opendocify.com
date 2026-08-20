@@ -457,7 +457,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   /* 1. Global border-radius hierarchy: 32px (Outer Card/Container) -> 24px (Inside Card) -> 12px (Children/Inner Elements) */
   
   /* Outlined Container (32px) */
-  .outlined-container, .outer-container, .hero-calculator-box, .assistant-switcher-box, .pathways-box, .cli-wrap, .terminal-container, .schema-table-wrap, .flowchart-box, .token-chart-box, .feature-big-banner, .cta-banner, .examples-cta, .features-bottom-cta, .exact-card, .exact-summary-banner {
+  .outlined-container, .outer-container, .hero-calculator-box, .assistant-switcher-box, .pathways-box, .cli-wrap, .terminal-container, .schema-table-wrap, .flowchart-box, .token-chart-box, .feature-big-banner, .cta-banner, .examples-cta, .features-bottom-cta, .exact-card, .exact-summary-banner, .metrics-grid {
     border-radius: var(--radius-outer) !important; /* 32px */
   }
 
@@ -532,7 +532,6 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .hero-calculator-box .output-card,
   .hero-calculator-box .calc-hero-card,
   .hero-calculator-box .calc-metric-card,
-  .hero-calculator-box .calc-inputs-panel,
   .assistant-switcher-box .terminal-container,
   .pathways-box .pathway-col,
   .cli-wrap .cli-box {
@@ -615,8 +614,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .inside-container,
   .inner-container,
   .calc-hero-card,
-  .calc-metric-card,
-  .calc-inputs-panel {
+  .calc-metric-card {
     background-color: var(--nested-card-bg) !important;
     background-image: none !important;
     border: none !important;
@@ -648,7 +646,6 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .badge-status,
   .calc-hero-card,
   .calc-metric-card,
-  .calc-inputs-panel,
   .code-window-header,
   .terminal-header,
   .terminal-tab-bar,
@@ -794,7 +791,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .section-divider {
     width: min(88vw, 1000px);
     height: 1px;
-    margin: 48px auto;
+    margin: 64px auto;
     background: linear-gradient(
       90deg,
       transparent 0%,
@@ -824,6 +821,14 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
 
   .section-container,
   .hero-section,
+  .metrics-strip-section,
+  .cookbook-analogy-section,
+  .assistant-setup-section,
+  .persona-adoption-section,
+  .workflow-section,
+  .pathways-section,
+  .matrix-section,
+  .templates-section,
   .feature-hero-top,
   .feature-row,
   .feature-big-banner,
@@ -841,8 +846,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .changelog-cta,
   .cta-banner,
   .industry-roi-chart-box {
-    margin-top: 150px !important;
-    margin-bottom: 150px !important;
+    margin-top: clamp(100px, 12vw, 160px) !important;
+    margin-bottom: clamp(100px, 12vw, 160px) !important;
     padding-top: var(--space-6);
     padding-bottom: var(--space-6);
     scroll-margin-top: 120px;
@@ -853,7 +858,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .hero-section,
   .feature-hero-top {
     margin-top: var(--space-32) !important;
-    margin-bottom: 150px !important;
+    margin-bottom: clamp(100px, 12vw, 160px) !important;
   }
 
   /* Reset platform list gap to let margin handle spacing */
@@ -863,12 +868,20 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
 
   @media (max-width: 768px) {
     .section-divider {
-      margin: 32px auto;
+      margin: 40px auto;
       width: min(92vw, 600px);
     }
 
     .section-container,
     .hero-section,
+    .metrics-strip-section,
+    .cookbook-analogy-section,
+    .assistant-setup-section,
+    .persona-adoption-section,
+    .workflow-section,
+    .pathways-section,
+    .matrix-section,
+    .templates-section,
     .feature-hero-top,
     .feature-row,
     .feature-big-banner,
@@ -886,8 +899,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     .changelog-cta,
     .cta-banner,
     .industry-roi-chart-box {
-      margin-top: 96px !important;
-      margin-bottom: 96px !important;
+      margin-top: clamp(64px, 9vw, 96px) !important;
+      margin-bottom: clamp(64px, 9vw, 96px) !important;
       padding-top: var(--space-4);
       padding-bottom: var(--space-4);
       scroll-margin-top: 85px;
@@ -897,7 +910,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     .hero-section,
     .feature-hero-top {
       margin-top: var(--space-32) !important;
-      margin-bottom: 96px !important;
+      margin-bottom: clamp(64px, 9vw, 96px) !important;
     }
   }
 

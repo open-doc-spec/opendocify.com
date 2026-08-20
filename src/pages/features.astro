@@ -59,10 +59,6 @@ interface DXItem {
 
     <!-- PAGE HERO HEADER -->
     <div class="features-hero" data-animate>
-      <div class="hero-pill-badge">
-        <span class="pulse-dot" aria-hidden="true"></span>
-        <span>{frontmatter.header.pillBadge}</span>
-      </div>
       <h1 class="hero-title">{frontmatter.header.pageTitle}</h1>
       <p class="hero-subtitle">{frontmatter.header.pageSubtitle}</p>
 
@@ -77,32 +73,11 @@ interface DXItem {
           ))
         }
       </div>
-
-      <!-- STANDALONE QUICK JUMP CHIPS (Direct clean access) -->
-      <nav class="step-chips-row" aria-label="Feature Steps Direct Jump Navigation">
-        <a href="#step-01" class="step-chip">
-          <span class="chip-num">01</span>
-          <span class="chip-label">Context Engine</span>
-        </a>
-        <a href="#step-02" class="step-chip">
-          <span class="chip-num">02</span>
-          <span class="chip-label">Code &amp; Spec Graph</span>
-        </a>
-        <a href="#step-03" class="step-chip">
-          <span class="chip-num">03</span>
-          <span class="chip-label">Profiles &amp; Standards</span>
-        </a>
-        <a href="#step-04" class="step-chip">
-          <span class="chip-num">04</span>
-          <span class="chip-label">Security &amp; Privacy</span>
-        </a>
-        <a href="#step-05" class="step-chip">
-          <span class="chip-num">05</span>
-          <span class="chip-label">Developer DX</span>
-        </a>
-      </nav>
     </div>
   </header>
+
+  <!-- Ethereal Section Divider between Hero and Step 01 -->
+  <div class="hero-section-divider" aria-hidden="true"></div>
 
   <div class="features-page">
 
@@ -604,19 +579,35 @@ interface DXItem {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-top: clamp(3.5rem, 6vw, 5.5rem);
-    padding-bottom: clamp(2.5rem, 4vw, 4rem);
+    padding-top: clamp(3rem, 5vw, 4.5rem);
+    padding-bottom: clamp(2rem, 3.5vw, 3rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
+  .hero-section-divider {
+    width: min(94vw, 1220px);
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-border) 20%,
+      var(--color-border) 80%,
+      transparent 100%
+    );
+    opacity: 0.65;
+    position: relative;
+    z-index: 1;
+  }
+
   .features-page {
     width: min(94vw, 1220px);
     margin: 0 auto;
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-80);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
     position: relative;
     z-index: 1;
   }
@@ -634,43 +625,6 @@ interface DXItem {
     margin: 0 auto;
   }
 
-  .hero-pill-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 0.775rem;
-    font-weight: 650;
-    padding: 6px 16px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-20);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 8px #10b981;
-    animation: pulse 2s infinite ease-in-out;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.4;
-      transform: scale(0.85);
-    }
-  }
-
   .hero-title {
     font-size: clamp(2.5rem, 5.2vw, 3.75rem);
     font-weight: 850;
@@ -686,15 +640,15 @@ interface DXItem {
     color: var(--color-text-muted);
     line-height: 1.65;
     max-width: 760px;
-    margin: 0 auto var(--space-36);
+    margin: 0 auto var(--space-28);
   }
 
   /* Quick Stats Strip */
   .quick-stats-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-16);
-    margin-bottom: var(--space-32);
+    gap: clamp(12px, 1.5vw, 16px);
+    margin-bottom: 0;
   }
 
   .quick-stat-card {
@@ -736,73 +690,12 @@ interface DXItem {
     text-align: center;
   }
 
-  /* Standalone Direct Jump Chips Row (No Clunky Wrapper Bubble) */
-  .step-chips-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-12);
-    margin: 0 auto;
-  }
-
-  .step-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 14px 5px 5px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    color: var(--color-text-muted);
-    font-size: 0.825rem;
-    font-weight: 550;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-    text-decoration: none;
-  }
-
-  .step-chip:hover {
-    color: var(--color-text);
-    border-color: var(--color-border-strong);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .chip-num {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 800;
-    background: var(--color-surface-muted);
-    color: var(--color-text);
-    padding: 3px 8px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--color-border);
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition:
-      background-color 0.18s ease,
-      color 0.18s ease;
-  }
-
-  .step-chip:hover .chip-num {
-    background: var(--action-bg);
-    color: var(--action-fg);
-    border-color: transparent;
-  }
-
-  .chip-label {
-    line-height: 1;
-  }
-
   /* ═══════════════════════════════════════════════════════════════════
      STEP CONTAINER & DEFINITIONAL SECTION HEADER (Clean Symmetrical Badge)
      ═══════════════════════════════════════════════════════════════════ */
 
   .step-container {
-    margin-bottom: clamp(6rem, 11vw, 9rem);
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
     scroll-margin-top: 90px;
     position: relative;
   }
@@ -819,13 +712,16 @@ interface DXItem {
       var(--color-border) 80%,
       transparent 100%
     );
-    margin-top: clamp(6rem, 11vw, 9rem);
-    opacity: 0.75;
+    margin-top: clamp(3.5rem, 6vw, 5.5rem);
+    opacity: 0.65;
   }
 
   .step-header {
-    margin-bottom: var(--space-40);
-    text-align: left;
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .step-tag-pill {
@@ -838,7 +734,7 @@ interface DXItem {
     border: 1px solid var(--color-border);
     padding: 4px 14px 4px 4px;
     border-radius: var(--radius-pill);
-    margin-bottom: var(--space-16);
+    margin-bottom: 8px;
     box-shadow: var(--shadow-sm);
   }
 
@@ -871,20 +767,22 @@ interface DXItem {
   }
 
   .step-title {
-    font-size: clamp(2rem, 4.2vw, 2.75rem);
+    font-size: clamp(1.85rem, 3.8vw, 2.5rem);
     font-weight: 850;
     letter-spacing: -0.035em;
     color: var(--color-text);
-    margin-bottom: var(--space-12);
+    margin-bottom: 6px;
     line-height: 1.18;
+    text-align: center;
   }
 
   .step-desc {
-    font-size: 1.0625rem;
+    font-size: 1.05rem;
     color: var(--color-text-muted);
-    line-height: 1.68;
-    max-width: 850px;
-    margin: 0;
+    line-height: 1.55;
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   /* ═══════════════════════════════════════════════════════════════════
@@ -893,7 +791,7 @@ interface DXItem {
 
   .bento-grid {
     display: grid;
-    gap: var(--space-32);
+    gap: clamp(1.25rem, 2vw, 1.75rem);
   }
 
   .bento-step-01 {
@@ -910,7 +808,7 @@ interface DXItem {
 
   .bento-grid-3 {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-24);
+    gap: clamp(1.15rem, 1.8vw, 1.5rem);
   }
 
   /* Standard Bento Card with Generous Internal Breathing Room */
@@ -918,7 +816,7 @@ interface DXItem {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
-    padding: clamp(1.75rem, 3.5vw, 2.4rem);
+    padding: clamp(1.5rem, 2.5vw, 2.25rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -938,15 +836,15 @@ interface DXItem {
   }
 
   .card-top {
-    margin-bottom: var(--space-24);
+    margin-bottom: var(--space-20);
   }
 
   .card-meta {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    margin-bottom: var(--space-14);
+    gap: 8px;
+    margin-bottom: var(--space-10);
   }
 
   .card-badge {
@@ -968,7 +866,7 @@ interface DXItem {
   }
 
   .card-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 750;
     color: var(--color-text);
     letter-spacing: -0.015em;
@@ -979,22 +877,22 @@ interface DXItem {
   .card-desc {
     font-size: 0.925rem;
     color: var(--color-text-muted);
-    line-height: 1.62;
+    line-height: 1.6;
     margin: 0;
   }
 
   .card-metrics-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-12);
-    margin-top: var(--space-20);
+    gap: 10px;
+    margin-top: var(--space-16);
   }
 
   .mini-metric-pill {
     background: var(--color-surface-muted);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    padding: 8px 15px;
+    padding: 7px 14px;
     display: flex;
     flex-direction: column;
   }
@@ -1318,7 +1216,8 @@ interface DXItem {
   .profiles-matrix {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-14);
+    gap: 16px;
+    margin-top: 4px;
   }
 
   .profile-cell {
@@ -1329,22 +1228,24 @@ interface DXItem {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     transition:
       transform 0.18s ease,
-      border-color 0.18s ease;
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
   }
 
   .profile-cell:hover {
     transform: translateY(-2px);
     border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-sm);
   }
 
   .profile-cell-top {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 6px;
   }
 
   .profile-tag {
@@ -1364,7 +1265,7 @@ interface DXItem {
     font-weight: 750;
     color: var(--color-text);
     margin: 0;
-    line-height: 1.25;
+    line-height: 1.3;
   }
 
   .profile-desc {
@@ -1377,8 +1278,9 @@ interface DXItem {
   .profile-headings-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
     margin-top: auto;
+    padding-top: 4px;
   }
 
   .h-chip {
@@ -1387,7 +1289,7 @@ interface DXItem {
     background: var(--color-surface);
     color: var(--color-text-subtle);
     border: 1px solid var(--color-border);
-    padding: 2px 6px;
+    padding: 2px 7px;
     border-radius: var(--radius-sm);
     white-space: nowrap;
   }
@@ -1427,6 +1329,7 @@ interface DXItem {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    transition: all 0.2s ease;
   }
 
   .timeline-step-row:not(:last-child) .timeline-track-line {
@@ -1468,22 +1371,28 @@ interface DXItem {
     line-height: 1.45;
   }
 
-  /* Active Compliant Step Highlighting */
+  /* Active Compliant Step Highlighting (Grey-based aesthetic) */
   .timeline-step-row.is-active-step .timeline-node {
-    background: #10b981;
-    border-color: #10b981;
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    background: var(--action-bg);
+    border-color: var(--action-bg);
+    color: var(--action-fg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .dark .timeline-step-row.is-active-step .timeline-node {
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
   }
 
   .timeline-step-row.is-active-step .timeline-content-card {
-    background: rgba(16, 185, 129, 0.06);
-    border-color: #10b981;
-    box-shadow: 0 2px 12px rgba(16, 185, 129, 0.08);
+    background: var(--color-surface);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-sm);
   }
 
   .dark .timeline-step-row.is-active-step .timeline-content-card {
-    background: rgba(16, 185, 129, 0.1);
+    background: var(--color-surface-muted);
+    border-color: var(--color-border-strong);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
 
   .status-pill-success {
@@ -1492,20 +1401,31 @@ interface DXItem {
     gap: 6px;
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    font-weight: 750;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-weight: 700;
+    color: var(--color-text);
+    background: var(--color-surface-muted);
+    border: 1px solid var(--color-border-strong);
     padding: 2px 9px;
     border-radius: var(--radius-pill);
+  }
+
+  .dark .status-pill-success {
+    background: var(--color-surface);
+    border-color: var(--color-border-strong);
+    color: var(--color-text);
   }
 
   .status-dot-pulse {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 6px #10b981;
+    background: var(--color-text);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .status-dot-pulse {
+    background: var(--color-text);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
   }
 
   /* ═══════════════════════════════════════════════════════════════════
@@ -1688,18 +1608,18 @@ interface DXItem {
      ═══════════════════════════════════════════════════════════════════ */
 
   .features-cta-section {
-    margin-top: clamp(5rem, 9vw, 7.5rem);
+    margin-top: clamp(3.5rem, 6vw, 5.5rem);
   }
 
   .cta-inner-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
-    padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+    padding: clamp(2.25rem, 4.5vw, 3.5rem) clamp(1.75rem, 3.5vw, 3rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-32);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
@@ -1791,10 +1711,12 @@ interface DXItem {
     .bento-step-03,
     .bento-grid-3 {
       grid-template-columns: 1fr;
+      gap: var(--space-16);
     }
 
     .quick-stats-strip {
       grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
   }
 
@@ -1802,25 +1724,33 @@ interface DXItem {
     .features-page {
       width: 100% !important;
       max-width: 100% !important;
-      padding: var(--space-24) 1rem var(--space-64) 1rem !important;
+      padding: var(--space-16) 1rem clamp(3rem, 6vw, 4.5rem) 1rem !important;
       box-sizing: border-box !important;
     }
 
-    .features-hero {
-      width: 100% !important;
-      max-width: 100% !important;
-      box-sizing: border-box !important;
+    .step-container {
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .step-container:not(:last-of-type)::after {
+      margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .step-header {
+      margin-bottom: var(--space-20);
     }
 
     .bento-card {
-      padding: var(--space-20) var(--space-16) !important;
+      padding: var(--space-16) var(--space-14) !important;
       width: 100% !important;
       box-sizing: border-box !important;
+      border-radius: var(--radius-lg) !important;
     }
 
     .ai-chips-bento-grid,
     .profiles-matrix {
       grid-template-columns: 1fr;
+      gap: 10px;
       width: 100%;
       box-sizing: border-box;
     }
@@ -1828,19 +1758,20 @@ interface DXItem {
     .cta-inner-card {
       flex-direction: column;
       text-align: center;
-      padding: var(--space-32) var(--space-16) !important;
+      padding: var(--space-28) var(--space-16) !important;
       width: 100% !important;
       box-sizing: border-box !important;
+      gap: var(--space-20);
     }
 
     .cta-subtitle {
-      margin-bottom: var(--space-20);
+      margin-bottom: 0;
     }
 
     .cta-buttons {
       width: 100%;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .cta-primary-btn,
@@ -1854,15 +1785,12 @@ interface DXItem {
   @media (max-width: 480px) {
     .quick-stats-strip {
       grid-template-columns: 1fr;
+      gap: 10px;
       width: 100%;
     }
 
-    .step-chips-row {
-      gap: 8px;
-    }
-
     .bento-card {
-      padding: 16px 12px !important;
+      padding: 14px 12px !important;
     }
   }
 </style>
