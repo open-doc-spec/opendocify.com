@@ -18,7 +18,7 @@ export interface ChangelogEntry {
  */
 export const changelog: ChangelogEntry[] = [
   {
-    tag: 'v0.0.30',
+    tag: 'v0.0.29',
     date: 'August 21, 2026',
     latest: true,
     title: 'ods.toml is sole workspace marker; policy keys forbidden in document frontmatter',
@@ -232,7 +232,7 @@ export const changelog: ChangelogEntry[] = [
     items: [
       {
         label: 'Today',
-        text: 'Install `v0.0.30`. This tag is history, not the current product.',
+        text: 'Install `v0.0.29`. This tag is history, not the current product.',
       },
     ],
   },
