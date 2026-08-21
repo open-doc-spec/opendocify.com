@@ -108,9 +108,9 @@ import { ORG_URL } from "../lib/releases";
             <div class="chat-prompt-card">
               <div class="chat-prompt-code-wrap">
                 <span class="chat-sparkle-icon">✨</span>
-                <span class="chat-prompt-text" id="nontech-prompt-text">Install ODS skill &amp; index my docs</span>
+                <span class="chat-prompt-text" id="nontech-prompt-text">Run "gh skill install open-doc-spec/ods-skills" &amp; make my docs AI-ready</span>
               </div>
-              <button class="step-copy-btn hero-prompt-copy-btn" data-code="Install ODS skill &amp; index my docs" title="Copy AI Prompt" type="button">
+              <button class="step-copy-btn hero-prompt-copy-btn" data-code='Run "gh skill install open-doc-spec/ods-skills" &amp; make my docs AI-ready' title="Copy AI Prompt" type="button">
                 <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
                 <span class="copy-text">Copy Prompt</span>
@@ -142,9 +142,9 @@ import { ORG_URL } from "../lib/releases";
             <div class="cli-preset-bar">
               <div class="preset-group">
                 <span class="preset-label">INSTALL:</span>
-                <button class="hero-cmd-preset active" data-preset="curl" type="button">curl</button>
+                <button class="hero-cmd-preset active" data-preset="gh-skill" type="button">gh skill</button>
+                <button class="hero-cmd-preset" data-preset="curl" type="button">curl</button>
                 <button class="hero-cmd-preset" data-preset="cargo" type="button">cargo</button>
-                <button class="hero-cmd-preset" data-preset="npm" type="button">npm</button>
               </div>
               <div class="preset-divider" aria-hidden="true"></div>
               <div class="preset-group">
@@ -159,7 +159,7 @@ import { ORG_URL } from "../lib/releases";
               <div class="cli-line">
                 <div class="cli-cmd-container">
                   <span class="cli-prompt">$</span>
-                  <span id="hero-typing-cmd" class="cli-command">curl -fsSL https://opendocify.com/install.sh | bash</span><span class="t-cursor"></span>
+                  <span id="hero-typing-cmd" class="cli-command">gh skill install open-doc-spec/ods-skills</span><span class="t-cursor"></span>
                 </div>
                 <button id="copy-cmd-btn" class="cli-copy-btn" type="button" title="Copy Command">
                   <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
@@ -168,9 +168,10 @@ import { ORG_URL } from "../lib/releases";
                 </button>
               </div>
               <div id="hero-cli-output" class="cli-output">
-                <div class="cli-log"><span class="cli-checkmark">✓</span> Downloading latest ODS release binary package...</div>
-                <div class="cli-log"><span class="cli-checkmark">✓</span> Verified checksum &amp; installed ods v0.1.0 to /usr/local/bin/ods</div>
-                <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Cursor, Claude, Copilot &amp; Antigravity</div>
+                <div class="cli-log"><span class="cli-checkmark">✓</span> Installed ODS Agent Skill (open-doc-spec/ods-skills)</div>
+                <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Antigravity, Claude Code, Cursor, Copilot &amp; Gemini CLI</div>
+                <div class="cli-log" style="margin-top: 4px; color: #a7f3d0;"><span class="cli-prompt">&gt;</span> Prompt your AI assistant:</div>
+                <div class="cli-log" style="font-weight: 600; color: #ffffff;">"Install ods on this machine and start watching ./docs"</div>
               </div>
             </div>
           </div>
@@ -684,7 +685,7 @@ import { ORG_URL } from "../lib/releases";
     <div class="setup-header-wrap">
       <h2 class="section-heading">Install ODS in Seconds</h2>
       <p class="section-subheading">
-        One command. Zero config. Works with your existing AI coding assistant.
+        Install the ODS skill via <code>gh skill install open-doc-spec/ods-skills</code>, then prompt your AI assistant: <em>"Install ods on this machine and start watching ./docs"</em>
       </p>
     </div>
 
@@ -738,9 +739,9 @@ import { ORG_URL } from "../lib/releases";
 
           <div class="terminal-center-group">
             <div class="terminal-tabs">
-              <button class="term-tab active" data-tab="install">Install</button>
+              <button class="term-tab active" data-tab="install">GH Skill</button>
               <button class="term-tab" data-tab="query">Query</button>
-              <button class="term-tab" data-tab="mcp">MCP Config</button>
+              <button class="term-tab" data-tab="curl">Direct Shell / Curl</button>
             </div>
           </div>
 
@@ -1361,6 +1362,15 @@ import { ORG_URL } from "../lib/releases";
     if (!cmdElem || !outputElem) return;
 
     const presets: Record<string, { cmd: string; outputHtml: string }> = {
+      'gh-skill': {
+        cmd: 'gh skill install open-doc-spec/ods-skills',
+        outputHtml: `
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Installed ODS Agent Skill (open-doc-spec/ods-skills)</div>
+          <div class="cli-log"><span class="cli-checkmark">✓</span> Connected to Antigravity, Claude Code, Cursor, Copilot & Gemini CLI</div>
+          <div class="cli-log" style="margin-top: 4px; color: #a7f3d0;"><span class="cli-prompt">&gt;</span> Prompt your AI assistant:</div>
+          <div class="cli-log" style="font-weight: 600; color: #ffffff;">"Install ods on this machine and start watching ./docs"</div>
+        `
+      },
       curl: {
         cmd: 'curl -fsSL https://opendocify.com/install.sh | bash',
         outputHtml: `
@@ -1427,12 +1437,12 @@ import { ORG_URL } from "../lib/releases";
       }
     };
 
-    let activePreset = 'curl';
-    let currentRawCmd = presets.curl.cmd;
+    let activePreset = 'gh-skill';
+    let currentRawCmd = presets['gh-skill'].cmd;
 
     function renderCommand(presetKey: string) {
       activePreset = presetKey;
-      const item = presets[presetKey] || presets.curl;
+      const item = presets[presetKey] || presets['gh-skill'];
       currentRawCmd = item.cmd;
 
       document.querySelectorAll('.hero-cmd-preset').forEach((btn) => {
@@ -6190,75 +6200,75 @@ import { ORG_URL } from "../lib/releases";
   function setupAssistantSwitcher() {
     const assistantMetadata: Record<string, { mode: string; data: Record<string, string> }> = {
       claude: {
-        mode: "Native Skill",
+        mode: "GH Skill / Native Skill",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods install</span></span>\n<span class="t-success">✓ Installing ODS...</span>\n<span class="t-success">✓ Reading list enabled</span>\n<span class="t-success">✓ Connected to your AI assistant</span>\n<span class="t-success">✓ Ready to go!</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask your AI anything.</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Installed ODS Agent Skill into Claude Code environment</span>\n<span class="t-success">✓ Zero-configuration DAG resolution enabled</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Claude Code: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">/ods context</span> <span class="t-arg">specs/ods/intro.md</span></span>\n<span class="t-success">✓ Scanned document connections in 2.8ms</span>\n<span class="t-success">✓ Loaded reading list: 3 files, 4,120 tokens (saves 94.97% AI costs)</span>\n<span class="t-json">├── specs/ods/intro.md (Main page)</span>\n<span class="t-json">├── docs/guide/01-introduction.md (linked page)</span>\n<span class="t-json">└── src/crates/ods-core/src/graph.rs (connected code)</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--assistant</span> <span class="t-arg">claude</span></span>\n<span class="t-success">✓ Added ODS MCP Server to ~/.claude/claude_desktop_config.json</span>\n<span class="t-success">✓ Tools available: ods_get_context, ods_verify_graph, ods_list_deps</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       cursor: {
-        mode: "Rules Integration",
+        mode: "GH Skill / MDC Rules",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">cursor</span></span>\n<span class="t-success">✓ Added .cursor/rules/ods.mdc to workspace</span>\n<span class="t-success">✓ Reading labeled document connections...</span>\n<span class="t-next">&gt; Ask Cursor Composer: <span class="t-arg">"How does the ODS graph work?"</span></span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-comment"># Or install rule directly via CLI:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--agent</span> <span class="t-arg">cursor</span></span>\n<span class="t-success">✓ Added .cursor/rules/ods.mdc & ODS skill package</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Cursor Composer: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">@ods context</span> <span class="t-arg">docs/architecture.md</span></span>\n<span class="t-success">✓ Reading list attached to prompt window</span>\n<span class="t-success">✓ Injected 4 related pages (&lt; 3,800 tokens total)</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp generate-config</span> <span class="t-flag">--format</span> <span class="t-arg">cursor</span></span>\n<span class="t-comment"># Copy to Cursor Settings -&gt; Features -&gt; MCP Servers:</span>\n<span class="t-json">Name: ODS Graph Engine</span>\n<span class="t-json">Command: ods</span>\n<span class="t-json">Args: mcp serve</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       copilot: {
-        mode: "Workspace Skill",
+        mode: "GH Skill / Copilot Skill",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">copilot</span></span>\n<span class="t-success">✓ Configured GitHub Copilot workspace agent skill (.github/copilot-instructions.md)</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Configured GitHub Copilot workspace agent skill (.github/copilot-instructions.md)</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Copilot: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">@copilot /ods context</span> <span class="t-arg">guide/02-frontmatter.md</span></span>\n<span class="t-success">✓ Built smart reading list in 3.1ms</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--port</span> <span class="t-arg">8080</span></span>\n<span class="t-success">✓ ODS MCP Server listening on localhost:8080 for GitHub Copilot Workspace</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       antigravity: {
-        mode: "Built-in Skill",
+        mode: "GH Skill / Built-in Skill",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Installed ODS skill to ~/.gemini/config/skills/ods/SKILL.md</span>\n<span class="t-success">✓ Direct terminal execution enabled</span>\n<span class="t-next">&gt; Ask Antigravity: <span class="t-arg">"Audit doc graph references"</span></span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Installed ODS skill to ~/.gemini/antigravity-cli/skills/ods/SKILL.md</span>\n<span class="t-success">✓ Direct terminal execution & watcher service management enabled</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Antigravity: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">/ods context</span> <span class="t-arg">specs/ods/intro.md</span></span>\n<span class="t-success">✓ Document scan completed in 1.9ms</span>\n<span class="t-success">✓ Smart reading list injected into prompt window</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">antigravity</span></span>\n<span class="t-success">✓ Added ODS server entry to Antigravity MCP registry</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       gemini: {
-        mode: "CLI Extension",
+        mode: "GH Skill / CLI Extension",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">gemini-cli</span></span>\n<span class="t-success">✓ Added ODS extension to Gemini CLI environment</span>\n<span class="t-next">&gt; Type <span class="t-arg">"gemini --ods"</span> in terminal</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Added ODS extension to Gemini CLI environment</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Gemini: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gemini</span> <span class="t-flag">--ods-context</span> <span class="t-arg">docs/guide/01-introduction.md</span></span>\n<span class="t-success">✓ Loaded 3 linked pages into Gemini prompt context</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--stdio</span></span>\n<span class="t-success">✓ Connecting stdio transport for Gemini CLI...</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       windsurf: {
-        mode: "Terminal Hook",
+        mode: "GH Skill / Flow Hook",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">skill install</span> <span class="t-flag">--target</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Windsurf Cascade flow hook registered</span>\n<span class="t-success">✓ Prevents Windsurf from reading unrelated project files</span>\n<span class="t-next">&gt; Flow hook active for all workspace prompts</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Registered Windsurf Cascade skill hook</span>\n<span class="t-success">✓ Prevents Windsurf from reading unrelated project files</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Windsurf: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">&gt;</span> <span class="t-cmd">ods context</span> <span class="t-arg">in flow hooks</span></span>\n<span class="t-success">✓ Auto-injected linked documentation context</span>\n<span class="t-success">✓ Reduced word count by 94.97%</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp generate-config</span> <span class="t-flag">--format</span> <span class="t-arg">windsurf</span></span>\n<span class="t-success">✓ Configured Windsurf MCP provider</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       openai: {
-        mode: "MCP Connector",
+        mode: "GH Skill / Direct CLI",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp enable</span> <span class="t-flag">--target</span> <span class="t-arg">openai</span></span>\n<span class="t-success">✓ ODS MCP Server registered for OpenAI / Codex tools</span>\n<span class="t-success">✓ Drastically reduces prompt tokens on large code bases</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ ODS Agent Skill registered for OpenAI / Codex tools</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Codex: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">graph</span> <span class="t-flag">--format</span> <span class="t-arg">json</span></span>\n<span class="t-success">✓ Exported JSON document graph for GPT context window</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span> <span class="t-flag">--stdio</span></span>\n<span class="t-success">✓ Listening on stdio for OpenAI tool calling</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       aider: {
-        mode: "Pre-Hook",
+        mode: "GH Skill / Pre-Hook",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">install</span> <span class="t-flag">--aider</span></span>\n<span class="t-success">✓ Created .aider.conf.yml with ODS graph context pre-hook</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Added ODS skill to Aider environment</span>\n<hr class="t-hr"/>\n<span class="t-next">&gt; Ask Aider: <span class="t-arg">"Install ods on this machine and start watching ./docs"</span></span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">aider</span> <span class="t-flag">--read</span> <span class="t-arg">docs/guide/01-introduction.md</span> <span class="t-flag">--ods-graph</span></span>\n<span class="t-success">✓ Autoloaded linked document pages</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">mcp serve</span></span>\n<span class="t-success">✓ Aider MCP interface ready</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       },
       cargo: {
         mode: "Direct CLI Binary",
         data: {
-          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">cargo</span> <span class="t-sub">install</span> <span class="t-arg">ods</span></span>\n<span class="t-comment"># Or via 1-line shell script:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-success">✓ Installed ods v0.1.0 to /usr/local/bin/ods</span>',
+          install: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">cargo</span> <span class="t-sub">install</span> <span class="t-arg">ods</span></span>\n<span class="t-comment"># Or via GitHub CLI Skill:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">gh</span> <span class="t-sub">skill install</span> <span class="t-arg">open-doc-spec/ods-skills</span></span>\n<span class="t-success">✓ Installed ods v0.1.0 to /usr/local/bin/ods</span>',
           query: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">context</span> <span class="t-arg">docs/guide/01-introduction.md</span> <span class="t-flag">--format</span> <span class="t-arg">json</span></span>\n<span class="t-json">{</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"root"</span>: <span class="t-sub">"docs/guide/01-introduction.md"</span>,</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"cost_savings_pct"</span>: <span class="t-flag">94.97</span>,</span>\n<span class="t-json">&nbsp;&nbsp;<span class="t-arg">"nodes"</span>: [<span class="t-sub">"specs/ods/intro.md"</span>, <span class="t-sub">"src/crates/ods-core/src/graph.rs"</span>]</span>\n<span class="t-json">}</span>',
-          mcp: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">ods</span> <span class="t-sub">serve</span> <span class="t-flag">--daemon</span></span>\n<span class="t-success">✓ Smart background link repair started (pid 84210)</span>\n<span class="t-success">✓ Automatically repairing links and checking for errors</span>'
+          curl: '<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">curl</span> <span class="t-flag">-fsSL</span> <span class="t-arg">https://opendocify.com/install.sh</span> | <span class="t-cmd">bash</span></span>\n<span class="t-comment"># Windows PowerShell:</span>\n<span class="t-cmd-line"><span class="t-prompt">$</span> <span class="t-cmd">irm</span> <span class="t-arg">https://opendocify.com/install.ps1</span> | <span class="t-cmd">iex</span></span>\n<span class="t-success">✓ Verified checksum & installed ods binary to /usr/local/bin/ods</span>\n<span class="t-success">✓ Registered background watch service</span>'
         }
       }
     };

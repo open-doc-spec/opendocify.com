@@ -24,6 +24,20 @@ import { RELEASES_URL } from "../lib/releases";
 
   <div class="download-page-container">
     <div class="platforms" id="platforms">
+    <!-- AI Skill (Recommended) -->
+    <section class="platform-section">
+      <div class="platform-header">
+        <PlatformIcon platform="apple" class="platform-icon" />
+        <h2 class="platform-name">AI Agent Skill Installation (Recommended)</h2>
+      </div>
+      <div class="download-cards">
+        <div class="download-card" style="cursor: default;">
+          <span class="card-arch" style="font-family: monospace; font-size: 0.95rem; color: var(--fg); font-weight: 600;">$ gh skill install open-doc-spec/ods-skills</span>
+          <span class="card-format">Then prompt your AI assistant: "Install ods on this machine and start watching ./docs"</span>
+        </div>
+      </div>
+    </section>
+
     <!-- macOS -->
     <section class="platform-section">
       <div class="platform-header">
