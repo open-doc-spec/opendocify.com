@@ -38,7 +38,7 @@ The full `ods.toml` schema and the lint rule IDs live in the spec. You only need
 
 ### 1. Discover progressively — do not commit an index file
 
-ODS does not want `docs/index.md` trees that every PR rewrites. Ask the workspace questions instead:
+ODS does not want `docs/index.md` trees that every PR rewrites. A root `index.md` is also **not** the workspace marker — that is `ods.toml`. Ask the workspace questions instead:
 
 ```text
 ods overview          →  how many docs, which profiles, is lint clean?
@@ -92,7 +92,7 @@ ignore = [
 
 `src` in `ignore` means "do not scan application source as if it were docs." It does **not** stop `ods.code` from pointing into `src`. Bindings still work; those files are just not treated as documents.
 
-Leave `custom_profiles`, `packs`, and `[aliases]` until [Extend ODS](07-extend-ods.md).
+Leave `custom_profiles` and `packs` until [Extend ODS](07-extend-ods.md).
 
 ### 4. Use lifecycle commands so the graph stays true
 
@@ -123,4 +123,4 @@ The tool infers a profile from headings when it can (`## Context` + `## Decision
 
 **You can stop here** if the team can lint in CI and rename a file without breaking links.
 
-**Next only if** you need custom profiles, heading aliases, packs, or the implementer map: [07 · Extend ODS](07-extend-ods.md).
+**Next only if** you need custom profiles, packs, or the implementer map: [07 · Extend ODS](07-extend-ods.md).

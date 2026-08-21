@@ -79,6 +79,8 @@ All conformant ODS linters MUST enforce the following validation rules:
 | | `SYNTAX-002` | Frontmatter MUST NOT contain a `title:` key. | **Error** | Remove `title:` from frontmatter; declare title in first `# H1` body heading. |
 | **Placement** | `PLACE-001` | `tags` MUST appear at the top level; MUST NOT be nested under `ods:`. | **Warning** | Hoist `tags` to top-level frontmatter. |
 | | `PLACE-002` | Engine keys (`profile`, `status`, `depends`, etc.) MUST be nested under `ods:`. | **Error** | Nest engine keys under `ods:` mapping. |
+| | `PLACE-003` | Document frontmatter MUST NOT contain workspace policy keys (`spec`, `ignore`, `packs`, `specs`, `custom_profiles` / `custom-profiles`). Those keys belong in root `ods.toml`. | **Error** | Move the keys into `ods.toml`; do not keep a dual marker in `index.md`. |
+| **Workspace** | `WS-001` | An ODS workspace MUST have root `ods.toml` with a non-empty `spec`. Root `index.md` / scalar `ods: 0.1` is not a workspace marker. | **Error** | Run `ods init` (writes `ods.toml`) then retry. |
 | **Enums** | `ENUM-001` | `ods.status` MUST be one of `draft`, `stable`, `deprecated`, `archived`. | **Error** | Change status to a recognized lifecycle state. |
 | | `ENUM-002` | `ods.share` (when present) MUST be one of `public`, `org`, `private`. | **Error** | Set share to `public`, `org`, or `private`. |
 | | `ENUM-003` | `ods.code[].role` MUST be one of the 8 standard roles. | **Error** | Change role to a valid standard role (e.g. `entrypoint`, `implementation`). |
@@ -91,7 +93,7 @@ All conformant ODS linters MUST enforce the following validation rules:
 | | `ASSET-003` | `ods.code[].path` MUST NOT contain line number suffixes (e.g. `:L45`). | **Error** | Remove `:L45`; use `symbol` field instead. |
 | | `ASSET-004` | `ods.context.load` paths MUST resolve to existing files. | **Error** | Fix or remove dangling context load path. |
 | **Profiles** | `PROF-001` | `ods.profile` MUST resolve to a known standard or registered custom profile. | **Error** | Fix the profile name or define and register the profile at the path declared in `ods.toml`. |
-| | `PROF-002` | Document SHOULD contain expected H2 or H3 sections (`##` or `###`) for its declared profile. | **Warning** | Add missing section heading or registered alias. |
+| | `PROF-002` | Document SHOULD contain expected H2 or H3 sections (`##` or `###`) for its declared profile. | **Warning** | Add missing canonical section heading. |
 | | `PROF-003` | A document SHOULD contain each non-null top-level key listed by its selected custom profile's `required_keys`. | **Warning** | Add the missing key to top-level frontmatter; do not nest it under `ods:`. |
 | | `PROF-004` | A document SHOULD NOT contain a top-level key listed by its selected custom profile's `forbidden_keys`. | **Warning** | Remove the forbidden key or choose a profile that permits it. |
 | | `PROF-005` | Every `custom_profiles` path in `ods.toml` MUST resolve to an existing Markdown file or profile directory. | **Error** | Create the profile definition at the exact configured path or update the `custom_profiles` entry. |
@@ -123,7 +125,23 @@ ods:
 # Checkout Guide                      # CORRECT: Title declared as first H1 in body
 ```
 
-### 5.2 Line Numbers in Code Bindings (`ASSET-003`)
+### 5.2 Workspace Policy Keys in Frontmatter (`PLACE-003`, `WS-001`)
+```yaml
+# ERRONEOUS CODE (root index.md is not a workspace):
+---
+ods: 0.1
+packs:
+  - vendor/engineering-pack           # ERROR [PLACE-003]: policy key in frontmatter
+---
+```
+
+```toml
+# CORRECTED CODE (root ods.toml):
+spec = "0.1"                          # CORRECT [WS-001]: workspace marker
+packs = ["vendor/engineering-pack"]   # CORRECT: packs in ods.toml
+```
+
+### 5.3 Line Numbers in Code Bindings (`ASSET-003`)
 ```yaml
 # ERRONEOUS CODE:
 ods:
@@ -139,7 +157,7 @@ ods:
       symbol: processCheckout         # CORRECT: refactor-resilient symbol reference
 ```
 
-### 5.3 Cyclic Dependency Loops (`GRAPH-004`)
+### 5.4 Cyclic Dependency Loops (`GRAPH-004`)
 ```yaml
 # ERRONEOUS CODE (Doc A depends on Doc B, Doc B depends on Doc A):
 # In auth.md:
@@ -173,6 +191,7 @@ ods:
 | **Unknown `code` role** | **Fatal Error**: Reject immediately; projects MUST NOT invent custom code roles. |
 | **Invalid `ods.share` value** | **Fatal Error**: Reject immediately to prevent unintended privacy leaks. |
 | **Legacy Flat Engine Keys** (without nested `ods:`) | **Migration Mode**: Accept during read; format tooling (`ods fmt --migrate`) MUST nest under `ods:`. |
+| **Workspace Policy Keys in Document Frontmatter** (`spec`, `ignore`, `packs`, `specs`, `custom_profiles`) | **Fatal Error** (`PLACE-003`): Move into root `ods.toml`. A missing `ods.toml` is `WS-001`, not a root `index.md`. |
 
 ---
 
@@ -220,7 +239,7 @@ error[ASSET-003]: line numbers are prohibited in code paths
 - [ ] Validate that `ods.code[].role` belongs to the 8 standard roles.
 
 ### Profile & Discovery Engine
-- [ ] Validate expected H2 or H3 headings (`##` or `###`) for standard profiles using alias matching; do not count H1 or H4+ headings.
+- [ ] Validate expected H2 or H3 headings (`##` or `###`) for standard profiles by exact canonical section title; do not count H1 or H4+ headings.
 - [ ] Parse `ods.custom_profile.name`, `required_keys`, `optional_keys`, and `forbidden_keys` from registered custom profile definitions.
 - [ ] Fail when any `custom_profiles` path in `ods.toml` is missing, not a Markdown file, or otherwise cannot be loaded.
 - [ ] Fail when `ods.custom_profile` appears outside a file selected by `custom_profiles` or a registered pack.
@@ -229,6 +248,9 @@ error[ASSET-003]: line numbers are prohibited in code paths
 - [ ] Emit `PROF-004` warnings when selected profile `forbidden_keys` are present.
 - [ ] Resolve custom profiles registered in `ods.toml`.
 - [ ] Support progressive CLI discovery without generating committed folder indexes.
+- [ ] Treat root `ods.toml` with `spec` as the only workspace marker (`WS-001`); reject a tree that has only root `index.md` with `ods: 0.1`.
+- [ ] Error when document frontmatter contains `spec`, `ignore`, `packs`, `specs`, or `custom_profiles` (`PLACE-003`).
+- [ ] Record packs and custom profiles in `ods.toml`, not in root index frontmatter.
 
 ---
 
