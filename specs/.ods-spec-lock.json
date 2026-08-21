@@ -1,9 +1,9 @@
 {
   "source": "../ods-spec",
-  "commit": "8fb5c6b8178de63e2a541cf4c46717db259c431b",
-  "short": "8fb5c6b",
-  "branch": "origin/main",
-  "syncedAt": "2026-08-16T08:32:30.257Z",
+  "commit": "f1c2982a05dcfb982e8be603904842fcdf40d767",
+  "short": "f1c2982",
+  "branch": "12-docs/ods-toml-workspace-marker-b7e2",
+  "syncedAt": "2026-08-21T08:09:30.579Z",
   "files": {
     "specs": [
       "intro.md",
@@ -33,6 +33,5 @@
       "faq.md",
       "mistakes.md"
     ]
-  },
-  "ref": "origin/main"
+  }
 }

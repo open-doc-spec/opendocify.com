@@ -18,9 +18,34 @@ export interface ChangelogEntry {
  */
 export const changelog: ChangelogEntry[] = [
   {
+    tag: 'v0.0.29',
+    date: 'August 21, 2026',
+    latest: true,
+    title: 'ods.toml is sole workspace marker; policy keys forbidden in document frontmatter',
+    summary:
+      'The CLI now strictly enforces root `ods.toml` as the single workspace boundary, rejects frontmatter policy keys (`PLACE-003`), and validates profiles against exact canonical section headings.',
+    items: [
+      {
+        label: 'Single workspace marker (WS-001)',
+        text: '`ods.toml` with a `spec` key is the only valid workspace boundary. Root `index.md` with `ods: 0.1` is no longer a workspace marker. CLI commands and `ods lint` emit `WS-001` error when `ods.toml` is missing.',
+      },
+      {
+        label: 'Workspace policy key placement (PLACE-003)',
+        text: 'Document frontmatter must not contain workspace policy keys (`spec`, `ignore`, `packs`, `specs`, `custom_profiles`). `ods lint` enforces `PLACE-003` errors for policy keys in Markdown files; move policy configuration to `ods.toml`.',
+      },
+      {
+        label: 'Canonical section titles (PROF-002)',
+        text: 'Heading validation (`PROF-002`) requires exact canonical section titles for profiles (e.g. `## Alternatives`, `## Non-Scope`). Heading aliases, pipe synonyms, and `[aliases]` tables in `ods.toml` have been removed.',
+      },
+      {
+        label: 'Automated policy migration',
+        text: '`ods fmt --migrate` automatically strips policy keys from document frontmatter and hoists them into root `ods.toml`.',
+      },
+    ],
+  },
+  {
     tag: 'v0.0.28',
     date: 'August 17, 2026',
-    latest: true,
     title: 'What you can do with `ods` today',
     summary:
       'This is the current CLI. Install or run `ods update`, then use the commands below. Ask `ods --help` or `ods help <command>` for examples.',
@@ -207,7 +232,7 @@ export const changelog: ChangelogEntry[] = [
     items: [
       {
         label: 'Today',
-        text: 'Install `v0.0.28`. This tag is history, not the current product.',
+        text: 'Install `v0.0.29`. This tag is history, not the current product.',
       },
     ],
   },
