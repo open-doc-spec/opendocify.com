@@ -29,6 +29,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
 const allEntries = (await getCollection("specs")).filter((entry) => !isUnpublishedSpec(entry.id || ""));
 const { Content, headings } = await render(entry);
 ---

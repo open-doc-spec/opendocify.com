@@ -1,0 +1,166 @@
+---
+// FILE: src/components/HeroGradient.astro
+// Purpose: Ethereal 2-color ambient blur gradient & waves backdrop for hero sections.
+// Layer: UI component
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['hero-visual-gradient-backdrop', className]} aria-hidden="true">
+  <div class="hero-glow-blob blob-mint"></div>
+  <div class="hero-glow-blob blob-blue"></div>
+  <div class="hero-waves-wrapper">
+    <svg class="hero-waves-svg" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 720 -120 C 1020 120, 1300 380, 1480 820" stroke="url(#hero-wave-grad-1)" stroke-width="1.8" opacity="0.4" />
+      <path d="M 780 -90 C 1080 160, 1340 430, 1520 860" stroke="url(#hero-wave-grad-1)" stroke-width="1.2" opacity="0.28" />
+      <path d="M 840 -60 C 1140 200, 1380 480, 1560 900" stroke="url(#hero-wave-grad-1)" stroke-width="0.8" opacity="0.18" />
+      <path d="M -160 480 C 140 640, 540 740, 1080 890" stroke="url(#hero-wave-grad-2)" stroke-width="1.5" opacity="0.32" />
+      <path d="M -100 550 C 200 700, 600 780, 1140 930" stroke="url(#hero-wave-grad-2)" stroke-width="1" opacity="0.22" />
+      <defs>
+        <linearGradient id="hero-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.65"/>
+          <stop offset="60%" stop-color="#60a5fa" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#10b981" stop-opacity="0.05"/>
+        </linearGradient>
+        <linearGradient id="hero-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#10b981" stop-opacity="0.6"/>
+          <stop offset="50%" stop-color="#34d399" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.05"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  <div class="hero-bottom-gradient-sync"></div>
+</div>
+
+<style>
+  .hero-visual-gradient-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform, opacity;
+    mix-blend-mode: multiply;
+  }
+
+  :global(.dark) .hero-glow-blob,
+  :global(html[data-theme="dark"]) .hero-glow-blob {
+    mix-blend-mode: screen;
+  }
+
+  /* Left Soft Mint Glow Blob */
+  .hero-glow-blob.blob-mint {
+    top: -10%;
+    left: -6%;
+    width: clamp(450px, 45vw, 850px);
+    height: clamp(450px, 45vw, 850px);
+    background: radial-gradient(circle at center, rgba(187, 247, 208, 0.7) 0%, rgba(134, 239, 172, 0.4) 35%, rgba(220, 252, 231, 0.12) 60%, transparent 75%);
+    filter: blur(95px);
+    animation: floatGlowMint 15s ease-in-out infinite alternate;
+  }
+
+  :global(.dark) .hero-glow-blob.blob-mint,
+  :global(html[data-theme="dark"]) .hero-glow-blob.blob-mint {
+    background: radial-gradient(circle at center, rgba(34, 197, 94, 0.22) 0%, rgba(16, 185, 129, 0.1) 40%, transparent 70%);
+    filter: blur(110px);
+  }
+
+  /* Right Soft Sky Blue / Periwinkle Glow Blob */
+  .hero-glow-blob.blob-blue {
+    top: -12%;
+    right: -6%;
+    width: clamp(500px, 48vw, 920px);
+    height: clamp(500px, 48vw, 920px);
+    background: radial-gradient(circle at center, rgba(191, 219, 254, 0.8) 0%, rgba(199, 210, 254, 0.45) 38%, rgba(224, 231, 255, 0.18) 65%, transparent 78%);
+    filter: blur(100px);
+    animation: floatGlowBlue 18s ease-in-out infinite alternate;
+  }
+
+  :global(.dark) .hero-glow-blob.blob-blue,
+  :global(html[data-theme="dark"]) .hero-glow-blob.blob-blue {
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.24) 0%, rgba(99, 102, 241, 0.12) 40%, transparent 70%);
+    filter: blur(115px);
+  }
+
+  @keyframes floatGlowMint {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(40px, 50px) scale(1.08);
+    }
+    100% {
+      transform: translate(-20px, 25px) scale(0.95);
+    }
+  }
+
+  @keyframes floatGlowBlue {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(-45px, 55px) scale(1.1);
+    }
+    100% {
+      transform: translate(30px, -20px) scale(0.92);
+    }
+  }
+
+  .hero-waves-wrapper {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.85;
+  }
+
+  .hero-waves-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Soft Bottom Gradient Transition to sync background color */
+  .hero-bottom-gradient-sync {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    background: linear-gradient(to bottom, rgba(244, 244, 245, 0) 0%, rgba(244, 244, 245, 0.7) 60%, var(--color-background, #f4f4f5) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  :global(.dark) .hero-bottom-gradient-sync,
+  :global(html[data-theme="dark"]) .hero-bottom-gradient-sync {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 60%, var(--color-background, #000000) 100%);
+  }
+
+  @media (max-width: 768px) {
+    .hero-glow-blob.blob-mint {
+      width: 380px;
+      height: 380px;
+      filter: blur(70px);
+    }
+    .hero-glow-blob.blob-blue {
+      width: 400px;
+      height: 400px;
+      filter: blur(75px);
+    }
+  }
+</style>

@@ -5,17 +5,39 @@
 
 import PlatformIcon from "../components/PlatformIcon.astro";
 import Layout from "../layouts/Layout.astro";
+import HeroGradient from "../components/HeroGradient.astro";
 import { RELEASES_URL } from "../lib/releases";
 ---
 
 <Layout title="Download ODS CLI: Open Document Spec" description="Download ODS CLI and Skills for macOS, Windows, or Linux.">
-  <h1 class="heading">Download ODS CLI</h1>
-  <p class="subheading">
-    <span id="version-label">v0.1.0 release</span>
-    <a id="changelog-link" class="changelog-link" href="/changelog">View changelog<span aria-hidden="true"> &#8599;</span></a>
-  </p>
+  <!-- FULL-WIDTH END-TO-END HERO SECTION -->
+  <section class="download-hero-wrapper">
+    <HeroGradient />
+    <div class="download-hero-inner">
+      <h1 class="heading">Download ODS CLI</h1>
+      <p class="subheading">
+        <span id="version-label">v0.1.0 release</span>
+        <a id="changelog-link" class="changelog-link" href="/changelog">View changelog<span aria-hidden="true"> &#8599;</span></a>
+      </p>
+    </div>
+  </section>
 
-  <div class="platforms" id="platforms">
+  <div class="download-page-container">
+    <div class="platforms" id="platforms">
+    <!-- AI Skill (Recommended) -->
+    <section class="platform-section">
+      <div class="platform-header">
+        <PlatformIcon platform="apple" class="platform-icon" />
+        <h2 class="platform-name">AI Agent Skill Installation (Recommended)</h2>
+      </div>
+      <div class="download-cards">
+        <div class="download-card" style="cursor: default;">
+          <span class="card-arch" style="font-family: monospace; font-size: 0.95rem; color: var(--fg); font-weight: 600;">$ gh skill install open-doc-spec/ods-skills</span>
+          <span class="card-format">Then prompt your AI assistant: "Install ods on this machine and start watching ./docs"</span>
+        </div>
+      </div>
+    </section>
+
     <!-- macOS -->
     <section class="platform-section">
       <div class="platform-header">
@@ -57,19 +79,44 @@ import { RELEASES_URL } from "../lib/releases";
         </a>
       </div>
     </section>
-  </div>
+    </div>
 
-  <p class="releases-link">
-    Looking for source code or building from source? Check the
-    <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer">
-      GitHub releases page<span aria-hidden="true"> &#8599;</span>
-    </a>
-  </p>
+    <p class="releases-link">
+      Looking for source code or building from source? Check the
+      <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer">
+        GitHub releases page<span aria-hidden="true"> &#8599;</span>
+      </a>
+    </p>
+  </div>
 </Layout>
 
 <style>
-  .main {
-    padding: var(--space-48) var(--space-24) var(--space-64);
+  .download-hero-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: clamp(3.5rem, 6vw, 5.5rem);
+    padding-bottom: clamp(2rem, 3.5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .download-hero-inner {
+    width: min(92vw, 800px);
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .download-page-container {
+    width: min(92vw, 760px);
+    margin: 0 auto;
+    padding-bottom: var(--space-64);
+    position: relative;
+    z-index: 1;
   }
 
   .heading {
@@ -87,7 +134,7 @@ import { RELEASES_URL } from "../lib/releases";
   .subheading {
     font-size: 0.9rem;
     color: var(--fg-dim);
-    margin-bottom: var(--space-48);
+    margin-bottom: 0;
     opacity: 0;
     animation: fade-in 1s ease-out 0.1s forwards;
     display: flex;
@@ -194,9 +241,27 @@ import { RELEASES_URL } from "../lib/releases";
     text-decoration: underline;
   }
 
-  @media (max-width: 640px) {
-    .main {
-      padding: var(--space-32) var(--space-16) var(--space-48);
+  @media (max-width: 768px) {
+    .download-page-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 1rem var(--space-48) 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .platforms,
+    .platform-section,
+    .download-cards,
+    .download-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .download-header {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 1rem !important;
+      box-sizing: border-box !important;
     }
   }
 </style>
