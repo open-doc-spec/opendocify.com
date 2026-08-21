@@ -30,19 +30,19 @@
   --space-128: 128px;
   --space-160: 160px;
   --space-200: 200px;
-  --radius-outer: 36px;
-  --radius-container: 36px;
-  --radius-xl: 36px;
-  --radius-inner: 28px;
-  --radius-inside: 28px;
-  --radius-lg: 28px;
-  --radius-child: 20px;
-  --radius-children: 20px;
-  --radius-md: 20px;
+  --radius-outer: 32px;
+  --radius-container: 32px;
+  --radius-xl: 32px;
+  --radius-inner: 24px;
+  --radius-inside: 24px;
+  --radius-lg: 24px;
+  --radius-child: 12px;
+  --radius-children: 12px;
+  --radius-md: 12px;
   --radius-sm: 12px;
   --radius-pill: 9999px;
-  --radius-nested-lg: 28px;
-  --radius-nested-xl: 20px;
+  --radius-nested-lg: 24px;
+  --radius-nested-xl: 12px;
   --font-heading: var(--font-display);
   --font-body: var(--font-sans);
   --bg: var(--color-background);
@@ -69,15 +69,36 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   mix-blend-mode: screen;
 }
 
+/* ── Universal End-to-End Full-Width Hero Wrappers ── */
+.page-hero-wrapper,
+.features-hero-wrapper,
+.pricing-hero-wrapper,
+.changelog-hero-wrapper,
+.download-hero-wrapper,
+.privacy-hero-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
 @media (max-width: 768px) {
   .ods-marketing .page-container,
   .ods-marketing .section-container,
   .ods-marketing .hero-section,
-  .ods-marketing .header-section {
+  .ods-marketing .header-section,
+  .ods-marketing .features-page,
+  .ods-marketing .download-page-container,
+  .ods-marketing .privacy-container,
+  .ods-marketing .pricing-container,
+  .ods-marketing .changelog-container {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
     box-sizing: border-box !important;
   }
 
@@ -85,6 +106,41 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ods-marketing .cta-buttons {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
+  }
+
+  .ods-marketing .cta-banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2.5rem 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .ods-marketing .hero-calculator-box,
+  .ods-marketing .assistant-switcher-box,
+  .ods-marketing .setup-benefits-row,
+  .ods-marketing .matrix-panel,
+  .ods-marketing .ods-flow-card,
+  .ods-marketing .features-hero-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ods-marketing .features-grid,
+  .ods-marketing .pricing-grid,
+  .ods-marketing .bento-grid,
+  .ods-marketing .guarantee-cards,
+  .ods-marketing .download-cards,
+  .ods-marketing .profiles-grid,
+  .ods-marketing .persona-4-grid,
+  .ods-marketing .workflow-3-grid,
+  .ods-marketing .metrics-grid,
+  .ods-marketing .calc-grid,
+  .ods-marketing .ods-outcomes-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -104,7 +160,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .terminal-container,
   .code-box {
     background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
+    outline: none !important;
     border-radius: var(--radius-lg) !important;
     overflow: hidden !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
@@ -113,7 +170,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .spec-card pre,
   .docs-card pre {
     background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
+    outline: none !important;
     border-radius: var(--radius-sm) !important;
     overflow: hidden !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
@@ -125,7 +183,9 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .code-window-header {
     background: #141824 !important;
     color: #94a3b8 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
     font-family: var(--font-mono) !important;
     font-size: 0.8rem !important;
     font-weight: 500 !important;
@@ -184,7 +244,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ex-cmd,
   .row-cmd {
     background: #090d16 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: none !important;
+    outline: none !important;
     border-radius: var(--radius-md) !important;
     padding: 16px 24px !important;
     font-family: var(--font-mono) !important;
@@ -263,12 +324,14 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     font-family: var(--font-heading) !important;
     color: var(--fg) !important;
     font-weight: 700 !important;
+    line-height: 1.12 !important;
   }
 
   .ods-marketing .section-heading {
-    font-size: clamp(2rem, 3.8vw, 2.75rem);
+    font-size: clamp(2.1rem, 4vw, 2.85rem);
     font-weight: 700 !important;
-    letter-spacing: -0.02em;
+    line-height: 1.12 !important;
+    letter-spacing: -0.028em !important;
   }
 
   .section-subheading, .page-subtitle, .section-subtext {
@@ -294,13 +357,80 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     color: inherit;
   }
 
-  /* Install terminal stays a dark IDE even in light mode. Injected token
-     spans inherit this color if theme tokens (--fg) would otherwise be black. */
+  /* Install terminal stays a sleek black IDE. */
   .ods-marketing .terminal-container,
-  .ods-marketing .terminal-container .terminal-tab-bar {
-    background: #09090b !important;
-    background-color: #09090b !important;
+  .ods-marketing .terminal-container .terminal-tab-bar,
+  .ods-marketing .cli-wrap {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #e2e8f0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .ods-marketing .cli-wrap,
+  .ods-marketing .cli-wrap * {
     color: #e2e8f0;
+  }
+
+  .ods-marketing .cli-wrap .cli-header {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    outline: none !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-preset-bar {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    outline: none !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-body {
+    background: #000000 !important;
+    background-color: #000000 !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-line {
+    background: #1c1d22 !important;
+    background-color: #1c1d22 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    outline: none !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-tree,
+  .ods-marketing .cli-wrap-inner .cli-tree,
+  .ods-marketing .hero-experience-box .cli-tree {
+    background: #141417 !important;
+    background-color: #141417 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    outline: none !important;
+    color: #cbd5e1 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.55 !important;
+    font-family: var(--font-mono, monospace) !important;
+    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .ods-marketing .cli-wrap .tree-tag,
+  .ods-marketing .cli-wrap-inner .tree-tag,
+  .ods-marketing .hero-experience-box .tree-tag {
+    color: #38bdf8 !important;
+    font-size: 0.70rem !important;
+    font-weight: 500 !important;
+  }
+
+  .ods-marketing .cli-wrap .cli-log,
+  .ods-marketing .cli-wrap-inner .cli-log,
+  .ods-marketing .hero-experience-box .cli-log {
+    color: #94a3b8 !important;
+    font-size: 0.74rem !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    line-height: 1.5 !important;
+    font-family: var(--font-mono, monospace) !important;
   }
 
   .ods-marketing .terminal-code-panel,
@@ -324,43 +454,101 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
 
   /* ── Editorial Layout Controls ── */
   
-  /* 1. Global border-radius hierarchy: 36px (Outlined Container) -> 28px (Inside Container) -> 20px (Children) */
+  /* 1. Global border-radius hierarchy: 32px (Outer Card/Container) -> 24px (Inside Card) -> 12px (Children/Inner Elements) */
   
-  /* Outlined Container (36px) */
-  .outlined-container, .outer-container, .hero-calculator-box, .assistant-switcher-box, .pathways-box, .cli-wrap, .terminal-container, .schema-table-wrap, .flowchart-box, .token-chart-box, .feature-big-banner, .cta-banner, .examples-cta, .features-bottom-cta, .exact-card, .exact-summary-banner {
-    border-radius: var(--radius-outer) !important; /* 36px */
+  /* Outlined Container (32px) */
+  .outlined-container, .outer-container, .hero-calculator-box, .assistant-switcher-box, .pathways-box, .cli-wrap, .terminal-container, .schema-table-wrap, .flowchart-box, .token-chart-box, .feature-big-banner, .cta-banner, .examples-cta, .features-bottom-cta, .exact-card, .exact-summary-banner, .metrics-grid {
+    border-radius: var(--radius-outer) !important; /* 32px */
   }
 
-  /* Inside Container (28px) */
+  /* Inside Container (24px) */
   .inside-container, .inner-container, .metric-card, .persona-card, .pathway-card, .workflow-step-card, .ecosystem-card, .profile-card, .plan-card, .calc-card, .guide-card, .cmd-card, .integration-card, .faq-card, .spec-card, .download-card, .example-card-horizontal, .comparison-card, .workflow-card, .pathway-col, .output-card, .ladder-step, .l-step, .p-card, .comp-card, .ex-card, .conformance-card, .ai-chip-item, .exact-graphic-box {
-    border-radius: var(--radius-inner) !important; /* 28px */
+    border-radius: var(--radius-inner) !important; /* 24px */
   }
 
-  /* Children inside containers (20px) */
-  button, .btn, input, select, textarea, .calc-select, .hero-secondary-button, .nav-theme-btn, .plan-button, .nav-github, .nav-badge, .pill-badge, .section-tag-badge, .pill-badge-sm, .banner-badge, .banner-item, .rag-bad, .ods-good, .eco-badge, .p-badge, .l-num, .out-lbl, .cli-dots, .cli-copy-btn, .terminal-copy-btn, .term-tab, .assistant-btn, .status-indicator, .child-item, .icon-circle {
-    border-radius: var(--radius-child) !important; /* 20px */
+  /* Children inputs & non-button elements inside containers (12px) */
+  input, select, textarea, .calc-select, .banner-item, .rag-bad, .ods-good, .eco-badge, .p-badge, .l-num, .out-lbl, .child-item {
+    border-radius: var(--radius-child) !important; /* 12px */
   }
 
-  .nav-header, .nav-menu-item, .toggle-container, .discount-badge, .hero-actions a, .plan-button.pill, .toggle-btn {
+  /* All Buttons, Icon Buttons, CTAs, Badges & Pills: Pill shape (rounded-full) */
+  button, .btn, .button, .site-cta, .hero-button, .hero-secondary-button, .plan-button, .assistant-btn, .filter-btn, .filter-button, .term-tab, .curr-pill-btn, .hero-cmd-preset, .nav-theme-btn, .nav-github, .theme-toggle, .nav-toggle, .cli-copy-btn, .terminal-copy-btn, .step-copy-btn, .cli-replay-btn, .nav-badge, .pill-badge, .section-tag-badge, .pill-badge-sm, .banner-badge, .discount-badge, .toggle-btn, .toggle-container, .nav-header, .nav-menu-item, .hero-actions a, .status-indicator, .icon-circle, .pathway-col .btn, .assistant-switcher-box button, .output-card button, .cta-button, .primary-btn, .secondary-btn {
     border-radius: var(--radius-pill) !important;
+  }
+
+  /* Remove unwanted outlines and borders in all section containers & outer boxes */
+  .section-container,
+  .page-container,
+  .container,
+  .outer-container,
+  .outlined-container,
+  .inside-container,
+  .inner-container,
+  .hero-calculator-box,
+  .assistant-switcher-box,
+  .pathways-box,
+  .cli-wrap,
+  .terminal-container,
+  .schema-table-wrap,
+  .matrix-table-wrap,
+  .flowchart-box,
+  .token-chart-box,
+  .feature-big-banner,
+  .cta-banner,
+  .examples-cta,
+  .features-bottom-cta,
+  .exact-card,
+  .exact-summary-banner,
+  .exact-graphic-box,
+  .hero-section,
+  .header-section,
+  .feature-hero-top,
+  .feature-row,
+  .spec-section,
+  .roi-section,
+  .faq-section,
+  .examples-content-grid,
+  .timeline,
+  .docs-section,
+  .platform-section,
+  .plans-grid,
+  .spec-cta,
+  .changelog-cta,
+  .industry-roi-chart-box,
+  .cookbook-analogy-section,
+  .metrics-strip-section,
+  .assistant-setup-section,
+  .persona-adoption-section,
+  .pathways-section,
+  .matrix-section,
+  .templates-section,
+  .pricing-grid {
+    outline: none !important;
+    outline-offset: 0 !important;
+    border: none !important;
   }
 
   /* Concentric corner radii adjustments for nested elements */
   .hero-calculator-box .output-card,
+  .hero-calculator-box .calc-hero-card,
+  .hero-calculator-box .calc-metric-card,
   .assistant-switcher-box .terminal-container,
   .pathways-box .pathway-col,
   .cli-wrap .cli-box {
-    border-radius: var(--radius-inner) !important; /* 28px inside 36px container */
+    border-radius: var(--radius-inner) !important; /* 24px inside 32px container */
   }
   .hero-calculator-box input,
   .hero-calculator-box select,
+  .hero-calculator-box .calc-select {
+    border-radius: var(--radius-child) !important; /* 12px children */
+  }
   .assistant-switcher-box button,
   .output-card button,
   .pathway-col .btn {
-    border-radius: var(--radius-child) !important; /* 20px children */
+    border-radius: var(--radius-pill) !important;
   }
 
-  /* 2. Flat Monochrome Colors & Hierarchies (Light & Dark) */
+  /* 2. Flat Monochrome Colors & Hierarchies - All Cards: No Outlines / No Borders */
   .metrics-grid .metric-card,
   .persona-card,
   .pathway-col,
@@ -368,6 +556,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .ecosystem-card,
   .profile-card,
   .plan-card,
+  .pricing-home-card,
+  .pricing-card,
   .calc-card,
   .guide-card,
   .cmd-card,
@@ -377,6 +567,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .download-card,
   .example-card-horizontal,
   .comparison-card,
+  .workflow-card,
   .assistant-switcher-box,
   .hero-calculator-box,
   .pathways-box,
@@ -389,31 +580,95 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .p-card,
   .comp-card,
   .ex-card,
-  .conformance-card {
+  .conformance-card,
+  .glow-card,
+  .exact-card,
+  .exact-summary-banner,
+  .exact-graphic-box,
+  .ods-flow-card,
+  .ods-outcome-card,
+  .setup-benefit-card,
+  .m-card,
+  .stat-card,
+  .doc-nav-card,
+  .card,
+  [class*="-card"] {
     background-color: var(--card-bg) !important;
     background-image: none !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
   }
 
-  /* Nested container elements */
+  /* Nested container elements & all inner card divs */
   .output-card,
   .terminal-container,
   .cli-box,
   .code-box,
   .step-code-box,
   .ex-code-wrap,
-  .cli-tree,
   .path-prompt-box,
   .eco-cmd-box,
-  .banner-item {
+  .banner-item,
+  .pricing-features-group,
+  .card-features-group,
+  .inside-container,
+  .inner-container,
+  .calc-hero-card,
+  .calc-metric-card {
     background-color: var(--nested-card-bg) !important;
     background-image: none !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  /* Universal removal of outline and borders in all card inner divs & nested elements */
+  .card div,
+  [class*="-card"] div,
+  .glow-card div,
+  .pricing-home-card div,
+  .pricing-card div,
+  .persona-card div,
+  .workflow-step-card div,
+  .ecosystem-card div,
+  .profile-card div,
+  .plan-card div,
+  .calc-card div,
+  .faq-card div,
+  .comparison-card div,
+  .exact-card div,
+  .exact-summary-banner div,
+  .hero-calculator-box div,
+  .assistant-switcher-box div,
+  .pathways-box div,
+  .cli-wrap div,
+  .pricing-badge-row,
+  .card-badge-row,
+  .badge-status,
+  .calc-hero-card,
+  .calc-metric-card,
+  .code-window-header,
+  .terminal-header,
+  .terminal-tab-bar,
+  .code-title,
+  .code-box-title,
+  .code-box-wrapper,
+  .code-window,
+  .ex-code-box,
+  .ex-cmd,
+  .row-cmd,
+  .hero-cmd-box,
+  .persona-card-header,
+  .persona-card-footer,
+  .card-top,
+  .card-actions {
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0 !important;
   }
 
   /* Enforce simple borders and borders colors */
   hr, .border-b, .border-t, .border-l, .border-r,
-  .footer-top-grid, .terminal-tab-bar, .cli-header, .terminal-title-tag,
+  .footer-top-grid, .terminal-title-tag,
   .schema-table th, .schema-table td, .matrix-table th, .matrix-table td, .comparison-table th, .comparison-table td {
     border-color: var(--border-color) !important;
   }
@@ -422,19 +677,13 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .shimmer-btn::after {
     display: none !important;
   }
-
-  @media (max-width: 768px) {
-    .dot-matrix-bg {
-      display: none !important;
-      background: none !important;
-    }
-  }
   
-  /* Disable hover scale/translate/shadows */
-  .glow-card:hover, .plan-card:hover, .faq-card:hover, .example-card-horizontal:hover {
+  /* Disable hover scale/translate/shadows & borders */
+  .glow-card:hover, .plan-card:hover, .faq-card:hover, .example-card-horizontal:hover, .profile-card:hover, .pricing-home-card:hover, .pricing-card:hover {
     transform: none !important;
     box-shadow: none !important;
-    border-color: var(--fg-dim) !important; /* Editorial hover feedback */
+    border: none !important;
+    outline: none !important;
   }
 
   /* Remove tagline text gradients */
@@ -446,7 +695,7 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
   /* Enforce standard text visibility */
-  .ods-marketing p, .ods-marketing li, .ods-marketing td, .ods-marketing .faq-answer, .ods-marketing .metric-sub, .ods-marketing .col-links a, .ods-marketing .legal-links a, .ods-marketing .footer-brand-desc, .ods-marketing .hero-subtext, .ods-marketing .cli-log {
+  .ods-marketing p, .ods-marketing li, .ods-marketing td, .ods-marketing .faq-answer, .ods-marketing .metric-sub, .ods-marketing .col-links a, .ods-marketing .legal-links a, .ods-marketing .footer-brand-desc, .ods-marketing .hero-subtext {
     color: var(--fg-muted) !important;
   }
 
@@ -522,7 +771,8 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   /* Adjust color accents in spec & badges */
   .ods-good, .ods-green, .rag-bad {
     background-color: var(--nested-card-bg) !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
     color: var(--fg) !important;
   }
   .bar-fill.ods-green, .r-bar {
@@ -532,13 +782,53 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     animation: none !important;
     background-color: var(--nested-card-bg) !important;
     color: var(--fg) !important;
-    border: var(--border) !important;
+    border: none !important;
+    outline: none !important;
   }
 
 
-  /* ── Global Editorial Breathing Space between Sections ── */
+  /* ── Global Editorial Breathing Space & Dividers between Sections ── */
+  .section-divider {
+    width: min(88vw, 1000px);
+    height: 1px;
+    margin: 64px auto;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 15%,
+      rgba(255, 255, 255, 0.14) 50%,
+      rgba(255, 255, 255, 0.04) 85%,
+      transparent 100%
+    );
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    top: -2.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ods-accent, #10b981);
+    opacity: 0.45;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  }
+
   .section-container,
   .hero-section,
+  .metrics-strip-section,
+  .cookbook-analogy-section,
+  .assistant-setup-section,
+  .persona-adoption-section,
+  .workflow-section,
+  .pathways-section,
+  .matrix-section,
+  .templates-section,
   .feature-hero-top,
   .feature-row,
   .feature-big-banner,
@@ -556,17 +846,19 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   .changelog-cta,
   .cta-banner,
   .industry-roi-chart-box {
-    margin-top: 130px !important;
-    margin-bottom: 130px !important;
-    scroll-margin-top: 100px;
-    scroll-margin-bottom: 100px;
+    margin-top: clamp(100px, 12vw, 160px) !important;
+    margin-bottom: clamp(100px, 12vw, 160px) !important;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+    scroll-margin-top: 120px;
+    scroll-margin-bottom: 120px;
   }
 
   /* Hero section top margin */
   .hero-section,
   .feature-hero-top {
     margin-top: var(--space-32) !important;
-    margin-bottom: 130px !important;
+    margin-bottom: clamp(100px, 12vw, 160px) !important;
   }
 
   /* Reset platform list gap to let margin handle spacing */
@@ -575,8 +867,21 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
   }
 
   @media (max-width: 768px) {
+    .section-divider {
+      margin: 40px auto;
+      width: min(92vw, 600px);
+    }
+
     .section-container,
     .hero-section,
+    .metrics-strip-section,
+    .cookbook-analogy-section,
+    .assistant-setup-section,
+    .persona-adoption-section,
+    .workflow-section,
+    .pathways-section,
+    .matrix-section,
+    .templates-section,
     .feature-hero-top,
     .feature-row,
     .feature-big-banner,
@@ -594,15 +899,18 @@ html[data-theme="dark"] .ods-marketing .hero-glow-blob {
     .changelog-cta,
     .cta-banner,
     .industry-roi-chart-box {
-      margin-top: 80px !important;
-      margin-bottom: 80px !important;
-      scroll-margin-top: 70px;
-      scroll-margin-bottom: 70px;
+      margin-top: clamp(64px, 9vw, 96px) !important;
+      margin-bottom: clamp(64px, 9vw, 96px) !important;
+      padding-top: var(--space-4);
+      padding-bottom: var(--space-4);
+      scroll-margin-top: 85px;
+      scroll-margin-bottom: 85px;
     }
 
     .hero-section,
     .feature-hero-top {
       margin-top: var(--space-32) !important;
-      margin-bottom: 80px !important;
+      margin-bottom: clamp(64px, 9vw, 96px) !important;
     }
   }
+

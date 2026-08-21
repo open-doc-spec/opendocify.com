@@ -8,6 +8,14 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   { ignores: ['dist/**', 'node_modules/**', '.astro/**'] },
-  { files: ['eslint.config.mjs', 'astro.config.mjs'], languageOptions: { globals: globals.node } },
-  { rules: { '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], '@typescript-eslint/no-explicit-any': 'warn' } }
+  {
+    files: ['eslint.config.mjs', 'astro.config.mjs', 'scripts/**'],
+    languageOptions: { globals: globals.node },
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  }
 );

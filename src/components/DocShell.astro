@@ -63,8 +63,6 @@ const nextEntry = currentIndex >= 0 && currentIndex < sortedEntries.length - 1 ?
 const firstHeading = headings.find((heading) => heading.depth === 1)?.text;
 const docTitle = currentEntry.data.title || firstHeading || slugLabel(currentEntry);
 const docDescription = currentEntry.data.description || "";
-const docStatus = currentEntry.data.status || currentEntry.data.ods?.status || "active";
-const docProfile = currentEntry.data.ods?.profile || (collection === "docs" ? "guide" : "spec");
 const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
 ---
 
@@ -73,7 +71,6 @@ const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
     <aside class="docs-sidebar">
       <details class="docs-sidebar-details" open>
         <summary class="docs-sidebar-summary">
-          <span class="eyebrow">{collection === "docs" ? "MDX docs" : "Spec files"}</span>
           <span class="docs-sidebar-summary-title">{collection === "docs" ? "User guides" : "Specification"}</span>
           <span class="docs-sidebar-summary-current">{docTitle}</span>
           <span class="docs-sidebar-summary-icon" aria-hidden="true">⌄</span>
@@ -90,13 +87,7 @@ const skipDuplicateTitle = Boolean(firstHeading && firstHeading === docTitle);
     <article class="doc-article">
       <div class="doc-breadcrumbs"><a href="/">Home</a><span>/</span><a href={`/${collectionPath}`}>{collection === "docs" ? "Docs" : "Spec"}</a><span>/</span><span>{slugLabel(currentEntry)}</span></div>
       <header class="doc-article-header">
-        <span class="eyebrow">{collection === "docs" ? "Guide" : "Specification"}</span>
         <h1>{docTitle}</h1>
-        <div class="doc-meta">
-          <span class="tag">{docStatus}</span>
-          <span class="tag">profile: {docProfile}</span>
-          {currentId.endsWith(".mdx") && <span class="tag">MDX</span>}
-        </div>
         {docDescription && <p class="doc-description">{docDescription}</p>}
       </header>
       <div

@@ -4,6 +4,7 @@
 // Layer: Marketing page
 
 import Layout from "../layouts/Layout.astro";
+import HeroGradient from "../components/HeroGradient.astro";
 import { REPO_URL } from "../lib/releases";
 import { changelog } from "../data/changelog";
 
@@ -18,15 +19,20 @@ function withInlineCode(text: string) {
 ---
 
 <Layout title="Changelog: Open Document Spec (ODS)" activeNav="changelog">
-  <div class="page-container">
+  <!-- FULL-WIDTH END-TO-END HERO SECTION -->
+  <section class="changelog-hero-wrapper">
+    <!-- TOP ETHEREAL 2-COLOR GRADIENT BLUR BACKDROP -->
+    <HeroGradient />
+
     <div class="header-section">
-      <div class="pill-badge">ods CLI</div>
       <h1 class="page-title">Changelog</h1>
       <p class="page-subtitle">
         What changed in the <code>ods</code> command — so you know what to type, what to fix in your files, and when to update.
       </p>
     </div>
+  </section>
 
+  <div class="page-container">
     <div class="timeline">
       {changelog.map((entry) => (
         <article class="timeline-item">
@@ -68,34 +74,78 @@ function withInlineCode(text: string) {
 </Layout>
 
 <style>
+  .changelog-hero-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: clamp(3.5rem, 6vw, 5.5rem);
+    padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .page-container {
     width: min(92vw, 900px);
     margin: 0 auto;
-    padding-top: var(--space-48);
+    padding-top: var(--space-16);
     padding-bottom: var(--space-64);
+    position: relative;
+    z-index: 1;
   }
 
   .header-section {
     text-align: center;
-    margin-bottom: var(--space-48);
+    max-width: 800px;
+    width: min(92vw, 800px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   .pill-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: var(--space-4) var(--space-12);
-    background: var(--card-bg);
-    border: var(--border);
+    font-size: 0.775rem;
+    font-weight: 650;
+    padding: 6px 16px;
+    background: var(--color-surface, var(--card-bg));
+    border: 1px solid var(--color-border, var(--border));
     border-radius: var(--radius-pill);
-    color: var(--fg-muted);
+    color: var(--color-text-muted, var(--fg-muted));
     margin-bottom: var(--space-16);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(0.85);
+    }
   }
 
   .page-title {
     font-size: clamp(2.4rem, 5.2vw, 3.4rem);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    line-height: 1.12;
+    letter-spacing: -0.032em;
     margin-bottom: var(--space-16);
     color: var(--fg);
   }
@@ -114,6 +164,8 @@ function withInlineCode(text: string) {
     padding-left: var(--space-32);
     margin-left: var(--space-16);
     margin-bottom: var(--space-64);
+    position: relative;
+    z-index: 2;
   }
 
   .timeline-item {
@@ -238,14 +290,41 @@ function withInlineCode(text: string) {
   }
 
   @media (max-width: 640px) {
+    .page-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: var(--space-16) 1rem var(--space-64) 1rem !important;
+      box-sizing: border-box !important;
+    }
+    .header-section {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .timeline {
+      margin-left: 8px;
+      padding-left: 18px;
+      width: 100%;
+      box-sizing: border-box;
+    }
     .timeline-item {
       grid-template-columns: 1fr;
       gap: var(--space-12);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .timeline-item::before {
+      left: calc(-1.125rem - 4.5px);
     }
     .timeline-meta {
       flex-direction: row;
       align-items: center;
       gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .timeline-content {
+      width: 100%;
+      box-sizing: border-box;
     }
     .main {
       padding: var(--space-32) var(--space-16) var(--space-48);

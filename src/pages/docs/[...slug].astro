@@ -37,6 +37,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
 const allEntries = await getCollection("docs");
 const { Content, headings } = await render(entry);
 ---

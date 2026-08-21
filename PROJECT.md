@@ -14,7 +14,7 @@ This project is built on the AstroDeck starter kit. AstroDeck conventions are th
 - Chrome palette matches the live ODS site: zinc neutrals, black primary in light, white primary in dark, registered through AstroDeck's token layer.
 - Product diagrams may still use mint/blue/emerald as illustration accents, not as the site chrome color.
 - Tone: precise, calm, local-first, documentation-led.
-- Typography: DM Sans for interface copy, Space Grotesk for display headings, DM Mono for code.
+- Typography: Inter font used across interface copy, display headings, and code.
 
 ## Quality gates
 

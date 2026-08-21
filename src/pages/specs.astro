@@ -11,6 +11,11 @@ const mainSpec =
   allEntries.find((e) => (e.id || "").includes("ods/intro")) ||
   allEntries.find((e) => (e.id || "").includes("ods/core")) ||
   allEntries[0];
+
+if (!mainSpec) {
+  return Astro.redirect("/404");
+}
+
 const { Content, headings } = await render(mainSpec);
 ---
 

@@ -30,9 +30,11 @@ function navIdFromPath(pathname: string) {
 const currentNav = navIdFromPath(Astro.url.pathname);
 ---
 
-<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+<header class="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
   <div class:list={[container, 'flex h-16 items-center justify-between gap-3']}>
     <Logo />
+    
+    <!-- Desktop Navigation Links -->
     <nav class="hidden items-center gap-1 text-sm lg:flex" aria-label="Main navigation">
       {items.map((item) => (
         <a
@@ -45,10 +47,12 @@ const currentNav = navIdFromPath(Astro.url.pathname);
         </a>
       ))}
     </nav>
-    <div class="flex items-center gap-2">
+    
+    <!-- Action Controls -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
       <a
         href={ORG_URL}
-        class="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground/60 transition-colors hover:bg-accent hover:text-foreground"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Open Doc Spec on GitHub"
@@ -57,29 +61,123 @@ const currentNav = navIdFromPath(Astro.url.pathname);
           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
         </svg>
       </a>
-      <ThemeToggle />
-      <a href="/docs" class="site-cta">Get started <span aria-hidden="true">→</span></a>
-      <button id="mobile-menu-button" class="inline-flex h-9 w-9 items-center justify-center rounded-md hover:bg-accent lg:hidden" aria-expanded="false" aria-label="Toggle navigation menu">
-        <span class="text-lg">☰</span>
+
+      <!-- Desktop Only: ThemeToggle -->
+      <div class="hidden items-center lg:inline-flex">
+        <ThemeToggle />
+      </div>
+
+      <!-- Mobile Only: Hamburger / Menu Toggle Button -->
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground/75 transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-label="Open navigation menu"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden border-t lg:hidden">
-    <nav class:list={[container, 'grid gap-1 py-4']} aria-label="Mobile navigation">
+</header>
+
+<!-- Mobile Drawer Backdrop Overlay -->
+<div
+  id="mobile-drawer-backdrop"
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out lg:hidden"
+  aria-hidden="true"
+></div>
+
+<!-- Mobile Drawer Sheet (slides in left-to-right, full-width cover) -->
+<div
+  id="mobile-drawer"
+  class="fixed inset-0 z-50 flex h-[100dvh] w-full -translate-x-full flex-col bg-background shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation drawer"
+  aria-hidden="true"
+>
+  <!-- Drawer Header -->
+  <div class="flex h-16 shrink-0 items-center justify-between border-b border-border/80 px-6">
+    <Logo />
+    <button
+      id="mobile-drawer-close"
+      type="button"
+      class="inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      aria-label="Close navigation menu"
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Drawer Body Navigation Links -->
+  <div class="flex-1 overflow-y-auto px-6 py-6">
+    <div class="px-3 pb-2.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+      Navigation
+    </div>
+    <nav class="flex flex-col gap-1.5" aria-label="Mobile drawer navigation">
       {items.map((item) => (
         <a
           href={item.href}
           data-nav={item.id}
-          class:list={['mobile-nav-item', currentNav === item.id && 'is-active']}
+          class:list={[
+            'mobile-drawer-link group flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all duration-150',
+            currentNav === item.id
+              ? 'is-active bg-accent font-semibold text-foreground'
+              : 'text-foreground/75 hover:bg-accent/60 hover:text-foreground'
+          ]}
           aria-current={currentNav === item.id ? 'page' : undefined}
         >
-          {item.label}
+          <span>{item.label}</span>
+          {currentNav === item.id ? (
+            <span class="h-2 w-2 rounded-full bg-foreground" aria-hidden="true"></span>
+          ) : (
+            <svg class="h-4 w-4 opacity-40 transition-transform duration-150 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          )}
         </a>
       ))}
-      <a href="/docs" class="site-cta site-cta-mobile">Get started →</a>
     </nav>
   </div>
-</header>
+
+  <!-- Drawer Footer Actions -->
+  <div class="shrink-0 border-t border-border/80 bg-muted/20 p-6 space-y-3.5">
+    <a href="/docs" class="site-cta flex w-full items-center justify-center gap-2 py-3 text-center text-sm font-semibold shadow-sm">
+      Get started <span aria-hidden="true">→</span>
+    </a>
+
+    <div class="flex items-center justify-between rounded-xl border border-border/70 bg-card/60 px-4 py-2.5">
+      <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+        <span>Appearance</span>
+      </div>
+      <ThemeToggle />
+    </div>
+
+    <div class="flex items-center justify-between pt-1 text-xs text-muted-foreground">
+      <a
+        href={ORG_URL}
+        class="inline-flex items-center gap-1.5 text-foreground/70 transition-colors hover:text-foreground"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+        </svg>
+        <span>GitHub repository</span>
+      </a>
+      <span class="font-mono text-[10px] text-muted-foreground/70">v0.1.x</span>
+    </div>
+  </div>
+</div>
 
 <script>
   function navIdFromPath(pathname: string) {
@@ -103,24 +201,120 @@ const currentNav = navIdFromPath(Astro.url.pathname);
     });
   }
 
-  function initMobileMenu() {
-    const button = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (!button || !menu || button.dataset.bound) return;
-    button.dataset.bound = 'true';
-    button.addEventListener('click', () => {
-      const open = menu.classList.toggle('hidden') === false;
-      button.setAttribute('aria-expanded', String(open));
-      button.setAttribute('aria-label', open ? 'Close navigation menu' : 'Toggle navigation menu');
+  function setupMobileDrawer() {
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const closeBtn = document.getElementById('mobile-drawer-close');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const drawer = document.getElementById('mobile-drawer');
+
+    if (!menuBtn || !drawer || !backdrop) return;
+
+    function openDrawer() {
+      drawer?.classList.remove('-translate-x-full');
+      drawer?.classList.add('translate-x-0');
+      backdrop?.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop?.classList.add('opacity-100', 'pointer-events-auto');
+      drawer?.setAttribute('aria-hidden', 'false');
+      backdrop?.setAttribute('aria-hidden', 'false');
+      menuBtn?.setAttribute('aria-expanded', 'true');
+      menuBtn?.setAttribute('aria-label', 'Close navigation menu');
+      document.documentElement.classList.add('overflow-hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeDrawer() {
+      drawer?.classList.add('-translate-x-full');
+      drawer?.classList.remove('translate-x-0');
+      backdrop?.classList.add('opacity-0', 'pointer-events-none');
+      backdrop?.classList.remove('opacity-100', 'pointer-events-auto');
+      drawer?.setAttribute('aria-hidden', 'true');
+      backdrop?.setAttribute('aria-hidden', 'true');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      menuBtn?.setAttribute('aria-label', 'Open navigation menu');
+      document.documentElement.classList.remove('overflow-hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Always ensure initial state is closed cleanly
+    closeDrawer();
+
+    if (!menuBtn.dataset.bound) {
+      menuBtn.dataset.bound = 'true';
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = drawer.classList.contains('translate-x-0');
+        if (isOpen) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      });
+    }
+
+    if (closeBtn && !closeBtn.dataset.bound) {
+      closeBtn.dataset.bound = 'true';
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeDrawer();
+      });
+    }
+
+    if (!backdrop.dataset.bound) {
+      backdrop.dataset.bound = 'true';
+      backdrop.addEventListener('click', () => {
+        closeDrawer();
+      });
+    }
+
+    // Close on any link click inside drawer
+    drawer.querySelectorAll('a').forEach((link) => {
+      if (!link.dataset.drawerBound) {
+        link.dataset.drawerBound = 'true';
+        link.addEventListener('click', () => {
+          closeDrawer();
+        });
+      }
     });
+
+    // Close on Escape key
+    if (!(window as any).__drawerEscBound) {
+      (window as any).__drawerEscBound = true;
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const activeDrawer = document.getElementById('mobile-drawer');
+          if (activeDrawer && activeDrawer.classList.contains('translate-x-0')) {
+            const activeBackdrop = document.getElementById('mobile-drawer-backdrop');
+            const activeMenuBtn = document.getElementById('mobile-menu-button');
+            activeDrawer.classList.add('-translate-x-full');
+            activeDrawer.classList.remove('translate-x-0');
+            if (activeBackdrop) {
+              activeBackdrop.classList.add('opacity-0', 'pointer-events-none');
+              activeBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+              activeBackdrop.setAttribute('aria-hidden', 'true');
+            }
+            activeDrawer.setAttribute('aria-hidden', 'true');
+            if (activeMenuBtn) {
+              activeMenuBtn.setAttribute('aria-expanded', 'false');
+              activeMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+            }
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
+          }
+        }
+      });
+    }
   }
 
   function initHeader() {
     syncActiveNav();
-    initMobileMenu();
+    setupMobileDrawer();
   }
 
   initHeader();
   document.addEventListener('astro:page-load', initHeader);
   document.addEventListener('astro:after-swap', initHeader);
+  document.addEventListener('astro:before-preparation', () => {
+    document.documentElement.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
 </script>
