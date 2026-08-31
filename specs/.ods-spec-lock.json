@@ -1,9 +1,9 @@
 {
-  "source": "../ods-spec",
-  "commit": "f1c2982a05dcfb982e8be603904842fcdf40d767",
-  "short": "f1c2982",
-  "branch": "12-docs/ods-toml-workspace-marker-b7e2",
-  "syncedAt": "2026-08-21T08:09:30.579Z",
+  "source": ".tmp/ods-spec",
+  "commit": "ac78704bcea00eba6c0752dd2fca39c7ce6413c1",
+  "short": "ac78704",
+  "branch": "main",
+  "syncedAt": "2026-08-31T12:36:08.588Z",
   "files": {
     "specs": [
       "intro.md",
